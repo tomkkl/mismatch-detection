@@ -1,0 +1,11 @@
+# Stage 1: binary mismatch, text-only input
+model_name: microsoft/graphcodebert-base
+task: binary            # binary | multilabel
+max_length: 512
+chunk_stride: 128       # overlap between chunks; chunk logits are max-pooled
+batch_size: 16
+lr: 2.0e-5
+epochs: 5
+seed: 566
+data_dir: data/splits
+output_dir: checkpoints/binary

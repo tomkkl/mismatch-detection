@@ -1,0 +1,31 @@
+[project]
+name = "agentlint"
+version = "0.1.0"
+description = "Detect LLM agent tools whose code does more than their declared interface says."
+requires-python = ">=3.10"
+dependencies = [
+    "torch",
+    "transformers>=4.40",
+    "pyyaml",
+    "scikit-learn",
+]
+
+[project.optional-dependencies]
+gen = ["anthropic", "openai"]                     # training generator + a different LLM for test rung 2
+dataflow = ["tree-sitter", "tree-sitter-python"]  # later ablation
+baseline = ["agent-audit==0.19.2"]
+dev = ["pytest"]
+
+[project.scripts]
+agentlint = "agentlint.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

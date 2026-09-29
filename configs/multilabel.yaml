@@ -1,0 +1,11 @@
+# Stage 2: one sigmoid head per effect class
+model_name: microsoft/graphcodebert-base
+task: multilabel
+max_length: 512
+chunk_stride: 128
+batch_size: 16
+lr: 2.0e-5
+epochs: 5
+seed: 566
+data_dir: data/splits
+output_dir: checkpoints/multilabel

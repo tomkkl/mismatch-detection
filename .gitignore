@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.idea/
+
+# Data and model outputs (large; share via Drive, not git)
+data/raw/*
+data/generated/*
+data/splits/*
+!data/**/.gitkeep
+checkpoints/
+runs/
+probes/aa_run/*
+!probes/aa_run/.gitkeep
+
+.env
