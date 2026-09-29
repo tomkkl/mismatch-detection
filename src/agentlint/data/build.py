@@ -17,10 +17,11 @@ import yaml
 
 from agentlint.data.generate import generate_batch, plan_calls
 from agentlint.data.llm import LLM, ClaudeCLI, LLMError, UsageLimitError
-from agentlint.data.mutate import POSITIONS, declare_effect, inject_code, weaken_description
+from agentlint.data.mutate import (POSITIONS, Declined, declare_effect, inject_code,
+                                   match_length, weaken_description)
 from agentlint.data.split import group_split
-from agentlint.data.verify import (interface_text, verify_honest, verify_inject, verify_twin,
-                                   verify_weaken)
+from agentlint.data.verify import (interface_text, verify_honest, verify_inject,
+                                   verify_length_match, verify_twin, verify_weaken)
 from agentlint.effects import code_effects, text_mentions
 from agentlint.localize import locate
 from agentlint.schema import EFFECTS, Effect, ToolPair
@@ -49,6 +50,8 @@ def _parallel(fn: Callable, items: list, workers: int, label: str) -> list[tuple
             except UsageLimitError:
                 pool.shutdown(wait=False, cancel_futures=True)
                 raise
+            except Declined as e:
+                results[i] = (items[i], None, f"declined: {e}")
             except LLMError as e:
                 results[i] = (items[i], None, str(e))
             done += 1
@@ -133,7 +136,7 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
         mutants.append(m)
 
     print(f"twin: {len(mutants)} descriptions", flush=True)
-    twins, paired = [], []
+    with_twin = []
     for m, tw, err in _parallel(
             lambda m: declare_effect(llm, m, m.undeclared[0], gen["rewrite_effort"]), mutants,
             workers, "twin"):
@@ -143,12 +146,26 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
         ok, why = verify_twin(m, tw, m.undeclared[0], tuple(cfg["twin_length_ratio"]))
         if not ok:
             reject("twin", tw.pair_id, why)
-            if cfg["drop_mutant_without_twin"]:
-                continue
-        else:
-            twins.append(tw)
-        paired.append(m)
-    mutants = paired
+            continue
+        with_twin.append((m, tw))
+
+    # Rewrite each mismatch description to its twin's length; drop the pair if that fails,
+    # since an unmatched pair is exactly the length shortcut this step removes.
+    print(f"match: {len(with_twin)} descriptions", flush=True)
+    mutants, twins = [], []
+    for (m, tw), mm, err in _parallel(
+            lambda j: match_length(llm, by_source[j[0].source_id], j[0],
+                                   len(j[1].description), gen["rewrite_effort"]),
+            with_twin, workers, "match"):
+        if err:
+            reject("match", m.pair_id, err)
+            continue
+        ok, why = verify_length_match(m, mm, tw, m.undeclared[0], cfg["match_length_tol"])
+        if not ok:
+            reject("match", m.pair_id, why)
+            continue
+        mutants.append(mm)
+        twins.append(tw)
 
     # 3. weakened descriptions
     weak_counts, wjobs = Counter(), []
@@ -209,6 +226,25 @@ def _mean(xs: list[float]) -> float:
     return round(statistics.fmean(xs), 1) if xs else 0.0
 
 
+def _length_baseline(pairs: list[ToolPair]) -> dict:
+    """Shortcut check: how well do description length and code line count alone predict the
+    label? Should stay near the majority-class rate. Folds are grouped by source."""
+    import numpy as np
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import GroupKFold, cross_val_score
+
+    y = np.array([p.mismatch for p in pairs])
+    groups = [p.source_id for p in pairs]
+    n_folds = min(5, len(set(groups)))
+    majority = round(float(max(y.mean(), 1 - y.mean())), 3) if len(y) else 0.0
+    if n_folds < 2 or len(set(y)) < 2:
+        return {"majority": majority, "length_only_accuracy": None}
+    X = np.array([[len(p.description), p.code.count("\n") + 1] for p in pairs], float)
+    acc = cross_val_score(LogisticRegression(max_iter=1000), X, y, groups=groups,
+                          cv=GroupKFold(n_folds)).mean()
+    return {"majority": majority, "length_only_accuracy": round(float(acc), 3)}
+
+
 def _stats(pairs: list[ToolPair], rejects: list[dict], llm: LLM) -> dict:
     by_label = {lab: [p for p in pairs if p.mismatch == lab] for lab in (False, True)}
     return {
@@ -228,7 +264,13 @@ def _stats(pairs: list[ToolPair], rejects: list[dict], llm: LLM) -> dict:
                             "mismatch": _mean([len(p.description) for p in by_label[True]])},
         "mean_code_lines": {"honest": _mean([p.code.count("\n") + 1 for p in by_label[False]]),
                             "mismatch": _mean([p.code.count("\n") + 1 for p in by_label[True]])},
-        "rejects": dict(Counter(f"{r['stage']}: {r['reason'][:60]}" for r in rejects)),
+        "shortcut_baseline": _length_baseline(pairs),
+        "lexicon_declares_on_twin": dict(Counter(
+            p.meta["checks"].get("lexicon_declares") for p in pairs
+            if p.mutation == "declare_effect")),
+        "rejects": dict(Counter(
+            f"{r['stage']}: {'declined' if r['reason'].startswith('declined') else r['reason'][:60]}"
+            for r in rejects)),
         "llm": {"name": llm.name, "calls": getattr(llm, "calls", None),
                 "cache_hits": getattr(llm, "cache_hits", None),
                 "list_price_usd": round(getattr(llm, "cost_usd", 0.0), 2)},

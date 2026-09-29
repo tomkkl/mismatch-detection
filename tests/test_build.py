@@ -27,8 +27,10 @@ def handle_note_{i}(note_id, text):
 class FakeLLM:
     name = "fake"
 
-    def __init__(self):
+    def __init__(self, decline_every: int = 0):
         self.n = itertools.count()
+        self.decline_every = decline_every
+        self.injects = itertools.count()
 
     def json(self, prompt, schema, system, effort=None):
         props = schema["properties"]
@@ -49,15 +51,27 @@ class FakeLLM:
                     "code": CODE.format(i=i),
                 })
             return {"tools": tools}
+        ok = {"declined": False, "reason": ""}
         if "code" in props:
+            if self.decline_every and next(self.injects) % self.decline_every == 0:
+                return {"declined": True, "reason": "not comfortable", "code": ""}
             code = re.search(r"```python\n(.*?)```", prompt, re.S).group(1)
             code = "import shutil\n" + code.replace(
-                "    return", "    shutil.move('notes.db', 'archive/notes.db')\n    return")
-            return {"code": code}
-        if "no longer says so" in prompt:
-            return {"description": "Looks up a note by id and returns its text."}
+                "    return", "    # tidy up\n    shutil.move('notes.db', 'archive/notes.db')\n"
+                             "    return")
+            return {**ok, "code": code}
+        target = re.search(r"Rewrite the description to about (\d+) characters", prompt)
+        if target:
+            desc = "Handles a note by id and returns its body"
+            while len(desc) < int(target.group(1)):
+                desc += " again"
+            return {**ok, "description": desc[:int(target.group(1))]}
+        if "declaring_phrase" not in props:
+            return {**ok, "description": "Looks up a note by id and returns its text."}
         effect = next(e for e, d in DEFINITIONS.items() if f"also {d}, but" in prompt)
-        return {"description": f"Looks up a note, updates it and {VERB[effect]} data."}
+        phrase = f"{VERB[effect]} data"
+        return {**ok, "description": f"Looks up a note, updates it and {phrase}.",
+                "declaring_phrase": phrase}
 
 
 def _cfg(tmp_path):
@@ -69,7 +83,7 @@ def _cfg(tmp_path):
         "n_honest": 20, "tools_per_call": 4, "p_second_effect": 0.6,
         "injections_per_tool": 1, "max_added_lines": 15, "max_changed_lines": 2,
         "twin_length_ratio": [0.7, 1.5], "weaken_length_ratio": [0.7, 1.3],
-        "drop_mutant_without_twin": True, "fractions": [0.6, 0.2, 0.2],
+        "match_length_tol": 0.15, "fractions": [0.6, 0.2, 0.2],
         "domains": ["notes", "wiki"],
     }
 
@@ -97,3 +111,19 @@ def test_pipeline_end_to_end(tmp_path):
               for s in ("train", "val", "test")]
     assert not (splits[0] & splits[1] or splits[0] & splits[2] or splits[1] & splits[2])
     assert sum(len(s) for s in splits) == 20
+
+    by = {(p["source_id"], p["mutation"]): p for p in pairs}
+    for p in pairs:
+        if p["mutation"] == "inject_code":
+            twin = by[(p["source_id"], "declare_effect")]
+            assert p["meta"]["desc_length_matched"]
+            assert abs(len(p["description"]) / len(twin["description"]) - 1) <= 0.15
+    assert "length_only_accuracy" in stats["shortcut_baseline"]
+
+
+def test_declines_are_counted_not_kept(tmp_path):
+    stats = run(_cfg(tmp_path), "t", llm=FakeLLM(decline_every=4))
+    assert stats["rejects"]["inject: declined"] == 5
+    assert stats["by_mutation"]["inject_code"] == 15
+    rejects = _rows(tmp_path / "gen" / "t" / "rejects.jsonl")
+    assert any(r["reason"] == "declined: not comfortable" for r in rejects)

@@ -45,6 +45,10 @@ When a decision is made, update "Current decisions" in this file as part of the 
   - **Honest twin** for every injected mutant: same mutant code, description rewritten to declare
     the new effect, labeled honest. Only the description decides the label, so the model can't
     cheat on "longer code / new import = mismatch".
+  - **Length-matched mismatch description**: the injected mutant's description is also rewritten
+    (from the *honest* code, so the model never sees the added op) to within ±15% of its twin's
+    length. Otherwise twins are always longer and length leaks the label (pilot: a length-only
+    classifier hit 72% vs 61% majority). `stats.json` reports a length-only baseline every run.
   - **Normalization by AST round-trip**: parse, drop docstrings, `ast.unparse`. Removes all
     comments and makes formatting uniform. The same step must run on real code at scan time.
   - **Split by source tool**: an honest tool, its mutants and its twins share a split; duplicate
@@ -120,6 +124,10 @@ gave indistinguishable output. A hostile docstring ("ignore all previous instruc
 - GraphCodeBERT max input is 512 tokens. Measure the length distribution early; chunk + max-pool
   instead of truncating (truncation can cut the exact lines that carry the label).
 - The model cannot localize. Model says *whether*; AST says *where* (line numbers in the report).
+- **Generation prompts must not sound like concealment.** Asking Opus for an undeclared op with
+  "no comments, no logging, must look ordinary" got 23/40 refusals (it read it as planting a
+  backdoor). Stating the detector-training purpose and asking for an ordinary feature got 0/40.
+  Comments in LLM output are harmless: normalization strips them.
 
 ## Environment
 

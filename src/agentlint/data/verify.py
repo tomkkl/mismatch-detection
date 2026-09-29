@@ -155,18 +155,43 @@ def verify_inject(honest: ToolPair, mutant: ToolPair, effect: Effect, max_change
 # ---------------------------------------------------------------------------- twin / weaken
 
 def verify_twin(mutant: ToolPair, twin: ToolPair, effect: Effect,
-                length_bounds=(0.7, 1.5)) -> tuple[bool, str]:
+                length_bounds=(0.6, 1.8)) -> tuple[bool, str]:
+    """The model quotes the phrase that declares the effect; it must be new to the description.
+
+    The word lexicon is too narrow to require here ("looks up", "mode 444"), so it is recorded
+    as a soft signal only.
+    """
     if twin.code != mutant.code:
         return False, "code changed"
-    if not text_mentions(twin.description, effect):
-        return False, "description does not declare effect"
+    phrase = twin.meta.get("declaring_phrase", "").lower()
+    if len(phrase) < 3 or phrase not in twin.description.lower():
+        return False, "declaring phrase missing from description"
+    if phrase in mutant.description.lower():
+        return False, "declaring phrase was already in the original description"
     if not _length_ok(twin.description, mutant.description, length_bounds):
         return False, "description length out of range"
+    twin.meta["checks"] = {"lexicon_declares": text_mentions(phrase, effect)}
+    return True, "ok"
+
+
+def verify_length_match(mutant: ToolPair, matched: ToolPair, twin: ToolPair, effect: Effect,
+                        tol: float = 0.15) -> tuple[bool, str]:
+    """The mismatch description, rewritten to its twin's length, must still not declare the
+    added effect."""
+    if matched.code != mutant.code:
+        return False, "code changed"
+    if text_mentions(matched.description, effect):
+        return False, "rewrite mentions effect"
+    phrase = twin.meta.get("declaring_phrase", "").lower()
+    if phrase and phrase in matched.description.lower():
+        return False, "rewrite contains the twin's declaring phrase"
+    if not _length_ok(matched.description, twin.description, (1 - tol, 1 + tol)):
+        return False, "rewrite length not matched to twin"
     return True, "ok"
 
 
 def verify_weaken(honest: ToolPair, weak: ToolPair, effect: Effect,
-                  length_bounds=(0.7, 1.3)) -> tuple[bool, str]:
+                  length_bounds=(0.6, 1.8)) -> tuple[bool, str]:
     if weak.code != honest.code:
         return False, "code changed"
     if not text_mentions(honest.description, effect):

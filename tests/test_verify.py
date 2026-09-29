@@ -104,9 +104,15 @@ def test_inject_rejects():
 
 def test_twin_and_weaken():
     m = _mutant(MOVED)
-    twin = replace(m, description="List a project's files, then move it to the archive.")
+    twin = replace(m, description="List a project's files, then move it to the archive.",
+                   meta={"declaring_phrase": "move it to the archive"})
     assert verify_twin(m, twin, Effect.RELOCATE)[0]
-    assert not verify_twin(m, replace(m, description="List the files."), Effect.RELOCATE)[0]
+    missing = replace(m, description="List the files.", meta={"declaring_phrase": "move it"})
+    assert not verify_twin(m, missing, Effect.RELOCATE)[0]
+    old = replace(m, description="List the files in a project folder, quickly.",
+                  meta={"declaring_phrase": "project folder"})
+    assert verify_twin(m, old, Effect.RELOCATE)[1] == \
+        "declaring phrase was already in the original description"
 
     h = _tool(code=normalize_code(MOVED),
               desc="List the files in a project folder and move it to the archive.")
