@@ -63,4 +63,6 @@ LLM calls are cached in `data/generated/llm_cache/` and reused.
 1. held-out generated pairs
 2. pairs from a different LLM, same recipe
 3. real GitHub tools with an injected capability
-4. (optional) real mismatches found in the wild
+
+Plus the Agent Audit coverage set. Metrics: precision / recall / F1 on the mismatch class,
+PR-AUC, and group accuracy (every pair from one source tool right). See `CLAUDE.md`.

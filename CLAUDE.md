@@ -38,6 +38,17 @@ When a decision is made, update "Current decisions" in this file as part of the 
 - Benchmark against **Agent Audit** only (the professor's tool). Frame as coverage: run both on
   the same test set (mismatches + some conventional bugs like eval/shell injection) and report
   what each catches and the union. Also report GraphCodeBERT before vs after fine-tuning.
+- **Evaluation** (decided 2026-10-05):
+  - Test sets = rungs 1–3 of the test ladder (see Data plan), each reported separately, plus
+    the Agent Audit coverage set. Rung 4 (real mismatches in the wild) is **dropped** for time.
+  - Rung 1 is `data/splits/<tag>/test.jsonl`. Tune on `val`; score `test` once at the end.
+  - Metrics per test set: precision / recall / F1 on the mismatch class, and PR-AUC. Not plain
+    accuracy (mismatch is only ~30% of pairs).
+  - Breakdowns: recall per effect class, per injection position, and inject vs weaken.
+  - **Group accuracy**: share of source tools where every pair is right (mutant flagged, twin
+    and rewrite cleared). The hardest number to get by shortcut.
+  - "Before fine-tuning" = frozen GraphCodeBERT encoder + trained linear head (an untrained
+    head is just random).
 - Dataset construction (decided 2026-09-29):
   - **Injection by LLM rewrite**: the LLM adds one ordinary op of the target effect at the target
     position, no comments. The AST check filters bad outputs. (Templates rejected: the model
@@ -86,6 +97,8 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   original+rewrite vs mutant at majority (66.7%). Hand check of 8 pairs + 3 weakened: quality
   on par with Opus. 151 calls, $1.84 list (vs $4.10 for Opus). Started the full Sonnet run
   (`--tag full`).
+  Evaluation plan decided (see Current decisions): rungs 1–3 + Agent Audit coverage set; rung 4
+  dropped for time. Still to build: rung 2 (fresh-seed Opus set) and rung 3 (real GitHub tools).
 - **2026-09-29** — Pipeline built (generate → verify → inject + twin → match → weaken →
   split). First pilot on Windows: 23/40 refusals and a length leak (72% vs 61%); fixed by
   honest prompt framing and length-matched mismatch descriptions.
@@ -103,9 +116,14 @@ project's core argument for learning over rules.
   across effect classes.
 - **Test ladder, report each separately:**
   1. held-out generated pairs (sanity)
-  2. pairs from a *different* LLM, same recipe (tests generator-style memorization)
-  3. real GitHub tools with a capability we inject (real code, known labels)
-  4. optional: real mismatches found in the wild, hand-labeled
+  2. pairs from a *different* LLM, same recipe (tests generator-style memorization). Use a
+     different `seed` from the training run: the same seed reuses the same tool requests
+     (domain + effects), so the Opus pilot's 40 tools mirror the first 40 Sonnet train tools
+     and must not be scored. Proposed: fresh-seed Opus set, ~100–150 tools (not yet generated).
+  3. real GitHub tools with a capability we inject (real code, known labels). Not built yet:
+     collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers),
+     normalize, inject with the same pipeline.
+  (Rung 4, real mismatches found in the wild, dropped for time on 2026-10-05.)
 - Mismatches in both directions: add undeclared code, OR weaken the description with code unchanged.
 - **Hygiene (the model will cheat otherwise):**
   - no comments on injected lines; strip or randomize comments everywhere
