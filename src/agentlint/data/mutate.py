@@ -116,8 +116,10 @@ def inject_code(llm: LLM, tool: ToolPair, effect: Effect, position: str,
     )
 
 
-def declare_effect(llm: LLM, mutant: ToolPair, effect: Effect,
-                   effort: str | None = None) -> ToolPair:
+def declare_effect(llm: LLM, mutant: ToolPair, effect: Effect, effort: str | None = None,
+                   retry: tuple[str, int, int] | None = None) -> ToolPair:
+    """`retry` = (previous description, min chars, max chars) after a length miss. It changes
+    the prompt, so the retry gets its own cache entry and the first attempt stays cached."""
     prompt = "\n".join([
         PURPOSE, "",
         _show(mutant), "",
@@ -127,6 +129,8 @@ def declare_effect(llm: LLM, mutant: ToolPair, effect: Effect,
         "room. 1-3 plain sentences.",
         "Put the exact words of your new description that state this added behavior in "
         "`declaring_phrase` (copied verbatim, a few words long).",
+        *([f"Your previous rewrite was {len(retry[0])} characters: \"{retry[0]}\". This one "
+           f"must be between {retry[1]} and {retry[2]} characters."] if retry else []),
         DECLINE_RULE,
     ])
     out = _ask(llm, prompt, TWIN_SCHEMA, effort)
@@ -136,7 +140,8 @@ def declare_effect(llm: LLM, mutant: ToolPair, effect: Effect,
         description=out["description"].strip(), mismatch=False, undeclared=[],
         mutation="declare_effect",
         meta={**mutant.meta, "declared": sorted(set(mutant.meta["declared"]) | {effect.value}),
-              "declaring_phrase": out["declaring_phrase"].strip(), "checks": {}},
+              "declaring_phrase": out["declaring_phrase"].strip(), "checks": {},
+              "twin_retried": retry is not None},
     )
 
 

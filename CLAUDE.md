@@ -72,8 +72,12 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   found a description-only leak (original vs mutant: length 78%, words 76%). Fixed with the
   honest rewrite pair (see decisions). Rebuilt pilot: 137 pairs, length 70.8% / words 71.5%
   vs 71.5% majority. Main yield loss: 10/39 twins rejected for length (each drops 4 pairs);
-  only 10 weakened mismatches (13 tools had no weakenable effect). Next: retry twins once on
-  a length miss, then the full 800-tool run (projected ~2,700 pairs, ~2,500 Opus calls).
+  only 10 weakened mismatches (13 tools had no weakenable effect).
+  Added one retry for twins that miss the length bounds (the retry prompt states the allowed
+  range): 9/10 recovered, pilot now 164 pairs (48 mismatch), baselines still at majority
+  (length 70.1%, words 70.7% vs 70.7%). Started the full 800-tool run (`--tag full`,
+  projected ~3,300 pairs).
+  Open: weakened mismatches are few (~6% of pairs); mismatch share ~29%, plan a weighted loss.
 - **2026-09-29** — Pipeline built (generate → verify → inject + twin → match → weaken →
   split). First pilot on Windows: 23/40 refusals and a length leak (72% vs 61%); fixed by
   honest prompt framing and length-matched mismatch descriptions.

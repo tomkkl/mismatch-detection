@@ -27,9 +27,10 @@ def handle_note_{i}(note_id, text):
 class FakeLLM:
     name = "fake"
 
-    def __init__(self, decline_every: int = 0):
+    def __init__(self, decline_every: int = 0, long_twins: bool = False):
         self.n = itertools.count()
         self.decline_every = decline_every
+        self.long_twins = long_twins  # first twin attempt overshoots the length bounds
         self.injects = itertools.count()
 
     def json(self, prompt, schema, system, effort=None):
@@ -70,6 +71,9 @@ class FakeLLM:
             return {**ok, "description": "Looks up a note by id and returns its text."}
         effect = next(e for e, d in DEFINITIONS.items() if f"also {d}, but" in prompt)
         phrase = f"{VERB[effect]} data"
+        if self.long_twins and "Your previous rewrite" not in prompt:
+            return {**ok, "description": f"Looks up a note, updates it and {phrase}." * 4,
+                    "declaring_phrase": phrase}
         return {**ok, "description": f"Looks up a note, updates it and {phrase}.",
                 "declaring_phrase": phrase}
 
@@ -133,3 +137,9 @@ def test_declines_are_counted_not_kept(tmp_path):
     assert stats["by_mutation"]["inject_code"] == 15
     rejects = _rows(tmp_path / "gen" / "t" / "rejects.jsonl")
     assert any(r["reason"] == "declined: not comfortable" for r in rejects)
+
+def test_twin_length_miss_is_retried(tmp_path):
+    stats = run(_cfg(tmp_path), "t", llm=FakeLLM(long_twins=True))
+    assert stats["by_mutation"]["declare_effect"] == 20
+    assert stats["twin_retried"] == {True: 20}
+    assert not any(k.startswith("twin") for k in stats["rejects"])

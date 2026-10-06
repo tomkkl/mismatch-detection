@@ -10,6 +10,7 @@ import random
 import statistics
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from math import ceil
 from pathlib import Path
 from typing import Callable, Iterable
 
@@ -135,19 +136,38 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
             continue
         mutants.append(m)
 
+    # A twin that misses the length bounds gets one retry that states the allowed range;
+    # in the pilot, length misses were a quarter of all twins and each one drops 4 pairs.
     print(f"twin: {len(mutants)} descriptions", flush=True)
-    with_twin = []
+    lo_r, hi_r = cfg["twin_length_ratio"]
+    with_twin, retries = [], []
     for m, tw, err in _parallel(
             lambda m: declare_effect(llm, m, m.undeclared[0], gen["rewrite_effort"]), mutants,
             workers, "twin"):
         if err:
             reject("twin", m.pair_id, err)
             continue
-        ok, why = verify_twin(m, tw, m.undeclared[0], tuple(cfg["twin_length_ratio"]))
-        if not ok:
+        ok, why = verify_twin(m, tw, m.undeclared[0], (lo_r, hi_r))
+        if why == "description length out of range":
+            n = len(m.description)
+            retries.append((m, (tw.description, ceil(n * lo_r), int(n * hi_r))))
+        elif not ok:
             reject("twin", tw.pair_id, why)
+        else:
+            with_twin.append((m, tw))
+
+    for (m, hint), tw, err in _parallel(
+            lambda j: declare_effect(llm, j[0], j[0].undeclared[0], gen["rewrite_effort"],
+                                     retry=j[1]), retries, workers, "twin retry"):
+        if err:
+            reject("twin", m.pair_id, f"retry: {err}")
+            continue
+        ok, why = verify_twin(m, tw, m.undeclared[0], (lo_r, hi_r))
+        if not ok:
+            reject("twin", tw.pair_id, f"retry: {why}")
             continue
         with_twin.append((m, tw))
+    with_twin.sort(key=lambda j: j[0].pair_id)
 
     # Rewrite each mismatch description to its twin's length; drop the pair if that fails,
     # since an unmatched pair is exactly the length shortcut this step removes.
@@ -274,6 +294,8 @@ def _stats(pairs: list[ToolPair], rejects: list[dict], llm: LLM) -> dict:
         "mean_code_lines": {"honest": _mean([p.code.count("\n") + 1 for p in by_label[False]]),
                             "mismatch": _mean([p.code.count("\n") + 1 for p in by_label[True]])},
         "shortcut_baseline": _length_baseline(pairs),
+        "twin_retried": dict(Counter(
+            p.meta.get("twin_retried", False) for p in pairs if p.mutation == "declare_effect")),
         "lexicon_declares_on_twin": dict(Counter(
             p.meta["checks"].get("lexicon_declares") for p in pairs
             if p.mutation == "declare_effect")),
