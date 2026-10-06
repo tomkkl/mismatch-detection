@@ -59,9 +59,11 @@ When a decision is made, update "Current decisions" in this file as part of the 
     comments and makes formatting uniform. The same step must run on real code at scan time.
   - **Split by source tool**: an honest tool, its mutants and its twins share a split; duplicate
     tool names are dropped so near-copies can't cross splits.
-  - **Generator: Claude Opus via the `claude` CLI** (`claude -p --json-schema`), which runs on the
-    user's plan usage, not the paid API. Results are cached on disk so runs resume across usage
-    windows. Pilot (~40 honest tools) first, then decide on the full run.
+  - **Generator: Claude Sonnet 5.5 (`claude-sonnet-5-5`) via the `claude` CLI**
+    (`claude -p --json-schema`), which runs on the user's plan usage, not the paid API. Switched
+    from Opus on 2026-10-05 at the user's request. Results are cached on disk (keyed by model)
+    so runs resume across usage windows. Pilot (~40 honest tools) first, then the full run.
+    The Opus pilot outputs remain in the cache; Opus is a natural "different LLM" for test rung 2.
 
 ## Progress log
 
@@ -78,6 +80,12 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   (length 70.1%, words 70.7% vs 70.7%). Started the full 800-tool run (`--tag full`,
   projected ~3,300 pairs).
   Open: weakened mismatches are few (~6% of pairs); mismatch share ~29%, plan a weighted loss.
+  Then switched the generator to Sonnet 5.5 (user request); stopped the Opus full run at
+  20/200 generate calls. Sonnet pilot (`--tag pilot-sonnet`): 160 pairs (48 mismatch),
+  0 refusals, 8/36 twins needed the retry; length 68.1% / words 70.0% vs 70.0% majority;
+  original+rewrite vs mutant at majority (66.7%). Hand check of 8 pairs + 3 weakened: quality
+  on par with Opus. 151 calls, $1.84 list (vs $4.10 for Opus). Started the full Sonnet run
+  (`--tag full`).
 - **2026-09-29** — Pipeline built (generate → verify → inject + twin → match → weaken →
   split). First pilot on Windows: 23/40 refusals and a length leak (72% vs 61%); fixed by
   honest prompt framing and length-matched mismatch descriptions.

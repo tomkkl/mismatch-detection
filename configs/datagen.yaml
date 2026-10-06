@@ -1,6 +1,6 @@
 # Dataset generation. Run: agentlint data build configs/datagen.yaml --tag pilot --n-honest 40
 generator:
-  model: opus             # via the claude CLI, on plan usage (not the paid API)
+  model: claude-sonnet-5-5  # via the claude CLI, on plan usage (not the paid API)
   effort: medium          # honest tool generation
   mutate_effort: medium   # code injection
   rewrite_effort: low     # description rewrites (twin, weaken)
