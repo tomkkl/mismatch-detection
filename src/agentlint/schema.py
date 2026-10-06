@@ -33,7 +33,8 @@ class ToolPair:
     code: str
     mismatch: bool
     undeclared: list[Effect] = field(default_factory=list)
-    mutation: str | None = None          # None | "inject_code" | "declare_effect" | "weaken_description"
+    mutation: str | None = None          # None | "inject_code" | "declare_effect" |
+                                         # "honest_rewrite" | "weaken_description"
     injected_lines: list[int] = field(default_factory=list)
     generator: str | None = None         # which LLM produced it (test rung 2)
     meta: dict = field(default_factory=dict)  # domain, position, declared effects, check results

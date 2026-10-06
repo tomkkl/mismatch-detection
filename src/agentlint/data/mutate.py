@@ -6,6 +6,9 @@
   declare the new effect -> honest. Only the description separates it from the mutant.
 - match_length: rewrite the injected mutant's description (from the honest code) to its twin's
   length, so description length can't separate mismatch from honest.
+- honest_rewrite: the honest code paired with that length-matched description -> honest.
+  Every injected mutant's description then also appears with an honest label, so the
+  description alone can't give the label away (no LLM call).
 - weaken_description: code unchanged, one declared effect dropped from the description
   -> mismatch.
 
@@ -157,6 +160,17 @@ def match_length(llm: LLM, honest: ToolPair, mutant: ToolPair, target_chars: int
     out = _ask(llm, prompt, DESC_SCHEMA, effort)
     return replace(mutant, description=out["description"].strip(),
                    meta={**mutant.meta, "desc_length_matched": True})
+
+
+def honest_rewrite(honest: ToolPair, matched: ToolPair) -> ToolPair:
+    """Honest code + the mutant's length-matched description. That description was written
+    from the honest code, so it is accurate for it."""
+    tail = matched.pair_id.split("/", 1)[1].removeprefix("inject-")
+    return replace(
+        honest, pair_id=f"{honest.source_id}/rewrite-{tail}",
+        description=matched.description, mutation="honest_rewrite",
+        meta={**honest.meta, "rewrite_of": matched.pair_id, "checks": {}},
+    )
 
 
 def weaken_description(llm: LLM, tool: ToolPair, effect: Effect,

@@ -1,4 +1,4 @@
-"""Dataset pipeline: generate -> verify -> inject + twin -> weaken -> split.
+"""Dataset pipeline: generate -> verify -> inject + twin + rewrite -> weaken -> split.
 
 Writes to data/generated/<tag>/ (pairs.jsonl, rejects.jsonl, stats.json) and
 data/splits/<tag>/ (train/val/test.jsonl). LLM answers are cached, so rerunning the same
@@ -17,8 +17,8 @@ import yaml
 
 from agentlint.data.generate import generate_batch, plan_calls
 from agentlint.data.llm import LLM, ClaudeCLI, LLMError, UsageLimitError
-from agentlint.data.mutate import (POSITIONS, Declined, declare_effect, inject_code,
-                                   match_length, weaken_description)
+from agentlint.data.mutate import (POSITIONS, Declined, declare_effect, honest_rewrite,
+                                   inject_code, match_length, weaken_description)
 from agentlint.data.split import group_split
 from agentlint.data.verify import (interface_text, verify_honest, verify_inject,
                                    verify_length_match, verify_twin, verify_weaken)
@@ -166,6 +166,7 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
             continue
         mutants.append(mm)
         twins.append(tw)
+    rewrites = [honest_rewrite(by_source[m.source_id], m) for m in mutants]
 
     # 3. weakened descriptions
     weak_counts, wjobs = Counter(), []
@@ -199,7 +200,7 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
         weakened.append(w)
 
     # 4. write
-    pairs = sorted(honest + mutants + twins + weakened, key=lambda p: p.pair_id)
+    pairs = sorted(honest + mutants + twins + rewrites + weakened, key=lambda p: p.pair_id)
     out = Path(cfg["out_dir"]) / tag
     out.mkdir(parents=True, exist_ok=True)
     _write_jsonl(out / "pairs.jsonl", [p.to_dict() for p in pairs])
@@ -227,22 +228,30 @@ def _mean(xs: list[float]) -> float:
 
 
 def _length_baseline(pairs: list[ToolPair]) -> dict:
-    """Shortcut check: how well do description length and code line count alone predict the
-    label? Should stay near the majority-class rate. Folds are grouped by source."""
+    """Shortcut check: how well do description length + code line count, or the description
+    words alone, predict the label? Both should stay near the majority-class rate, since the
+    label depends on description and code together. Folds are grouped by source."""
     import numpy as np
+    from sklearn.feature_extraction.text import TfidfVectorizer
     from sklearn.linear_model import LogisticRegression
     from sklearn.model_selection import GroupKFold, cross_val_score
+    from sklearn.pipeline import make_pipeline
 
     y = np.array([p.mismatch for p in pairs])
     groups = [p.source_id for p in pairs]
     n_folds = min(5, len(set(groups)))
     majority = round(float(max(y.mean(), 1 - y.mean())), 3) if len(y) else 0.0
     if n_folds < 2 or len(set(y)) < 2:
-        return {"majority": majority, "length_only_accuracy": None}
+        return {"majority": majority, "length_only_accuracy": None,
+                "description_only_accuracy": None}
+    cv = GroupKFold(n_folds)
     X = np.array([[len(p.description), p.code.count("\n") + 1] for p in pairs], float)
-    acc = cross_val_score(LogisticRegression(max_iter=1000), X, y, groups=groups,
-                          cv=GroupKFold(n_folds)).mean()
-    return {"majority": majority, "length_only_accuracy": round(float(acc), 3)}
+    length = cross_val_score(LogisticRegression(max_iter=1000), X, y, groups=groups, cv=cv)
+    words = cross_val_score(
+        make_pipeline(TfidfVectorizer(ngram_range=(1, 2)), LogisticRegression(max_iter=2000)),
+        [p.description for p in pairs], y, groups=groups, cv=cv)
+    return {"majority": majority, "length_only_accuracy": round(float(length.mean()), 3),
+            "description_only_accuracy": round(float(words.mean()), 3)}
 
 
 def _stats(pairs: list[ToolPair], rejects: list[dict], llm: LLM) -> dict:

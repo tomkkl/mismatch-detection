@@ -95,8 +95,8 @@ def _rows(path):
 def test_pipeline_end_to_end(tmp_path):
     stats = run(_cfg(tmp_path), "t", llm=FakeLLM())
     assert stats["by_mutation"] == {"original": 20, "inject_code": 20, "declare_effect": 20,
-                                    "weaken_description": 20}
-    assert stats["mismatch"] == stats["honest"] == 40
+                                    "honest_rewrite": 20, "weaken_description": 20}
+    assert stats["mismatch"] == 40 and stats["honest"] == 60
     assert len(stats["undeclared_effect"]) >= 5  # balancing spreads injected effects
 
     pairs = _rows(tmp_path / "gen" / "t" / "pairs.jsonl")
@@ -118,7 +118,13 @@ def test_pipeline_end_to_end(tmp_path):
             twin = by[(p["source_id"], "declare_effect")]
             assert p["meta"]["desc_length_matched"]
             assert abs(len(p["description"]) / len(twin["description"]) - 1) <= 0.15
+            # Same description also appears with the honest code, labeled honest.
+            rewrite = by[(p["source_id"], "honest_rewrite")]
+            assert rewrite["description"] == p["description"] and not rewrite["mismatch"]
+            assert rewrite["code"] == by[(p["source_id"], None)]["code"]
+            assert not rewrite["undeclared"] and not rewrite["injected_lines"]
     assert "length_only_accuracy" in stats["shortcut_baseline"]
+    assert "description_only_accuracy" in stats["shortcut_baseline"]
 
 
 def test_declines_are_counted_not_kept(tmp_path):

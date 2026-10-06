@@ -49,6 +49,12 @@ When a decision is made, update "Current decisions" in this file as part of the 
     (from the *honest* code, so the model never sees the added op) to within ±15% of its twin's
     length. Otherwise twins are always longer and length leaks the label (pilot: a length-only
     classifier hit 72% vs 61% majority). `stats.json` reports a length-only baseline every run.
+  - **Honest rewrite pair** (decided 2026-10-05): the honest code + the mutant's length-matched
+    description, labeled honest (no LLM call). Without it, originals are short and matched
+    rewrites are padded, so the description alone separated original vs mutant (length 78%,
+    words 76%, chance 50%) even though the overall length baseline looked fine. Now every
+    mismatch description also appears as honest. `stats.json` also reports a description-only
+    (tf-idf) baseline.
   - **Normalization by AST round-trip**: parse, drop docstrings, `ast.unparse`. Removes all
     comments and makes formatting uniform. The same step must run on real code at scan time.
   - **Split by source tool**: an honest tool, its mutants and its twins share a split; duplicate
@@ -56,6 +62,21 @@ When a decision is made, update "Current decisions" in this file as part of the 
   - **Generator: Claude Opus via the `claude` CLI** (`claude -p --json-schema`), which runs on the
     user's plan usage, not the paid API. Results are cached on disk so runs resume across usage
     windows. Pilot (~40 honest tools) first, then decide on the full run.
+
+## Progress log
+
+Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-10-05** — Re-ran the 40-tool pilot on macOS (Windows cache didn't carry over).
+  0 refusals; 108 pairs; length baseline 65.8% vs 63.9% majority. But a per-contrast check
+  found a description-only leak (original vs mutant: length 78%, words 76%). Fixed with the
+  honest rewrite pair (see decisions). Rebuilt pilot: 137 pairs, length 70.8% / words 71.5%
+  vs 71.5% majority. Main yield loss: 10/39 twins rejected for length (each drops 4 pairs);
+  only 10 weakened mismatches (13 tools had no weakenable effect). Next: retry twins once on
+  a length miss, then the full 800-tool run (projected ~2,700 pairs, ~2,500 Opus calls).
+- **2026-09-29** — Pipeline built (generate → verify → inject + twin → match → weaken →
+  split). First pilot on Windows: 23/40 refusals and a length leak (72% vs 61%); fixed by
+  honest prompt framing and length-matched mismatch descriptions.
 
 ## Effect classes
 
@@ -134,6 +155,10 @@ gave indistinguishable output. A hostile docstring ("ignore all previous instruc
 Windows, PyCharm, project at `C:\Users\denni\PycharmProjects\agent-auditor`, `.venv`,
 `pip install -e ".[dev,baseline]"` (includes agent-audit v0.19.2). Training on Colab T4 is fine
 for this model size.
+
+Also used on macOS (Python 3.13): `python3 -m venv .venv && .venv/bin/pip install -e ".[dev,baseline]"`.
+`data/generated/` (including `llm_cache/`) is git-ignored, so it does not move between machines;
+copy it by hand to resume a run elsewhere.
 
 ## Files
 
