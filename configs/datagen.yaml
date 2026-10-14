@@ -14,6 +14,7 @@ n_honest: 800
 tools_per_call: 4
 p_second_effect: 0.6      # share of tools that declare two effects (needed for weakening)
 injections_per_tool: 1
+skip_inject_effects: [read]       # undeclared reads are mostly harmless lookups (see CLAUDE.md)
 max_added_lines: 15
 max_changed_lines: 2
 twin_length_ratio: [0.6, 1.8]     # twin description length / original

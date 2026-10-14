@@ -103,6 +103,9 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
     honest = kept
 
     # 2. injected mutants + honest twins
+    # Skipped effects are still picked (so balancing, and every other tool's cached target,
+    # stays the same) but their jobs are dropped.
+    skip = {Effect(e) for e in cfg.get("skip_inject_effects", [])}
     effect_counts, pos_counts, jobs = Counter(), Counter(), []
     for t in honest:
         rng = random.Random(f"{seed}:{t.source_id}")
@@ -119,6 +122,9 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
             p = _pick(POSITIONS, pos_counts, rng)
             effect_counts[e] += 1
             pos_counts[p] += 1
+            if e in skip:
+                reject("inject", f"{t.source_id}/inject-{e.value}-{p}", "effect skipped")
+                continue
             jobs.append((t, e, p))
 
     by_source = {t.source_id: t for t in honest}

@@ -138,6 +138,19 @@ def test_declines_are_counted_not_kept(tmp_path):
     rejects = _rows(tmp_path / "gen" / "t" / "rejects.jsonl")
     assert any(r["reason"] == "declined: not comfortable" for r in rejects)
 
+def test_skipped_effect_is_never_injected(tmp_path):
+    full = run(_cfg(tmp_path / "a"), "t", llm=FakeLLM())
+    cfg = {**_cfg(tmp_path / "b"), "skip_inject_effects": ["destroy"]}
+    stats = run(cfg, "t", llm=FakeLLM())
+    n = full["undeclared_effect"].get("destroy", 0)
+    assert n and stats["rejects"]["inject: effect skipped"] == n
+    assert stats["by_mutation"]["inject_code"] == 20 - n
+    # Other tools keep the same injected effect.
+    pick = lambda d: {(p["source_id"], p["undeclared"][0]) for p in _rows(d / "gen" / "t" /
+                      "pairs.jsonl") if p["mutation"] == "inject_code"}
+    assert pick(tmp_path / "b") == {x for x in pick(tmp_path / "a") if x[1] != "destroy"}
+
+
 def test_twin_length_miss_is_retried(tmp_path):
     stats = run(_cfg(tmp_path), "t", llm=FakeLLM(long_twins=True))
     assert stats["by_mutation"]["declare_effect"] == 20

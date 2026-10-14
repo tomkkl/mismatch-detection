@@ -75,10 +75,74 @@ When a decision is made, update "Current decisions" in this file as part of the 
     from Opus on 2026-10-05 at the user's request. Results are cached on disk (keyed by model)
     so runs resume across usage windows. Pilot (~40 honest tools) first, then the full run.
     The Opus pilot outputs remain in the cache; Opus is a natural "different LLM" for test rung 2.
+  - **No `read` injections** (decided 2026-10-14): `skip_inject_effects: [read]` in
+    `configs/datagen.yaml`. An undeclared read changes nothing; it only matters when the data
+    leaves, and that is covered by `send outward`. A hand check of all 70 read injections found
+    only 8 real mismatches. Honest tools may still *declare* `read`; weaken never targets it.
+    Known blind spot: a tool that returns more data to the agent than it says. If wanted later,
+    define a narrower class ("returns undeclared sensitive data") rather than general read.
+    The skip happens *after* the effect is picked, so other tools' targets (and cache keys) don't
+    change. Side effect: ~1/8 of tools get no injected mutant (95 in `full`).
+
+## Where we are (2026-10-14)
+
+**Done:** generation pipeline; full training dataset `full` (see the 2026-10-14 log entry).
+`data/generated/full/pairs.jsonl`, `stats.json`, `rejects.jsonl`; splits in `data/splits/full/`.
+
+**Next, roughly in order:**
+1. **Measure token lengths** of description + code with the GraphCodeBERT tokenizer on `full`
+   (see Gotchas: 512-token limit; chunk + max-pool rather than truncate).
+2. **Training (binary first)**: `src/agentlint/model/{dataset,classifier,train}.py`,
+   `configs/` training config, Colab notebook in `notebooks/`. Use a weighted loss (mismatch
+   is ~27%). Also train the "before fine-tuning" baseline (frozen encoder + linear head).
+   As of 2026-10-14 these are stubs (5–17 lines each; `eval/` too), and `configs/binary.yaml` /
+   `multilabel.yaml` exist but are unchecked. `notebooks/` is empty. Ask before model-design choices
+   not covered by "Current decisions" (e.g. max length, chunking, loss weights).
+3. **Test rung 2**: fresh-seed Opus set, ~100–150 tools, same recipe
+   (`--tag rung2-opus`, set `generator.model` and a new `seed`). Must not reuse seed 566.
+   With a fresh seed nothing is cached, so the skip-after-pick wastes ~1/8 of tools; fine, or
+   bump `n_honest` to compensate.
+4. **Test rung 3**: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP
+   servers), normalize, inject with the same pipeline. Nothing built yet; collection format is
+   an open design question (ask).
+5. **Evaluation code** (`src/agentlint/eval/metrics.py`) for the metrics under "Evaluation",
+   including group accuracy; Agent Audit coverage set + `eval/agent_audit.py`.
+
+**Open issues (not blocking):**
+- Weakened mismatches are few (129, ~5% of pairs): 288 tools had no weakenable effect.
+- Lexicon soft check (`effects.py`) misses SQL-table forms of effects (payment rows, role
+  tables, insert-select-then-delete) and `stripe.PaymentIntent.create`. Labels are fine (hand
+  check), but fix before using `localize.py` for line numbers in reports.
+- Description-only baseline is ~1 point above majority (74.2% vs 73.2%). Small; watch it.
 
 ## Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-10-14** — Dropped `read` injections (see decisions). Rebuilt `full` from cache
+  (0 new calls): 763 sources, **2,572 pairs, 689 mismatch (26.8%)**: 560 inject, 560 twin,
+  560 honest rewrite, 129 weakened. Splits: train 2,062 / val 259 / test 251. Effects 91–105
+  each across the 7 remaining classes; positions 137–142 each. Baselines: length 72.6%,
+  description-only 74.2% vs majority 73.2%.
+  Also found why the venv kept losing `agentlint`: see the hidden `.pth` gotcha.
+
+- **2026-10-13** — Full Sonnet run finished (`--tag full`, resumed after a usage limit; had to
+  `pip install -e . --no-deps` because the venv's editable install was stale). 763 source
+  tools, 2,782 pairs (759 mismatch, 27%): 630 inject, 630 twin, 630 honest rewrite, 129
+  weakened. Splits: train 2,224 / val 274 / test 284. Shortcut baselines at majority
+  (length 72.3%, description-only 73.7% vs 72.7%). 744 calls, $5.91 list. Weakened is only
+  129 (4.6%): 288 tools had no weakenable effect. Undeclared effects balanced (70–105 each;
+  `read` lowest). 153/630 injections not confirmed by the lexicon check.
+  Hand check of 33 of those 153 (spend 12, authority 9, relocate 7, other 5): 0 had the wrong
+  effect; 30 clearly right. The lexicon just misses SQL-table versions of the effects (payment
+  rows, role tables, insert-select-then-delete) and even `stripe.PaymentIntent.create`.
+  Weak spot is `read`: 2/2 sampled were trivial metadata reads (object size, DB size) inside
+  tools that already read that data, arguably honest. One relocate had a junk dead line.
+  Then checked all 70 `read` injections: 8 clear (returns data the description doesn't cover:
+  customer email, payment history, a manager's email), 45 weak (reads a related field and
+  logs/returns it), 17 effectively honest (validation, duplicate checks, unused reads). Cause:
+  the read injection hint in `effects.py:33` literally asks for a read "the tool does not need
+  to mention". Weaken never targets `read`. (Resolved 2026-10-14: read injections dropped.)
 
 - **2026-10-05** — Re-ran the 40-tool pilot on macOS (Windows cache didn't carry over).
   0 refusals; 108 pairs; length baseline 65.8% vs 63.9% majority. But a per-contrast check
@@ -165,6 +229,12 @@ Round 2 minimal pair (byte-identical except 4 lines that cancel an order and wri
 gave indistinguishable output. A hostile docstring ("ignore all previous instructions…") → 0.
 
 ## Gotchas
+
+- **`ModuleNotFoundError: No module named 'agentlint'` on macOS** even though `pip list` shows
+  it: macOS sets the `hidden` file flag on the editable-install `.pth` file, and Python 3.13
+  skips hidden `.pth` files. Fix: `chflags nohidden .venv/lib/python3.13/site-packages/*.pth`
+  (check with `ls -lO`). Reinstalling also works until the flag comes back. pytest still passes
+  because it finds `src/` on its own, so it doesn't catch this.
 
 - **Agent Audit suppresses findings in test-looking paths.** Any path containing
   `/fixtures/`, `/tests/`, `/examples/`, `/demos/`, `/samples/`, `/mocks/` etc. is downgraded to
