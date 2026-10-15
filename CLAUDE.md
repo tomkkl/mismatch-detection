@@ -62,7 +62,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are (updated 2026-10-14)
+## 2. Where we are and what's next (updated 2026-10-15)
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -71,23 +71,6 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
   Splits: train 2,062 / val 259 / test 251. Balanced across the 7 injected effects (91–105
   each) and the 4 injection positions. Full breakdown in section 3.
 
-**Next, roughly in order**
-1. **Measure token lengths** of description + code with the GraphCodeBERT tokenizer on `full`.
-   The limit is 512 tokens; plan to chunk + max-pool rather than truncate.
-2. **Binary training.** `src/agentlint/model/{dataset,classifier,train}.py`, a training config
-   in `configs/`, a Colab notebook in `notebooks/`. Use a weighted loss (mismatch is ~27%).
-   Also train the "before fine-tuning" baseline (frozen encoder + linear head).
-   Current state: these files are stubs (5–17 lines each); `configs/binary.yaml` and
-   `multilabel.yaml` exist but haven't been checked; `notebooks/` is empty.
-3. **Test rung 2:** a fresh-seed Opus set, ~100–150 tools, same recipe
-   (`--tag rung2-opus`, change `generator.model` and `seed` in the config). Must not reuse
-   seed 566 (see section 6).
-4. **Test rung 3:** collect real tool functions (LangChain / OpenAI Agents tools, Python MCP
-   servers), normalize them, inject with the same pipeline. Nothing built yet; the collection
-   format is still an open design question.
-5. **Evaluation code** in `src/agentlint/eval/` (metrics in section 5, including group
-   accuracy) and the Agent Audit coverage run.
-
 **Open issues (not blocking)**
 - Few weakened mismatches (129, ~5% of pairs): 288 tools had no effect that could be removed
   from the description.
@@ -95,6 +78,30 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
   role tables, insert-then-delete) and even `stripe.PaymentIntent.create`. Labels are fine
   (hand-checked), but fix it before using `localize.py` for line numbers in reports.
 - The description-only baseline is ~1 point above majority (74.2% vs 73.2%). Small; watch it.
+
+### What's next
+
+Steps 1–2 and 3 can run at the same time with different people.
+
+1. **Measure token lengths** of description + code on `full` with the GraphCodeBERT tokenizer.
+   The limit is 512; if many pairs are longer, the chunking design needs a team decision.
+2. **Train the first model (binary).** Fill in the stubs in `src/agentlint/model/`
+   (`dataset.py`, `classifier.py`, `train.py`), add a training config and a Colab notebook.
+   Use a weighted loss (~27% mismatch). Also train the "before fine-tuning" baseline (frozen
+   encoder + linear head). Done when we have val precision / recall / F1, PR-AUC and group
+   accuracy for both.
+3. **Build the other test sets.**
+   - Rung 2: a fresh-seed Opus set, ~100–150 tools (`--tag rung2-opus`, new `seed`, never 566).
+   - Rung 3: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers)
+     and inject with the same pipeline. The collection format is still an open design question.
+   - Agent Audit coverage set: our mismatches + some conventional bugs (eval, `shell=True`).
+4. **Evaluation code** in `src/agentlint/eval/`: all metrics and breakdowns from section 5.
+   Then score `test` and rungs 2–3 **once**, and run Agent Audit on the coverage set.
+5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
+   at the right lines.
+
+**If time allows:** data-flow input via tree-sitter (ablation); more weakened mismatches; a
+narrow "returns undeclared sensitive data" class to replace general `read`.
 
 ---
 
