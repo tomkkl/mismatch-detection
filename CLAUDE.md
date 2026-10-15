@@ -65,11 +65,11 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 ## 2. Where we are (updated 2026-10-14)
 
 **Done**
-- Agent Audit probes: it misses capability mismatches entirely (see section 7).
+- Agent Audit probes: it misses capability mismatches entirely (see section 8).
 - Data generation pipeline (`src/agentlint/data/`), with tests.
 - Training dataset `full`: **2,572 pairs from 763 source tools, 689 mismatches (26.8%)**.
   Splits: train 2,062 / val 259 / test 251. Balanced across the 7 injected effects (91–105
-  each) and the 4 injection positions.
+  each) and the 4 injection positions. Full breakdown in section 3.
 
 **Next, roughly in order**
 1. **Measure token lengths** of description + code with the GraphCodeBERT tokenizer on `full`.
@@ -81,11 +81,11 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
    `multilabel.yaml` exist but haven't been checked; `notebooks/` is empty.
 3. **Test rung 2:** a fresh-seed Opus set, ~100–150 tools, same recipe
    (`--tag rung2-opus`, change `generator.model` and `seed` in the config). Must not reuse
-   seed 566 (see section 5).
+   seed 566 (see section 6).
 4. **Test rung 3:** collect real tool functions (LangChain / OpenAI Agents tools, Python MCP
    servers), normalize them, inject with the same pipeline. Nothing built yet; the collection
    format is still an open design question.
-5. **Evaluation code** in `src/agentlint/eval/` (metrics in section 4, including group
+5. **Evaluation code** in `src/agentlint/eval/` (metrics in section 5, including group
    accuracy) and the Agent Audit coverage run.
 
 **Open issues (not blocking)**
@@ -98,7 +98,106 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 3. Working agreement: ask before architecture decisions
+## 3. The training dataset (`full`)
+
+**2,572 description + code pairs built from 763 made-up agent tools**, each labeled honest or
+mismatch. 689 pairs (26.8%) are mismatches. Built 2026-10-13/14 with Claude Sonnet 5.5, seed
+566, config `configs/datagen.yaml`. Files: `data/generated/full/pairs.jsonl` (everything),
+`data/splits/full/{train,val,test}.jsonl`. Section 5 explains *why* it's built this way.
+
+### Where the pairs come from
+
+1. Sonnet wrote 763 honest tools: a Python function plus a description that matches it. They
+   cover 42 domains (online store orders, payroll, Kubernetes, crypto wallets…). 445 tools
+   declare two effects and 318 declare one; all 8 effect classes appear about equally as
+   declared effects (142–165 tools each).
+2. From each honest tool the pipeline builds up to 5 pairs. Here is a real one, a tool that
+   runs an attendee import script:
+
+| Pair (`mutation`) | Code | Description | Label |
+|---|---|---|---|
+| original (`null`) | runs the import script | "Runs the attendee import script for an event using a CSV file of guests." | honest |
+| `inject_code` | same, plus `os.remove(csv_path)` after a successful import | "Runs the attendee import script… Returns the exit code and the last part of the log." | **mismatch** (deletes a file it doesn't mention) |
+| `declare_effect` (twin) | same as `inject_code` | "Imports guests from a CSV…, returns the log tail, and **deletes the CSV file** if the import succeeds." | honest |
+| `honest_rewrite` | original code | same as `inject_code`'s description | honest |
+| `weaken_description` | original code | a declared effect quietly removed from the description | **mismatch** (not every tool gets one) |
+
+The same code appears with both labels, and so does the same description. **Only the pair
+decides the label**, so the model can't win by spotting "longer code", "new import" or
+"padded description". It has to compare the two.
+
+The `inject_code` description is rewritten from the *honest* code (so it never mentions the
+added operation) and length-matched to within ±15% of the twin's.
+
+### Counts
+
+| Pair type | Count | Label |
+|---|---|---|
+| original | 763 | honest |
+| `inject_code` | 560 | mismatch |
+| `declare_effect` (twin) | 560 | honest |
+| `honest_rewrite` | 560 | honest |
+| `weaken_description` | 129 | mismatch |
+
+Not every tool gets all five pairs:
+- **466 tools:** original + inject, twin and rewrite (4 pairs).
+- **94 tools:** all 5 pairs.
+- **35 tools:** original + weaken.
+- **168 tools:** only the original. 95 of them drew `read` as their injection target (now
+  skipped); the rest failed a quality check along the way (see `rejects.jsonl`).
+
+### Mismatch types
+
+- **Injected (560):** 7 effect classes, 91–105 each (modify, send outward, execute, change
+  authority, spend, relocate, destroy). No `read`. Spread evenly over 4 positions: start,
+  middle, end, and inside a helper function.
+- **Weakened (129):** skewed toward modify (31) and execute (24). This type is the thin spot in
+  the dataset.
+
+### Sizes
+
+- Code: median 25 lines, max 60. Comments and docstrings are stripped.
+- Descriptions: median 200 characters, max 352.
+- Fit against GraphCodeBERT's 512-token limit not measured yet (next step 1).
+
+### Splits (by tool, so no tool spans two splits)
+
+| Split | Pairs | Tools | Mismatch |
+|---|---|---|---|
+| train | 2,062 | 610 | 26.7% |
+| val | 259 | 76 | 28.2% |
+| test | 251 | 77 | 26.3% |
+
+### Shortcut check
+
+Guessing "honest" every time scores 73.2%. A classifier that only sees description length
+scores 72.6%, and one that only sees description words scores 74.2%. Neither does better than
+guessing, so the labels can't be read off the surface. (`stats.json`, `shortcut_baseline`.)
+
+### Fields in each row
+
+| Field | Meaning |
+|---|---|
+| `pair_id` | unique id, e.g. `c0002-1/inject-relocate-start` |
+| `source_id` | the honest tool this pair came from; groups a tool's pairs (group accuracy) |
+| `name`, `params`, `description` | the tool's interface (params is a JSON schema) |
+| `code` | normalized Python source |
+| `mismatch` | the label (`true` = mismatch) |
+| `undeclared` | which effect is hidden, e.g. `["destroy"]`; empty when honest |
+| `mutation` | pair type (`null` for the original) |
+| `injected_lines` | line numbers of the hidden operation (inject, twin, weaken) |
+| `generator` | which LLM made it |
+| `meta` | domain, declared effects, injection position, soft-check results |
+
+### Quality checks done by hand
+
+- 33 injections that the word-list checker didn't recognize: none had the wrong effect.
+- All 70 `read` injections: only 8 were real mismatches, so `read` injections were dropped.
+- Pilot hand checks of a few pairs and weakened descriptions: quality on par with Opus.
+
+---
+
+## 4. Working agreement: ask before architecture decisions
 
 This applies to Claude Code, and is a good rule for the team too.
 
@@ -109,7 +208,7 @@ Stop and ask before deciding any of the following. Do not implement first and ex
 - model choices: base model, classification head, loss, input construction, max length / chunking
 - evaluation metrics or what counts as a test set
 - adding a new dependency
-- anything that changes a decision in section 4
+- anything that changes a decision in section 5
 
 How to ask: give 2–3 options with one or two lines of tradeoff each, say which you recommend and
 why, then wait for an answer. Keep it short and plain.
@@ -119,7 +218,7 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 
 ---
 
-## 4. Current decisions
+## 5. Current decisions
 
 ### Model
 
@@ -133,7 +232,7 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 
 ### Evaluation (decided 2026-10-05)
 
-- **Test sets:** rungs 1–3 of the test ladder (section 5), each reported separately, plus the
+- **Test sets:** rungs 1–3 of the test ladder (section 6), each reported separately, plus the
   Agent Audit coverage set.
 - Rung 1 is `data/splits/full/test.jsonl`. Tune on `val`; score `test` **once**, at the end.
 - **Metrics per test set:** precision / recall / F1 on the mismatch class, and PR-AUC. Not plain
@@ -149,25 +248,7 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 
 ### Dataset (decided 2026-09-29, updated since)
 
-**What one source tool turns into.** Each honest tool produces up to 5 pairs:
-
-| `mutation` | Code | Description | Label |
-|---|---|---|---|
-| `null` (original) | honest | original | honest |
-| `inject_code` | honest + one added operation | rewritten from the honest code, length-matched to the twin | **mismatch** |
-| `declare_effect` (twin) | same as `inject_code` | rewritten to declare the added operation | honest |
-| `honest_rewrite` | honest | same as `inject_code` | honest |
-| `weaken_description` | honest | one declared effect removed | **mismatch** |
-
-So the same code shows up with honest and mismatch labels, and so does the same description.
-**Only the pair decides the label.** That is the point: the model can't win by spotting
-"longer code", "new import" or "padded description".
-
-Key fields per row: `pair_id`, `source_id`, `name`, `params`, `description`, `code`,
-`mismatch`, `undeclared` (effect list), `mutation`, `injected_lines`, `meta` (domain, position,
-checks).
-
-**Why each piece exists:**
+What the dataset contains is in section 3. This lists **why each piece exists:**
 - **Injection by LLM rewrite:** the LLM adds one *ordinary* operation of the target effect
   (move, update, refund; never eval or attacker URLs) at a target position (start / middle /
   end / helper). An AST check rejects bad outputs. Templates were rejected because the model
@@ -196,7 +277,7 @@ checks).
 
 ---
 
-## 5. Effect classes and test ladder
+## 6. Effect classes and test ladder
 
 **Effect classes:** read · modify · destroy · relocate · send outward · execute ·
 spend/transact · change authority
@@ -221,7 +302,7 @@ that the name/params don't give it away.
 
 ---
 
-## 6. Files
+## 7. Files
 
 Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest`.
 
@@ -239,7 +320,7 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 
 ---
 
-## 7. Agent Audit: verified facts (v0.19.2, commit 1009782)
+## 8. Agent Audit: verified facts (v0.19.2, commit 1009782)
 
 Use these exact claims in writing. Earlier, looser versions were wrong.
 
@@ -268,7 +349,7 @@ cancel an order and write a refund row) gave indistinguishable output. A hostile
 
 ---
 
-## 8. Gotchas
+## 9. Gotchas
 
 - **macOS: `No module named 'agentlint'`** even though `pip list` shows it. macOS sets the
   `hidden` flag on the editable-install `.pth` file, and Python 3.13 skips hidden `.pth` files.
@@ -292,20 +373,20 @@ cancel an order and write a refund row) gave indistinguishable output. A hostile
 
 ---
 
-## 9. Writing style for proposal text
+## 10. Writing style for proposal text
 
 Keep prose simple and plain. Short sentences, concrete examples, no jargon where a plain word
 works.
 
 ---
 
-## 10. Progress log
+## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
 - **2026-10-15:** Moved the repo to the team's GitHub (`tomkkl/mismatch-detection`). Reorganized
   this file for the team.
-- **2026-10-14:** Dropped `read` injections (section 4). Rebuilt `full` from cache with 0 new
+- **2026-10-14:** Dropped `read` injections (section 5). Rebuilt `full` from cache with 0 new
   calls: 2,572 pairs, 689 mismatches; 560 inject / 560 twin / 560 rewrite / 129 weakened.
   Baselines: length 72.6%, description-only 74.2% vs majority 73.2%.
 - **2026-10-13:** Full Sonnet run finished: 763 tools, 2,782 pairs, 744 LLM calls, $5.91 at list
