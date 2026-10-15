@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Retrieves the query plan with buffer statistics for a SELECT statement from the database and returns the plan lines along with a line count. Non-SELECT statements are rejected with an error, and the connection is read-only."}, "cost_usd": 0.009726199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the ClamAV scanner (clamscan) against a local file path and returns the scan report text, or an error if the path is missing or not a file."}, "cost_usd": 0.006176200000000001}

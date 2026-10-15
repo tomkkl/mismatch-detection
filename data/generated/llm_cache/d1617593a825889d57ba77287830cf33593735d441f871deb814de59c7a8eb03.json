@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes all pending baggage requests on the booking, then charges the traveler's saved card for extra checked bags and returns the current baggage allowance and charge details.", "declaring_phrase": "Deletes all pending baggage requests on the booking"}, "cost_usd": 0.0080809}

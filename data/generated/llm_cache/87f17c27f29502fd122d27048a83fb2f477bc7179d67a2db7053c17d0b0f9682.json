@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes discontinued SKUs along with their bin stock, lot, and reorder rule records. SKUs that are unknown, not discontinued, or still have units on hand are skipped unless forced. Returns per-table deleted row counts and a skipped list with reasons."}, "cost_usd": 0.0080322}

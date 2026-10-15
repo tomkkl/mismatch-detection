@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a parcel's current bin in the warehouse inventory database by tracking number, then moves the parcel record to the given destination bin. Returns the old and new bin locations, or an error if the parcel isn't found."}, "cost_usd": 0.0070942}

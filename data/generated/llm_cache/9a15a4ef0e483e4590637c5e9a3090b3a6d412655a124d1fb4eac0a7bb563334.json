@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the nightly fare-monitoring script on the pricing worker for a given origin, destination, and departure date. Validates the 3-letter IATA codes first, and stops the job after an optional timeout. Returns success status, the job's exit code, the number of price drops found, and any error."}, "cost_usd": 0.0085442}

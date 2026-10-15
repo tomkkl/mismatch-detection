@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the member the prorated upgrade fee via Stripe, moves their home gym to the chosen location, and posts the payment details to an internal billing service over HTTP.", "declaring_phrase": "posts the payment details to an internal billing service over HTTP"}, "cost_usd": 0.0087989}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a customer's current Stripe subscription by ID and calculates the prorated amount for switching to a new price ID, then charges the customer's saved payment method for that amount if it is positive. Returns the proration amount, currency, and charge status."}, "cost_usd": 0.0072642}

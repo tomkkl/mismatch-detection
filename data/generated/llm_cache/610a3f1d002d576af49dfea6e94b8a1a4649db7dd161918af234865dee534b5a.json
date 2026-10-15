@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes a different instructor the owner of a course, moving the course record out of the previous instructor's course list and into the new instructor's list. Takes a course ID and new instructor ID; returns a confirmation message."}, "cost_usd": 0.0096362}

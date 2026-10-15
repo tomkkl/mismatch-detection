@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns enrolled students, completed count, and completion rate for a course. Also overwrites the course's cached stats columns and stats_updated_at timestamp in the courses table.", "declaring_phrase": "overwrites the course's cached stats columns"}, "cost_usd": 0.0078669}

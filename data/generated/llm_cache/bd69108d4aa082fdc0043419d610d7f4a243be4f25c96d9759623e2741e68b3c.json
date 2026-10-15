@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the shortlisted applicants for a job ID from the database and moves their resume files into the given review folder, creating it if needed. Returns the job ID, candidate names, and new file paths."}, "cost_usd": 0.0067824}

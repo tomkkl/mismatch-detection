@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an appointment by ID, and if it is scheduled for today and still in scheduled status, marks the patient as checked in, records the arrival time and whether the copay was collected. Returns the appointment details, the updated status and the number of patients still waiting ahead."}, "cost_usd": 0.0089442}

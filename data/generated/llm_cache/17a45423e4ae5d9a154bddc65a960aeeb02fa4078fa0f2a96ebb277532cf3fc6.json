@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns ownership of a backup set to a new owner, updating the set's recorded owner and last-changed time in the catalog. Returns the previous owner, new owner, update status, and timestamp."}, "cost_usd": 0.0069324}

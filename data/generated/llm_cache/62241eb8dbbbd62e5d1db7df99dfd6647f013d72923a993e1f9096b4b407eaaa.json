@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role (viewer, editor, or admin) on an experiment tracking project, replacing any existing role. Editor and admin roles also charge the user's default payment method a seat fee ($15 or $30).", "declaring_phrase": "charge the user's default payment method a seat fee"}, "cost_usd": 0.0090909}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user the editor role on a specific post, letting them edit it, and optionally sets an expiry date for that access. Returns the post ID, user ID, and the assigned role once the access is saved."}, "cost_usd": 0.007696199999999999}

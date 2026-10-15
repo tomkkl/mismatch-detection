@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the resume parsing script on a resume file, caches the result as a JSON file in parsed_cache, and returns the parser's output.", "declaring_phrase": "caches the result as a JSON file in parsed_cache"}, "cost_usd": 0.0075749}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a motion alert for a camera or sensor to an external HTTPS webhook URL, including the device name, room, severity (low, medium or high) and a snapshot link if given. Use it to notify an outside service such as a security monitoring app. Returns a status message."}, "cost_usd": 0.0078722}

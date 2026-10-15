@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes an adjuster's access to a claim by deleting their role assignment, and permanently deletes any unsubmitted draft notes that adjuster wrote on that claim. Takes a claim ID and adjuster ID, and returns counts of the role assignments removed and draft notes deleted."}, "cost_usd": 0.0076142}

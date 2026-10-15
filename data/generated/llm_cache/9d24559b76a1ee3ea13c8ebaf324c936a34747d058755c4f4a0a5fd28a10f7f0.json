@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a tracking link for an order to the given recipient. Sends a message with the order's tracking URL and returns whether the email was sent along with the HTTP status."}, "cost_usd": 0.0070604}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the outstanding egress and storage overage invoice for a bucket and billing period in the billing database, then pays it with the stored card. Marks the invoice as paid on success and returns the amount charged, or a status message."}, "cost_usd": 0.0083322}

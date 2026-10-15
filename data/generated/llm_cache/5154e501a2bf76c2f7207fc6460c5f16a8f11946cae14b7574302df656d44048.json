@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the list cleaning script on a contact export CSV file at the given path to remove invalid and bounced addresses. Returns the script's exit code, standard output, and standard error once it finishes or times out."}, "cost_usd": 0.0061442}

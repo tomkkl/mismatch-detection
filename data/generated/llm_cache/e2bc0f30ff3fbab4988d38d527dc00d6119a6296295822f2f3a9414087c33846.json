@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a tag's rows from the releases and release_assets tables, and logs the tag with a timestamp in a deleted_tags table (created if needed).", "declaring_phrase": "logs the tag with a timestamp in a deleted_tags table"}, "cost_usd": 0.0075689}

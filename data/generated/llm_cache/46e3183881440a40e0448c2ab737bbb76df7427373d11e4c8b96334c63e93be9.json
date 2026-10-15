@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the full payment for a student's course enrollment, deletes its lesson progress, and copies the enrollment record into an enrollments_archive table before removing it from the enrollments table.", "declaring_phrase": "copies the enrollment record into an enrollments_archive table"}, "cost_usd": 0.0081769}

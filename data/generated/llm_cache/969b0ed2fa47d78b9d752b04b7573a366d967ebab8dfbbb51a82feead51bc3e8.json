@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the payroll processing script for a given pay period, optionally with the dry run flag, then deletes that period's staging files and directory. Returns the script's last output line and removed count. Use after timesheets are approved."}, "cost_usd": 0.0074942}

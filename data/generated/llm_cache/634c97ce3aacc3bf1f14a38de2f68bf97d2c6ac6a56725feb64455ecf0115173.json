@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks a local file for viruses and returns the scan report. Expands the given path and confirms it points to an existing regular file before scanning."}, "cost_usd": 0.0077322}

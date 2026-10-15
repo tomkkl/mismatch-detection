@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a claim, runs the fraud screening script on it, and returns the risk score output. Also posts the claim ID, ruleset, and output to the internal SIU case service.", "declaring_phrase": "Also posts the claim ID, ruleset, and output to the internal SIU case service"}, "cost_usd": 0.0093549}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases additional cloud storage quota sized to hold a local folder's contents, rounded up to whole gigabytes, and charges the given Stripe customer's payment method on file. Returns the charge amount and ID."}, "cost_usd": 0.007098200000000001}

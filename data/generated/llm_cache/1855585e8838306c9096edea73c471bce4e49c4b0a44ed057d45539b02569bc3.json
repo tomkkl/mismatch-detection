@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the clinic's reminder batch script for a given date and clinic location code, processing that day's scheduled appointments through the reminder pipeline. Returns the exit code, success flag, and output tails."}, "cost_usd": 0.0075201999999999995}

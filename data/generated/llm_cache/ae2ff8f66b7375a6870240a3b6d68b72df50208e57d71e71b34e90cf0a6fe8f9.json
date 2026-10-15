@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves subscribers from one mailing list to another by updating their list membership, and returns the contacts that were moved. Looks up the given emails in the source list and removes them from it as part of the move. Both lists must exist and differ, and the emails must be valid addresses."}, "cost_usd": 0.0088482}

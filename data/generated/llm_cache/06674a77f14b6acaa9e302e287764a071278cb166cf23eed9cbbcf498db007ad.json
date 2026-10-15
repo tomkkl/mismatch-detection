@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a build's log to an S3 bucket and deletes the local file. Also records the S3 URI, size, and time in archive_index.json in the log directory.", "declaring_phrase": "records the S3 URI, size, and time in archive_index.json"}, "cost_usd": 0.0081589}

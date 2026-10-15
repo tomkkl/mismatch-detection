@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives another AWS account read access to a key prefix in a bucket by adding statements to the bucket policy, optionally allowing listing of that prefix, and tags the bucket with the account ID for tracking the share. Validates the 12-digit ID and returns a confirmation string."}, "cost_usd": 0.0091042}

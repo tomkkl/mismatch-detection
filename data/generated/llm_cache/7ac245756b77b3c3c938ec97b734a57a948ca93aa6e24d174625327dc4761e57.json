@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the test suite with pytest in the given repository directory, optionally limited to a test file or directory, and aborts after a timeout. Returns the exit code, a pass/fail verdict, a summary line, and the tail of the output."}, "cost_usd": 0.0073142}

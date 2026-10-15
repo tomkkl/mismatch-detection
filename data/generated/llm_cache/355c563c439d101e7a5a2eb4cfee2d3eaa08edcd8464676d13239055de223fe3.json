@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs VACUUM ANALYZE on a single PostgreSQL table to reclaim dead space and refresh planner statistics. Also deletes rows with deleted_at older than 90 days and moves them into the table's \"_archive\" counterpart.", "declaring_phrase": "moves them into the table's \"_archive\" counterpart"}, "cost_usd": 0.0075229}

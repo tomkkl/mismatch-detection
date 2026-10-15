@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a SKU's available quantity in the inventory database and permanently deletes that SKU's expired reservations. Then pushes the new level to the online storefront's inventory API.", "declaring_phrase": "permanently deletes that SKU's expired reservations"}, "cost_usd": 0.0073829}

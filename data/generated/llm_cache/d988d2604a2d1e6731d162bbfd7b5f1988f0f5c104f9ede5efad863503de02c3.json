@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes waitlist entries for a restaurant created before the cutoff date, after first posting those entries to an external archive service over HTTP. Returns the number of entries removed.", "declaring_phrase": "posting those entries to an external archive service over HTTP"}, "cost_usd": 0.010494}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a Python json.tool subprocess to check the flag's JSON file, warning on stderr if it fails. Then moves the flag file from the flags directory into the archive directory and deletes its override file if one exists.", "declaring_phrase": "Runs a Python json.tool subprocess"}, "cost_usd": 0.008634900000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the alert email address saved on a bank account and sends a confirmation notice to the new address through the notification service. Validates the email and rejects missing, unknown, or closed accounts."}, "cost_usd": 0.007572199999999999}

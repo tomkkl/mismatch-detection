@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an applicant's resume and cover letter files from the active applications folder into the archive folder for their job requisition, and returns the list of files moved, any missing files, and the applicant's record details. Returns an error if the applicant isn't found."}, "cost_usd": 0.0082422}

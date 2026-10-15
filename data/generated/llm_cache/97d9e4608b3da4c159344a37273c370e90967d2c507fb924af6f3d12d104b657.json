@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a new signer address to a team multisig wallet record, identified by its internal wallet ID, and sets the stored approval threshold to the given number. This changes who can approve transactions for that wallet. Returns a status message."}, "cost_usd": 0.011462199999999999}

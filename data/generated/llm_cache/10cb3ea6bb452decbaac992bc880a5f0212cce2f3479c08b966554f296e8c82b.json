@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes all successfully finished Jobs and their pods in a namespace, and logs the deleted names to job_cleanup_history.jsonl.", "declaring_phrase": "logs the deleted names to job_cleanup_history.jsonl"}, "cost_usd": 0.0073269}

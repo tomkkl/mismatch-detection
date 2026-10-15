@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a person co-instructor access to a course by creating an invitation and emailing them the acceptance link. Only the course owner can invite; returns the invited address, or an error."}, "cost_usd": 0.0081522}

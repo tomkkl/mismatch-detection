@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes an automation rule and its trigger history from the local hub SQLite database by rule ID. Returns whether the rule was deleted and history rows removed."}, "cost_usd": 0.009570200000000001}

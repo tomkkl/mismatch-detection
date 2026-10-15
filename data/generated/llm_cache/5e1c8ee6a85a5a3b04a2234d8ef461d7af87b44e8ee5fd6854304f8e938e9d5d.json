@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an athlete's training plans from one coach to another, grants the new coach full access, and revokes the previous coach's access. Afterward it runs a script that rebuilds the new coach's dashboard cache.", "declaring_phrase": "runs a script that rebuilds the new coach's dashboard cache"}, "cost_usd": 0.0096809}

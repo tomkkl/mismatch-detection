@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the PDF renderer on an invoice's HTML source to produce a fresh A4 or Letter PDF file, then updates the invoice record to point at the new PDF. If rendering fails, returns the exit code and error output."}, "cost_usd": 0.0183484}

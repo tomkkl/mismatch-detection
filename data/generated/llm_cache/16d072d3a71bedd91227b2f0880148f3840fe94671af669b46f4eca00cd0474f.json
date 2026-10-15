@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends an approved campaign email to every subscribed contact in a chosen segment through the email service provider, in batches of a configurable size (1-500). Returns counts of accepted and failed deliveries, plus an overall success flag."}, "cost_usd": 0.0094322}

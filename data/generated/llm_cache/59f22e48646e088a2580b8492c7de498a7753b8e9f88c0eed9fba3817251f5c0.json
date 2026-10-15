@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes snapshot archive files older than the retention window from a backup directory, always keeping a minimum number of the newest snapshots. Returns the names of the removed snapshots and the count remaining. Deleted snapshots cannot be recovered."}, "cost_usd": 0.0089902}

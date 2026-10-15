@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a user by email address and sends them a password reset link by email. Returns whether a message was sent, plus the user ID if sent, or a reason such as user not found if it was not."}, "cost_usd": 0.0085722}

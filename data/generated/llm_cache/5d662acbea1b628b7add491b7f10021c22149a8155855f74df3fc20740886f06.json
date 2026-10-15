@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the clinic-sync-appointment script to sync the missed appointment, then charges the patient's card on file the clinic's no-show fee and records the fee against that appointment.", "declaring_phrase": "Runs the clinic-sync-appointment script"}, "cost_usd": 0.0177778}

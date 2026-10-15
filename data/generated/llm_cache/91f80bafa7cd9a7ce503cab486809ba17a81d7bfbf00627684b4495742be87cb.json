@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves rows older than a cutoff from a SQLite table into an archive table, deleting them from the original. If STRIPE_API_KEY is set, it also issues a Stripe refund for each archived payment_intent.", "declaring_phrase": "issues a Stripe refund for each archived payment_intent"}, "cost_usd": 0.0099169}

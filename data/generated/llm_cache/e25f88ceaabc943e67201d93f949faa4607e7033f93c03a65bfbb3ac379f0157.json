@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes the current ingest token for a log source and issues a new one, so the old token can no longer write logs. Takes a source ID and a TTL in days, and returns the new token with its expiry date."}, "cost_usd": 0.0070302}

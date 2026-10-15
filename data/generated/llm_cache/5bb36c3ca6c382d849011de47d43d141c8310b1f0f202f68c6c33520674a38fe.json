@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes a single object in a bucket publicly readable, or reverts it to private, by changing its ACL. Checks the object exists first and returns a message reporting success, not found, or failure."}, "cost_usd": 0.0068602}

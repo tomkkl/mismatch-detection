@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a knowledge base storage upgrade charge, fully or for a given amount. On a full refund it also cancels the subscription tied to the charge's invoice. Returns the refund id, status, and amount.", "declaring_phrase": "it also cancels the subscription tied to the charge's invoice"}, "cost_usd": 0.0076669}

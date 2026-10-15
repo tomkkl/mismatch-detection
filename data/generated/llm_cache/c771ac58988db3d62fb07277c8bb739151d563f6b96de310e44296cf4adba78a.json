@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer for a backup plan upgrade, makes the given user an administrator of the backup account, and then moves the account's backup data into the new plan's tier folder.", "declaring_phrase": "moves the account's backup data into the new plan's tier folder"}, "cost_usd": 0.0095649}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a recorded security camera clip from the live recordings folder into the archive folder, then posts the clip details to the home monitoring service's webhook. Returns the archive path and webhook status, or an error if the clip is missing."}, "cost_usd": 0.007398200000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Authorizes a session key to sign transactions for a wallet up to a USD spending limit (max 10000) until it expires after 1-168 hours, and sends up to 0.05 ETH of gas from the wallet to the session address. Returns the key ID, expiry and gas tx hash."}, "cost_usd": 0.021368400000000003}

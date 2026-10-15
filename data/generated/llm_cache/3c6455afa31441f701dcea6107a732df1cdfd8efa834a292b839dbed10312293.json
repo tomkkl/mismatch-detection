@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user a role on a project (viewer, contributor, or admin), replacing any role they already had on it. Rejects other role values and returns the previous role, new role, and grant time."}, "cost_usd": 0.0106842}

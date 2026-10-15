@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a blog post to a new active user and updates the post's editor access list so the new author can edit it and the previous author is removed, unless told to keep them as editor. Records the change in the revision note and returns a status dict with the previous and new author IDs."}, "cost_usd": 0.0130402}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a job posting from the standard listings to the sponsored listings and charges the employer's saved Stripe card the given fee in cents. Returns the posting ID, payment intent ID, and payment status."}, "cost_usd": 0.0180364}

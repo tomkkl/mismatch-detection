@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a departed support agent's account and all of their API tokens, and hands their open and pending tickets to another active agent as the new owner. Returns a count summary, or an error if either agent is missing."}, "cost_usd": 0.0095242}

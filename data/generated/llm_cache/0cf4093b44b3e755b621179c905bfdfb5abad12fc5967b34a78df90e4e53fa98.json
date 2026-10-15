@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently closes a bank account by deleting its record and all linked payees from the database, then emails a closure notice to the given customer address. Returns a confirmation message naming both."}, "cost_usd": 0.0070562}

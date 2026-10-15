@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds a patient's completed appointments that start before a given ISO cutoff date, moves them from the active appointments table into the archive table, and returns the moved rows with their id, start time, provider, and status."}, "cost_usd": 0.0066742}

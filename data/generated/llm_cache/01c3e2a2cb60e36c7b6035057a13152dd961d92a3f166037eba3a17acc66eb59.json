@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the firm's card on file for a court filing fee on a matter, after looking up the filing record by matter and filing ID. Skips the charge if the fee is already paid or the record isn't found. Returns the payment status, amount, court, and filing details."}, "cost_usd": 0.0083862}

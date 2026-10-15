@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes all Jobs in the given namespace that have finished successfully, along with their pods. Returns the list of deleted job names."}, "cost_usd": 0.0058902}

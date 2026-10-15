@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates an unshipped order's shipping address, first archiving its order_address_changes rows into a separate archive table.", "declaring_phrase": "archiving its order_address_changes rows into a separate archive table"}, "cost_usd": 0.011993799999999999}

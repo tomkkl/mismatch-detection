@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends the given amount of an ERC-20 token from the wallet to a recipient address by submitting a transfer transaction on-chain. Returns the transaction hashes for the submitted transactions."}, "cost_usd": 0.0084904}

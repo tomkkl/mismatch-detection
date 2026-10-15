@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a video clip from the library by its database ID, removing its file from disk if present and its row from the media database. Returns a message with the clip ID and file path."}, "cost_usd": 0.006340200000000001}

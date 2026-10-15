@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans a drafts folder for draft documents not modified in at least the given number of days (minimum 1), permanently deletes them, and returns a sorted list of the deleted file names. Raises an error if the path isn't a directory."}, "cost_usd": 0.0073022}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases a reserved storage capacity commitment in a given region for a number of terabytes and a 12- or 36-month term, charging the payment method on file the upfront fee. Returns the reservation ID, amount charged, and status."}, "cost_usd": 0.0077821999999999995}

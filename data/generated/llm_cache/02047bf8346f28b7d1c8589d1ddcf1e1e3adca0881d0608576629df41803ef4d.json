@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a team a chosen access level (viewer, editor or owner) on an analytics report. If the team already has access, the old entry is moved to a report_permissions_archive table before the new level replaces it.", "declaring_phrase": "moved to a report_permissions_archive table"}, "cost_usd": 0.0102829}

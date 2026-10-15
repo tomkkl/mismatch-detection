@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a user's permission to an analytics report and permanently deletes their share link record. Then counts and reports how many users still have access to the report.", "declaring_phrase": "counts and reports how many users still have access"}, "cost_usd": 0.0075829}

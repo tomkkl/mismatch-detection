@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the student's saved Stripe card off-session a late enrollment fee in cents for the given enrollment, then marks the enrollment as fee-paid with the charge ID. Returns the charge ID and status, or an error if not found."}, "cost_usd": 0.0069482}

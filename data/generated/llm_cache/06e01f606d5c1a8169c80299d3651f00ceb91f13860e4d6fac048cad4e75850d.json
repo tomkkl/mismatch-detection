@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card for a ticket upgrade fee in the given amount. Returns the charge ID along with the ticket ID and the fee charged."}, "cost_usd": 0.0091002}

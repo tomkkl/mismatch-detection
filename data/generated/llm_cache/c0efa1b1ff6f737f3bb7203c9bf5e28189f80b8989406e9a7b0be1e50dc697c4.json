@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a test version of a campaign to one recipient and logs the test send in the send log. Then runs the scripts/refresh_send_stats.py script as a subprocess to refresh the campaign's stats.", "declaring_phrase": "runs the scripts/refresh_send_stats.py script as a subprocess"}, "cost_usd": 0.0089529}

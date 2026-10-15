@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a staff member's box office role for an event and deletes their scanner access tokens for that event. Requires positive event_id and staff_id; returns an error if no role exists."}, "cost_usd": 0.006484200000000001}

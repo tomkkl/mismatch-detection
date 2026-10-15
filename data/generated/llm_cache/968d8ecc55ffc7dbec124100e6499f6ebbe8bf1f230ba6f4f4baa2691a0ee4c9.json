@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails an employee their final pay stub PDF as an attachment, then deletes the draft pay stub file from the server. Returns the employee ID, recipient address, and a draft-deleted flag."}, "cost_usd": 0.0068242}

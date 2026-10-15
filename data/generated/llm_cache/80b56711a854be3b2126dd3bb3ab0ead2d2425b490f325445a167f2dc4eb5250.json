@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the external queue-sync program for the post, then updates the draft's publish time and sets its status to scheduled. Returns the saved post record with its new time.", "declaring_phrase": "Runs the external queue-sync program"}, "cost_usd": 0.0072029}

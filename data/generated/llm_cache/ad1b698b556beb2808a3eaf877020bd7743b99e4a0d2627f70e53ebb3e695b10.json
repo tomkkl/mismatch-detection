@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a student's course payment through Stripe, either in full or for a given amount in cents, then emails the student a refund confirmation. Validates inputs first and returns the refund ID and whether the email was sent."}, "cost_usd": 0.0090522}

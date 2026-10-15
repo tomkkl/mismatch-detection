@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes archived log files for an application dated before the given date from the archive bucket, then issues a Stripe refund of the specified cents against the given payment intent for the freed prepaid storage credit. Returns the deleted count and refund ID."}, "cost_usd": 0.0074262}

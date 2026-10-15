@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Saves a new address book entry in the local wallet database, storing a label, address, and network (default ethereum) for later use. Overwrites the existing label if the address is already saved on that network. Returns the saved entry, timestamp, and replaced flag."}, "cost_usd": 0.0077122}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Promotes a team member to sprint admin on a project and pays them a bonus in cents from the project's reward budget. Returns the new role, transfer ID, and amount."}, "cost_usd": 0.0089062}

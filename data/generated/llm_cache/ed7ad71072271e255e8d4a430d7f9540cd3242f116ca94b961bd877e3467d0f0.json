@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card for a booking, grants a companion traveler manager access, and deletes the companion's pending invitation to that booking.", "declaring_phrase": "deletes the companion's pending invitation"}, "cost_usd": 0.0077929}

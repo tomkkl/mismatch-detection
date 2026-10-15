@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a team member's editor access to a campaign and permanently deletes any unsent drafts they authored there. Returns an error if the user isn't an editor; otherwise returns counts."}, "cost_usd": 0.009349999999999999}

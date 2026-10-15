@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the company's Stripe customer for a pack of email sending credits, then gives the specified team member permission to send campaigns. If the payment doesn't succeed, it returns the status and grants nothing."}, "cost_usd": 0.0072042}

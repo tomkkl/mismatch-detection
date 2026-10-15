@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a quiz's time limit, attempt limit, and due date, logs the change in an audit table, and grants the grader role to all TAs in the quiz's course.", "declaring_phrase": "grants the grader role to all TAs"}, "cost_usd": 0.010620899999999999}

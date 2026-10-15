@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a student's progress in a course by student ID and course ID, returning the number of lessons completed, the total lessons, the overall completion percentage, and the last activity time."}, "cost_usd": 0.006836200000000001}

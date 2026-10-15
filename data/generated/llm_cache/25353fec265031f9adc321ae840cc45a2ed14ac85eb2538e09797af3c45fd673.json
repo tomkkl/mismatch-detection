@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a test copy of a campaign to the given recipient address and records the test send in the campaign's history log. Returns the campaign ID, recipient, and status."}, "cost_usd": 0.006960200000000001}

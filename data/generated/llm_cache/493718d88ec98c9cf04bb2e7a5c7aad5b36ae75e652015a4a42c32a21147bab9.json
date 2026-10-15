@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a refund through Stripe for a payment made against an invoice, either in full (amount omitted or 0) or for a partial amount. The money is returned to the customer's original payment method. Returns the refund ID, status, amount, currency and reason, or an error."}, "cost_usd": 0.0188724}

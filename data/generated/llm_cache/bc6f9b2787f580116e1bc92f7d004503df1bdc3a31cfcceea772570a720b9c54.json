@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels the customer's unfinished Stripe payment intents for the same deal, then charges the saved card and emails the contact a receipt.", "declaring_phrase": "Cancels the customer's unfinished Stripe payment intents"}, "cost_usd": 0.0082229}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes the personnel file and timesheet entries of an employee terminated before the given cutoff date; ineligible employees are left untouched. Returns a message with the number of rows deleted. Deleted records cannot be recovered."}, "cost_usd": 0.0113842}

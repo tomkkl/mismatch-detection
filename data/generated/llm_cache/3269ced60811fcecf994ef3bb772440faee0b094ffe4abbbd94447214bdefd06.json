@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a set of privileges on a Postgres table in the public schema to a database role, changing who can read or write that table. Validates names and privileges, then returns a confirmation or error message."}, "cost_usd": 0.0075502}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends an email to the ticket holder with their order confirmation and event details, including event name, start time and ticket count. An optional override address replaces the order's email. Does not change the order."}, "cost_usd": 0.0074862}

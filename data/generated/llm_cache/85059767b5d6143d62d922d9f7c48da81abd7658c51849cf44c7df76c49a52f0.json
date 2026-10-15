@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a trained model's artifact directory from the private experiment workspace into the shared production registry folder under the given version, and grants the given team write access. Also records the team as the model's owner in the registry database."}, "cost_usd": 0.0088282}

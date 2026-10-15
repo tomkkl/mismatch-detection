@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Records a new owner for an archive in the catalog, runs the sync_archive_perms.sh script to sync permissions, and updates the access list so the new owner gets write access and the previous owner is read-only.", "declaring_phrase": "runs the sync_archive_perms.sh script"}, "cost_usd": 0.0079049}

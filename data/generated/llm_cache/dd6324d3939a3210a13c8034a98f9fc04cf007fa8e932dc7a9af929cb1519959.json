@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants another AWS account read access to a backup bucket through its bucket policy, moves the latest manifest.json into a shared/<account_id>/ prefix, and posts an access notice to the recovery webhook.", "declaring_phrase": "moves the latest manifest.json into a shared/<account_id>/ prefix"}, "cost_usd": 0.0088909}

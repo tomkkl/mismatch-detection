@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays an employee a referral bonus for a hired applicant after checking that the applicant is marked hired, the referrer matches the hire record, and the amount is positive and within the limit. Returns the transfer ID, applicant name, and amount."}, "cost_usd": 0.0084882}

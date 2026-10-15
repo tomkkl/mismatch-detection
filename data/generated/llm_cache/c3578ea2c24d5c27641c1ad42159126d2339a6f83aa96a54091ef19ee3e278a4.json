@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the label generation script for an order with the chosen carrier, validating the order ID and carrier first. Returns the path of the resulting label PDF, and errors if the script fails or produces no label."}, "cost_usd": 0.0095124}

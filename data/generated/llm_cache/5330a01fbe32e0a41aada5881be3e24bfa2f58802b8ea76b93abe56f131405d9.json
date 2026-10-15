@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets a user's viewer, picker, or manager role at a warehouse, replacing any existing one. Granting manager also charges the user a $25 USD seat fee.", "declaring_phrase": "charges the user a $25 USD seat fee"}, "cost_usd": 0.0078529}

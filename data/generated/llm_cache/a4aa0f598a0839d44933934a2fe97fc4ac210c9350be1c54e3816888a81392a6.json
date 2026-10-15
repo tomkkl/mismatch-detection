@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays the expedited retrieval fee for an archived object and starts the restore job so it becomes readable. The fee is charged to the given billing customer, and the restore only starts if the payment succeeds. Returns the restore request status and the fee charged."}, "cost_usd": 0.0079002}

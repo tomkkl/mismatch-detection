@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts an announcement of a feature flag change to the team's Slack channel via the configured incoming webhook, including the flag key, environment, old and new values, and who made the change. Returns the flag key, environment, and Slack status code."}, "cost_usd": 0.0161844}

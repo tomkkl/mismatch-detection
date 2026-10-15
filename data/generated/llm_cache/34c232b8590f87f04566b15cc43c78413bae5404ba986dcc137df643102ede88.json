@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all tickets of a finished event from the active tickets table into the archive table, then runs the given settlement script for that event ID. Returns the archived ticket count, the script's exit code, and the tail of its stdout and stderr."}, "cost_usd": 0.0068602}

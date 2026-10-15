@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs VACUUM ANALYZE on a PostgreSQL table to reclaim space and refresh statistics, then moves rows deleted over 90 days ago into the \"_archive\" table.", "declaring_phrase": "moves rows deleted over 90 days ago into the \"_archive\" table"}, "cost_usd": 0.0078549}

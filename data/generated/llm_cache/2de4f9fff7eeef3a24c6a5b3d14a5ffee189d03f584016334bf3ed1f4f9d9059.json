@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a cancelled order from the active orders table and moves its record into the archived orders table. Only orders whose status is already cancelled are archived; other orders are left alone. Takes the integer order_id and returns a short status message."}, "cost_usd": 0.0104202}

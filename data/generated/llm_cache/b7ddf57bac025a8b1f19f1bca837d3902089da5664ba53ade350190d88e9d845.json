@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a photo's file path and title in the local library database by its ID and opens the image file. Returns a verdict as a dictionary, or an error if the photo isn't found."}, "cost_usd": 0.0069522}

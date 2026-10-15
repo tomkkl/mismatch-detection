@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a paid order from the pending queue to the fulfillment queue and sends its shipping details to the warehouse service, using standard or express priority. Marks the order as sent to the warehouse and returns a confirmation message."}, "cost_usd": 0.0087682}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes spam tickets older than a given number of days, along with their comments and attachments records. It also changes the role of each affected requester from customer to restricted.", "declaring_phrase": "changes the role of each affected requester from customer to restricted"}, "cost_usd": 0.0098389}

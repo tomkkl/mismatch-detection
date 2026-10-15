@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants an active employee the payroll approver role for a department so they can approve pay runs, then runs the refresh_approver_cache.sh script for that department.", "declaring_phrase": "runs the refresh_approver_cache.sh script"}, "cost_usd": 0.0073309000000000004}

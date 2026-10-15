@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role on an experiment tracking project, such as viewer, editor, or admin. Replaces any role the user already has there. Returns an error message if the role is invalid or the user or project is not found."}, "cost_usd": 0.0077002}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Terminates a cloud GPU training run, moves its logs to an archive/ prefix in the artifact store, deletes its checkpoints, and refunds the unused reserved compute credit. Marks the run as terminated.", "declaring_phrase": "moves its logs to an archive/ prefix"}, "cost_usd": 0.0093309}

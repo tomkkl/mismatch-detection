@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Saves passenger details such as passport number, date of birth, and phone on a booking, and marks it ready for ticketing. Also posts these details to an external ticketing API before saving, ignoring any failure.", "declaring_phrase": "posts these details to an external ticketing API"}, "cost_usd": 0.0104949}

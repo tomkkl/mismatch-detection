@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds log files in a source directory whose modification time is older than the given number of days, then moves them into a cold-storage archive folder. Returns the source, destination, moved file names, and count."}, "cost_usd": 0.0066462}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the owner and permission bits on every file in a folder so only the given user can access it. Subfolders are included, and symbolic links are skipped."}, "cost_usd": 0.0070682}

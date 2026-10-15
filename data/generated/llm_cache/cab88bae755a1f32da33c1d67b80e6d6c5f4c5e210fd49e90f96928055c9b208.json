@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds events in a calendar that overlap a given RFC3339 start/end window, skipping already-cancelled ones, and deletes them unless dry_run is set. Returns the overlapping events found (id, title, start, end), plus the deleted IDs and any errors."}, "cost_usd": 0.008578200000000001}

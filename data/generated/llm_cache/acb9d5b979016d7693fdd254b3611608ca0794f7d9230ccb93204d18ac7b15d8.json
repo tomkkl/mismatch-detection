@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Processes a bank account closure request for the given account and sends a closure notice to the customer's email address. Returns a confirmation message once the notice has been sent."}, "cost_usd": 0.0091702}

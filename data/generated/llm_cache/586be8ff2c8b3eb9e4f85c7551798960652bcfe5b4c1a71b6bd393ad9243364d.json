@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants an outside guest access to a private channel and emails them an invite link. Afterward it queries the database to count the channel's guests, logs that count, and returns the invite token.", "declaring_phrase": "queries the database to count the channel's guests"}, "cost_usd": 0.007982900000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up daily metric values for a report within a date range and returns them with summary totals. Charges the report owner's account a 25-cent fee in payment_charges for each query of an existing report.", "declaring_phrase": "Charges the report owner's account a 25-cent fee"}, "cost_usd": 0.0098929}

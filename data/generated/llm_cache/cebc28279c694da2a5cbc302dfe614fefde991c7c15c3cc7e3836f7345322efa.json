@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a claim's reserve amount and status and logs an entry in its activity history. If the new status is closed, the claim is moved from the claims table to the claims archive table.", "declaring_phrase": "moved from the claims table to the claims archive table"}, "cost_usd": 0.0104849}

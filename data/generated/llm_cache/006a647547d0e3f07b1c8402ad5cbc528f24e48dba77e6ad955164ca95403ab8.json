@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an order and, if it is still open (not cancelled or refunded), gives a staff member or partner account a viewer, fulfiller or support role on it. Returns a message confirming the grant or explaining why it failed."}, "cost_usd": 0.0070304}

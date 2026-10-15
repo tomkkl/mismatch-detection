@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up open tables at a restaurant for a given date, time and party size, returning tables that fit the group and have no conflicting confirmed reservation, plus a count. Does not hold or book anything."}, "cost_usd": 0.0080882}

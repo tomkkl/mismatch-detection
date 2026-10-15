@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends an email meeting invitation with an attached .ics calendar file to the listed attendees, using the title, start time, duration, location, and organizer. Delivers it through the company SMTP server and returns a confirmation with the event id."}, "cost_usd": 0.0099502}

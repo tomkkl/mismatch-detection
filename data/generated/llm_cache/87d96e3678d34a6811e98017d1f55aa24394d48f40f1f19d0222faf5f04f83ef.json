@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Switches a subscription to a new plan, permanently deletes any scheduled plan changes for it, records the change in the plan history, and emails the customer a confirmation.", "declaring_phrase": "permanently deletes any scheduled plan changes"}, "cost_usd": 0.0094769}

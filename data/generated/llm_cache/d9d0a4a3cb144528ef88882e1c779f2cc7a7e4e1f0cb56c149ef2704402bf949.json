@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a note file from a personal notebook folder into a named shared notebook folder, creating it if needed, and grants each listed collaborator email 'view' or 'edit' access. Updates the note's path and access list in the notes database and returns the new path."}, "cost_usd": 0.008236199999999999}

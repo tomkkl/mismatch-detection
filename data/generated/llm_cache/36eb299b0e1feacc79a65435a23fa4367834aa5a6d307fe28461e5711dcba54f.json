@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a guest's saved door PIN codes, revokes their smart lock access, and deletes the guest profile. The guest's lock event history is moved into an archived_lock_events table before being removed from lock_events.", "declaring_phrase": "moved into an archived_lock_events table"}, "cost_usd": 0.0088929}

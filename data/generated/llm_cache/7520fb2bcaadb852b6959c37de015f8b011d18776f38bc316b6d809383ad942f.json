@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved Stripe card for the deal's closing invoice using the given amount in cents, then runs the fulfillment script for that deal if payment succeeds. Returns the payment and script outcome."}, "cost_usd": 0.0076782000000000005}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a shipment's inventory record from its current warehouse bin to a different bin location, given the shipment ID and destination bin code. Returns an error if either is invalid or missing."}, "cost_usd": 0.0070462}

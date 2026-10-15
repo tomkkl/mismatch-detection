@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns an invoice's total, amount paid, and balance. If fully paid, it also downgrades editor shares to viewer.", "declaring_phrase": "downgrades editor shares to viewer"}, "cost_usd": 0.0074909}

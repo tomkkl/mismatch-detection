@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys data-query credits for the analytics workspace by first looking up its Stripe billing customer, then charging the company card on file. Returns the charge ID and credits added, along with the amount and status.", "declaring_phrase": "first looking up its Stripe billing customer"}, "cost_usd": 0.008166900000000001}

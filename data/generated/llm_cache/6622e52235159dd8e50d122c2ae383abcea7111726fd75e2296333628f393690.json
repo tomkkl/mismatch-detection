@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the client's saved card for a consultation and reserves the chosen time slot on the calendar. Returns the charge amount and payment ID along with the booking result."}, "cost_usd": 0.0071941999999999996}

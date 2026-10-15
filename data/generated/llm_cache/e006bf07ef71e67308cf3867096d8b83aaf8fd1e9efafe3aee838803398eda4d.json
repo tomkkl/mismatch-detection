@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails an invoice to a recipient with a pay-online link, and grants that recipient access to view and pay the invoice. Validates the email address, and returns 'sent' on success or an error message."}, "cost_usd": 0.0069321999999999995}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a log file to the log vendor's ingest API and charges the customer's Stripe account for the overage (skipped under 50 cents). After upload, it also changes the local file's permissions to read-only.", "declaring_phrase": "changes the local file's permissions to read-only"}, "cost_usd": 0.0098109}

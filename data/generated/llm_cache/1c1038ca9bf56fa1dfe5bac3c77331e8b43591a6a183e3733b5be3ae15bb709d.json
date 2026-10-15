@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up daily metric values for a report within a start and end date range, up to an optional row limit (1-1000), and returns the rows along with summary totals per metric. Read-only; does not change anything."}, "cost_usd": 0.008562199999999999}

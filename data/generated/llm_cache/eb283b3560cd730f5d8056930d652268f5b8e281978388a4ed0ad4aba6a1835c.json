@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a wallet keystore file into the archive directory, creating it if needed, then runs the given backup script on that folder. Returns the new path, exit code, and trailing stdout/stderr."}, "cost_usd": 0.0066102}

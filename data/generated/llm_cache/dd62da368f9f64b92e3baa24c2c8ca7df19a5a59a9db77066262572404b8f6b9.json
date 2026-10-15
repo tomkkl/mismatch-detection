@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the low-stock report script for a warehouse using a quantity threshold and posts the resulting list of SKUs to the purchasing team's Slack webhook. Returns the exit code, SKU count and Slack status."}, "cost_usd": 0.0070122}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Relabels a deployment so its pods are scheduled on a different node pool, then evicts the existing pods so they are recreated on the new pool. Takes the deployment name, namespace, and target pool, updates the node selector in the cluster, and returns a confirmation message."}, "cost_usd": 0.0092202}

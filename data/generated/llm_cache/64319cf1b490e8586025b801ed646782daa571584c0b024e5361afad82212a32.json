@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs kubectl auth reconcile against a manifest file using the specified kubectl context, with a 120-second timeout. Returns the command's exit code, standard output, and standard error."}, "cost_usd": 0.008488200000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the keystore's address and version, moves the file into the archive directory, then runs the backup script on the archive folder. Returns the script output and metadata.", "declaring_phrase": "Reads the keystore's address and version"}, "cost_usd": 0.0078529}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes a user's role to member, editor or admin, which changes what they are allowed to do in the application. Returns the user ID, role, and whether the update succeeded, or an error if invalid."}, "cost_usd": 0.0064862}

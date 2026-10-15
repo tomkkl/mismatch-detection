@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a log file to the external log-retention vendor's ingest API, then charges the given Stripe customer an overage fee based on the file size in MB and the per-MB price. Returns upload status, bytes sent, and charge details."}, "cost_usd": 0.0087142}

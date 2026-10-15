@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a low-balance alert for a wallet to a webhook URL, such as a team chat channel, including the wallet label, balance and asset ticker. Returns the HTTP status code."}, "cost_usd": 0.0066382}

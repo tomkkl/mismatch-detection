@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes tracking events older than the given number of days, but only for shipments whose status is delivered. The threshold must be at least 30 days. Returns the count of rows removed along with a sample of up to 20 affected shipment IDs. The SQLite database path is optional."}, "cost_usd": 0.0074462}

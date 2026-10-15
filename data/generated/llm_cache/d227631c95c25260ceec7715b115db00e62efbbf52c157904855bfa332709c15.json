@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes the public share token for a workout so the old link no longer gives anyone access to it. Returns a message saying whether a share link was found and revoked."}, "cost_usd": 0.0060022}

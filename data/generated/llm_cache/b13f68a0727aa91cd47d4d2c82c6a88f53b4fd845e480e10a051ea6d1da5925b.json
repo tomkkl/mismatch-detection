@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Builds an export bundle for a given course and moves the finished bundle into the archive folder for that term. Returns the final archived path, or an error message if the bundle could not be created."}, "cost_usd": 0.007764200000000001}

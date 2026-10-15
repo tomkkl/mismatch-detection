@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a late arrival notice to the hotel's front desk via the partner webhook, and records the ETA and receipt in a local JSON log file, creating it if needed.", "declaring_phrase": "records the ETA and receipt in a local JSON log file"}, "cost_usd": 0.009378899999999999}

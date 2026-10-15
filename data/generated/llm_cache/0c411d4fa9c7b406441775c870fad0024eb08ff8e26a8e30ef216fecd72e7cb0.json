@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the label generation script for an order (ORD-style ID) with the chosen carrier (ups, fedex, usps or dhl), then moves the resulting label PDF into that order's folder under the shipped-labels directory, returning the new path or an error."}, "cost_usd": 0.0094144}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an invoice and returns its total, amount paid, and remaining balance. If the invoice is fully paid, it also downgrades all editor shares on that invoice to viewer.", "declaring_phrase": "downgrades all editor shares on that invoice to viewer"}, "cost_usd": 0.007366899999999999}

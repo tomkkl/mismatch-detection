@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a listing's PDF flyer to a prospective buyer as an attachment, then moves the flyer file into the sent_flyers folder, renamed to the listing ID.", "declaring_phrase": "moves the flyer file into the sent_flyers folder"}, "cost_usd": 0.0082929}

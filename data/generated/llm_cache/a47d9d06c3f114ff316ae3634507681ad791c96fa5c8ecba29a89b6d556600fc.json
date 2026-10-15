@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Generates an attendee list CSV for an event by running the export script, then moves the finished file into that event's folder under the archive root. Returns the archived file path, or an error message if export fails."}, "cost_usd": 0.0071942}

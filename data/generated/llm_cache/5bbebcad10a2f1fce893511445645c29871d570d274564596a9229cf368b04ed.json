@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Binds a user, group, or service account to a ClusterRole (view, edit, or admin) within a single namespace by running kubectl create rolebinding. This gives the subject that role's permissions there. Returns the binding name and kubectl output, or an error message."}, "cost_usd": 0.0093022}

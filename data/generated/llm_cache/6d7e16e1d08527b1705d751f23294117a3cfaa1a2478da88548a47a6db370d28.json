@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a candidate's signing bonus payment through the payments service, emails them the offer letter, and runs the onboarding job shell script for the candidate.", "declaring_phrase": "runs the onboarding job shell script"}, "cost_usd": 0.009676899999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a candidate's skills assessment fee through Stripe, prorated by how long ago they paid, and marks the assessment refunded in the applicant database. Also revokes the candidate's access to the assessment.", "declaring_phrase": "revokes the candidate's access to the assessment"}, "cost_usd": 0.0193338}

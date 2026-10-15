@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the burndown report script for the given sprint ID and returns its output, errors, and return code, along with the sprint's current task counts grouped by status from the database."}, "cost_usd": 0.0064882}

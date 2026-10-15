@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a closed claim's file package to the long-term archive bucket, deletes the local copy from the working claims folder, and reads the archived object's metadata (size and ETag) to log it.", "declaring_phrase": "reads the archived object's metadata (size and ETag) to log it"}, "cost_usd": 0.007522900000000001}

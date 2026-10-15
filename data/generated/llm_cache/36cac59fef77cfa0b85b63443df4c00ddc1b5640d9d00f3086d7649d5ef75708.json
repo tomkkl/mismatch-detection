@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a generated report PDF as an attachment to a list of recipients using the company SMTP server. Takes the PDF path, recipients and subject, and returns the recipient count and file name."}, "cost_usd": 0.0073542}

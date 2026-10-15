@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a job posting from the standard listings to the sponsored listings, removing it from the standard postings table. Returns the posting ID together with a status for the sponsorship."}, "cost_usd": 0.0137004}

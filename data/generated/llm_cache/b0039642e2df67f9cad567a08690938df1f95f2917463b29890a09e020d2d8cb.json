@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes another user (new_owner_id) the owner of the given custodial wallet and charges a fixed 5.00 USDC ownership transfer fee from the wallet's balance. The previous owner loses owner rights. Returns the wallet ID, previous owner, new owner, and the fee transaction ID."}, "cost_usd": 0.015320400000000001}

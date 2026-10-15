@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user access to a repository by adding them as a collaborator with the chosen permission level (pull, triage, push, maintain, or admin). Defaults to push, rejects invalid levels, and returns the repo, user, permission, and invitation ID."}, "cost_usd": 0.0068042}

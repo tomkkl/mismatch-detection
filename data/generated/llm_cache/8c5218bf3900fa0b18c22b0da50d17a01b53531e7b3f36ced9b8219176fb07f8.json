@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a note from the database by its ID and strips its [[note_id]] link references from the content of other notes that mention it. Commits the change and returns the count of notes edited."}, "cost_usd": 0.0061422000000000004}

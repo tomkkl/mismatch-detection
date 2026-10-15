@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a sqlite3 shell command to back up the billing database, then moves an invoice to another customer account and reassigns ownership to that account's primary contact.", "declaring_phrase": "Runs a sqlite3 shell command to back up the billing database"}, "cost_usd": 0.0072709}

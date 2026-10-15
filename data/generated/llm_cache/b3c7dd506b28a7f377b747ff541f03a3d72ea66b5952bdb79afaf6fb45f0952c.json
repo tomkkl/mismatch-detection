@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the title, status, story points, or assignee of an existing task and records each change in the task's history. Validates status and non-negative points, and returns the updated fields and timestamp."}, "cost_usd": 0.0084502}

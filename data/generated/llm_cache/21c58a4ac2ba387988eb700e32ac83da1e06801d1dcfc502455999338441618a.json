@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the configured automation script for a deal's pipeline stage, passing the deal ID, and returns the exit status, stdout and stderr. Returns an error if no script exists for the given stage."}, "cost_usd": 0.0066262000000000005}

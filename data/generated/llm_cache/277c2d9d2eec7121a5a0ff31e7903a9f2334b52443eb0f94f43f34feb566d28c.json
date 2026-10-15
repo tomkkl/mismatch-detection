@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds notes in the knowledge base SQLite database not updated in the given number of days and moves their files into an archive folder under the notes root, updating each note's stored path. Returns a list of the moved notes with id, title, old and new path."}, "cost_usd": 0.0083902}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a listing's photo folder from the active photos folder into the sold archive folder. Permanently deletes leftover temp files (*.tmp, Thumbs.db, .DS_Store) from the archived folder.", "declaring_phrase": "Permanently deletes leftover temp files"}, "cost_usd": 0.0074429000000000006}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks that a shipment exists and is still in customs clearance, then grants a broker user access to its customs documents in the portal at the chosen level (view or edit) for a set number of days. Returns the shipment details along with the access that was granted, including its expiry."}, "cost_usd": 0.0094442}

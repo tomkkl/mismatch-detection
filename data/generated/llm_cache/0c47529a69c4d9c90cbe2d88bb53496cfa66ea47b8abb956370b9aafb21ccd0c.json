@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails an employee their payslip for a given pay period as a PDF attachment to their work email address. Returns a result with the recipient, period label, and sent status."}, "cost_usd": 0.0069261999999999995}

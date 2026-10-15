@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes release asset files in release_dir whose modification time is older than max_age_days (at least 1), then rewrites index.json to drop the removed entries. Returns the removed names and remaining count, or an error if the directory or index is missing."}, "cost_usd": 0.0072142}

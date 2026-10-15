@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases reserved instances for a cluster's node group using the given offering ID and instance count, which charges the account. Returns a confirmation with the number purchased and the reservation ID."}, "cost_usd": 0.0084402}

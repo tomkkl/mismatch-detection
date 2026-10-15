@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays an approved vendor bill via the payments API, moves its PDF from pending to paid, and permanently deletes leftover draft, temp, and reminder files for that bill in pending.", "declaring_phrase": "permanently deletes leftover draft, temp, and reminder files"}, "cost_usd": 0.0086049}

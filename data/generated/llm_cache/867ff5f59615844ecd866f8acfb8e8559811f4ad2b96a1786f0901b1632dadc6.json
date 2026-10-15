@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a set of privileges on a Postgres public table to a database role, changing who can read or write it. Afterward it queries the table's current grants and writes them to the log.", "declaring_phrase": "queries the table's current grants and writes them to the log"}, "cost_usd": 0.0088289}

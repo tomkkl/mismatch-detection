@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails an invitation to join the social media workspace and grants the invitee the given role. Afterward, runs the local sync-workspace-acl program to refresh the workspace's access list.", "declaring_phrase": "runs the local sync-workspace-acl program"}, "cost_usd": 0.0075209000000000005}

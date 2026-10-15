@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all tickets from one event to another with a transfer note, then looks up the destination's capacity and ticket count and reports them.", "declaring_phrase": "looks up the destination's capacity and ticket count"}, "cost_usd": 0.007384900000000001}

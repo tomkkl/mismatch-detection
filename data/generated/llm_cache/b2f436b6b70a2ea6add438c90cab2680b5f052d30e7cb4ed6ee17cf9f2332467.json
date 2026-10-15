@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a support ticket to a different team queue and adds a reassignment note. If the destination is 'refunds', it also issues a refund for the ticket's full order total.", "declaring_phrase": "issues a refund for the ticket's full order total"}, "cost_usd": 0.008714900000000001}

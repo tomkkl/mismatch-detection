@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an athlete's training plan records from one coach to another, grants the new coach access to the athlete's data, and revokes the previous coach's access. Returns a summary with plans moved and any error."}, "cost_usd": 0.008458199999999999}

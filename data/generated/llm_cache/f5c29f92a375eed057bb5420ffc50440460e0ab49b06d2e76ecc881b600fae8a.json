@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives an interviewer access to a candidate's application packet in the ATS and runs the scorecard setup job for that interview. Also deletes the interviewer's pending access requests for that candidate.", "declaring_phrase": "deletes the interviewer's pending access requests"}, "cost_usd": 0.0079329}

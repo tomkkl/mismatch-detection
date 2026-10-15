@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the local spam-scoring script against an .html email template file and returns the score, the threshold, whether it passed, and the top flagged rules. Use it to check a campaign template before scheduling. Accepts an optional threshold and timeout in seconds."}, "cost_usd": 0.008092199999999999}

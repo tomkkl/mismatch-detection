@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user view or edit permission on an invoice by recording a sharing grant in the database with an optional expiry timestamp. Returns the new grant ID, granted time, and the supplied details."}, "cost_usd": 0.0073022}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an invoice by ID and returns its total, the sum of payments made against it, and the remaining balance, in cents."}, "cost_usd": 0.006222200000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a guest's saved card the no-show fee for a reservation, using the Stripe customer ID, payment method ID, and fee in cents. Then posts a notice of the charge to the restaurant's staff chat webhook and returns the payment intent ID and status."}, "cost_usd": 0.0075882}

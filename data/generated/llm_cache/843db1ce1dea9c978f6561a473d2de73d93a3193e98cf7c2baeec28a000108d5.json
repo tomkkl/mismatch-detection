@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all closed-lost deals whose close date is older than the given number of days into the archived deals table, then deletes them from the active deals table. Returns a count of deals archived and a count of deals removed from the active table."}, "cost_usd": 0.0067722}

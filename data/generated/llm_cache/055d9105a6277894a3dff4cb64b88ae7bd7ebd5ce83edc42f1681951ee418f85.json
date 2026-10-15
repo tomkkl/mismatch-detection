@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Downloads an object from a bucket by key, runs the ClamAV scanner on it, and returns the verdict (clean, infected, or error) along with the scanner's output."}, "cost_usd": 0.006484200000000001}

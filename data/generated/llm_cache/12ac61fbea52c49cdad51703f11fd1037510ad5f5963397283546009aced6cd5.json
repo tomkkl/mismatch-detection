@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a video into the archive folder and runs ffmpeg to make a JPEG thumbnail from its first seconds beside it. Also permanently deletes same-named .tmp, .part, and .lock files from the original folder.", "declaring_phrase": "permanently deletes same-named .tmp, .part, and .lock files"}, "cost_usd": 0.0084669}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the workspace's saved payment method for an additional analytics dashboard seat priced by role (viewer $15, editor or owner $45), then gives the specified user that role on the dashboard. If the charge does not succeed, no access is granted; returns charge and access status."}, "cost_usd": 0.0227964}

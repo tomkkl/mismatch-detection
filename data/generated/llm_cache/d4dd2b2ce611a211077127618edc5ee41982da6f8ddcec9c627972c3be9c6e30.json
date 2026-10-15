@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a replication job for the given source bucket, then posts the bucket, job ID, and job state to the external webhook URL. Returns the job ID, state, and webhook HTTP status."}, "cost_usd": 0.0067862}

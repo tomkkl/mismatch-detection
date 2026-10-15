@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the analytics export script for a social account over a date range and writes the report file to the reports directory. If the export succeeds, it also charges a 250-cent (USD) export fee to the account through the billing service.", "declaring_phrase": "charges a 250-cent (USD) export fee"}, "cost_usd": 0.0105649}

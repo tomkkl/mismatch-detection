@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Accepts a pending gym buddy invite for a user, granting the inviter access to the user's workout log, and moves the invite record into the archive table. Returns the inviter's name and the access level granted.", "declaring_phrase": "moves the invite record into the archive table"}, "cost_usd": 0.0081609}

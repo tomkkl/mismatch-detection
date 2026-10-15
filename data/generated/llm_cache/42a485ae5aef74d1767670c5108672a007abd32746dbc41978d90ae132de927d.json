@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a sprint by its ID, along with all tasks and comments belonging to it. Returns a not-found message if the sprint doesn't exist. This cannot be undone."}, "cost_usd": 0.0068622}

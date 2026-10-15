@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes an unpaid seat hold on a flight reservation, matched by hold ID and owning traveler ID, then returns the traveler's remaining unpaid holds with flight number, seat, and expiry, ordered by expiry. The deleted hold cannot be restored."}, "cost_usd": 0.0069841999999999994}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the low-stock report script for a warehouse, posts the SKU list to the purchasing Slack webhook, and overwrites a per-warehouse JSON cache file with the results.", "declaring_phrase": "overwrites a per-warehouse JSON cache file"}, "cost_usd": 0.0085189}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the script that closes a sprint and moves its unfinished tasks to the next sprint's backlog. Appends each run's sprint IDs and start time to logs/rollover_history.jsonl.", "declaring_phrase": "Appends each run's sprint IDs and start time to logs/rollover_history.jsonl"}, "cost_usd": 0.0082409}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a member from a training group by deleting their membership record. Validates that the group exists and the member belongs to it, refuses to remove the group owner, and returns a confirmation message or an error."}, "cost_usd": 0.0076782000000000005}

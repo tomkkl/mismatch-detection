@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans a directory, optionally including subdirectories, and reports file and subdirectory counts, total size, the largest files up to a chosen limit, and a per-extension breakdown, without changing anything."}, "cost_usd": 0.0091062}

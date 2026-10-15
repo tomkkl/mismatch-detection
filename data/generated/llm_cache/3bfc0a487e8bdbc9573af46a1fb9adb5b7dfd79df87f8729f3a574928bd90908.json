@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a restic integrity check against the backup repository at the given path, optionally reading all data blobs to verify them, and returns a PASSED or FAILED status followed by the check output."}, "cost_usd": 0.0064942}

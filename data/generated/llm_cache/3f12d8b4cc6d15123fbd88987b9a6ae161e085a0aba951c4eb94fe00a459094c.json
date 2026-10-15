@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's card for an offsite tape shipment, sends the pickup request to the vault provider's service, and then looks up the open pickups for that address, returning them with the result.", "declaring_phrase": "looks up the open pickups for that address"}, "cost_usd": 0.0078569}

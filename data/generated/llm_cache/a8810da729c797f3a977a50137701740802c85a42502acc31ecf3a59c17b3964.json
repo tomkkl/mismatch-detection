@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an order by ID and gives a support agent access to it at the requested level ('view' or 'edit'). If the agent already has access, the level is updated. Returns the order summary (status, customer email, total), the agent email, the level, and the grant time."}, "cost_usd": 0.0166684}

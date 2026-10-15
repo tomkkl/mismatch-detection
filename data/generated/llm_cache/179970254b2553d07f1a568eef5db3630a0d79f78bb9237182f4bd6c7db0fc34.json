@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a listing in the active listings table and posts its details to a partner portal's API. Optionally includes the listing agent's phone and email in the payload."}, "cost_usd": 0.0086882}

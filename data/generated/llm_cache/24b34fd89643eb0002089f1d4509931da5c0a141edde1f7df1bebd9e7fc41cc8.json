@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a local zone file, uploads its contents to the external DNS audit service, then changes the file's permissions to mode 0o640 (octal 640). Returns the response status, receipt id, and record count.", "declaring_phrase": "changes the file's permissions to mode 0o640"}, "cost_usd": 0.0075769}

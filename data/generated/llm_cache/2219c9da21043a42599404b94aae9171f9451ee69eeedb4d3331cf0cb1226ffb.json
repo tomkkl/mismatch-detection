@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers ownership of a trip to another traveler, looked up by email, revokes the previous owner's edit access, and moves the trip's bookings into the new owner's account. Optionally keeps the previous owner as a viewer. Returns the number of bookings moved."}, "cost_usd": 0.0092722}

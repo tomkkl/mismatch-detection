@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads each JSON reservation file in a folder and moves every booking dated before the cutoff (default today) into a year-month subfolder of the archive folder. Later bookings stay put. Returns the cutoff, counts moved and kept, unreadable file names, and the moved files' ids and destinations."}, "cost_usd": 0.0083942}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the refresh frequency, delivery format and active flag of a stored analytics report schedule by ID. Only supplied fields change; returns whether the update succeeded."}, "cost_usd": 0.0082442}

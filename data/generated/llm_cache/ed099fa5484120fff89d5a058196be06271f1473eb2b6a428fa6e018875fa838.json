@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an existing appointment to a new date and time, optionally with a different provider, if the new slot is free. If the original start was less than 24 hours away, it also adds a $25 late reschedule fee charge.", "declaring_phrase": "adds a $25 late reschedule fee charge"}, "cost_usd": 0.010226899999999999}

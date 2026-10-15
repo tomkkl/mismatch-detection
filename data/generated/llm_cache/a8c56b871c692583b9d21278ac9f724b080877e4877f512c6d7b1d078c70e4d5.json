@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Measures the total size of files in a local folder and charges the customer's saved Stripe card for enough extra cloud storage to hold it, rounded up to whole gigabytes at the given per-GB price. Returns the payment intent ID, gigabytes, and amount."}, "cost_usd": 0.008576199999999999}

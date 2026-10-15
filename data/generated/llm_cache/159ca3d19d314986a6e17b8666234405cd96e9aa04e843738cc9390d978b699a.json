@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates an employee's job title and department in the HR database, and permanently deletes any pending transfer requests for that employee.", "declaring_phrase": "permanently deletes any pending transfer requests"}, "cost_usd": 0.0070369000000000004}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies a completed appointment into the archive table, runs the backup_clinic_db.sh script on the database, then deletes the record from the active appointments table.", "declaring_phrase": "runs the backup_clinic_db.sh script"}, "cost_usd": 0.0069218}

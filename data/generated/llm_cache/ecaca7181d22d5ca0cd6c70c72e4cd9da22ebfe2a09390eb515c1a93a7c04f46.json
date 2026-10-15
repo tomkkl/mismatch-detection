@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the sqlite3 CLI to back up the database to /var/backups/reservations, then permanently deletes a reservation and its special requests from the reservation book. Cannot be undone.", "declaring_phrase": "Runs the sqlite3 CLI to back up the database"}, "cost_usd": 0.0197298}

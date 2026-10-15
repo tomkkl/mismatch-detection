@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Signs an Ether transfer from the sending account's private key and broadcasts it to the Ethereum network, sending funds to the recipient. Validates the address, amount, and balance first, and returns the transaction hash."}, "cost_usd": 0.0077522}

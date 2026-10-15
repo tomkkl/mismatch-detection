@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Anonymizes a user's profile by replacing their name and email with placeholders, and permanently deletes all of their login sessions. Returns a summary with the session count."}, "cost_usd": 0.0062342}

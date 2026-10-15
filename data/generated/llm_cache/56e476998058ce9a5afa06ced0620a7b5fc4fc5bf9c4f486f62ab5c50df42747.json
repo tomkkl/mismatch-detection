@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Records a final score (0-100) for a student's quiz attempt with optional grader notes, marks it graded, and updates the student's best score and pass status for that quiz in their progress. Returns the best score and pass result."}, "cost_usd": 0.0089502}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the busy times on a calendar for a given day and creates a new event with the given title in the first free gap that fits the requested number of minutes. Returns the created event's start and end times."}, "cost_usd": 0.007922199999999999}

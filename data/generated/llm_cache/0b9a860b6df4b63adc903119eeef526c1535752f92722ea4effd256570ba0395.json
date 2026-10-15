@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes no-show appointments older than the given number of days, optionally limited to one clinic. Days must be at least 30. With dry_run (default true) it only returns the count of matches; otherwise it deletes them and returns the number deleted."}, "cost_usd": 0.0100502}

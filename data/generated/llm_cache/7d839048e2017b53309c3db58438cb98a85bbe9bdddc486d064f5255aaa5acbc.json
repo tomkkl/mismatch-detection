@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes another member of an account its owner and demotes the previous owner to admin. Updates the account record to show the new owner. Returns a result with success status and the old and new owner IDs, or failure if invalid."}, "cost_usd": 0.0071162}

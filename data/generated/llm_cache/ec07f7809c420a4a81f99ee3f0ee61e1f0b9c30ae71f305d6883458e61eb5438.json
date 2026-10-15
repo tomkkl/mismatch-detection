@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates an employee's job title in the HR database. Returns a success result, or an error if the employee isn't found."}, "cost_usd": 0.0064922}

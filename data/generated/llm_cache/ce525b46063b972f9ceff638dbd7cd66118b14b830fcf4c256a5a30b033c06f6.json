@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends an email to the task's assignee reminding them it is overdue, with an optional extra note included, and posts a notification to the team's webhook endpoint. Both messages go outside the system. Returns a confirmation string."}, "cost_usd": 0.0084702}

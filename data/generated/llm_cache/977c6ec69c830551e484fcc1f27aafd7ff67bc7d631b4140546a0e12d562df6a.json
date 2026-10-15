@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the charge and customer email in Stripe, then cancels a home security camera cloud subscription and fully refunds the charge. Returns the refund ID and charge details.", "declaring_phrase": "Looks up the charge and customer email in Stripe"}, "cost_usd": 0.0078729}

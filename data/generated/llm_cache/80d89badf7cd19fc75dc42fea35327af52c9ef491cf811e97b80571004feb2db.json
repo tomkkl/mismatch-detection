@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the total message count and the top five most active posters for a channel over the last N days. Returns usernames with their counts. Only reads data."}, "cost_usd": 0.0067542}

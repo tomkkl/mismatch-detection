@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives another person delegate access to a traveler's booking so they can view or manage the trip. Updates the booking's delegate list with the chosen access level, replacing any existing entry, and returns the booking, delegate email, level, and status."}, "cost_usd": 0.0067621999999999995}

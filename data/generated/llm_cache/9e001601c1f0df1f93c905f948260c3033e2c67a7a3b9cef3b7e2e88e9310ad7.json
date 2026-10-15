@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the agent's saved card for a featured placement on a listing, tagging the payment with the listing ID. Returns a confirmation with the payment ID and the amount charged."}, "cost_usd": 0.0073982}

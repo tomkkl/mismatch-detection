@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a backup restore notice to the recovery webhook and grants another AWS account read access to a backup bucket via its bucket policy. Takes the bucket name and a 12-digit account ID; returns the grant and webhook status."}, "cost_usd": 0.007530200000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a requisition by ID and, if its status is filled, moves its folder of applicant resumes and attachments into the closed-requisitions archive under its close year. Returns the requisition title, the archive path, and the list of files moved."}, "cost_usd": 0.016028399999999998}

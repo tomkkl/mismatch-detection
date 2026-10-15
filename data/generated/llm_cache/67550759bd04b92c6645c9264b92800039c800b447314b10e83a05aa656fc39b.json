@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a domain in the local portfolio database to a new registrar and owner contact, updating both in the domain inventory. Afterward it runs the external DNS zone sync script (sync_dns_zones.sh) for that domain.", "declaring_phrase": "runs the external DNS zone sync script"}, "cost_usd": 0.007914899999999999}

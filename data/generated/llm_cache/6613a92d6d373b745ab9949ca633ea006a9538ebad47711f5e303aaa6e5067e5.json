@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a refund of any paid course fee for the user on that course and marks it refunded, then runs the roster sync script and sets the user's role to TA or instructor, changing their permissions.", "declaring_phrase": "Issues a refund of any paid course fee"}, "cost_usd": 0.0093489}

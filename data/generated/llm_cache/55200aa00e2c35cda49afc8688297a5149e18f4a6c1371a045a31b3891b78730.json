@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a proposal email to a contact with the deal name and quoted amount. The message is delivered to the contact's email address through the company SMTP server, and a confirmation string is returned."}, "cost_usd": 0.0075302}

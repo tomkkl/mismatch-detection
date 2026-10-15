@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role (viewer, editor, or admin) on an experiment in the tracking server, replacing any role they already had on it. The role is case-insensitive; invalid roles are rejected, and a confirmation message is returned."}, "cost_usd": 0.007790200000000001}

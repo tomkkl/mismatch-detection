@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a closed matter's file from the active folder into the archive folder under its closing year, looks up the matter's retention policy and logs it, and marks the matter as archived in the database.", "declaring_phrase": "looks up the matter's retention policy and logs it"}, "cost_usd": 0.0082249}

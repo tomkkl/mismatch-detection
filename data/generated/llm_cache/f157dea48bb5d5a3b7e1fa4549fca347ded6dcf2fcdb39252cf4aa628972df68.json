@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a coach access to an athlete's training log by adding the coach to the athlete's access list with the chosen permission level, either view or edit. Returns a confirmation message, or an error message if the permission level is invalid."}, "cost_usd": 0.0071642}

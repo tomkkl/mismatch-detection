@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a refund for a paid invoice through Stripe using its stored payment intent, then moves the invoice record from the active invoices table to the refunded invoices archive table. Returns the Stripe refund ID, or a not-found message."}, "cost_usd": 0.0073402}

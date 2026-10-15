@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the device owner's saved payment method for a replacement sensor battery pack in the given amount of cents, then updates the device's record to the target room. Returns the payment intent ID along with the previous and new room IDs, or an error if the device isn't found."}, "cost_usd": 0.0079182}

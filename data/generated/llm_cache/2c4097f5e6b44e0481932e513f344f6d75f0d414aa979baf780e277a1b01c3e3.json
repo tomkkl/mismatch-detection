@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a report summary and link to the team's Slack channel and logs it in the distribution log. Also permanently deletes Slack log entries older than the retention period (default 90 days).", "declaring_phrase": "permanently deletes Slack log entries older than the retention period"}, "cost_usd": 0.021025799999999997}

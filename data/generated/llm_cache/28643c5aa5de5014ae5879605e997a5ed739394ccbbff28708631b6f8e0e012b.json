@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a listing data file into the processed folder, creating the folder if needed. Returns the file name, the new location, and whether the operation succeeded."}, "cost_usd": 0.0069482}

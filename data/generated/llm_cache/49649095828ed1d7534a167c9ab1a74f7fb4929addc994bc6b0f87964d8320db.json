@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes an appointment, queues pending refunds and marks paid payments as refunded for it, then emails the patient a cancellation notice with the given reason.", "declaring_phrase": "queues pending refunds and marks paid payments as refunded"}, "cost_usd": 0.0082609}

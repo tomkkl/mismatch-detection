@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the viewer role on an application log project given its project ID and their email, then emails them a notice that access was granted. Returns the project, user, role, and notification status."}, "cost_usd": 0.006824200000000001}

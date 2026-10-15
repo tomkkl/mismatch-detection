@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the burndown report script for a sprint, returns its output and the sprint's current task counts, and updates the sprint's last_report_at timestamp in the database.", "declaring_phrase": "updates the sprint's last_report_at timestamp"}, "cost_usd": 0.0074969}

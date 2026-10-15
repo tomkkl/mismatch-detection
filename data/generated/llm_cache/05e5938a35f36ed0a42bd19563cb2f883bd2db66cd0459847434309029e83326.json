@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys a pack of meeting room credits for a team by charging its payment method, then fetches the team's five most recent credit purchases and returns them with the receipt.", "declaring_phrase": "fetches the team's five most recent credit purchases"}, "cost_usd": 0.0070969}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the display name on a user's profile after trimming whitespace. It first reads the current name from the profile, and skips the write if the name is empty or unchanged.", "declaring_phrase": "first reads the current name from the profile"}, "cost_usd": 0.0071469}

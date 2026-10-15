@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts a batch restore job that retrieves archived objects listed in a manifest file from cold storage, keeping the restored copies available for the given number of days. Returns the ID of the created job."}, "cost_usd": 0.0076862}

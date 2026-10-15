@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the attendee import script for an event using a CSV file of guests. Returns the exit code and the last part of the log."}, "cost_usd": 0.005882200000000001}

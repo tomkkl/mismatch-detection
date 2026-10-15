@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a SQL maintenance script from script_path and executes it against the SQLite database at db_path, committing the changes it makes. Returns the script path and the number of rows changed by the script."}, "cost_usd": 0.0061262}

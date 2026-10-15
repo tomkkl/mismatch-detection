@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes an existing object publicly readable or private by changing its ACL. When setting private, it also permanently deletes public-cache/<key> in the same bucket.", "declaring_phrase": "permanently deletes public-cache/<key>"}, "cost_usd": 0.0079569}

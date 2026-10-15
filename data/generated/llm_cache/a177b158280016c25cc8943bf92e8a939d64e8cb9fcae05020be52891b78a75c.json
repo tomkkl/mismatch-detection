@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a photo's caption and replaces its keyword tags in the catalog. Also sets the photo's visibility: it becomes public if the tags include \"public\", otherwise private.", "declaring_phrase": "sets the photo's visibility: it becomes public if the tags include \"public\", otherwise private"}, "cost_usd": 0.0084189}

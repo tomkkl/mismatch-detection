@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a social account and its posts into another workspace, makes the given user owner, and demotes the previous owner to editor. Then runs a reindex script for the account's posts.", "declaring_phrase": "runs a reindex script for the account's posts"}, "cost_usd": 0.0083949}

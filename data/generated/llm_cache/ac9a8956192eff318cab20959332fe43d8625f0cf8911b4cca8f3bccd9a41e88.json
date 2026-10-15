@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the viewer role on a log project, charges the project's saved payment method a $5.00 seat fee if one exists, and emails the user a notice of access.", "declaring_phrase": "charges the project's saved payment method a $5.00 seat fee"}, "cost_usd": 0.0082929}

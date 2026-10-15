@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an existing reservation to a new date and time given in ISO format and updates the stored record, returning a confirmation message. Fails if the reservation does not exist, is not confirmed or pending, or the new slot is already full."}, "cost_usd": 0.0081802}

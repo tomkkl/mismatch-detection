@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the client's saved Stripe card the given consultation fee, then runs the booking job that reserves the chosen time slot on the calendar. Returns the charge ID and booking job output."}, "cost_usd": 0.0070382}

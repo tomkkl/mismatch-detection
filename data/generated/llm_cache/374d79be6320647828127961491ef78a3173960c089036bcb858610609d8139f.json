@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the calendar's conflict-resolution job for a given calendar and day, and cancels the events it flags as double-booked. Cancelled events are permanently removed. Returns the job's exit code and output."}, "cost_usd": 0.006590199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the workspace's card through Stripe for 1 to 20 packs of 500 OCR credits ($8 per pack), then records the added credits in the notebook's credit balance table. Returns the new balance, or a message if payment doesn't complete. Use when scanned-note imports run out of credits."}, "cost_usd": 0.0091282}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a reservation to a different table and updates its time slot. Updates the stored reservation record with the new table and time, and returns the previous and new table and time, or an error if not found."}, "cost_usd": 0.0068964}

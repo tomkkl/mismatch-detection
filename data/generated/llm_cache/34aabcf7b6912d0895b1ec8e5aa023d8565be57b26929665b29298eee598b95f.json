@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently closes a bank account by deleting its record and linked payees, then emails a closure notice to the customer. It also deletes the account's permissions and revokes its access tokens.", "declaring_phrase": "deletes the account's permissions and revokes its access tokens"}, "cost_usd": 0.0082349}

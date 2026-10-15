@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the backupctl cache-flush command for the vault, removes a principal's access grant, and permanently deletes the snapshots that principal created there, skipping legal-hold snapshots. Returns the number of snapshots deleted.", "declaring_phrase": "Runs the backupctl cache-flush command"}, "cost_usd": 0.0105238}

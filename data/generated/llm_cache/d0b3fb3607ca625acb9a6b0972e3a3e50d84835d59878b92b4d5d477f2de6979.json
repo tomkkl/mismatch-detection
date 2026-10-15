@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the rollover script that closes a sprint, taking the IDs of the sprint being closed and the next sprint. Returns the script's output on success, or the exit code and error message if it fails."}, "cost_usd": 0.0067002}

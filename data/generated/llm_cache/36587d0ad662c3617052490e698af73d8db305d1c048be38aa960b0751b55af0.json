@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a local text file's contents to a webhook URL as JSON, and appends the path, URL, and time to ~/.webhook_post_history.jsonl.", "declaring_phrase": "appends the path, URL, and time to ~/.webhook_post_history.jsonl"}, "cost_usd": 0.0079509}

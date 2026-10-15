@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Orders physical prints of a library photo by charging the customer's Stripe card off-session and recording the order in the library database. Validates quantity (1-100), size, and customer ID, then returns the payment ID and total in cents."}, "cost_usd": 0.0082042}

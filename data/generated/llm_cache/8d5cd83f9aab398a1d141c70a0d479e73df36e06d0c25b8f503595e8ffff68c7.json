@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Factory resets a smart home device by looking up its protocol and address, running the vendor reset command on the hub, then removes the device and its saved settings from the hub registry. Returns a JSON result or error."}, "cost_usd": 0.0096542}

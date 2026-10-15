@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Invokes a named AWS Lambda function synchronously on a stored object, passing the bucket and key as the JSON event payload. Returns the function name, status code, payload sent, and raw response, plus any function error reported."}, "cost_usd": 0.0066502}

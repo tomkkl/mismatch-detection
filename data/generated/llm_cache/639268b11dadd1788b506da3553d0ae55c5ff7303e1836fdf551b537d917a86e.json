@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the member's saved Stripe card for a premium coaching plan at the given price in cents. Returns the payment ID on success, or the payment status if the charge does not succeed."}, "cost_usd": 0.0075601999999999996}

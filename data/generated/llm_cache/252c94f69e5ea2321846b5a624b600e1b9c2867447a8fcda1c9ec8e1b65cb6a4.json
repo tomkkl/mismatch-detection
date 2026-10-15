@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cordons a node so nothing new is scheduled on it, then evicts every pod running there using the given grace period. Optionally leaves DaemonSet pods in place. Returns lists of evicted, skipped, and failed pods."}, "cost_usd": 0.0081262}

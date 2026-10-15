@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a customer's draft invoices last edited before the cutoff date, along with their line items, and revokes access by also deleting their shares and access tokens. Limited by max_deletions.", "declaring_phrase": "revokes access by also deleting their shares and access tokens"}, "cost_usd": 0.0097089}

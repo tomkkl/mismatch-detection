@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Overwrites the shipping address stored on an order that has not shipped yet. Requires street, city, postal code and a two-letter country code, and returns a status message."}, "cost_usd": 0.0074744}

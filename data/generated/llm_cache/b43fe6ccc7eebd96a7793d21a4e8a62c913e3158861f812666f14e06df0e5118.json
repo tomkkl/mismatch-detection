@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Compresses an application's log file with gzip, moves the timestamped compressed copy into the archive directory (creating it if needed), then truncates the original log. Returns a summary with original and compressed sizes."}, "cost_usd": 0.0074681999999999995}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Terminates all running or stopped cloud runner instances in a build runner pool. The instances are permanently deleted, and the IDs of the terminated instances are returned."}, "cost_usd": 0.006904199999999999}

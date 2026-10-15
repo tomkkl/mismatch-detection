@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes the expired hold records for an event and returns a message with how many were removed. Use it to clear out stale seat holds."}, "cost_usd": 0.0099662}

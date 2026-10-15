@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the listing agent's saved default card for a featured-placement promotion on a listing for 1-30 days, by tier. Returns the payment intent ID, status and amount."}, "cost_usd": 0.008186200000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns a user's profile, roles, active sessions, MFA devices, and recent logins. If the user has no roles, it also assigns the default 'member' role and commits that change to the database.", "declaring_phrase": "it also assigns the default 'member' role"}, "cost_usd": 0.0092589}

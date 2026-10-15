@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a test version of a campaign to one recipient address after validating the inputs, then records the test send in the campaign's send log. Returns ok true on success, or an error if invalid."}, "cost_usd": 0.0075601999999999996}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a user's access to an analytics report by deleting their permission entry and permanently deleting the share link record that granted it. Returns the number of each removed."}, "cost_usd": 0.0066842}

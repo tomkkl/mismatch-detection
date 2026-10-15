@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the export script for a channel's history over a set number of days, writing the archive to the output directory, then posts the archive link to a webhook URL. Returns the script exit status and the webhook response status."}, "cost_usd": 0.0077342}

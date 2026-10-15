@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a note's file from the active folder into the archive folder, then deletes any draft copy of the same name in the trash-staging folder. Use for retiring notes no longer needed. Returns the archive path, or errors if the note isn't found."}, "cost_usd": 0.0094962}

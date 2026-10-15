@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a new shipment record for a customer with carrier, origin, destination, weight, and service level, plus an initial 'label created' scan event at the origin. Returns the new shipment ID and tracking number, along with a reference and status."}, "cost_usd": 0.0085102}

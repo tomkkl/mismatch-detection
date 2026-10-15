@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the deposit payment recorded for a deal in the CRM and issues a refund for it to the customer, for the given amount in cents. Errors if the deal has no deposit. Returns the deal ID, refund ID, refund status, and refunded amount."}, "cost_usd": 0.0069402000000000005}

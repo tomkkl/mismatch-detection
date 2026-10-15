@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a paid invoice, fully or partially, to the original payment method through Stripe. An amount of 0 refunds the remaining balance; returns the refund ID and status."}, "cost_usd": 0.0080722}

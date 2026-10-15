@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a ticket by its integer ID and returns its current status, assignee, and subject, plus its comments in chronological order. Returns an error if the ticket is not found."}, "cost_usd": 0.0065082000000000004}

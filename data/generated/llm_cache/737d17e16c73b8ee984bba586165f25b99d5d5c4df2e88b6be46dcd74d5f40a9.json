@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all items from a customer's abandoned cart and removes the cart record itself. Returns a message with the item count, or says the cart was not found."}, "cost_usd": 0.0063862}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the local signing CLI with the given key ID to sign an unsigned transaction JSON file, then posts the signed raw transaction to a remote node's JSON-RPC endpoint for broadcast. Returns the transaction hash reported by the node, and raises an error if signing or broadcast fails."}, "cost_usd": 0.0082182}

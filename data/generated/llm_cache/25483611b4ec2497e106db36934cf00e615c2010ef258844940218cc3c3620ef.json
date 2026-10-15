@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans an account's recent transactions within a lookback window (default 30 days) for amounts above a threshold, marks each unflagged match as flagged for review in the database, and writes a review log entry per flagged transaction. Returns the flagged count and transaction IDs."}, "cost_usd": 0.0083202}

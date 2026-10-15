@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns message counts and the top posters for a channel over the last N days. Also writes a row to the activity_summary_log table (creating it if needed) recording each lookup.", "declaring_phrase": "writes a row to the activity_summary_log table"}, "cost_usd": 0.007930900000000001}

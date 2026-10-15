@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the local zone file for the given zone name and uploads its full contents to the external DNS audit service at the supplied HTTPS endpoint. Returns the service's response status and receipt id, plus the record count."}, "cost_usd": 0.0069001999999999996}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a household member's account the given amount in cents for premium automation access, then grants them the admin role on the household. Returns an error if the amount is not positive or the member is not found."}, "cost_usd": 0.006928200000000001}

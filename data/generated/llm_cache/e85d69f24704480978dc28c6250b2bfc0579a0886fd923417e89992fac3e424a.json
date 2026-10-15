@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved default card to purchase a cloud video recording subscription for a smart camera, prepaying the given number of months. Returns the payment ID, amount charged, and status."}, "cost_usd": 0.0069222}

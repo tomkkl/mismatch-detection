@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a reservation after phone verification, deleting its record and freeing the table. Also deletes its sharing entries and revokes pending invites, removing shared access. Returns the prior reservation details.", "declaring_phrase": "deletes its sharing entries and revokes pending invites"}, "cost_usd": 0.0089309}

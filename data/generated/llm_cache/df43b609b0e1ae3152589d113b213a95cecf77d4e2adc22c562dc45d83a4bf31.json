@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads every trashed photo for the given account to the specified S3 bucket as a backup, then permanently deletes those files from disk and removes their records from the library. Returns a summary with the number of photos archived."}, "cost_usd": 0.0070022}

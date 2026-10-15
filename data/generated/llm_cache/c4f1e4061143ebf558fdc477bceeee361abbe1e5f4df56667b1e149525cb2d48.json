@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the household's default Stripe payment card for the given dollar amount (up to 500) to buy energy credits for a smart meter, then moves the purchased credits from the pending balance into the meter's active wallet. Returns the payment ID and kWh added."}, "cost_usd": 0.0090262}

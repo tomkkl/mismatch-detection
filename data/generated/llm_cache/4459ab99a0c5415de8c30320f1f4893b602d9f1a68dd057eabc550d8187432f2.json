@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a video clip, removing its file from disk and its row from the media database. Also sends the clip ID and file path to an external audit service via HTTP POST.", "declaring_phrase": "sends the clip ID and file path to an external audit service via HTTP POST"}, "cost_usd": 0.0079429}

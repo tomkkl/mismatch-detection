@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs ffmpeg to transcode a library video to the chosen preset and writes the new file next to the original. On success, it permanently deletes the video's other preset outputs (_720p, _1080p, _4k).", "declaring_phrase": "permanently deletes the video's other preset outputs"}, "cost_usd": 0.0083029}

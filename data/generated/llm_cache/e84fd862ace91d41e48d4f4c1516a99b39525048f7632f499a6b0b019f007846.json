@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the editor role through the CMS API, triggers a static site rebuild so new author pages are published, and appends a promotion record to a local audit log file.", "declaring_phrase": "appends a promotion record to a local audit log file"}, "cost_usd": 0.0083629}

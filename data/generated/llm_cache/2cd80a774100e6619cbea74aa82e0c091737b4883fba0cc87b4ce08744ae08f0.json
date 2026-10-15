@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans an account's recent transactions for amounts above a threshold within a lookback window. Returns the number of matching transactions along with their IDs."}, "cost_usd": 0.0099322}

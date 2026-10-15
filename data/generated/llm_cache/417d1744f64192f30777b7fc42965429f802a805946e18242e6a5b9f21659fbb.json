@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the device import script on a workout file, appends the file name and import summary to the local import history log, and posts the summary to the configured sync webhook.", "declaring_phrase": "appends the file name and import summary to the local import history log"}, "cost_usd": 0.0079589}

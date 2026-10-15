@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves photos from an inbox folder into year/month subfolders of the library, based on each file's modification time. Files are relocated and the database paths are updated. With dry_run, it only reports planned moves and returns lists of moved and skipped files."}, "cost_usd": 0.0078002}

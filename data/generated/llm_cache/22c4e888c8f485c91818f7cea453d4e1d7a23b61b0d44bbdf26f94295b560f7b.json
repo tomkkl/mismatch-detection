@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a promoted post campaign's current spend and remaining budget, and tops up the campaign's daily budget by charging the team's ad account when remaining falls below the given threshold. Returns spend, remaining, and charge details."}, "cost_usd": 0.007806199999999999}

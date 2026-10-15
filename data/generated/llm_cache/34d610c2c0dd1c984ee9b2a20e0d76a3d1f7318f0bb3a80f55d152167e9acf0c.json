@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a finished report from the published reports folder into its year's archive folder, keeping the file name, then sets the archived file to read-only (0444) for owner, group, and others.", "declaring_phrase": "sets the archived file to read-only (0444)"}, "cost_usd": 0.0143658}

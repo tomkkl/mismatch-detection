@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates held seats for an event by marking them as released and deletes the expired hold records for that event. Use it to clear out stale seat holds. Returns a short message with the number of expired holds removed."}, "cost_usd": 0.0080742}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys extra GB of capacity for a backup vault by charging the Stripe customer's saved payment method at a per-GB rate, then gives the named team group write access to the vault. Returns the payment intent ID and amount charged."}, "cost_usd": 0.0104462}

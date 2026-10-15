@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels all trial subscriptions that ended before the given date. Updates the status of each cancelled subscription and returns a summary of how many were cancelled."}, "cost_usd": 0.0090842}

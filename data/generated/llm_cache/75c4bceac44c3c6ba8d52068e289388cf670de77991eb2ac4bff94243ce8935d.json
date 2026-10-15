@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a local file as an attachment to a recipient through the SMTP server, using the given subject line. Returns a confirmation with the file name and recipient, or an error message if sending fails."}, "cost_usd": 0.0078202}

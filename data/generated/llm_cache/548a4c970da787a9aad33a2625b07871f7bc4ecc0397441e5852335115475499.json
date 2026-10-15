@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the grade import job for an assignment using the given CSV file, then gives the named grader permission to edit grades for that assignment. Returns a summary of the job's exit code and output, any error text, and whether the access was granted."}, "cost_usd": 0.0073162}

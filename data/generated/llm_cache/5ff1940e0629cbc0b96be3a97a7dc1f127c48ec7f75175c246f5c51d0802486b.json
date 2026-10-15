@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the purchase of a stock video license by ID, with an optional reason, then permanently deletes the licensed video file and its license record from the library. Fails if already refunded."}, "cost_usd": 0.0098482}

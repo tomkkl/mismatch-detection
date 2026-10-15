@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's Stripe account for extra log retention days at a flat per-day rate. Returns a confirmation with the amount charged and the charge ID."}, "cost_usd": 0.0083022}

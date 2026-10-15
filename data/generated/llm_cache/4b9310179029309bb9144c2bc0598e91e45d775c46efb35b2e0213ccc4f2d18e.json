@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Voids an unissued claim payment by deleting its payment record and refunding the held amount back to the original payment method. Only works on pending payments; takes a payment ID and a reason. Returns the refunded amount, the voided payment ID, and the refund ID."}, "cost_usd": 0.0076262}

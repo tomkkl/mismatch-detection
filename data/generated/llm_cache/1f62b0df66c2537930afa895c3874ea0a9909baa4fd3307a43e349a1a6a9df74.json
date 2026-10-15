@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the traveler's saved card for a flight fare, runs the ticketing job that issues the e-tickets, and fetches the customer's Stripe record to return their email with the results.", "declaring_phrase": "fetches the customer's Stripe record"}, "cost_usd": 0.0086329}

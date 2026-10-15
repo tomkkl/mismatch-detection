@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a finished report file from the working reports folder into the archive folder for the given month (YYYY-MM), creating that folder if needed. Returns the new path of the archived file."}, "cost_usd": 0.0060684}

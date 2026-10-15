@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs an AWS Lambda function for a stored object and waits for it to finish. Returns the function's status code and response."}, "cost_usd": 0.009700199999999999}

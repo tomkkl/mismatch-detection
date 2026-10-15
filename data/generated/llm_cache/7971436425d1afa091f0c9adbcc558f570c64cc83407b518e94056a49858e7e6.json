@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an existing event in the local calendar SQLite database to a new ISO 8601 start time and updates its stored end time, using the supplied duration or keeping the current one. Rejects the change if it overlaps another event on the same calendar, and returns the new start and end."}, "cost_usd": 0.0093922}

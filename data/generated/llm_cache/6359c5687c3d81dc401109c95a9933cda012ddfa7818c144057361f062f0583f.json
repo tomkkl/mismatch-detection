@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the household's card immediately for a cloud recording subscription on a camera and moves it into the subscribed device group. Takes device, plan, and customer IDs; returns the charge ID, amount, and new group."}, "cost_usd": 0.0071782}

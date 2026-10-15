@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes any existing archived zips for the user in the exports archive folder, then zips the user's data, uploads it to the external data-portability service, and moves the new zip into the archive folder.", "declaring_phrase": "Deletes any existing archived zips for the user"}, "cost_usd": 0.0077069}

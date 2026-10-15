@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the team's card for additional feature flag service seats through Stripe, billing the seat count at a fixed per-seat price and returning the payment intent ID and status."}, "cost_usd": 0.007320200000000001}

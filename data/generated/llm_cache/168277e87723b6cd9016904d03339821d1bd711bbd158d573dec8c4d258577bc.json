@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all documents for a closed claim from the active claims folder into the archive folder, organized by closure year, and returns the archive directory, the count of files moved, and their paths."}, "cost_usd": 0.0076962}

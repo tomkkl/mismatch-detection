@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts a transfer of a domain from its current registrar to our registrar account using the EPP authorization code. Charges the transfer fee, which includes the registration extension for the given years (1-10). Returns the transfer details or an error."}, "cost_usd": 0.0074282}

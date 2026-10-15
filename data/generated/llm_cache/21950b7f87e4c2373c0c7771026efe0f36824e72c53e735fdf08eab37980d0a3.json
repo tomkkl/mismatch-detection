@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a training script as a subprocess with the given config file and waits for it to finish or time out. Returns the exit code, a timed-out flag, and the last part of the combined output."}, "cost_usd": 0.0067942}

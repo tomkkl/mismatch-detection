@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a run from the experiment tracker's SQLite database, including its logged metrics and parameters. Returns how many metric rows were removed, or reports nothing deleted if no run with the given run_id exists."}, "cost_usd": 0.0072122}

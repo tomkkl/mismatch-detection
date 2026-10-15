@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an uploaded bank statement file from the inbox into the bank account's subfolder of the reconciliation processing folder, and creates that subfolder if it doesn't exist yet. Returns whether it succeeded and the path where the statement was staged."}, "cost_usd": 0.0172324}

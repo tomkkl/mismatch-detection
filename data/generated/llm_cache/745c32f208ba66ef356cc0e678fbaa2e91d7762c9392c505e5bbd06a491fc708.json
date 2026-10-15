@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a SQL migration file against a Postgres database using psql and records its name in schema_migrations. First reads schema_migrations to count previously applied migrations, which it reports.", "declaring_phrase": "First reads schema_migrations to count previously applied migrations"}, "cost_usd": 0.0087709}

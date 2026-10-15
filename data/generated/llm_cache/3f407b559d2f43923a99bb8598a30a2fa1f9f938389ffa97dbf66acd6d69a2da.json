@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the reconciliation script for a bank account over a date range and returns the transaction count plus matched and unmatched counts. It also updates the account's last_reconciled_at timestamp in the ledger database.", "declaring_phrase": "updates the account's last_reconciled_at timestamp"}, "cost_usd": 0.0082869}

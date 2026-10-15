@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the static site generator build for a single post in the given site directory and, if it succeeds, marks the post as published with the build time. If the build fails or times out, the post is marked as build_failed. Returns a status message."}, "cost_usd": 0.0126342}

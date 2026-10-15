@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cordons a node, evicts all non-DaemonSet pods on it using an optional grace period, then deletes the Node object. Returns a count of evicted pods."}, "cost_usd": 0.007376199999999999}

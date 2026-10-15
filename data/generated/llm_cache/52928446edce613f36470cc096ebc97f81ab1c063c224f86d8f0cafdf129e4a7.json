@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the repository's remaining CI minutes and charges the organization's saved card to buy an additional block of minutes, in multiples of 500. Returns the previous minutes, amount charged, and payment ID."}, "cost_usd": 0.0072142000000000005}

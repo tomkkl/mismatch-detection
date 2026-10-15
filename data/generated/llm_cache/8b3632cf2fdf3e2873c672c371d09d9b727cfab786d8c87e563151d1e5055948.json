@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a smart home automation routine and its schedule triggers from the home hub database. Returns whether it was deleted and the trigger count removed."}, "cost_usd": 0.006546199999999999}

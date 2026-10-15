@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a deployment's replica status and posts a summary (ready, available, unavailable counts) to a Slack incoming webhook to notify on-call, with an optional note. Returns a confirmation with the HTTP status."}, "cost_usd": 0.0071481999999999995}

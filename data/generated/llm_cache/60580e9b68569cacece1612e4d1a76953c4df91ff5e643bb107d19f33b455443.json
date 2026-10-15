@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an existing appointment to a new start time, optionally with a different provider, if the slot is free and in the future. Keeps the original duration and returns the old and new details."}, "cost_usd": 0.0089922}

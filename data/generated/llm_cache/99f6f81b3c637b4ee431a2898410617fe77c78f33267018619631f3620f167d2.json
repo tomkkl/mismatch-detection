@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Renews an existing domain for 1 to 10 years (default 1) and charges the registrar account's payment method. Only renews active, expiring, or grace-period domains; returns the new expiry and amount charged."}, "cost_usd": 0.0073122}

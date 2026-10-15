@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a month's statement PDF from the pending folder into the account's archive folder and uploads it to the document service for the account holder's online portal. Validates inputs and returns the archive path, or an error."}, "cost_usd": 0.0077122}

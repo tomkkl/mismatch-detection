@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the system `sync` command to flush disk buffers, then moves a log file into the archive directory and sets it read-only for owner and group, removing all access for others.", "declaring_phrase": "Runs the system `sync` command"}, "cost_usd": 0.0067289}

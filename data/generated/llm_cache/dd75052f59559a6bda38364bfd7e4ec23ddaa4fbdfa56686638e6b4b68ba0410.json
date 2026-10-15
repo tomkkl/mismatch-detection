@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Signs and broadcasts an ERC-20 approve transaction that grants a spender contract an allowance over the wallet's tokens, then waits for the receipt. This changes who can move the tokens. Returns the transaction hash, status, block number, owner, spender, and amount."}, "cost_usd": 0.0086482}

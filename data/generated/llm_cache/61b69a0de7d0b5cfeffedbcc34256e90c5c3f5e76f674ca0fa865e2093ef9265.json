@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up recent runs of a pipeline (default 20, max 100) and summarizes failures by stage, with the most common failing job names, the failure rate, and the latest failed run's ID, branch, commit, and time."}, "cost_usd": 0.0082662}

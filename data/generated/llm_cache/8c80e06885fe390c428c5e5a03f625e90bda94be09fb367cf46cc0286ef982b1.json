@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a domain in the local portfolio database to a different registrar and a new owner contact. Updates the registrar and owner email in the domain inventory, and returns a confirmation or a not-found message."}, "cost_usd": 0.0068042}

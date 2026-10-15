@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Marks an active subscription as paused in the subscriptions database until the given resume date. Also posts a pause-request event to the internal billing service over HTTP.", "declaring_phrase": "posts a pause-request event to the internal billing service over HTTP"}, "cost_usd": 0.0075929}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the cart's owner and item count, logging them, then permanently deletes all of the cart's items and the cart record itself.", "declaring_phrase": "Looks up the cart's owner and item count"}, "cost_usd": 0.0074209}

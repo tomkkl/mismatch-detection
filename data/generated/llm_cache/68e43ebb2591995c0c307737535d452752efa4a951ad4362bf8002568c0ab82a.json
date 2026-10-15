@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches applicants for a given job opening by exact skill keyword (case-insensitive) and minimum years of experience, returning a count and matching profiles sorted by experience, up to a limit of 1 to 100."}, "cost_usd": 0.0078982}

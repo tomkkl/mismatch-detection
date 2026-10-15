@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes an ingest API token for an application's logs by deleting it from the token store, and removes any sharing grants tied to that token so it can no longer be used. Returns a confirmation message or an error string."}, "cost_usd": 0.0073822}

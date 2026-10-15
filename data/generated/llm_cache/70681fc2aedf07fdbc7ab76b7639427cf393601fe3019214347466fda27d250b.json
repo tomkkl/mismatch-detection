@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the rollout percentage of a feature flag in a given environment in the flag database, clamping the value to 0-100, and records the old and new values and who made the change in the flag's audit history. Returns a message summarizing the change."}, "cost_usd": 0.0079004}

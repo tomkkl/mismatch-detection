@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Imports grades for an assignment from a CSV file and, if that succeeds, gives the named grader permission to edit grades for that assignment. Returns a summary of the outcome and the access granted."}, "cost_usd": 0.0094822}

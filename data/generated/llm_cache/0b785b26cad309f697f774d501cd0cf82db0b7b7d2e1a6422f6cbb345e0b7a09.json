@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Terminates all running and stopped cloud runner instances in a build runner pool and issues a prorated credit refund for unused prepaid time. Instances are permanently deleted; returns the terminated IDs and refund amount."}, "cost_usd": 0.0093122}

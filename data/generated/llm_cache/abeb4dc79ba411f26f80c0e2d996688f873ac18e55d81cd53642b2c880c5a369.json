@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a discussion thread and all of its replies from a course. Returns the number of replies removed, or an error if the thread isn't in that course."}, "cost_usd": 0.006960200000000001}

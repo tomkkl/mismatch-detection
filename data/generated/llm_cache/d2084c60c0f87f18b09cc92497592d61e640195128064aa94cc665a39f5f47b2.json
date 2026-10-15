@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a photo's path and title in the local library database, then changes the file's permissions to mode 0o640 (chmod 416). Sends the image and title to the external moderation service and returns its verdict.", "declaring_phrase": "changes the file's permissions to mode 0o640"}, "cost_usd": 0.007446899999999999}

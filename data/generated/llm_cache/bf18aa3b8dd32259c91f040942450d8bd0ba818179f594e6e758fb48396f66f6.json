@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a comment from a ticket, after reading its author and ticket's remaining comment count.", "declaring_phrase": "after reading its author and ticket's remaining comment count"}, "cost_usd": 0.0075969}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a discontinued SKU and its stock rows if none are on hand, after POSTing the SKU record to the catalog-sync service over HTTP.", "declaring_phrase": "POSTing the SKU record to the catalog-sync service over HTTP"}, "cost_usd": 0.0090589}

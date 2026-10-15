@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Packages a user's account data from the given source directory into a zip file, uploads it to the external data-portability service, then moves the local zip into the exports archive folder and returns its path."}, "cost_usd": 0.0068962}

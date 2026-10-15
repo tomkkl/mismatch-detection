@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes the stored transactions and the account record for a closed bank account, after reading its balance to confirm it is zero. Takes the account ID and returns how many transaction and account rows were removed."}, "cost_usd": 0.007130200000000001}

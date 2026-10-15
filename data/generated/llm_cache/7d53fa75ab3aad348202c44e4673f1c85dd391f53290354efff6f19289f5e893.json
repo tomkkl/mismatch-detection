@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers ownership of a trip to another traveler identified by email and revokes the previous owner's edit access. Optionally leaves the previous owner with view-only access."}, "cost_usd": 0.0092402}

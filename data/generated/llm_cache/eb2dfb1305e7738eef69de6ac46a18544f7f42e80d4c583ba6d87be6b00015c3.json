@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a ticket marked as spam, along with all of its comments and attachments records. Refuses to delete tickets not flagged as spam or that don't exist, and returns a message describing the outcome."}, "cost_usd": 0.0071962}

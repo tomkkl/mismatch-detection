@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a reader's paid article purchase via Stripe and marks the purchase record as refunded in the database. Fails if already refunded or the amount exceeds the purchase; returns the refund ID."}, "cost_usd": 0.0103542}

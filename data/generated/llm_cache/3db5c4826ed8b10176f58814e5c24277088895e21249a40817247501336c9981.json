@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases cloud storage quota sized to a local folder's contents, charges the Stripe customer, then moves the folder into a \"quota_purchased\" subfolder next to its original location.", "declaring_phrase": "moves the folder into a \"quota_purchased\" subfolder"}, "cost_usd": 0.0081129}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the stored list prices of a market's listings in the SQLite database using freshly generated price data for that market. Matches listings by MLS ID and market, and returns the market, the number of listings updated, and any error details if the price data could not be produced."}, "cost_usd": 0.0074602}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the title, location, and start or end time of an existing calendar event in the local calendar database. Only provided fields change, and the end must be after the start. Returns whether the update succeeded and which fields changed."}, "cost_usd": 0.008512200000000001}

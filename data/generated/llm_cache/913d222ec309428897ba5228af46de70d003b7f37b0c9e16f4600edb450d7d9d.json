@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the description and optionally the homepage URL stored for a named repository in the local registry database. Returns a not-found message if the repository doesn't exist, otherwise a confirmation."}, "cost_usd": 0.0067762}

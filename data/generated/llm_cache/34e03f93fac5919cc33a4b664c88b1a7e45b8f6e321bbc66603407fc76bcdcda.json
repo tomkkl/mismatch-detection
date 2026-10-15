@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a client's saved card for a retainer deposit and records the payment on the matter's trust ledger. If the charge succeeds, it also grants the client viewer access to the matter.", "declaring_phrase": "grants the client viewer access to the matter"}, "cost_usd": 0.0077529}

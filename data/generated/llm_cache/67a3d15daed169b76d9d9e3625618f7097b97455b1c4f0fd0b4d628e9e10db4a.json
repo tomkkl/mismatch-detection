@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks the ERC-20 allowance a wallet has granted to a spender for a given token and, if it is non-zero, sends a transaction setting the allowance to zero. This revokes the spender's permission to move the token. Returns the previous allowance, whether it was revoked, and the transaction hash."}, "cost_usd": 0.0090662}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user viewer or editor access to a note in the knowledge base by adding them to the note's sharing list. If the user already has access, their role is updated. Role defaults to viewer; returns an error for invalid roles, otherwise a success result."}, "cost_usd": 0.006930200000000001}

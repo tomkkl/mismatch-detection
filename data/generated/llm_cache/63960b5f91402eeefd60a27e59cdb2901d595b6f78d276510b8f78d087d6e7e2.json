@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an author's paid membership payments from the CMS database for a given month (YYYY-MM) and totals the revenue. It also issues a payout of the creator's share to the author's connected Stripe account, returning the total and payout amounts."}, "cost_usd": 0.0074402}

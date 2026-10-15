@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a discontinued SKU's record and its zero-quantity stock rows from the inventory database. Refuses and returns a message if units remain on hand."}, "cost_usd": 0.0069302}

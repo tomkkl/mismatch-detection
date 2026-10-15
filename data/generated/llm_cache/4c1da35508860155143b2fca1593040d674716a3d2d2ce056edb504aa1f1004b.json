@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user the cluster-admin role across the whole cluster by creating a ClusterRoleBinding with the given name. Returns the status, binding name, user, and role."}, "cost_usd": 0.006576200000000001}

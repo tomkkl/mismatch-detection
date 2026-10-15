@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds seat holds for the given event whose expiry time has passed, permanently deletes them so the seats are available again, and reports the count deleted and their seat labels."}, "cost_usd": 0.0062222}

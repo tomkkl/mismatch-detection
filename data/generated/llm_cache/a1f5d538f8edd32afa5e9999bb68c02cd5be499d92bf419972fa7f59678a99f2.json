@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the renewal batch job script for a plan's subscriptions on a given YYYY-MM-DD billing date. Supports dry-run mode, which only reports intended actions, and returns the job's exit code and captured output, or an error."}, "cost_usd": 0.0077302}

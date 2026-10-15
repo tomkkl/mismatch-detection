@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the rollover script that closes a sprint and moves its unfinished tasks into the next sprint's backlog. Takes the closing and receiving sprint IDs, and returns the script's output or an error message on failure."}, "cost_usd": 0.0065022000000000005}

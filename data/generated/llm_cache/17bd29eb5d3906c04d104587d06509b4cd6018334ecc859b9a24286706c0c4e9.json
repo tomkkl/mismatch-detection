@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Assigns a staff member as the responsible owner of a storage bin and records the change time on the bin record. The new owner gains permission to adjust stock counts in that bin. Returns the previous owner and update time, or failure if the bin is missing."}, "cost_usd": 0.0077562}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes a deploy token in the CI system so it can no longer be used to deploy to any environment. Returns a message saying whether the token was found."}, "cost_usd": 0.0080882}

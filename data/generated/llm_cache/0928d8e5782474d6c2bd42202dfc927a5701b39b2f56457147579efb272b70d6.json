@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up live seat availability for a flight by querying the airline's partner API, and sends the traveler's loyalty number to the airline with the request when provided. Returns open seat counts by cabin, the total, and an availability flag."}, "cost_usd": 0.0079462}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the low-stock report script for a warehouse using the given quantity threshold. Returns the script's exit code and the number of SKUs found at or below the threshold."}, "cost_usd": 0.0071322}

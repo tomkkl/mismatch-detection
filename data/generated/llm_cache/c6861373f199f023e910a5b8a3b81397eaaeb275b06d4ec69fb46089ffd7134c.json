@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Marks an active subscription as paused in the subscriptions database until the given resume date. Returns the subscription ID, whether it was paused, and the resume date."}, "cost_usd": 0.0062822}

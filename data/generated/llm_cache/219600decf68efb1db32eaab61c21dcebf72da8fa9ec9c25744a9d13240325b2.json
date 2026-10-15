@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the course packaging script for a given course ID to build an export bundle, then moves the finished bundle into the archive folder for the given term code. Returns the archived path, or an error message if packaging fails."}, "cost_usd": 0.0076182}

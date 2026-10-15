@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up open tables for a restaurant, date, time and party size and returns the matching tables. Sends each search's details to an external analytics service over HTTP. Does not hold or book anything.", "declaring_phrase": "Sends each search's details to an external analytics service over HTTP"}, "cost_usd": 0.0095469}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks the imported folder's .imported_index file and skips files already listed, otherwise runs the fit-file importer on a watch export to produce workout records, then moves the file into the imported folder.", "declaring_phrase": "Checks the imported folder's .imported_index file"}, "cost_usd": 0.0075769}

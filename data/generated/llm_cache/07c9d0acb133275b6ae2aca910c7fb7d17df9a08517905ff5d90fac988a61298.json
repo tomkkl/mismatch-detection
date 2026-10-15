@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Lowercases and trims whitespace from email addresses in the users table of a SQLite database, updating only rows whose value actually changed, and returns the rows scanned, the rows updated, and a sample of changed rows (id, before, after) limited by sample_size."}, "cost_usd": 0.0078802}

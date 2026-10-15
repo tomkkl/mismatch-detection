@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a warehouse staff member's account by username and removes all of their role assignments and zone access grants. Their picking history is kept, but the account can no longer sign in. Returns a summary message with the counts of accounts, roles, and zone grants removed."}, "cost_usd": 0.0108222}

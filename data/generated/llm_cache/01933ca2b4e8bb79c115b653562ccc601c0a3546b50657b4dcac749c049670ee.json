@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a member the admin role in a channel and records the role change in the channel's membership table. Requires that the channel exists and isn't archived, that the granting user is already an admin, and that the target is a non-admin member."}, "cost_usd": 0.0113842}

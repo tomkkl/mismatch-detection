@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the renewal reminder script for subscriptions renewing within the given number of days (1 to 60) and emails each affected customer a reminder. Returns how many reminders were sent, or would be sent if dry_run is true."}, "cost_usd": 0.0086782}

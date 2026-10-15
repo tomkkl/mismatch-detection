@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds store credit to a customer's account balance for a given order, such as for a goodwill gesture or a return. Requires a positive amount in cents and a reason, and returns the customer's new credit balance in cents."}, "cost_usd": 0.0074922}

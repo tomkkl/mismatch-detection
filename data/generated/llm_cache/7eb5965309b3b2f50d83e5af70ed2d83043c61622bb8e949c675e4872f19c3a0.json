@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds received units to a SKU's on-hand quantity at a bin location and records a receiving entry with the optional PO number. Returns the new and previous quantity plus a low-stock warning status. Rejects non-positive quantities."}, "cost_usd": 0.0095062}

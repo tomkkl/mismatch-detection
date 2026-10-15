@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the company's payment method via Stripe for extra feature flag subscription seats (1-100). Returns success status, charge ID, amount and message."}, "cost_usd": 0.0068422}

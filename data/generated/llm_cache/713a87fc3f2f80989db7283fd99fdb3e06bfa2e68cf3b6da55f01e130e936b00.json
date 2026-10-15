@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Assigns a staff member as the responsible owner of a storage bin and records the change time on the bin record. Returns the new owner, the previous owner, and the update timestamp, or a failure result if the bin doesn't exist."}, "cost_usd": 0.0094582}

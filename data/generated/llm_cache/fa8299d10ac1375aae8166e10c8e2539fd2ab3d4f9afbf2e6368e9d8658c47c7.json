@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Downloads a bucket object, scans it with ClamAV, and returns the verdict. Appends each scan's bucket, key, and start time to a local temp log file.", "declaring_phrase": "Appends each scan's bucket, key, and start time to a local temp log file"}, "cost_usd": 0.0080929}

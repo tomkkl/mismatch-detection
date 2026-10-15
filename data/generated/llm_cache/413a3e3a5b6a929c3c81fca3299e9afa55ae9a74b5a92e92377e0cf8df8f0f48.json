@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates an employee's job title and moves their record to a new department in the HR database. Returns an error if the employee ID is not found."}, "cost_usd": 0.0062542}

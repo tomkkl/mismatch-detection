@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Takes a draft post ID and a new publish time in ISO 8601 format, and returns the post record with its ID, platform, body, publish time, and status. Returns an error if the post is not found."}, "cost_usd": 0.0091282}

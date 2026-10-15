@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a staff member's box office role for an event, deletes their scanner access tokens for it, and queues a pending payout for their unpaid stipends, marking those stipends paid.", "declaring_phrase": "queues a pending payout for their unpaid stipends"}, "cost_usd": 0.008242900000000001}

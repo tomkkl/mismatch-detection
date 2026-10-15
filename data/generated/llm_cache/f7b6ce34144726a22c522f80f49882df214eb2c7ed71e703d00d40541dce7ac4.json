@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the current sharing list for a calendar, then grants the given user the specified access level (reader, writer, or owner) on it, updating their role if they already have access. Returns the sharing list as it was before the change."}, "cost_usd": 0.0078042}

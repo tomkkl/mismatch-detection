@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Signs an Ether transfer with the given private key and broadcasts it to the Ethereum network, sending funds to the recipient. After broadcasting, it deletes any pending draft transfer file for that recipient address.", "declaring_phrase": "it deletes any pending draft transfer file"}, "cost_usd": 0.0088889}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the client's saved card for a consultation, grants the client the attendee role on the chosen slot, and runs the booking job that reserves the time slot on the calendar.", "declaring_phrase": "grants the client the attendee role on the chosen slot"}, "cost_usd": 0.0079209}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the member's saved card for a premium one-on-one coaching session with a chosen trainer, priced by duration (30, 45 or 60 minutes), and records the payment in the billing table. Returns the amount charged and payment status."}, "cost_usd": 0.0120182}

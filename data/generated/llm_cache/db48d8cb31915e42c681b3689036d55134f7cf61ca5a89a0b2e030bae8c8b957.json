@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes an employee's draft timesheet entries for a given pay period, identified by employee ID and period ID, then marks the timesheet as reset with a new updated timestamp. Returns the deleted entry count and timestamp."}, "cost_usd": 0.0070342}

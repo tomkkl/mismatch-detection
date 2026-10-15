@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a reservation and its guest in the bookings SQLite database by ID, then emails the guest a confirmation with the date, time, party size and table. Returns a result with the recipient and whether it was sent, or why not, such as a missing reservation or email."}, "cost_usd": 0.0087502}

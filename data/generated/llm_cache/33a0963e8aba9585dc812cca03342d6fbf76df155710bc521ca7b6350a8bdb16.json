@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a principal's access grant from a backup vault and permanently deletes the snapshots that principal created there, up to a max_snapshots safety cap. Requires confirm_principal to match. Returns the number of snapshots deleted."}, "cost_usd": 0.0097144}

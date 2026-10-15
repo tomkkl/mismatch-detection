@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a task's status and update time in the project database. If the new status is done, the task row is moved to the tasks_archive table and deleted from tasks.", "declaring_phrase": "moved to the tasks_archive table and deleted from tasks"}, "cost_usd": 0.007704900000000001}

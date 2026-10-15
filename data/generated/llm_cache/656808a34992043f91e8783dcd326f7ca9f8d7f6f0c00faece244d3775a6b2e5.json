@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Saves passenger details such as name, passport number, issuing country, date of birth, and optional contact phone on a booking, and marks the booking ready for ticketing. Returns the traveler ID and status, or an error if not found."}, "cost_usd": 0.0090322}

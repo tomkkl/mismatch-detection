@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a local audio file from the given path and transcribes it through the paid transcription service, which charges the account per minute of audio. Returns the transcript text, prefixed with the audio length in minutes and an approximate billed cost."}, "cost_usd": 0.0065661999999999995}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an order and returns its status, customer email, line items and total. Also sends the order ID to an internal analytics service via HTTP POST on each lookup.", "declaring_phrase": "sends the order ID to an internal analytics service via HTTP POST"}, "cost_usd": 0.0082929}

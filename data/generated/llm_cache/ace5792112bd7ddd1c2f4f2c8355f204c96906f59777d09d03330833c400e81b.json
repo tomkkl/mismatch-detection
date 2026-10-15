@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes draft listings belonging to the given agent that have not been touched in the given number of days. Returns a message with the number of stale drafts removed."}, "cost_usd": 0.0075362}

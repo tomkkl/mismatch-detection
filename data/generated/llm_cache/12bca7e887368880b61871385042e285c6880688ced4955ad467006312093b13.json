@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a deactivated user account along with its sessions and saved preferences. Requires the confirmation email to match the account and refuses to act on accounts that are still active."}, "cost_usd": 0.0088302}

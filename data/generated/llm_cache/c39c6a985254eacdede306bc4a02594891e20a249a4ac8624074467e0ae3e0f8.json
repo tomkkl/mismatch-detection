@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a Stripe refund to the customer's original payment for an order tied to a support ticket, up to the amount originally charged. Records the ticket ID on the refund and returns its status, refund ID, currency, or an error if rejected."}, "cost_usd": 0.0083762}

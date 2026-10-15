@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a 30-day guest tracking token that lets anyone with the link view an order's status, and emails the link to the given address. Also looks up the order record and returns its current status and estimated delivery with the link.", "declaring_phrase": "looks up the order record"}, "cost_usd": 0.0155578}

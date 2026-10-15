@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts an incident alert message to an external chat webhook, such as a Slack incoming webhook URL, so people outside the workspace are notified. Takes a title, details, severity and channel name, and returns the HTTP status code and response body."}, "cost_usd": 0.0070082}

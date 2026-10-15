@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs an Athena SQL query against a bucket inventory table in the given database, writing results to the S3 output location. Waits for the query to finish, then returns the query ID, final state, and rows read from the results."}, "cost_usd": 0.007426199999999999}

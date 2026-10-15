@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives an interviewer access to a candidate's application packet in the applicant tracking system at the view or score level, then runs the scorecard setup job for that interview. Returns the permission ID, job ID, and job state."}, "cost_usd": 0.0070142}

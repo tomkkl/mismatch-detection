@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a booking, found by confirmation code, from its current saved trip to an existing target trip, optionally updating its label. The change is stored in the trips database, and the result reports the old and new trip."}, "cost_usd": 0.0082622}

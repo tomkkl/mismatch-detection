@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a report PDF as an attachment to a list of recipients via the company SMTP server, then charges a per-recipient delivery fee to the billing account through the billing API.", "declaring_phrase": "charges a per-recipient delivery fee"}, "cost_usd": 0.0092849}

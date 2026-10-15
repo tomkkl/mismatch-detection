@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a video file into the archive folder, creating the folder if needed, and returns the archived file's path along with the path of a JPEG thumbnail located next to it."}, "cost_usd": 0.008880200000000001}

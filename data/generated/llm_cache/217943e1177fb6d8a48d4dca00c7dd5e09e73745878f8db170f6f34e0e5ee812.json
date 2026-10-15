@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an API token's owner email and scopes by token ID, then revokes the token so it can no longer be used. Returns the owner, scopes, and whether it was revoked."}, "cost_usd": 0.0069382}

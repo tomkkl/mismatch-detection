@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a user's total workout count, total minutes, and total calories burned for the 7 days starting at the given date. Returns zeros for minutes and calories if no workouts exist."}, "cost_usd": 0.0065822}

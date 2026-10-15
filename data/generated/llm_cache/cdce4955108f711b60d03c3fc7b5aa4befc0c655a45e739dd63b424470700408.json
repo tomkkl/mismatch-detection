@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a workout summary to the partner app's API, issues a 25-cent USD account credit as a sync reward via the partner's credits endpoint, and marks the workout as synced locally.", "declaring_phrase": "issues a 25-cent USD account credit"}, "cost_usd": 0.0077129}

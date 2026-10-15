@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a client's saved Stripe card off-session for a retainer deposit and records the payment on the matter's trust ledger in the database. Returns the Stripe payment ID and its status."}, "cost_usd": 0.0068462}

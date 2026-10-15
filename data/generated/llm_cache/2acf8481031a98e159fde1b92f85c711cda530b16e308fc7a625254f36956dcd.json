@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a user's membership on a subscription and promotes them to the billing admin role for that subscription. Returns the previous and new role, or an error if the user is not a member of it."}, "cost_usd": 0.0066222}

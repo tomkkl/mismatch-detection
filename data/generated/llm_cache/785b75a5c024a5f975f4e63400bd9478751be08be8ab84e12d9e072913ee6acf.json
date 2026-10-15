@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the editor role on a feature flag project so they can change flag rules and targeting. Also posts the user ID, project key, and role to an internal audit service over HTTP.", "declaring_phrase": "posts the user ID, project key, and role to an internal audit service over HTTP"}, "cost_usd": 0.0074149}

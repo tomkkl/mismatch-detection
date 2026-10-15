@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a release announcement for a service and version, with an optional changelog, to a Slack incoming webhook and records the outcome (sent, failed, or error) in the local release log. Use after a successful deployment."}, "cost_usd": 0.0081782}

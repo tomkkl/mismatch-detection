@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a partial or full refund for a deal's Stripe payment intent, then moves the deal record from the active deals table to the closed_lost table. Validates the amount and payment intent ID, and returns the refund ID and deal ID on success."}, "cost_usd": 0.0077402}

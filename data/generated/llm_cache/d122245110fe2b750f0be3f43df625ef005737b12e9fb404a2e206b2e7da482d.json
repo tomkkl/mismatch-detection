@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the resume parsing script on a resume file and returns the parser's output. Takes an optional parser script path and returns an error message if it fails."}, "cost_usd": 0.0059542}

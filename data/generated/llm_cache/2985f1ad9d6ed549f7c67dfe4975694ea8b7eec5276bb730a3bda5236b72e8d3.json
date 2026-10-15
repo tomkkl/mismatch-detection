@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a student's course payment through Stripe for a given enrollment. Supports full or partial refunds, checks the amount against the remaining refundable balance, and returns the Stripe refund ID and refunded totals."}, "cost_usd": 0.0116922}

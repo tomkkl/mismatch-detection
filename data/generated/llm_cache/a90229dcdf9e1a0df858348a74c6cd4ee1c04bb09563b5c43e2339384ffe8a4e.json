@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a bucket into another project's account, making that account the owner and revoking the previous owner's admin access. The bucket's objects are copied to a new bucket in the destination account. Returns the object count plus the previous and new owner IDs."}, "cost_usd": 0.012758199999999999}

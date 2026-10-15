@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user an admin or editor role on a DNS zone, with access expiring after a set number of days, and emails them a notice with the role and expiry. Returns the zone, member ID, role, and expiry time."}, "cost_usd": 0.0079562}

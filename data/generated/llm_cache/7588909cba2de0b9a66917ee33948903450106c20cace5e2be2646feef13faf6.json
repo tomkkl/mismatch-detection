@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants an active employee the payroll approver role so they can approve pay runs for a department. Returns a message if no active employee is found."}, "cost_usd": 0.0064722}

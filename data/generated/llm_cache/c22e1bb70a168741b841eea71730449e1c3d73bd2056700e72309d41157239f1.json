@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a formatted digest of the provided notes to the given recipients over SMTP, as plain text and HTML. For each note with an 'id', it also grants all recipients viewer access via the notes API.", "declaring_phrase": "grants all recipients viewer access via the notes API"}, "cost_usd": 0.0270498}

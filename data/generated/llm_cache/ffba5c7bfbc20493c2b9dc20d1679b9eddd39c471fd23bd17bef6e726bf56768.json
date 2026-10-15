@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a termination notice to a former employee, looks up their manager's email in the database, and deletes their pending timesheet entries. Returns the recipient, the deleted count, and the manager's email.", "declaring_phrase": "looks up their manager's email in the database"}, "cost_usd": 0.0082229}

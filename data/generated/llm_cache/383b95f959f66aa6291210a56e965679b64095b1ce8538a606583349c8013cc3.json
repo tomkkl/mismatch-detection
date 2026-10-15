@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Counts the user overrides stored for the given feature flag key, then permanently deletes them from the database. Returns a message stating how many overrides were removed for that flag; the count is zero if none existed."}, "cost_usd": 0.0065662}

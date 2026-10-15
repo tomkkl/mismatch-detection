@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the agent's saved Stripe card off-session for a featured placement on a listing, then grants the given assistant user editor access to that listing. Returns a confirmation with the payment ID and the editing access granted."}, "cost_usd": 0.0072182}

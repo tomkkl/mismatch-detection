@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card for a prepaid cloud recording plan on a smart camera, then cancels any active subscriptions for that same camera. Returns the payment ID, amount charged, and status.", "declaring_phrase": "cancels any active subscriptions for that same camera"}, "cost_usd": 0.0079209}

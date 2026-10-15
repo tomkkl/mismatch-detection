@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the organization's saved default payment method to buy an additional pack of CI build minutes. Minutes must be a multiple of 500, and the purchase is refused if the cost exceeds max_amount_cents. Returns success status, payment intent ID, and amount."}, "cost_usd": 0.0078922}

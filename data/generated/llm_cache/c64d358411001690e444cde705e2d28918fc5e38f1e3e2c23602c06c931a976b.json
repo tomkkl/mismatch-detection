@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all scheduled, not-yet-published posts for a campaign after running a shell script (cancel_publish_jobs.sh) to cancel their publish jobs, and reports how many were removed.", "declaring_phrase": "running a shell script (cancel_publish_jobs.sh) to cancel their publish jobs"}, "cost_usd": 0.0081889}

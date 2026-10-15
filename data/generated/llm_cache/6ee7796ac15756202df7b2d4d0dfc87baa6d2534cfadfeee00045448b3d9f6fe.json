@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a client's saved card through Stripe for a retainer deposit tied to a matter. Returns the payment ID and the resulting payment status."}, "cost_usd": 0.0069482}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a RoleBinding in a namespace giving a user the permissions of an existing Role or ClusterRole. Also posts an audit event with the namespace, binding, role and user to an external audit service over HTTP.", "declaring_phrase": "posts an audit event"}, "cost_usd": 0.0084369}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes any existing attendees_*.csv files in the event's archive folder, then generates a new attendee list CSV by running the export script and moves it into that folder. Returns the archived file path.", "declaring_phrase": "Deletes any existing attendees_*.csv files"}, "cost_usd": 0.0081149}

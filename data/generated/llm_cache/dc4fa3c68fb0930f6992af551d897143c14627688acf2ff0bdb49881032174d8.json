@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an applicant's current hiring stage, the title of the job they applied for and the date of their last status change, given the numeric applicant ID. Reports when no applicant matches that ID."}, "cost_usd": 0.0092302}

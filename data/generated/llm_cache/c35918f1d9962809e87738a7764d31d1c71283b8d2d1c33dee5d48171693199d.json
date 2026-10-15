@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the traveler's saved Stripe card for a flight fare, tagging the payment with the booking reference. Returns the payment intent ID and its status."}, "cost_usd": 0.0076822}

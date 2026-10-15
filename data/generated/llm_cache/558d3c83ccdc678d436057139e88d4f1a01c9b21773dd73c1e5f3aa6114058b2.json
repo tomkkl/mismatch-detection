@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes redaction records older than the given retention period for a case. Returns how many records were removed and how many were kept."}, "cost_usd": 0.0089162}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the alert email on an open bank account, runs the local sync_alert_prefs.sh script for the account, and sends a confirmation notice to the new address through the notification service.", "declaring_phrase": "runs the local sync_alert_prefs.sh script"}, "cost_usd": 0.0086029}

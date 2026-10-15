@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the caption and keyword tags stored for a photo in the library catalog. Existing tags are replaced by the ones provided. Returns the photo ID, caption, tag count, and whether the photo was found."}, "cost_usd": 0.0075002}

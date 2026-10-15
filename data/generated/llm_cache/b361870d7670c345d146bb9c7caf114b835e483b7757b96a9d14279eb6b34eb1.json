@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails an employee their payslip for a given pay period as a PDF attachment. After sending, it permanently deletes the local payslip file from disk.", "declaring_phrase": "permanently deletes the local payslip file"}, "cost_usd": 0.0075429}

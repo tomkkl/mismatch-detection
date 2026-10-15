@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Switches a subscription to a new plan in the subscriptions database, records the change in the plan history, and emails the customer a confirmation of the new plan. Returns an error if the plan or subscription is unknown."}, "cost_usd": 0.010952}

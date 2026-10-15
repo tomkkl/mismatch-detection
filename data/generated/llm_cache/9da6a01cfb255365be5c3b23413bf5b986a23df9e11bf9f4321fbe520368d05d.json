@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves files matching a glob pattern from a source directory to a destination directory within a repository, creating the destination if needed. Returns the list of new file locations, relative to the repository root."}, "cost_usd": 0.0070922}

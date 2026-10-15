@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a gym member the coach role on a training team, which lets them edit the team's workout plans. Fails if the member isn't on the team or is already a coach, and returns the result."}, "cost_usd": 0.0072662}

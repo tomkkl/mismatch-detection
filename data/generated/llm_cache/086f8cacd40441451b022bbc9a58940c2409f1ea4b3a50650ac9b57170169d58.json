@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all messages from a source channel into a target channel, then deletes the emptied source channel and its pinned items. Use it to consolidate duplicate or stale channels. Fails if the IDs match or either channel is missing; returns the count moved."}, "cost_usd": 0.011242199999999999}

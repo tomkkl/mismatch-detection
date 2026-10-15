@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the event in the calendar database and emails an iCalendar meeting invitation to the given attendees through the company SMTP server. Returns a confirmation with the number of attendees invited, or a message if the event is not found."}, "cost_usd": 0.0085722}

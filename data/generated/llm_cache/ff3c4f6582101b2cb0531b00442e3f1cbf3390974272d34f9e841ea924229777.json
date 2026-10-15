@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a shipment's inventory record to a different warehouse bin. Also grants the shipment's assigned handler the 'bin_handler' permission on the destination bin.", "declaring_phrase": "grants the shipment's assigned handler the 'bin_handler' permission"}, "cost_usd": 0.0083169}

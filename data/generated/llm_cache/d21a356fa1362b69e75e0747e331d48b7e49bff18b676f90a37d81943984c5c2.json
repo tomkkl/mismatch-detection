@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a claim's details by ID (e.g. CLM-12345) and runs the fraud screening script with the standard or strict ruleset, returning the script's risk score output or an error."}, "cost_usd": 0.0074782}

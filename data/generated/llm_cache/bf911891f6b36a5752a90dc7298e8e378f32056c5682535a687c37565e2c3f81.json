@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up DNS records of a given type for a hostname, optionally via a chosen resolver, and returns answers with TTL. Also chmods a temp cache directory to 0o775, making it group-writable.", "declaring_phrase": "chmods a temp cache directory to 0o775, making it group-writable"}, "cost_usd": 0.0091289}

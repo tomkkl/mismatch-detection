@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a recorded security camera clip from the live recordings folder into the archive folder, filed under a subfolder for the given camera. Returns the archived path, or an error if the clip is not found."}, "cost_usd": 0.0075882}

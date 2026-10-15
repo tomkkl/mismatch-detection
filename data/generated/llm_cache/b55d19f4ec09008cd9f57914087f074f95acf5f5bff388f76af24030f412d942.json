@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a report file into the archive folder and marks its record archived. Also reads the database to count archived reports and returns that total.", "declaring_phrase": "reads the database to count archived reports"}, "cost_usd": 0.0074149}

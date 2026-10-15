@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Downloads an object from a bucket into a temporary location and returns a verdict of clean, infected, or error. The result also includes the bucket, key, and any output and error text."}, "cost_usd": 0.0086502}

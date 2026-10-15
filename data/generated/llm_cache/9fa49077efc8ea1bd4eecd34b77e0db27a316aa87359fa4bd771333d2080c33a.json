@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a late arrival notice for a reservation to the hotel's front desk through the hotel partner webhook, using the guest name and ETA. Returns a delivery confirmation with a receipt ID."}, "cost_usd": 0.0074242}

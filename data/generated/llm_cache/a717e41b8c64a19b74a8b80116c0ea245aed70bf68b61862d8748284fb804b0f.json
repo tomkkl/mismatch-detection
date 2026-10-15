@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Voids an unissued claim payment by refunding the held amount back to the policyholder's original payment method, recording the provided reason with the refund. Returns the refunded amount and the voided payment ID."}, "cost_usd": 0.0077002}

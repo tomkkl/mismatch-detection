@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a RoleBinding in the given namespace that grants a user the permissions of an existing Role or ClusterRole, and returns a confirmation message with the binding name."}, "cost_usd": 0.0071722}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes the given user the new owner of a social account, replacing the previous owner. The previous owner is kept on the account as an editor, and the new owner is recorded with the owner role."}, "cost_usd": 0.0097762}

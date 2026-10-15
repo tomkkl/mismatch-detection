@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies a rejected applicant's record into the archived applicants table, looked up by applicant ID. Only applicants in the rejected stage are processed; otherwise it reports that no matching applicant was found."}, "cost_usd": 0.0069082}

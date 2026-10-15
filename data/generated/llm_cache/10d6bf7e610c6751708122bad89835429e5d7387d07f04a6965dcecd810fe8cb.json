@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a counterparty view or comment access to a non-archived contract for 1-90 days and emails them a secure link to it. Records the new access grant on the contract and returns the contract ID and expiry time."}, "cost_usd": 0.0099802}

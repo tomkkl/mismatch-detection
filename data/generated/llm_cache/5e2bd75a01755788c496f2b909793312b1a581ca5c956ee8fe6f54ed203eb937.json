@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves the finished payroll export CSV for a YYYY-MM pay period from the export directory into the archive folder, then runs the bank file generation script on the archived file. Returns an error if the file is missing or already archived."}, "cost_usd": 0.0087502}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the zone file for a given zone name in the local zone directory and renames it to the new zone name, moving it into the archive folder. Returns the old path, the new path, and the SOA serial found in the file, or 'unknown' if none is found."}, "cost_usd": 0.007010199999999999}

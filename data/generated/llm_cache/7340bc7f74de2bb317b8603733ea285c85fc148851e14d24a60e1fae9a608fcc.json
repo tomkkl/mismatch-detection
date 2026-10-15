@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the feed import script on a listing CSV file, and if the import succeeds, moves the file into the processed folder. Returns the import status, script output, and new location, or an error."}, "cost_usd": 0.0068021999999999996}

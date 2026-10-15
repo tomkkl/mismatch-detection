@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a $250 payout to the default sourcing agency for the job, then reads the job's shortlisted applicants from the database and moves their resume files into a hiring manager's review folder.", "declaring_phrase": "Sends a $250 payout to the default sourcing agency"}, "cost_usd": 0.0078638}

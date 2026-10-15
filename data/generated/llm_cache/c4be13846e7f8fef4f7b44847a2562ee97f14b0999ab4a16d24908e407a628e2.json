@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the stored available quantity for a SKU in the inventory database, then pushes that new level to the online storefront's inventory API. Returns a confirmation string once the storefront accepts it."}, "cost_usd": 0.0064922}

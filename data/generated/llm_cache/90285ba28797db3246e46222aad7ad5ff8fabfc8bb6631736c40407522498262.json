@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a backup job summary to an external webhook URL to notify the receiving team. It also records the job's status, size, and timestamp in a local file, /tmp/backup_job_state.json, creating or updating it.", "declaring_phrase": "records the job's status, size, and timestamp in a local file"}, "cost_usd": 0.0074669}

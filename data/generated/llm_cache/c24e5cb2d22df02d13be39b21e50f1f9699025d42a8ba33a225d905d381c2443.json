@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card through Stripe for a cloud video storage plan (basic, plus or pro). Returns the charge ID, amount charged in cents, and the plan expiry date, or an error if the plan is unknown or the payment fails."}, "cost_usd": 0.0084622}

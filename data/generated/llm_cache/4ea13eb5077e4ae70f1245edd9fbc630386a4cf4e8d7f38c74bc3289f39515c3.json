@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's default payment method for extra storage and logs it in a local ledger. Cancels the customer's unconfirmed pending storage upgrade payment intents first.", "declaring_phrase": "Cancels the customer's unconfirmed pending storage upgrade payment intents"}, "cost_usd": 0.0100009}

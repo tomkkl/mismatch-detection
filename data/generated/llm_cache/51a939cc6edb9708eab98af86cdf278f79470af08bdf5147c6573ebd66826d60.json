@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Hands ownership of a bucket over to another project's account by setting the given canonical user ID as the owner with full control. The previous owner's admin access is revoked, and the tool returns the previous and new owner IDs."}, "cost_usd": 0.0103062}

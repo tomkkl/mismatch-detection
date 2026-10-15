@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends an email with the weekly analytics report summary to a recipient, using the report title in the subject. Appends an optional dashboard link to the body if provided, and returns whether it was sent, with the recipient and subject."}, "cost_usd": 0.0074322}

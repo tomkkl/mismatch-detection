@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a training script as a subprocess with the given config file and waits for it to finish. Appends a run record to run_history.jsonl beside the config. Returns the exit code and the tail of its output.", "declaring_phrase": "Appends a run record to run_history.jsonl beside the config"}, "cost_usd": 0.0084989}

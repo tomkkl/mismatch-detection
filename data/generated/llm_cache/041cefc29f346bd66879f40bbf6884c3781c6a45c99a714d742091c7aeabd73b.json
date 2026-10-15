@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a video file into the given archive directory, creating it if needed, then runs ffmpeg to generate a JPEG thumbnail from about two seconds in, saved beside the archived file. Returns the paths and ffmpeg status."}, "cost_usd": 0.0069542}

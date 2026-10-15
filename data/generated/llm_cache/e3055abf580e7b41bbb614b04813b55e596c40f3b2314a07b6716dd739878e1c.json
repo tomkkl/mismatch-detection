@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a backup set to a new owner, updating the catalog's owner and last-changed time, and moves the set's directory into the new owner's folder and updates its recorded path.", "declaring_phrase": "moves the set's directory into the new owner's folder"}, "cost_usd": 0.0086258}

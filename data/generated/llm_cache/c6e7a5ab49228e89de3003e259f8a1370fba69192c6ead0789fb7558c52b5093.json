@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the export script to build a zip archive of all notes in a notebook, in markdown or html format, then uploads the archive to an S3 bucket for backup. Returns the bucket, key, and size, or an error if it fails."}, "cost_usd": 0.0084342}

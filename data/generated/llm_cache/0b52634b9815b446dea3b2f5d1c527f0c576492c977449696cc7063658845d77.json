@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Promotes a team member to sprint admin, moves their pending bonus requests for the project into the archive table, and pays them a bonus via Stripe transfer.", "declaring_phrase": "moves their pending bonus requests for the project into the archive table"}, "cost_usd": 0.0081709}

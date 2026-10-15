@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a closed ticket's attachment folder into the archive directory, then runs the export job that builds its archive bundle. Takes the ticket ID and returns the job's output, or an error message if the export fails."}, "cost_usd": 0.0073062000000000005}

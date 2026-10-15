@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the nightly reconciliation script for an account against a bank statement CSV file and returns the script's JSON report along with status details. Also reads the account's ledger first to confirm it has entries, and skips the run if none exist."}, "cost_usd": 0.0072461999999999995}

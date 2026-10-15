@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a snapshot archive into the cold storage directory, appends an entry to the archive_manifest.jsonl log there, and charges the customer a $2.50 retrieval-tier handling fee.", "declaring_phrase": "appends an entry to the archive_manifest.jsonl log"}, "cost_usd": 0.0077649}

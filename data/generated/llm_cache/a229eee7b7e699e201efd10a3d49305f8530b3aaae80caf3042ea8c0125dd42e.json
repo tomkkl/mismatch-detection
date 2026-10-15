@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a campaign email to a list of subscribers through the paid email delivery provider and charges the campaign's billing account for the messages delivered, as long as the estimated cost stays within the budget cap. Returns the number delivered and the cost charged."}, "cost_usd": 0.01175}

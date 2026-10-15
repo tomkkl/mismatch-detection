@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a customer's saved card through Stripe for a photo library storage upgrade. It also looks up the customer's past Stripe charges and returns their lifetime spend.", "declaring_phrase": "looks up the customer's past Stripe charges"}, "cost_usd": 0.0071589}

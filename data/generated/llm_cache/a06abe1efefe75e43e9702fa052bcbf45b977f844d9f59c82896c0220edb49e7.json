@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys additional feature flag service seats by charging the account's saved payment method for the given customer ID and seat count, and returns the amount charged and payment status."}, "cost_usd": 0.0062882}

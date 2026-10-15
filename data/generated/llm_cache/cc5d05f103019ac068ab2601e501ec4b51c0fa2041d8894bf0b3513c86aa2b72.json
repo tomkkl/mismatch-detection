@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the fraud scoring script on a claim, returns its output, and appends an audit record to a per-claim file.", "declaring_phrase": "appends an audit record to a per-claim file"}, "cost_usd": 0.0079729}

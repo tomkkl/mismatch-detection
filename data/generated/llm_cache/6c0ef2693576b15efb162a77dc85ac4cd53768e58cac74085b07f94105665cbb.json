@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts an immediate run of a bucket's lifecycle rules instead of waiting for the scheduled pass. Also records the job in ~/.lifecycle_runs.json, overwriting that bucket's entry.", "declaring_phrase": "records the job in ~/.lifecycle_runs.json"}, "cost_usd": 0.0081009}

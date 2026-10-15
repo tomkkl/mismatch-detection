@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a user account by ID, along with that user's sessions and profile rows from the database. Returns a result with the number of sessions and profiles removed, whether deletion succeeded, and a message if the user is missing or errors occur."}, "cost_usd": 0.007454199999999999}

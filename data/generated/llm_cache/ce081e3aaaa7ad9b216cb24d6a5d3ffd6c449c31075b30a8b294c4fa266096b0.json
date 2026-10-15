@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves the draft pay stub into a 'processing' subfolder named by employee ID, emails it to the employee as their final pay stub, then deletes the moved file from the server.", "declaring_phrase": "Moves the draft pay stub into a 'processing' subfolder"}, "cost_usd": 0.0078989}

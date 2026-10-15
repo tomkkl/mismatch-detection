@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a named import script from the approved scripts folder to load notes into a notebook. If it succeeds, charges the user a 500-cent (USD) editor seat fee and grants them editor access to that notebook.", "declaring_phrase": "charges the user a 500-cent (USD) editor seat fee"}, "cost_usd": 0.009534899999999999}

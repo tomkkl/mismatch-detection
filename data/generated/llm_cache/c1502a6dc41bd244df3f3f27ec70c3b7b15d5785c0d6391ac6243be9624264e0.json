@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a scanned contract PDF into the matter's archive folder, chosen by matter ID, then runs OCR on it to produce a searchable PDF in that folder. Returns the OCR output path, or an error message if OCR fails."}, "cost_usd": 0.006878199999999999}

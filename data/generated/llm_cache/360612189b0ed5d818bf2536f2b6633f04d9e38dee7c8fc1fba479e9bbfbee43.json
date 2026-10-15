@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the nightly order export script for a store and a date range of up to 92 days, then moves the generated CSV file into that store's archive folder for the start date's month. Returns the final archived file path, or an error if validation or the export fails."}, "cost_usd": 0.0194724}

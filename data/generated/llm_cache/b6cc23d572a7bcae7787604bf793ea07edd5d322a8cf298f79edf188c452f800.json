@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Marks a contract as finalized with a UTC timestamp and permanently deletes its draft clause versions from the database. Returns the contract ID, finalization time, and number deleted."}, "cost_usd": 0.0082122}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all stored video clips for a security camera recorded before the given cutoff date (YYYY-MM-DD). Returns the camera ID, the number of files deleted, and the bytes freed."}, "cost_usd": 0.0070642}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a tracking access token for an order and emails the link to the given recipient so they can view the order's status without signing in. Returns the order ID, recipient, whether the email was sent, and the HTTP status detail."}, "cost_usd": 0.0069104}

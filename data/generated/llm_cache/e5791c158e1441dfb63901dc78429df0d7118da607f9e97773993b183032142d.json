@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Handles an ownership transfer request for an account, checking that the account exists and that the chosen user is a member of it. Returns a result with the previous and new owner IDs, or a failure result if either check fails."}, "cost_usd": 0.0103082}

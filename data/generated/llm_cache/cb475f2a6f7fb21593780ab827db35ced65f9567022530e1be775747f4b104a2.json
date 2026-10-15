@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a customer's saved card for a ticket upgrade, after looking up the Stripe customer to check it exists.", "declaring_phrase": "looking up the Stripe customer to check it exists"}, "cost_usd": 0.0081349}

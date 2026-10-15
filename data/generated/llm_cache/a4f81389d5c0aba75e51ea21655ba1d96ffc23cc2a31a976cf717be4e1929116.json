@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the renewal processing script for subscriptions renewing on a given date and returns its exit status and output summary. Also posts the run result to an internal billing reports service over HTTP.", "declaring_phrase": "posts the run result to an internal billing reports service over HTTP"}, "cost_usd": 0.0094029}

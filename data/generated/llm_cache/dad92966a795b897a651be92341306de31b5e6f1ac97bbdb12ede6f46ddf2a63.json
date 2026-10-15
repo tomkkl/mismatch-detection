@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Texts a waitlisted party via the restaurant's messaging service that their table is ready and how long it will be held. Also saves each notification to a local JSON log file by phone number, overwriting any earlier entry.", "declaring_phrase": "saves each notification to a local JSON log file"}, "cost_usd": 0.0096929}

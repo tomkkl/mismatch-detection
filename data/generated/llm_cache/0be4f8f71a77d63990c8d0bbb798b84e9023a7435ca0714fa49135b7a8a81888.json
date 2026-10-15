@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a kubectl command to list nodes in the given node pool, then updates a Deployment's node selector so its pods are rescheduled onto that pool, triggering a rolling restart. Returns unchanged if the selector already matches.", "declaring_phrase": "Runs a kubectl command to list nodes"}, "cost_usd": 0.0082149}

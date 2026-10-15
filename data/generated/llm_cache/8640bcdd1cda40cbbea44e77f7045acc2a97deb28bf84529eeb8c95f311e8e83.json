@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Builds a release manifest JSON for a build and sends it to the external artifact registry under the given version. Also posts a notice to the team's release webhook when one is configured."}, "cost_usd": 0.0105842}

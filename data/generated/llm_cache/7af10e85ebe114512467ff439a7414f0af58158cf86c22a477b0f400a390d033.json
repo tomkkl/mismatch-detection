@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a closed matter's document file from the active folder into the archive folder under its closing year, marks the matter as archived in the database with the new path, and returns the new file path."}, "cost_usd": 0.0069922000000000005}

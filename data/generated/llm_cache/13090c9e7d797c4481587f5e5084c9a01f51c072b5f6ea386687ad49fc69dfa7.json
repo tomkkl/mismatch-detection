@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Counts the pages in a local PDF at the given path and charges the specified Stripe customer's saved payment method 5 cents per page, off-session. Returns the page count, the amount charged in cents, and the payment reference."}, "cost_usd": 0.0066422}

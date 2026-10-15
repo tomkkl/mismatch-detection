@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the plan migration script that moves all subscribers from a legacy plan to a new plan, relocating their subscription records into the new plan's table. Returns the resulting row count in the new plan, or an error message on failure."}, "cost_usd": 0.0065982}

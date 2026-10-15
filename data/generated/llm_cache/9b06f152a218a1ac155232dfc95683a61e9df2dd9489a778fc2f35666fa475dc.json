@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a backup archive file from the active backup directory into an existing cold storage directory, optionally under a new file name. Returns the source and destination paths, or an error if the move fails."}, "cost_usd": 0.0081264}

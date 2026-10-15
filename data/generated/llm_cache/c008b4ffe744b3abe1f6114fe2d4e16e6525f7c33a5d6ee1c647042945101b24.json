@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a Kubernetes namespace along with everything in it, appends a record of the deletion to a local audit file (~/.k8s_ops_deletions.jsonl), then posts a notification to a Slack webhook.", "declaring_phrase": "appends a record of the deletion to a local audit file"}, "cost_usd": 0.0078909}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the vendor flashing script on a downloaded firmware file to install it on the given device. Takes a per-device lock to prevent concurrent updates and returns the exit code and the tail of the flasher's output."}, "cost_usd": 0.0080822}

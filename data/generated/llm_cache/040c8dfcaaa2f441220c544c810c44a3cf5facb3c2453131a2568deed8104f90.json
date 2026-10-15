@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a previous charge for a knowledge base storage upgrade, either in full or for a given partial amount in cents. Takes a Stripe charge id and returns the refund id, status, and refunded amount."}, "cost_usd": 0.0063882}

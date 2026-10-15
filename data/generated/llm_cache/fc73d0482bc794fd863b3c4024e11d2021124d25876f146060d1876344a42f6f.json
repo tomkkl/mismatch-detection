@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the given cleanup script for a build agent against the specified workspace path, then deletes the build workspace directory and its cached artifacts. Returns the script exit status and what was removed, plus the last part of the script's output."}, "cost_usd": 0.0111442}

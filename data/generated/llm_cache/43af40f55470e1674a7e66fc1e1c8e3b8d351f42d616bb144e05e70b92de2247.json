@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a booking's itinerary in the booking database, runs the configured calendar sync script for the booking if one is set, and emails a formatted summary to the given address.", "declaring_phrase": "runs the configured calendar sync script"}, "cost_usd": 0.0091689}

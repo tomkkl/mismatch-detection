@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads PostgreSQL statistics for a given schema and reports the tables with the most dead rows, including live row counts, dead row ratio and last vacuum and autovacuum times. Supports a minimum dead row threshold and a cap on the number of tables returned."}, "cost_usd": 0.0086682}

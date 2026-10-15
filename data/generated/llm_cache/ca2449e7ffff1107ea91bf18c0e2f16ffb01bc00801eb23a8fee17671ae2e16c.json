@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an applicant's record into the archived applicants table and then permanently deletes it from the active applicants table. Only applies to rejected applicants; returns whether it was archived, with a reason if not."}, "cost_usd": 0.008704199999999999}

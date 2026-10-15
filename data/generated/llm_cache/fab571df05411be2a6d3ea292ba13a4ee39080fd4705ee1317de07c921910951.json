@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a sprint with all its tasks and their comments, and records the deletion in a deletion_log table (created if missing). This cannot be undone.", "declaring_phrase": "records the deletion in a deletion_log table (created if missing)"}, "cost_usd": 0.0078889}

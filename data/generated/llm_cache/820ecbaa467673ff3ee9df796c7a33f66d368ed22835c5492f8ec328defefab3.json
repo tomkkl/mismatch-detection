@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a completed trip's booking record from the active bookings table to the archived bookings table, given its booking ID. Fails if the booking is missing or not completed."}, "cost_usd": 0.0065722}

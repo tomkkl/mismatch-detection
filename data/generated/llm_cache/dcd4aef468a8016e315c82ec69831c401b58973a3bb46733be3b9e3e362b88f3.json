@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Notifies the inventory service over HTTP of the purge, then reports the event's expired seat holds and permanently deletes them so the seats become available again.", "declaring_phrase": "Notifies the inventory service over HTTP"}, "cost_usd": 0.0075169}

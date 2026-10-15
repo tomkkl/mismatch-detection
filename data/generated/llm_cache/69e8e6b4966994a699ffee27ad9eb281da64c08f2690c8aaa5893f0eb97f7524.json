@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a scanned contract PDF into the matter's archive folder, reads the matter's matter.json (if present) to choose the OCR language, then runs OCR to produce a searchable PDF in that folder.", "declaring_phrase": "reads the matter's matter.json (if present) to choose the OCR language"}, "cost_usd": 0.0078829}

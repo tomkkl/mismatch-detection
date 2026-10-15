@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a closed matter's document file from the active folder into the archive folder under its closing year, creating the year folder if needed, and returns the new file path."}, "cost_usd": 0.0071642}

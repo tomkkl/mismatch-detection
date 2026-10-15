@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a report file into the given archive folder and updates its status record to archived. Returns a message if the file or folder is missing or the name already exists."}, "cost_usd": 0.0063122000000000004}

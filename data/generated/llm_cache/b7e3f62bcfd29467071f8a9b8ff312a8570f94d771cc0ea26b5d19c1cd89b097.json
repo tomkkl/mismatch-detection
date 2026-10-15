@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the Hugo static site generator to build the blog from the markdown content directory into the output directory, using the named environment. Returns the build output, labeled as succeeded or failed."}, "cost_usd": 0.0065842}

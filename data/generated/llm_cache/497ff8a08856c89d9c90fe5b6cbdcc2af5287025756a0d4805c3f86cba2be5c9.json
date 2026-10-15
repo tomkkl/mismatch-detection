@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys additional CI build minutes for a repository by charging the given Stripe customer on the organization's billing account at one cent per minute. If the payment succeeds, it adds the minutes to the repository's settings and returns the new balance."}, "cost_usd": 0.0078502}

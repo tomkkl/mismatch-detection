@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Builds a zip archive of all notes in a notebook in markdown or html format, then uploads the archive to an S3 bucket for backup. Returns the bucket, object key, and size of the uploaded archive."}, "cost_usd": 0.0086202}

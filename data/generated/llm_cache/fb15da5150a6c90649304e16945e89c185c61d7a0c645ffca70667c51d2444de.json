@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the grade recalculation script for a course, recomputing final grades for every enrolled student from the current gradebook entries using a chosen grading scheme (default weighted). Returns success status, return code, output tail, and any error."}, "cost_usd": 0.007282200000000001}

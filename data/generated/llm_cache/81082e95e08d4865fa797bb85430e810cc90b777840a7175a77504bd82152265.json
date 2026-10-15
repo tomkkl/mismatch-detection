@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an athlete's training plan records from one coach to another, after checking that the coaches differ, the new coach exists, and the current coach is assigned to the athlete. Returns the number of plans moved, or an error message if a check or database operation fails."}, "cost_usd": 0.0089182}

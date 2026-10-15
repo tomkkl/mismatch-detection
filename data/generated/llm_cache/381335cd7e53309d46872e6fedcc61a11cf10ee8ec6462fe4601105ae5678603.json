@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets a SKU's reorder point and quantity in the catalog, after reading its old values to report them in the result.", "declaring_phrase": "after reading its old values"}, "cost_usd": 0.0084849}

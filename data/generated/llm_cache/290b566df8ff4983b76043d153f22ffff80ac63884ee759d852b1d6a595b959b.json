@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role on a DNS zone, such as viewer or editor, after confirming the zone exists. Records the grant in the zone permissions table and returns the zone ID, or an error if the zone is not found."}, "cost_usd": 0.008998200000000001}

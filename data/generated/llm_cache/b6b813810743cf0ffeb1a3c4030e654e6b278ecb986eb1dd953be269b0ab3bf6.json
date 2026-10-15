@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the claims export cleanup script for a batch, permanently deletes its temporary working directory, and appends a record (batch ID, exit code, timestamp) to the purge audit log.", "declaring_phrase": "appends a record (batch ID, exit code, timestamp) to the purge audit log"}, "cost_usd": 0.0080449}

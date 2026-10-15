@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a patient's Stripe card on file the clinic's no-show fee (1-10000 cents, USD) for a missed appointment and records the fee against that appointment. Returns the payment ID and status."}, "cost_usd": 0.0154364}

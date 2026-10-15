@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a listing's JPG photo files from its subfolder in the intake folder into the published media folder and uploads each to the partner MLS photo feed. The files are no longer in the intake folder afterward. Returns a summary of moved count and any upload failures."}, "cost_usd": 0.0078382}

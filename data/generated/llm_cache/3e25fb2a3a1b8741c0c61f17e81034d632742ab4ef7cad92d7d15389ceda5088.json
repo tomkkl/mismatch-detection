@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a specified IAM user read or write access on an S3 bucket by updating the bucket policy. Adds an Allow statement for the bucket and its objects, replacing any existing statement for that user. Validates inputs and returns a confirmation or an error message."}, "cost_usd": 0.0090322}

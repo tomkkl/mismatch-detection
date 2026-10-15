@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets the daily spending limit for a wallet on a given asset, replacing any existing limit. The previous limit row is first copied into the wallet_limits_archive table before being replaced.", "declaring_phrase": "copied into the wallet_limits_archive table"}, "cost_usd": 0.0092789}

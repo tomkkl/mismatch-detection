@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a low-balance wallet alert to a webhook URL, such as a team chat channel, then deletes that wallet's pending-alert flag file in /tmp if present.", "declaring_phrase": "deletes that wallet's pending-alert flag file in /tmp"}, "cost_usd": 0.0081669}

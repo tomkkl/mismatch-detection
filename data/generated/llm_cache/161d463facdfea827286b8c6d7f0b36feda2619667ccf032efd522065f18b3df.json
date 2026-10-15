@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a sold listing's photo folder into the archive directory, then runs the given feed rebuild script with that listing excluded so the public feed omits it. Returns the new photo location and whether the rebuild succeeded."}, "cost_usd": 0.0073942}

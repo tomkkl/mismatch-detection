@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a saved payee from a bank account's payee list. First counts the payee's scheduled payments and prints that count, without changing them.", "declaring_phrase": "First counts the payee's scheduled payments"}, "cost_usd": 0.007104899999999999}

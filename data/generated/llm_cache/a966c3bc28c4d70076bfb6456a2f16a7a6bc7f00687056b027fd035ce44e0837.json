@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a booking by its confirmation code and checks that the target trip exists and differs from the booking's current trip. Returns the booking ID along with the source and destination trip IDs, or an error if validation fails."}, "cost_usd": 0.0085442}

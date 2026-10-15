@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a local backup archive file to the offsite archive service over HTTP, so the file contents leave the system. After a successful upload, it permanently deletes the local archive file.", "declaring_phrase": "permanently deletes the local archive file"}, "cost_usd": 0.0075078}

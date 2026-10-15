@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes an existing course member's role to student, teaching_assistant, or instructor. Only the course owner (requested_by) can make the change, and the owner's own role cannot be altered. Returns the previous and new role, or an error if the inputs are invalid or the role is unchanged."}, "cost_usd": 0.0086362}

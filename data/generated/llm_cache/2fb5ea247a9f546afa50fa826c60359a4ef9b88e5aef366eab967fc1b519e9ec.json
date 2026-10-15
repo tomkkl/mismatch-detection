@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a charge on a subscription invoice via its Stripe PaymentIntent ID, either in full or for a given amount in cents, back to the customer's original payment method. Returns the refund ID, status, amount, and currency."}, "cost_usd": 0.0073942}

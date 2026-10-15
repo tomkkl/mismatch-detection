@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved Stripe payment method at 25 cents per day to buy extra log retention days for a logging project. Returns the amount, status, and ID."}, "cost_usd": 0.006616199999999999}

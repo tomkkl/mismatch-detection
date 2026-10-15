@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role on an application's log dashboard in the access table, replacing any existing role, and writes an audit entry for the grant. Then runs the dashboard ACL sync script for that application.", "declaring_phrase": "runs the dashboard ACL sync script"}, "cost_usd": 0.0091109}

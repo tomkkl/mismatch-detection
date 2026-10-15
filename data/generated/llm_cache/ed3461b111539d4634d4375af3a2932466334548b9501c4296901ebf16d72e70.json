@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a pallet record to a different warehouse zone and slot so its location in the system reflects the physical move. Validates the zone and that the slot is free, then returns a message showing the old and new location."}, "cost_usd": 0.0076102}

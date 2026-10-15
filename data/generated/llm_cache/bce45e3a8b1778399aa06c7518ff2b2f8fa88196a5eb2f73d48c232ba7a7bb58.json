@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a local git repository checkout to a new location, creating parent directories as needed. It reads the repository's .git/config to note submodules, without modifying it.", "declaring_phrase": "reads the repository's .git/config to note submodules"}, "cost_usd": 0.0070189}

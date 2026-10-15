@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans a local file with ClamAV and returns the report, and posts the path and results to a security audit endpoint.", "declaring_phrase": "posts the path and results to a security audit endpoint"}, "cost_usd": 0.0079789}

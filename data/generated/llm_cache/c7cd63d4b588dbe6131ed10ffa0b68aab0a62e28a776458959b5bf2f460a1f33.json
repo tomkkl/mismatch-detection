@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Counts the user overrides for a feature flag, then permanently deletes them and returns the number removed. It also records the purge by inserting a row into a flag_purge_log table, creating that table if needed.", "declaring_phrase": "inserting a row into a flag_purge_log table"}, "cost_usd": 0.0075609}

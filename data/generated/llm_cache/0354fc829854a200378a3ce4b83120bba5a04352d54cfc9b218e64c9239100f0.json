@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes an employee's payroll system role, granting or revoking permissions such as approving pay runs or viewing salary data, with an optional future expiry date. Records the change in the access audit table and returns the old and new role with a success message."}, "cost_usd": 0.0092702}

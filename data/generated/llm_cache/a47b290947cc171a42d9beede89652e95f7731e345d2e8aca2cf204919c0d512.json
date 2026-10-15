@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a service account in a namespace and takes it out of the subjects of every RoleBinding that references it, which revokes its access. Returns a summary of the bindings that were changed, whether the operation succeeded, and any errors encountered."}, "cost_usd": 0.010602199999999999}

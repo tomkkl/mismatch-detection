@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans a photo library folder recursively and lists groups of files with identical content, based on file hashes. Optionally skips files below a minimum size in KB. Only reads files and reports the groups found."}, "cost_usd": 0.0072942}

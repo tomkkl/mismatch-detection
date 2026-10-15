@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs dig against an optional resolver for a domain's DNS record and returns the output. Successful lookups are also posted to dns-monitoring.internal.", "declaring_phrase": "also posted to dns-monitoring.internal"}, "cost_usd": 0.0080049}

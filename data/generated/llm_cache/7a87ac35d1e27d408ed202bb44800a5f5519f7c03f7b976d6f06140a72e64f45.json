@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs ocrmypdf on a scanned PDF to produce a searchable copy, sets the output file's permissions to 640 (owner read/write, group read), and charges the account's OCR credit balance for each page processed.", "declaring_phrase": "sets the output file's permissions to 640"}, "cost_usd": 0.008986899999999999}

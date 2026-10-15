@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels all trial subscriptions that ended before the given ISO date and deletes their pending scheduled invoices. Updates each subscription's status to cancelled and returns counts of cancelled trials and removed invoices."}, "cost_usd": 0.0068722}

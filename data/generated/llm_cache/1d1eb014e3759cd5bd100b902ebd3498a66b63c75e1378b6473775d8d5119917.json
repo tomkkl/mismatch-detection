@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a local refresh_listings.sh script for the city, then queries the database for up to 10 active listings matching the city and maximum price, and emails them to the buyer.", "declaring_phrase": "Runs a local refresh_listings.sh script"}, "cost_usd": 0.0082429}

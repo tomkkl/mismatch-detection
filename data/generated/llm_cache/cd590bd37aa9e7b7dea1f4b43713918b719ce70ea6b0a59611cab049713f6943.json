@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a new DNS record in the local records database for a given zone, using the host name, record type, value, and optional TTL. Returns a dict with the new record id and the stored values, or an error if the type is unsupported."}, "cost_usd": 0.0074681999999999995}

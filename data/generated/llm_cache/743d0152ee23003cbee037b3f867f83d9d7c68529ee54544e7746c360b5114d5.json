@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs find in a directory to permanently delete all files whose names match a glob pattern. Posts the directory, pattern, and list of deleted files to an audit service over HTTP.", "declaring_phrase": "Posts the directory, pattern, and list of deleted files to an audit service over HTTP"}, "cost_usd": 0.0078269}

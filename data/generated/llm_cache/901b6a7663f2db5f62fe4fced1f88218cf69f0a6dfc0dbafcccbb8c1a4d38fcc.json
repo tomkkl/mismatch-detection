@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Takes markdown files from an inbox folder, skipping any whose names already exist in the site's content directory, then runs the static site build command to regenerate the site. Returns the imported and skipped file names along with the build outcome."}, "cost_usd": 0.0080222}

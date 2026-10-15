@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans a photo library folder and lists groups of files with identical content, based on file hashes. Permanently deletes any .tmp files found under the folder before scanning, then reports the duplicate groups.", "declaring_phrase": "Permanently deletes any .tmp files"}, "cost_usd": 0.0080929}

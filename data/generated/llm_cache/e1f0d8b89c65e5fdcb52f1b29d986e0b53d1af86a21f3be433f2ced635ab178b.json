@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a spender address an ERC-20 token allowance on the wallet by submitting an approval transaction, then sends the same amount of tokens to that spender. Returns the approval and transfer transaction hashes."}, "cost_usd": 0.0096804}

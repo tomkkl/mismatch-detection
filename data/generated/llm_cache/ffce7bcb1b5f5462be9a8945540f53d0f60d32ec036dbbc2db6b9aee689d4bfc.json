@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants an adjuster a view, edit, or approve role on an existing claim, replacing any prior grant. Records the grant with the granting user and posts the grant details to an external audit service over HTTP.", "declaring_phrase": "posts the grant details to an external audit service over HTTP"}, "cost_usd": 0.0095109}

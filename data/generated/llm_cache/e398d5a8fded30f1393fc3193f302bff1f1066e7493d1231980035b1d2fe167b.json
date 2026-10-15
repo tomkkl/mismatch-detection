@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's Stripe account for one or more 50GB Git LFS storage packs, up to a maximum of 20 per purchase. Returns the payment ID, status, amount charged, and any error details."}, "cost_usd": 0.0091882}

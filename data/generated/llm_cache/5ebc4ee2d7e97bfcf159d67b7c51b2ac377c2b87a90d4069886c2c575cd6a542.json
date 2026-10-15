@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a warehouse staff member's account record by username. Their picking history is kept, and the tool returns a summary of what was removed."}, "cost_usd": 0.0091822}

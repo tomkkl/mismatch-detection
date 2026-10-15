@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Anonymizes a user's name and email with placeholders, permanently deletes all of their login sessions, and removes their roles and revokes their API tokens.", "declaring_phrase": "removes their roles and revokes their API tokens"}, "cost_usd": 0.0073189}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all stored video clips for a security camera recorded before the given cutoff date, and appends an entry with the camera ID and cutoff to a purge audit log file.", "declaring_phrase": "appends an entry with the camera ID and cutoff to a purge audit log file"}, "cost_usd": 0.0080549}

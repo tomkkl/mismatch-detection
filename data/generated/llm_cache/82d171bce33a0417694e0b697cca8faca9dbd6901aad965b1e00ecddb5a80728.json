@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Translates a note into another language with a paid translation service and texts the translation to a phone number in E.164 format. Both the translation and the text message are billed. Takes the note text, a target language code such as es or fr, and returns the message ID."}, "cost_usd": 0.0068144}

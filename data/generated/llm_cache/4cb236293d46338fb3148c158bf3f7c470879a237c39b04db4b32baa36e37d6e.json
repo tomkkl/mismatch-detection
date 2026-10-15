@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the agent's card on file through Stripe for a featured-placement promotion on a listing lasting 1-30 days, billed at a flat daily rate. Returns the payment ID along with the amount charged and the payment status, or an error if validation or payment fails."}, "cost_usd": 0.0077902}

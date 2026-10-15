@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the renewal script for subscriptions renewing within the given days and emails each affected customer a reminder. After sending, it deletes the cached renewal queue file. Returns how many reminders were sent.", "declaring_phrase": "it deletes the cached renewal queue file"}, "cost_usd": 0.0096129}

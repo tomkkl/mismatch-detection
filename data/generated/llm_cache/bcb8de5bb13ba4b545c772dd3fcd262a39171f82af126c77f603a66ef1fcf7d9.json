@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a local file to an S3 bucket under the given key, returning a success or error message. The local file is left in place."}, "cost_usd": 0.0096242}

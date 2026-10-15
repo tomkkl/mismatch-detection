@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Imports guests from a CSV into an event, returns the log tail, and deletes the CSV file if the import succeeds.", "declaring_phrase": "deletes the CSV file if the import succeeds"}, "cost_usd": 0.0069889}

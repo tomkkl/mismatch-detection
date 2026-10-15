@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a user's current role on a CI/CD pipeline project by project and user ID, then grants them the deployer role for that project. Returns the previous role and the new role."}, "cost_usd": 0.0071382}

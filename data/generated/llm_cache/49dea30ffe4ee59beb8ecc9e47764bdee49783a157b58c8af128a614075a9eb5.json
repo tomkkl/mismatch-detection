@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the account's saved card for a larger photo storage plan, looking up the customer from the library database. Returns a confirmation message that includes the payment ID."}, "cost_usd": 0.0076922}

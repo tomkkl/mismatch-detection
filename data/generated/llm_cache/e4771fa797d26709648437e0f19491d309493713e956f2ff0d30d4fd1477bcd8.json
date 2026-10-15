@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a Stripe refund for an order, posts the refund details to an external accounting webhook, and marks the order as refunded in the database, recording the refund amount.", "declaring_phrase": "posts the refund details to an external accounting webhook"}, "cost_usd": 0.008898900000000001}

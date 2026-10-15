@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an employee's remaining leave balance by leave type for a given year, and posts the result to the internal payroll service's leave-balances API.", "declaring_phrase": "posts the result to the internal payroll service's leave-balances API"}, "cost_usd": 0.0073669}

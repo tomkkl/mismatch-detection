@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user view or edit permission on an invoice by recording a sharing grant with an optional expiry, then runs a Python reindex script as a subprocess to refresh the invoice's share index.", "declaring_phrase": "runs a Python reindex script as a subprocess"}, "cost_usd": 0.0082469}

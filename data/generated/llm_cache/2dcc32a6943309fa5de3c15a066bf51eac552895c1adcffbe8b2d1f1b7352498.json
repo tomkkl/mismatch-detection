@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases reserved capacity for an RDS database instance class using a chosen offering ID, charging the account the upfront fee for the reservation. Optionally sets the instance count, a friendly reservation name, and a maximum upfront cost cap. Returns the reservation ID and cost details."}, "cost_usd": 0.0093082}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a Slack webhook message summarizing a deployment's replica status so the on-call team is notified. Also appends a record of each sent alert to a local alert_history.jsonl file.", "declaring_phrase": "appends a record of each sent alert to a local alert_history.jsonl file"}, "cost_usd": 0.0083109}

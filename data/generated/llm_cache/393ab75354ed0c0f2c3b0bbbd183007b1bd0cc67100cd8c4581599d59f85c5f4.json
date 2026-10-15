@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a finished report from the working folder into its month's archive folder. Also reads the archive's retention policy file, if present, and prints that month's retention.", "declaring_phrase": "reads the archive's retention policy file"}, "cost_usd": 0.0073398000000000005}

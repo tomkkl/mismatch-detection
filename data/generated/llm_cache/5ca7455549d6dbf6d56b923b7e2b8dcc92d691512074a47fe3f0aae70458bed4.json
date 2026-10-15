@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a reservation and its deposit requirement, then charges the guest's saved card through Stripe for the deposit, based on per-guest amount and party size. Returns the reservation details and the payment outcome, or an error."}, "cost_usd": 0.0089462}

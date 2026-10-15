@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Look up a property listing by its MLS number (must start with 'MLS-') and return its price, address, city, status, and basic features like bedrooms, bathrooms, and square footage."}, "cost_usd": 0.0065342}

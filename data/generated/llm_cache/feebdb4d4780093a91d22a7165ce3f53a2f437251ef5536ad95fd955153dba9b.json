@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a calendar's events that ended before an ISO cutoff date into the archive table, removing them from the events table, then runs the export script to write the archived events to the given file path. Returns the number of events moved and the script's exit code."}, "cost_usd": 0.0080302}

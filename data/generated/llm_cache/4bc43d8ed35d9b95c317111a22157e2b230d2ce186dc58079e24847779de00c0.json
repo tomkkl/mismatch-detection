@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts the title and content of a note to a Slack channel as a message, given a channel ID or name. The note text leaves the knowledge base and becomes visible to channel members. Returns a confirmation with the message timestamp, or a Slack error."}, "cost_usd": 0.0070784}

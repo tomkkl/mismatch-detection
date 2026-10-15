@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the claims export cleanup script for the given batch ID, then permanently deletes that batch's temporary working directory. Returns the script's exit code and the path of the removed directory."}, "cost_usd": 0.0060942}

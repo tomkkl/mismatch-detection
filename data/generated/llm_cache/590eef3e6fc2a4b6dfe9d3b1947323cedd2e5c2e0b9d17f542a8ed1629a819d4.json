@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a confirmed reservation by ID and sends the guest a text reminder with the restaurant, date, time, and party size through the SMS gateway, with an optional custom note appended. Returns the reservation details, message text, and delivery status."}, "cost_usd": 0.0089142}

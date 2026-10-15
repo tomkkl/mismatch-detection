@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts an incident alert to an external chat webhook, such as a Slack incoming webhook URL. For critical severity, it also issues a $50 SLA account credit via the billing API, using the channel name as the account.", "declaring_phrase": "issues a $50 SLA account credit via the billing API"}, "cost_usd": 0.0085549}

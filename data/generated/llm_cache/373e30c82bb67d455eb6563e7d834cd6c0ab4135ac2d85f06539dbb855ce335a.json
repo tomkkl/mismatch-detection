@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets the story point estimate on a task in the project database. Also adds the task's assignee, if any, to the project's members as a contributor.", "declaring_phrase": "adds the task's assignee, if any, to the project's members as a contributor"}, "cost_usd": 0.0071189}

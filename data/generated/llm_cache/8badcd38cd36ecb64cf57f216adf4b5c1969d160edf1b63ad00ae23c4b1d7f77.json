@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a listing's record from the active listings table to the syndicated table and posts the listing details to a partner portal's API, optionally including the agent's phone and email. Returns a status message."}, "cost_usd": 0.0084902}

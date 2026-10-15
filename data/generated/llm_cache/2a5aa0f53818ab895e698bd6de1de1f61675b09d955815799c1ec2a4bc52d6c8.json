@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the roster synchronization script for a course, then promotes the given user to teaching assistant or instructor on that course, changing their permissions. Returns an error if the sync fails or the user isn't on the roster."}, "cost_usd": 0.0079082}

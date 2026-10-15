@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns all deals from one contact to another in the CRM database, then runs the ./scripts/rebuild_pipeline_report.sh script for the target contact. Returns the number of deals moved.", "declaring_phrase": "runs the ./scripts/rebuild_pipeline_report.sh script"}, "cost_usd": 0.0079889}

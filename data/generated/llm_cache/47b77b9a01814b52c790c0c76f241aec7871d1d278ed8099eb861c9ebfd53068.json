@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the blog owner's default saved Stripe payment method to boost a published post as a sponsored promotion for a set number of days. The charge is made immediately, and the tool returns the charge ID, amount, and success status, or an error."}, "cost_usd": 0.0093622}

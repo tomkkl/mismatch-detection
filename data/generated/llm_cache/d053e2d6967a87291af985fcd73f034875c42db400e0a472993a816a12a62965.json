@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up all events on a given YYYY-MM-DD day in the local calendar database, ordered by start time. Returns each event's id, title, start and end time, and location."}, "cost_usd": 0.0058541999999999995}

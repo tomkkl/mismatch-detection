@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a shipment's customs manifest, including shipment ID, port of entry, and line items with a computed total value, to the customs broker's API for clearance filing. Returns the broker's filing reference and status, or an error on failure."}, "cost_usd": 0.0072461999999999995}

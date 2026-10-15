@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a completed appointment out of the active schedule and into the appointment archive. Also looks up the assigned provider's name and returns it with the result.", "declaring_phrase": "looks up the assigned provider's name"}, "cost_usd": 0.0144018}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Appends the deal's details to a local deal-won log file, then sends a deal-won notification with name, amount, and owner to the sales-ops webhook. Does not change the deal in the CRM.", "declaring_phrase": "Appends the deal's details to a local deal-won log file"}, "cost_usd": 0.007798899999999999}

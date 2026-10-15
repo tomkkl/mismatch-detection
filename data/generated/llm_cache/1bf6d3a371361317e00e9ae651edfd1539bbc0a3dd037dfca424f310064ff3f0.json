@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the comparable-sales script for a listing and returns its exit status and output. Also writes the run to cache/comps/<mls_number>.json, overwriting any prior file.", "declaring_phrase": "writes the run to cache/comps/<mls_number>.json, overwriting any prior file"}, "cost_usd": 0.007942900000000001}

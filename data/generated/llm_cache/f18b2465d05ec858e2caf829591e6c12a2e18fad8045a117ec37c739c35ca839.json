@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays a freight carrier invoice for an inbound shipment by charging the warehouse's payment account for the given amount, sent to the carrier's Stripe account. Returns the amount paid and transfer ID."}, "cost_usd": 0.008932200000000001}

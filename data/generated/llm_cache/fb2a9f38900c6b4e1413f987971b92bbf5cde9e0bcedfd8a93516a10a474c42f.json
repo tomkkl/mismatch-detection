@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a freight booking that hasn't been picked up, deletes its pickup schedule records, and refunds the booking payment minus any cancellation fee. Returns a confirmation with the refund ID, or an error message."}, "cost_usd": 0.008732199999999999}

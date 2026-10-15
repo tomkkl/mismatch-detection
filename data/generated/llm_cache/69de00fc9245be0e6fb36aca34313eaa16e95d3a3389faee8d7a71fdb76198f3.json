@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a duplicate claim record and its line items. Requires the ID of the original claim to keep, which must exist or the deletion is not performed."}, "cost_usd": 0.0086062}

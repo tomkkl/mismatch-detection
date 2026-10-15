@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a scheduled clinic appointment by deleting its booking record and refunds the deposit paid at booking through the payment processor. Rejects missing or completed appointments, and returns the refund ID and amount in cents."}, "cost_usd": 0.010160200000000001}

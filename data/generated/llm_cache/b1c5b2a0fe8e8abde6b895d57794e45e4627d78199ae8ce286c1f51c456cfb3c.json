@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the Stripe customer the price of the chosen plan (basic, pro or enterprise) for a backup plan upgrade, then makes the given user an administrator of the backup account. Returns the payment intent ID."}, "cost_usd": 0.0081942}

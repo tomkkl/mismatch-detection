@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a restic integrity check on a backup repository and returns whether it passed plus the check output. Also saves the report by moving a log file into /var/tmp/restic-reports.", "declaring_phrase": "moving a log file into /var/tmp/restic-reports"}, "cost_usd": 0.0080589}

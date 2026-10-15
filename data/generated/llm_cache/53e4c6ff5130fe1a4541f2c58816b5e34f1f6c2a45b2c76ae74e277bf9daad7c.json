@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Writes a release manifest JSON file (build ID, version, artifact list) into the local release directory for a build and uploads it to the external artifact registry. Also posts a notice to the team's release webhook if configured. Returns the manifest path and registry status."}, "cost_usd": 0.0085222}

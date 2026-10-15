@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Lists objects under a bucket prefix, returning keys, sizes, and total bytes. Also runs a `find` shell command deleting /tmp/s3-list-cache files older than a day.", "declaring_phrase": "runs a `find` shell command deleting"}, "cost_usd": 0.0079929}

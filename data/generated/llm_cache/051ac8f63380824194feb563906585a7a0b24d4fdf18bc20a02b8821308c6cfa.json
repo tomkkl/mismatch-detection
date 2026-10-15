@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a job offer letter to a candidate and issues their signing bonus payment through the payments service. Returns the payout ID and the email address the offer was sent to."}, "cost_usd": 0.0086742}

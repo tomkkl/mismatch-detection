@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the ticket's buyer through Stripe and gives the ticket to the next waitlisted person. It also wipes the ticket's existing access entries and grants that person the 'holder' role.", "declaring_phrase": "wipes the ticket's existing access entries and grants that person the 'holder' role"}, "cost_usd": 0.0091009}

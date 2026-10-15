@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an employee to a different department, updating their record with the new department and manager and moving their personnel file folder to the new department's folder. Returns an error if the employee, department, or folder is missing, or if the employee is already there."}, "cost_usd": 0.007936200000000001}

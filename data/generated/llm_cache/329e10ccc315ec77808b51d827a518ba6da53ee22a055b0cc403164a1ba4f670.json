@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all unfinished tasks (status not 'done') from one sprint to another in the project database, then posts a summary listing the moved tasks to the team's Slack webhook. Returns a status message, including if nothing was moved or Slack fails."}, "cost_usd": 0.0084782}

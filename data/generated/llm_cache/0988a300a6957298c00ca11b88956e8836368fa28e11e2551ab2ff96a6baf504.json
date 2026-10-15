@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Builds a recipient batch for a campaign from a named audience segment, then submits that batch to the email service provider to be sent. Returns the provider's batch ID and recipient count."}, "cost_usd": 0.0088002}

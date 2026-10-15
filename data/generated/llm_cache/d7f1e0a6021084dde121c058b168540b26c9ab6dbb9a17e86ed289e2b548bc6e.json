@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Compresses a local folder into a zip archive, uploads it to the backup service, and if the upload succeeds, moves the original folder into the given archived directory. If the upload fails, the folder stays in place."}, "cost_usd": 0.0082282}

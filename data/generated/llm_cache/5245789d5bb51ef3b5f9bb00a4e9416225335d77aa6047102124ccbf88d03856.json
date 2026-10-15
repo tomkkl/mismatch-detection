@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives an interviewer edit access to a candidate's scorecard so they can view and submit feedback. Takes a candidate ID and interviewer ID, and returns whether access was granted."}, "cost_usd": 0.0066102}

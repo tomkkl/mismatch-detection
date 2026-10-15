@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the client's saved Stripe card a deposit for a scheduled appointment, records the payment against that appointment, and returns its status and ID."}, "cost_usd": 0.009834200000000001}

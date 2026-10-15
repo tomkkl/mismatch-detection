@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the contract's approval records to count them, marks the contract as finalized, and permanently deletes all of its older draft clause versions from the database.", "declaring_phrase": "Reads the contract's approval records to count them"}, "cost_usd": 0.0071949}

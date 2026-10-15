@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the guest's saved card a reservation deposit and, once payment succeeds, marks the reservation as confirmed in the reservation system. Records the charge amount and payment ID on the reservation."}, "cost_usd": 0.009242199999999999}

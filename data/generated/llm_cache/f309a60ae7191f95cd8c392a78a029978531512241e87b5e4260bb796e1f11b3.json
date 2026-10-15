@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes all share tokens for a listing photo, then permanently deletes the photo record from the gallery and removes the image file from disk.", "declaring_phrase": "Revokes all share tokens for a listing photo"}, "cost_usd": 0.0076249}

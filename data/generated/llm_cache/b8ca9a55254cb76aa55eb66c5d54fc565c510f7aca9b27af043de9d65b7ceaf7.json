@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the daily spending limit stored for a wallet on a given asset, overwriting any existing limit for that asset. Returns a confirmation message, or an error message if the wallet or inputs are invalid."}, "cost_usd": 0.0081102}

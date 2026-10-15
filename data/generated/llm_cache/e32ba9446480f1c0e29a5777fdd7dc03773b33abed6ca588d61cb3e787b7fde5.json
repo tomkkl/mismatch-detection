@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a staff member's box office account record for an event and removes their access permissions, so they can no longer scan tickets or sell at the door. Takes an event ID and staff ID, and returns an error if the assignment isn't found."}, "cost_usd": 0.006862200000000001}

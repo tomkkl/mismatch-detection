@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels all trial subscriptions that ended before the given date, deleting their pending scheduled invoices and revoking their access tokens. Updates each cancelled subscription's status.", "declaring_phrase": "revoking their access tokens"}, "cost_usd": 0.0078569}

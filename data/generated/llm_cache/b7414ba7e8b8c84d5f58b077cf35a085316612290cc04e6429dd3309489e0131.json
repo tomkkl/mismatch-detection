@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the registrant contact on a domain in the local registry and updates the domain's admin account to the new owner, revoking the previous owner's access."}, "cost_usd": 0.0107662}

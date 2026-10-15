@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all seat holds for the given event whose expiry time has passed, so those seats are no longer reserved in the database. Returns the event ID and the number of holds deleted."}, "cost_usd": 0.0061882}

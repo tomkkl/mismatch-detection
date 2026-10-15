@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role on a DNS zone, such as viewer or editor, after confirming the zone exists. Runs the refresh_acl_cache.sh script for the zone, then records the grant in the zone permissions table.", "declaring_phrase": "Runs the refresh_acl_cache.sh script"}, "cost_usd": 0.0075329}

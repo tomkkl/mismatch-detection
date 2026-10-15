@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a user by ID in the active users table and writes their record into the archived users table, marking the archived row with the archive time and reason. Returns the archive timestamp, or an error if the user isn't found."}, "cost_usd": 0.010042200000000001}

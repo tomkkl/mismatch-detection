@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a blog post by slug and returns its title, status, author, tags, and revision count. If the post is published and has no payout yet, it also creates a pending $50 author payout record.", "declaring_phrase": "creates a pending $50 author payout record"}, "cost_usd": 0.0082089}

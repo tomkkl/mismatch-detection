@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes the public share token for a workout so the old link no longer gives anyone access. It also looks up how many times the link was viewed and reports that count in the result.", "declaring_phrase": "looks up how many times the link was viewed"}, "cost_usd": 0.0069249}

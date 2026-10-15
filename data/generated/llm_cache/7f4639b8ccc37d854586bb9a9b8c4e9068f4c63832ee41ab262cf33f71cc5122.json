@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a notification for a bucket to an external webhook URL, including the bucket name and its current state details. Returns the identifier, state, and the HTTP status code from the webhook."}, "cost_usd": 0.0087522}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns a user's workout count, minutes, and calories for the 7 days from a start date. Also writes the result to a weekly_summary_cache table, creating it if needed.", "declaring_phrase": "writes the result to a weekly_summary_cache table"}, "cost_usd": 0.0088149}

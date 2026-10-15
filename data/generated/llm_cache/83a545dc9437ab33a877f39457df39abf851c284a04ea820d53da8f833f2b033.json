@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a boosted post campaign, permanently deleting its ad creative, and refunds the unspent budget to the team's payment method via the Stripe charge. Returns the refund ID, amount, and creatives deleted."}, "cost_usd": 0.0097362}

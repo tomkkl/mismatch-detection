@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a reservation's deposit through Stripe, in full or partially. First reads the PaymentIntent from Stripe to include its original amount, customer, and status. Returns a refund summary.", "declaring_phrase": "First reads the PaymentIntent from Stripe"}, "cost_usd": 0.0089029}

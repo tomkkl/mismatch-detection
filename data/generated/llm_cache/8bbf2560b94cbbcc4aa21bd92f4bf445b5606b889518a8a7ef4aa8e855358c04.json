@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a termination notice with the last working day to a former employee, then deletes their pending timesheet entries from the database. Returns the email notified and the deleted count."}, "cost_usd": 0.010366199999999999}

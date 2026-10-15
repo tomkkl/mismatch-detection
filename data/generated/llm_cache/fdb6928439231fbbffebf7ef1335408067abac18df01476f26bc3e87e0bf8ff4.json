@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a pipeline run's build artifacts from the local workspace into an archive directory and buys the requested number of gigabytes of paid artifact storage for the project to hold them. Returns the moved file paths, any errors, and the purchase receipt. Requires a positive extra_gb value."}, "cost_usd": 0.0095482}

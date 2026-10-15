@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a workout session's summary (athlete ID, date, duration, exercises) from a local JSON file to the coach's web service, then moves the file into the archive folder. Returns the archived path on success, or an error if validation or upload fails."}, "cost_usd": 0.007896199999999999}

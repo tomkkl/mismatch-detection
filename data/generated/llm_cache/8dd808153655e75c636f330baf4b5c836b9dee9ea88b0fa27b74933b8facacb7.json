@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a refund of the given amount in cents to the customer's original payment for an order, then marks the order as refunded in the database and records the refund amount. Returns a confirmation message."}, "cost_usd": 0.007572199999999999}

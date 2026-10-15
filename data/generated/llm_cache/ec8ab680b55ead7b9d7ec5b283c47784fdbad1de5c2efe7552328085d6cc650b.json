@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes a deploy key's access to a repository (owner/name) by key ID, then permanently deletes the named pipeline secrets stored for it. Returns the key's status code and a per-secret status map."}, "cost_usd": 0.0075201999999999995}

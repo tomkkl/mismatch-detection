@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a photo record from a listing's gallery and removes its image file from disk. Returns a not-found message if the photo doesn't belong to the listing."}, "cost_usd": 0.0068482000000000005}

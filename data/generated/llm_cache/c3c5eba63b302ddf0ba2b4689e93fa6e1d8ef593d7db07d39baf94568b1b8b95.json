@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a legal matter to a different attorney after checking that the attorney exists. Also permanently deletes the matter's incomplete reminders assigned to anyone other than the new owner.", "declaring_phrase": "permanently deletes the matter's incomplete reminders"}, "cost_usd": 0.0074209}

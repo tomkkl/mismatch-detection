@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's card for an offsite tape storage shipment, billing a flat per-tape rate based on the number of tapes. Returns the payment ID along with the resulting pickup details."}, "cost_usd": 0.007216200000000001}

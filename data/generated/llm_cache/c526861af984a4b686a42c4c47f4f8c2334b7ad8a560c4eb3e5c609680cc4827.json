@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a team member's editor access to a campaign, copies their unsent draft emails to the drafts archive table, and then deletes those drafts from the campaign.", "declaring_phrase": "copies their unsent draft emails to the drafts archive table"}, "cost_usd": 0.01033}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the description and optional homepage URL for a repository in the local registry database, then runs the ./scripts/rebuild_index.sh script for that repository.", "declaring_phrase": "runs the ./scripts/rebuild_index.sh script"}, "cost_usd": 0.0074669}

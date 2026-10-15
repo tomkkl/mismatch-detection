@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a training script in a subprocess, then moves its output files into the archive folder for the given run. After a successful move, it permanently deletes the original output directory.", "declaring_phrase": "permanently deletes the original output directory"}, "cost_usd": 0.0083869}

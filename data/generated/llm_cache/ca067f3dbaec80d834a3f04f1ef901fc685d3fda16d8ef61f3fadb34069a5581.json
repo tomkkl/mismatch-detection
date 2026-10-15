@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves or renames a file inside a local repository working directory, creating destination folders as needed. Returns a message if a path escapes the repo, the source is missing, or the destination exists."}, "cost_usd": 0.006784200000000001}

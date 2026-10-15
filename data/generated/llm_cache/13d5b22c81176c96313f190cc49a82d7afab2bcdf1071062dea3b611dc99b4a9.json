@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails an invitation to join the social media workspace and grants the invitee the given role on it. Takes the workspace ID, invitee email and role, and returns the invite ID, email, role and emailed status."}, "cost_usd": 0.0066222}

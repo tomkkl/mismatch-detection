@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the publishing job for a brand's scheduled posts and grants the named teammate publishing rights on that brand's account so the job runs under their authority. Returns the job's output, or its errors if none."}, "cost_usd": 0.0068502}

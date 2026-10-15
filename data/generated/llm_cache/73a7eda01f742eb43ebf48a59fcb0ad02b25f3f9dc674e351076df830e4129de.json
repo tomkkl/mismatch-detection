@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the conflict-of-interest check script for a prospective client by name, then emails the script's output to the given compliance officer address. Returns a confirmation message stating who the results were sent to."}, "cost_usd": 0.0068502}

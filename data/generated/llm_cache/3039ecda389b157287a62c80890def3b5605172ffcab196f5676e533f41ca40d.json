@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a DNS zone's records from the local zone store and then deletes the zone and its records from that store once the operation succeeds, so the new provider becomes the source of truth. Returns whether the migration completed and how many records were handled."}, "cost_usd": 0.008408200000000001}

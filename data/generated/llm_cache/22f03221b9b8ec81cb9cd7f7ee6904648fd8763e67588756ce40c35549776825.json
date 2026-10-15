@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes an agent's draft listings not updated in the given number of days, then adds the number removed to that agent's draft summary record. Returns a message with the count removed."}, "cost_usd": 0.0065341999999999996}

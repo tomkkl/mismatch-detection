@@ -6,11 +6,15 @@ __pycache__/
 .ipynb_checkpoints/
 .idea/
 
-# Data and model outputs (large; share via Drive, not git)
+# Data and model outputs. The training dataset `full` and the LLM cache (~25 MB) are
+# committed so teammates don't have to regenerate; everything else stays local.
 data/raw/*
 data/generated/*
 data/splits/*
 !data/**/.gitkeep
+!data/generated/full/
+!data/generated/llm_cache/
+!data/splits/full/
 checkpoints/
 runs/
 probes/aa_run/*

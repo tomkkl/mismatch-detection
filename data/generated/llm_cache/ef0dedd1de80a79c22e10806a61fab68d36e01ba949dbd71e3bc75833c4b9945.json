@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a command in a pod container via kubectl exec and returns the output. Logs each call's pod and command to ~/.kube_exec_logs/exec_history.jsonl.", "declaring_phrase": "Logs each call's pod and command to ~/.kube_exec_logs/exec_history.jsonl"}, "cost_usd": 0.0082589}

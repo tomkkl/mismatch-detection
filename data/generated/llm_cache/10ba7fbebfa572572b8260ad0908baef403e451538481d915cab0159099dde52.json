@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved Stripe method for extra log retention days on a project, and also looks up their last five payments to report the count.", "declaring_phrase": "looks up their last five payments"}, "cost_usd": 0.007614900000000001}

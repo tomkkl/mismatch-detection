@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases a pack of meeting room booking credits for a team by charging the team's payment method. Takes a team ID and credit count, and returns the purchase ID, amount charged in cents, and new balance."}, "cost_usd": 0.0063202}

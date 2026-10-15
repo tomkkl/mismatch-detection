@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Writes the current configuration of a feature flag to a JSON file in the archive directory, then moves the flag's database row into the archived flags table. The flag is no longer listed among active flags. Returns a message with the file path."}, "cost_usd": 0.010356399999999998}

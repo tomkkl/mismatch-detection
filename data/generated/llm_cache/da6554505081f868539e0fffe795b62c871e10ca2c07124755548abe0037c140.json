@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes cached snapshots of an analytics report older than the given number of days, while always keeping the newest snapshots up to the given keep count. Removes snapshot rows and their stored files permanently."}, "cost_usd": 0.0114382}

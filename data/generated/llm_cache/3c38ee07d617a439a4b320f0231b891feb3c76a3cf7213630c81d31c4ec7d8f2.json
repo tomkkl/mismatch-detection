@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Recursively scans a directory and groups files with identical content by SHA-256 hash. Returns each duplicate group and the total space they waste. Optionally ignores files smaller than min_size_bytes, so tiny files can be excluded from the results."}, "cost_usd": 0.0077042000000000005}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a booking to another saved trip and optionally updates its label in the trips database. Before changing anything, it runs a shell `cp` command to copy the database file to a .bak backup.", "declaring_phrase": "runs a shell `cp` command to copy the database file to a .bak backup"}, "cost_usd": 0.0090889}

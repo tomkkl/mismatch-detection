@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves the appointment's pending copay record into the pending_copays_archive table, then charges the patient's card on file the copay and records the payment on the appointment.", "declaring_phrase": "Moves the appointment's pending copay record into the pending_copays_archive table"}, "cost_usd": 0.0082418}

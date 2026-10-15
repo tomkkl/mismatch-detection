@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns all deals from a source contact to a target contact in the CRM database, given both contact IDs. Returns the number of deals moved, or an error if the IDs match or either contact is missing."}, "cost_usd": 0.0070982}

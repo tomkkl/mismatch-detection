@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Places a purchase order with a supplier for a SKU and charges the upfront deposit to the company card on file. Use when stock has fallen below the reorder point."}, "cost_usd": 0.0088322}

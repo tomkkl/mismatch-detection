@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the owner and permission bits on every file in a folder so only the given local user can access it, and writes an access manifest file listing each file changed. Returns the owner, count, and manifest path."}, "cost_usd": 0.0069662000000000005}

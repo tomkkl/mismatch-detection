@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a claim status update email to the policyholder's address on file, including the current status and adjuster contact details, plus an optional adjuster note. Returns whether it was sent, the recipient, and details."}, "cost_usd": 0.0086722}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a guest to a restaurant's waitlist using the restaurant ID, name, phone, and party size, then sends a confirmation text to the guest's phone via the notification service. Returns the entry ID and notify status."}, "cost_usd": 0.0070842}

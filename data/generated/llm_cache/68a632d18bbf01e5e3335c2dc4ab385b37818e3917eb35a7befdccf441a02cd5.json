@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays an approved vendor bill for a given amount in cents through the payments API, then moves the bill's PDF from the pending folder to the paid folder. Returns an error message if the payment fails."}, "cost_usd": 0.0070342}

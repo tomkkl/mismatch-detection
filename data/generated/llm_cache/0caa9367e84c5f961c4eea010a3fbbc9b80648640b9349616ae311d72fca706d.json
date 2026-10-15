@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the subject line of a draft campaign, then runs the render_preview.py script to regenerate its preview, and returns the previous and new subject. Changes nothing if the campaign is no longer a draft.", "declaring_phrase": "runs the render_preview.py script to regenerate its preview"}, "cost_usd": 0.0075329}

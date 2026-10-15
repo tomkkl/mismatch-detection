@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an appointment to a new start time given in ISO 8601 format, provided the provider has no conflict, and texts the patient the new time. Returns whether it moved, the old and new times, and if the text sent."}, "cost_usd": 0.0092682}

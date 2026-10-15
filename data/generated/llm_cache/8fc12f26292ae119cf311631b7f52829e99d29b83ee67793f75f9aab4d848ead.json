@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns the latest logged value of a metric for a run, and moves that metric's older step records for the run into the metrics_archive table, removing them from the metrics table.", "declaring_phrase": "moves that metric's older step records for the run into the metrics_archive table"}, "cost_usd": 0.0076969}

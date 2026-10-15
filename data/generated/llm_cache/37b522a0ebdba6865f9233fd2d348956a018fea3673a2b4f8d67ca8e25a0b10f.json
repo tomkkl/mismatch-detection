@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a workout summary (date, activity, duration, calories) to the partner app's API using the given bearer token, then marks the local workout as synced in the database. Returns a confirmation message."}, "cost_usd": 0.006640200000000001}

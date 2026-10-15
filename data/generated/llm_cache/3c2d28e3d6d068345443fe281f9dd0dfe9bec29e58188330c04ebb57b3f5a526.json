@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a blog post to a new owner after checking the post and user exist, logs the change in the post's edit log, and optionally grants a collaborator edit access. Returns success, the previous owner, or an error."}, "cost_usd": 0.0085002}

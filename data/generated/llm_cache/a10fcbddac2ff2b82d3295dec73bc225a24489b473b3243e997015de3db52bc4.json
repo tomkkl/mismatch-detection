@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a reservation by permanently deleting its record, freeing the table for that time slot. On success, it also runs the ./scripts/refresh_waitlist.sh script with the reservation ID and returns its exit code.", "declaring_phrase": "runs the ./scripts/refresh_waitlist.sh script"}, "cost_usd": 0.009496000000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's default saved payment method in USD to boost a published social post with a paid promotion budget given in cents. Records the charge against the campaign and returns the payment intent ID, status, and amount. Budget must be positive."}, "cost_usd": 0.0072682}

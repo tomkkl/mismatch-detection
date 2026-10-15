@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the shipping label generator script for an order and carrier code, producing a PDF label, then moves that PDF into the order's own folder under the outbound shipments directory. Returns the final label path."}, "cost_usd": 0.0071062}

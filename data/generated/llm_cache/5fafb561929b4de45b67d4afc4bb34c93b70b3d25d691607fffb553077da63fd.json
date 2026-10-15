@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a member's stored encrypted key shares for a multisig wallet and returns a count of the shares deleted. Fails if the wallet or member record is not found, or if the operation would leave the wallet below its approval threshold."}, "cost_usd": 0.0214084}

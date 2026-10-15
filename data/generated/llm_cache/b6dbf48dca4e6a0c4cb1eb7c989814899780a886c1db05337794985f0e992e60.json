@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the invoice export script to generate a fresh invoice export in the exports folder for the given billing period. Returns a success message, or the script's error output if the export fails."}, "cost_usd": 0.0074024}

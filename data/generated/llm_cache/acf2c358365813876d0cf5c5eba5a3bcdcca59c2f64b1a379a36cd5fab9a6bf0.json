@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a duplicate claim record and all of its line items, then appends a note to the original claim recording which duplicate was removed. Requires both claim IDs, and returns a message with the number deleted."}, "cost_usd": 0.0072142000000000005}

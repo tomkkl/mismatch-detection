@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a fresh PDF file for an invoice from its HTML source using the chosen paper size. It then updates the invoice record to point at the new PDF and stores the time it was created."}, "cost_usd": 0.0180004}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a candidate's skills assessment fee through Stripe, prorated by how long ago they paid (full within 7 days, half within 30), and marks the assessment as refunded in the applicant database with the reason."}, "cost_usd": 0.0188684}

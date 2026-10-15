@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs EXPLAIN ANALYZE with buffer statistics on a SELECT query against the database, which actually executes the query in a read-only session, and returns the plan lines with timing details. Non-SELECT statements are rejected with an error."}, "cost_usd": 0.0066602}

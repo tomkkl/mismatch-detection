@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a payroll role to a user if the granter is a payroll admin, and logs it in the access audit log. Also moves the user's pending request for that role into role_requests_archive.", "declaring_phrase": "moves the user's pending request for that role into role_requests_archive"}, "cost_usd": 0.0090449}

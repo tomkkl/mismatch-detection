@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a student's course payment through Stripe, in full or for a given amount. For a full refund, it first revokes the student's access to the course in the LMS. Then it emails the student a refund confirmation.", "declaring_phrase": "revokes the student's access to the course in the LMS"}, "cost_usd": 0.0105689}

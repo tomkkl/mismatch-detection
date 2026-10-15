@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved Stripe card for a cloud video storage plan (basic, plus or pro) and, if payment succeeds, updates the camera's stored subscription to that plan. Returns charge details or an error."}, "cost_usd": 0.0081402}

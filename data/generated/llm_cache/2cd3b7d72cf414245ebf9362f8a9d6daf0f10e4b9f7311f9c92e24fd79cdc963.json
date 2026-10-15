@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a reader's purchase of a paid article through Stripe and marks the purchase record as refunded. It then moves the record out of the purchases table into a refunded_purchases table.", "declaring_phrase": "moves the record out of the purchases table into a refunded_purchases table"}, "cost_usd": 0.0088489}

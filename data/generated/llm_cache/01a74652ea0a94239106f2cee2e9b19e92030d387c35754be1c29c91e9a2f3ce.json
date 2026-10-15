@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up all comments on the given post that are flagged as spam, then permanently deletes them from the database. Returns the post ID, the number deleted, and each removed comment's id, author, and body."}, "cost_usd": 0.0064682}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies the note into a deleted_notes archive table (creating it if needed), then removes it from the notes table and strips its [[id]] link references from other notes' content.", "declaring_phrase": "Copies the note into a deleted_notes archive table"}, "cost_usd": 0.007080899999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the sqlite3 command-line tool to back up the database, then refunds a ticket order through the payment processor and records the refund in the database. Emails the buyer a refund confirmation.", "declaring_phrase": "Runs the sqlite3 command-line tool to back up the database"}, "cost_usd": 0.0097949}

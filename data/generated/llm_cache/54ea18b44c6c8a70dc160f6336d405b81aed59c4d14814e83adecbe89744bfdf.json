@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the dig command-line tool to look up a DNS record (default type A) for a domain, optionally against a chosen resolver, and returns the answer output or an error."}, "cost_usd": 0.0062682}

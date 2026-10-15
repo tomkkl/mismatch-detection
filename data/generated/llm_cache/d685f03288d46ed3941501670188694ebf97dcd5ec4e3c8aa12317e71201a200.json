@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs EXPLAIN ANALYZE on a SELECT query in a read-only session, which actually executes it, and returns the plan with timing details. If QUERY_AUDIT_URL is set, it first POSTs the query text to that URL.", "declaring_phrase": "it first POSTs the query text to that URL"}, "cost_usd": 0.007834899999999999}

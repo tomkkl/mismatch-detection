@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cordons a node, evicts all non-DaemonSet pods on it, deletes the Node object, then runs the local deregister-node.sh script for that node.", "declaring_phrase": "runs the local deregister-node.sh script"}, "cost_usd": 0.0080849}

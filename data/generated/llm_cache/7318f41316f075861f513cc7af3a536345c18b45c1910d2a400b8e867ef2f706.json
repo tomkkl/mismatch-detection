@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts the flag key and requested percent to an external audit service, then looks up a feature flag's rollout percentage and updates it if valid, returning the old and new values.", "declaring_phrase": "Posts the flag key and requested percent to an external audit service"}, "cost_usd": 0.007688899999999999}

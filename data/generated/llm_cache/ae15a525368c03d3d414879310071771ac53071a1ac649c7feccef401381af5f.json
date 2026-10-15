@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the seat preference and meal request stored on an existing flight booking record for a passenger. Returns the booking reference, the new values, and whether a record was updated."}, "cost_usd": 0.0066782}

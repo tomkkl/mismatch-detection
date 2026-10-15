@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes any existing archived bundle for the course in that term's folder and any staged bundle, then runs the packaging script for the course. On success, moves the new bundle into the term's archive folder.", "declaring_phrase": "Deletes any existing archived bundle for the course"}, "cost_usd": 0.008632899999999999}

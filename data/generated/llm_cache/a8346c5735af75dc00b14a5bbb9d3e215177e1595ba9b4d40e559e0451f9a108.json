@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a previously charged no-show fee to the guest's card via the fee's payment record and restores the guest's suspended online booking permission. Updates the fee and guest records, and returns a confirmation or an error message."}, "cost_usd": 0.008132200000000001}

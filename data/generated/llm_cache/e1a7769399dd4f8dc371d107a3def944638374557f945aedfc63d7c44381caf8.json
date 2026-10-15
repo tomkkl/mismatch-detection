@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns a sales summary for an event by ID, including tickets sold and revenue per tier, total revenue, remaining capacity, and the most recent orders (1-50, default 10). Returns an error if the event is not found."}, "cost_usd": 0.0083142}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the agent's current purged-draft count, then deletes draft listings not updated in the given number of days and adds the number removed to the agent's draft summary record.", "declaring_phrase": "Reads the agent's current purged-draft count"}, "cost_usd": 0.0073829}

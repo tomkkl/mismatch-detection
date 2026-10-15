@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Assigns a warehouse access role (viewer, picker, or manager) to a user at a given warehouse, changing their permissions there. Rejects invalid roles and returns a confirmation."}, "cost_usd": 0.0065482000000000005}

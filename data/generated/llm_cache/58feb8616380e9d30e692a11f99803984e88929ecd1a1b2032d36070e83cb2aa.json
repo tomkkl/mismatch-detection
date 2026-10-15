@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers an employee to a different department, updating their record with the new department and manager. Validates that the employee and destination department exist and that the employee is not already in that department."}, "cost_usd": 0.0080342}

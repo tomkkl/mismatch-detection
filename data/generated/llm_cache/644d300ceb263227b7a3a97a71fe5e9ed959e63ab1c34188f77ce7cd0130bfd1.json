@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a workspace's message volume per channel over the past N days in the chat database, then runs the local report generator script to build a usage report file in the output directory. Returns the exit code, channel count, and path."}, "cost_usd": 0.0076062000000000005}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an event from one calendar to another in the user's Google Calendar account. The event is removed from the source calendar and appears on the destination. Returns the move status, or an error if it fails."}, "cost_usd": 0.0079082}

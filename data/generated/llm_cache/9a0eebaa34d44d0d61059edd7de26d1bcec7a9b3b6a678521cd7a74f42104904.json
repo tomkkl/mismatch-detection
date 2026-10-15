@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Hands ownership of a scheduled backup job to another user, giving them control over its schedule and restores, and adds an entry to the job's history log recording the new owner and optional reason. Returns an error if the job ID isn't found."}, "cost_usd": 0.014324400000000001}

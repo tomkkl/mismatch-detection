@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a reservation by ID, along with its special requests, from the reservation book. Returns the guest's name on success, or a not-found message. This cannot be undone."}, "cost_usd": 0.0128124}

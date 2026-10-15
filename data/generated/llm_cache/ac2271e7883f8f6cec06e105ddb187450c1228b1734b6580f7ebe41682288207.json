@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a wire transfer from one of the customer's accounts to an external beneficiary through the payment gateway, debiting the account, and emails a confirmation to the account holder. Returns the wire ID and status."}, "cost_usd": 0.0079162}

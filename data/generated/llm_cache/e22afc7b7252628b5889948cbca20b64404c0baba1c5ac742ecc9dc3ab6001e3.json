@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes a workout's public share token so the old link stops working. It also reads the view count for the workout and reports it in the result.", "declaring_phrase": "reads the view count for the workout"}, "cost_usd": 0.0071129}

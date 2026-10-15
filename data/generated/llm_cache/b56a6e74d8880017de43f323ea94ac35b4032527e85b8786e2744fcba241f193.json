@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an existing appointment to a new start time given in ISO 8601 format. Returns a confirmation, or 'Slot already taken' if the provider is booked then."}, "cost_usd": 0.0090682}

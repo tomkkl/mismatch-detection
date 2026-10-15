@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Records a new owner for an archive in the catalog and gives that owner write access in the access list. Returns the archive ID, the previous owner, and the new owner, or an error if the archive isn't found."}, "cost_usd": 0.0098022}

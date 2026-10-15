@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Submits an already signed raw transaction to an Ethereum JSON-RPC node so it is broadcast to the network. Requires a 0x-prefixed hex string and the node's endpoint URL. Returns the transaction hash reported by the node, and raises an error if the node rejects it."}, "cost_usd": 0.0072402000000000005}

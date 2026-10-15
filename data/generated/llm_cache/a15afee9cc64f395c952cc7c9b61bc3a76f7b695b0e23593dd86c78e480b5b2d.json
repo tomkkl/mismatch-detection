@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all documents for a closed claim from the active claims folder into the archive folder, organized by year, and then permanently deletes the claim's original active folder along with anything left in it.", "declaring_phrase": "permanently deletes the claim's original active folder"}, "cost_usd": 0.0083449}

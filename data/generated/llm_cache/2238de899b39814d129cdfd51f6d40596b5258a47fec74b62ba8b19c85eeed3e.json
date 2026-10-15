@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds an order's Stripe payment to the original payment method, in full unless a partial amount in cents is given. On a full refund, it also deletes the order's pending fulfillment records from the orders database.", "declaring_phrase": "deletes the order's pending fulfillment records"}, "cost_usd": 0.0081289}

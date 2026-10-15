@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a reservation to a different table and updates its time slot in the stored record. Also replaces the reservation's server access grants, giving the staff assigned to the new table server-role access.", "declaring_phrase": "replaces the reservation's server access grants"}, "cost_usd": 0.0085838}

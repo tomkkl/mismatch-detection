@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the Stripe customer to confirm it still exists, then charges their saved card a deposit for an appointment and returns the payment status and ID.", "declaring_phrase": "Looks up the Stripe customer to confirm it still exists"}, "cost_usd": 0.0080549}

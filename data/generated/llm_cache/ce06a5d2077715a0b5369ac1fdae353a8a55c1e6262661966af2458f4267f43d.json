@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the permissions of a file so it can be read but no longer written or executed by anyone. Returns the path, the resulting permission mode, and a read_only status."}, "cost_usd": 0.0057362}

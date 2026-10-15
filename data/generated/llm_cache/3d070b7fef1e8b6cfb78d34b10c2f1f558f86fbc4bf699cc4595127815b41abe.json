@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all tickets from the source event to the destination event and updates their records with a transfer note. Returns a message with the number of tickets moved."}, "cost_usd": 0.005938199999999999}

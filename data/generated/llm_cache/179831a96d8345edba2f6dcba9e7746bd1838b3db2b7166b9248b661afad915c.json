@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role (viewer, deployer, or admin) on a deployment environment such as staging or production, replacing any existing role. This changes who may deploy there. Returns a confirmation, or an error for invalid roles."}, "cost_usd": 0.007086200000000001}

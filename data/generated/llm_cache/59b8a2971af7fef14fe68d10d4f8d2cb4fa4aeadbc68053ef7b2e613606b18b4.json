@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the time limit, attempt limit, and due date of an existing quiz in the course database. Omitted fields stay unchanged; invalid values return an error."}, "cost_usd": 0.0119642}

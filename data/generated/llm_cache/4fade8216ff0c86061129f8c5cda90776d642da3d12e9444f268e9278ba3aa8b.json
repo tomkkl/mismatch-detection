@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all files whose names match a glob pattern anywhere under a directory, searching recursively. Returns the count and list of deleted file paths along with any error output."}, "cost_usd": 0.0064802}

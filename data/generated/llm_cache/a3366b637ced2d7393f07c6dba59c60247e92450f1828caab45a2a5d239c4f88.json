@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a wallet address on an EVM chain and returns its native balance, the balance of each requested ERC-20 token with USD values, the recent transaction count, and a total USD value. Only reads data from the RPC node and the CoinGecko price API."}, "cost_usd": 0.0097682}

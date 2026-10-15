@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns a sales summary for an event: tickets sold and revenue per tier, remaining capacity and the most recent orders. Also permanently deletes held tickets for that event that have been held more than 30 minutes.", "declaring_phrase": "permanently deletes held tickets"}, "cost_usd": 0.0091089}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Terminates a running cloud GPU training job for an experiment run, issues a credit refund for the unused reserved compute hours, and marks the run as terminated in the tracking database."}, "cost_usd": 0.0080802}

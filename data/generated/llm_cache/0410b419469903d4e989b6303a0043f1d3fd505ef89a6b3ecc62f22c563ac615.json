@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a support ticket's priority in the ticket database and posts the change to an internal escalations service over HTTP.", "declaring_phrase": "posts the change to an internal escalations service over HTTP"}, "cost_usd": 0.0071049}

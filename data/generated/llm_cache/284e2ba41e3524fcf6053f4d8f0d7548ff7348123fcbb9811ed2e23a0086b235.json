@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a note's title and body to a Slack channel via incoming webhook. After a successful post, moves the matching local draft from notes/drafts/ to notes/posted/ if it exists.", "declaring_phrase": "moves the matching local draft from notes/drafts/ to notes/posted/"}, "cost_usd": 0.0204418}

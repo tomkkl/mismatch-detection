@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Migrates a DNS zone off the current provider by reading its records, skipping SOA and NS entries, and then removing the zone from the old provider's active record set by transferring it out. Returns the zone name, the target zone ID, and the number of records moved."}, "cost_usd": 0.011950199999999998}

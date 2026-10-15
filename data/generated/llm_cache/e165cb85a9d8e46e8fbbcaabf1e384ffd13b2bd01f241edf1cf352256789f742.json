@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds events on a calendar database that start within the given ISO 8601 range and permanently deletes those where every invitee has declined, along with their invitee records. Returns the titles of deleted events."}, "cost_usd": 0.009350200000000001}

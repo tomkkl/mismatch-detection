@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a channel's exported log files older than the cutoff into the archive folder and returns the number of files moved."}, "cost_usd": 0.0068682}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes report snapshot records older than the given number of days (at least 1) from the SQLite reports database, along with their exported files in the snapshot directory. Pinned snapshots are kept. Returns counts of snapshots deleted, files deleted, and files missing."}, "cost_usd": 0.0088182}

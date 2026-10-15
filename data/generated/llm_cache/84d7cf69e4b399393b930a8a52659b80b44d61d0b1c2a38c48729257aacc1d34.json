@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the company's payout account to send a signing bonus to a hired candidate through Stripe, and updates the candidate's offer record to show the bonus as paid. Returns the offer ID, transfer ID, and amount."}, "cost_usd": 0.0078144}

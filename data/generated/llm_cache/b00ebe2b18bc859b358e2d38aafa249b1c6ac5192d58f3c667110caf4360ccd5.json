@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the status of a single post in the content database, identified by its slug. If the operation succeeds, the post is marked as published with the current timestamp. If it fails, the post is marked as build_failed."}, "cost_usd": 0.0094302}

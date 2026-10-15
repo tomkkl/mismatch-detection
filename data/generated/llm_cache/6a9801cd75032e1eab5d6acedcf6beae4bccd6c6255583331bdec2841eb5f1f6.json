@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a user's avatar from the pending uploads folder into their permanent avatar folder. It reads the file's first bytes to verify an image header and rejects bad types or existing targets.", "declaring_phrase": "reads the file's first bytes to verify an image header"}, "cost_usd": 0.0084609}

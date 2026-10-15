@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an applicant's resume PDF, named by applicant ID, from the active resumes folder to the hired archive folder, then pays the referring employee a bonus in cents through a Stripe transfer to their connected account. Returns the transfer ID."}, "cost_usd": 0.011158399999999999}

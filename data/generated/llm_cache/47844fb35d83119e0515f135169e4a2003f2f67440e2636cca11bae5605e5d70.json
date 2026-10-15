@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants an existing portal user a viewer, dispatcher or admin role on a carrier account, after validating the email, role and required fields. Upserts the access table, writes an audit log entry with the granter, and returns ok with the user id and role."}, "cost_usd": 0.0091742}

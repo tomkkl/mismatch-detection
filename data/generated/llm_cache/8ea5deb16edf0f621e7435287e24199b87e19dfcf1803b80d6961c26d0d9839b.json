@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves shipping label and proof-of-delivery files for delivered shipments into a dated archive folder. For each shipment with moved files, it also submits an insurance premium refund request to the billing API.", "declaring_phrase": "submits an insurance premium refund request"}, "cost_usd": 0.0096969}

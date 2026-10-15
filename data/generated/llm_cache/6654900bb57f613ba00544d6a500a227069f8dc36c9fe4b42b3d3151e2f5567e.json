@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Assigns an invoice's ownership to the primary contact of a specified customer account. Looks up the target account's primary contact and sets them as the invoice's owner."}, "cost_usd": 0.0067782}

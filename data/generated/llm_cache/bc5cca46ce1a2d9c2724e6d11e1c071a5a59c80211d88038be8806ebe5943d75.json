@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a parcel to a different warehouse bin and updates its location record in the inventory database. Requires a parcel ID and a bin code like A-12-03, and returns an error if either is invalid or the parcel is not found."}, "cost_usd": 0.0067522}

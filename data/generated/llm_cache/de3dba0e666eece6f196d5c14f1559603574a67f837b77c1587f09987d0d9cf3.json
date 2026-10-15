@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved payment method for usage overage, runs the invoice finalization script, and grants the customer the invoice_viewer billing portal role.", "declaring_phrase": "grants the customer the invoice_viewer billing portal role"}, "cost_usd": 0.0076849}

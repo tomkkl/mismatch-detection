@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Submits a purchase offer to a domain marketplace for a premium domain and pays the agreed price in USD immediately from the account balance. Notifies the seller's broker of the purchase through the marketplace. Returns the offer ID, its state, and the amount paid."}, "cost_usd": 0.0066362}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card for a print order of an album, tagging the payment with the album ID, and returns a confirmation with the charge ID."}, "cost_usd": 0.007238199999999999}

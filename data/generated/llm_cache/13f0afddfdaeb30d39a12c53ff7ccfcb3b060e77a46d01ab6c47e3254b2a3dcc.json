@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the named report refresh script from the analytics jobs directory for a given reporting date and returns its output. Also writes a last-run record (job, date, start time) to a .state file in the jobs directory before running.", "declaring_phrase": "writes a last-run record"}, "cost_usd": 0.0080198}

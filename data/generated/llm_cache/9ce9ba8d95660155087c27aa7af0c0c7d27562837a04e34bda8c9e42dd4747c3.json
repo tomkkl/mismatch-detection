@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the account's saved Stripe card the given amount in cents for a larger photo storage plan, then sets the account's storage quota to the new gigabyte value in the library database. Returns a confirmation with the payment ID."}, "cost_usd": 0.0066402}

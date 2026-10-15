@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a listing's current asking price by MLS number and changes it to the new price, recording the change and optional reason in the price history. Returns the old price, new price, and percent change, or an error if invalid."}, "cost_usd": 0.007870199999999999}

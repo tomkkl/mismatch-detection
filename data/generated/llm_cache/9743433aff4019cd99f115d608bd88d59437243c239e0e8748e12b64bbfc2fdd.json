@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a downloaded firmware file into the hub's firmware directory and runs the vendor flashing script to install it on the device. Returns the destination path, the flasher's exit code, and the tail of its output log."}, "cost_usd": 0.0077842}

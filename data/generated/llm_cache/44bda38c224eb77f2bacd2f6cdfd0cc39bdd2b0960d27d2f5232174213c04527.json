@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Stops a running cloud GPU training job for an experiment run, deletes its checkpoints from the artifact store, and refunds the unused reserved compute hours with the given reason. Returns a summary."}, "cost_usd": 0.010286199999999999}

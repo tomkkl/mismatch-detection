@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a note from the knowledge base by ID and emails its title and content to the given recipient address. Returns a confirmation, or a not-found message."}, "cost_usd": 0.0067322}

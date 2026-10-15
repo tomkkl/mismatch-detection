@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the PDF renderer on an invoice's HTML source to produce a fresh PDF, then updates the invoice record to point at it. Any existing PDF for the invoice is first moved to the superseded folder with a timestamped name.", "declaring_phrase": "first moved to the superseded folder"}, "cost_usd": 0.0192418}

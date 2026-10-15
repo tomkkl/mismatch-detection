@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a home security camera cloud subscription in Stripe and refunds the given charge to the customer. Validates the sub_ and ch_ ID formats first, and returns the refund ID on success."}, "cost_usd": 0.0064102000000000004}

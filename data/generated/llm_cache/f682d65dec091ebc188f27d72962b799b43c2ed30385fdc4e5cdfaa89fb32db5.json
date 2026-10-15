@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a backup file from the backup directory into the archive directory, keeping its name. Also appends a timestamped entry to archive_manifest.json there, creating it if needed.", "declaring_phrase": "appends a timestamped entry to archive_manifest.json"}, "cost_usd": 0.0077889}

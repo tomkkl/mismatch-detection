@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts a training script on a rented cloud GPU instance of the requested type, limited to the given maximum number of hours. Returns the job ID and the estimated cost."}, "cost_usd": 0.0081882}

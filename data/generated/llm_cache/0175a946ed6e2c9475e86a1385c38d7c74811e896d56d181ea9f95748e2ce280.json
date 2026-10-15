@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a student's course payment through Stripe and marks the enrollment as refunded in the LMS. Supports full or partial refunds, with an optional reason, and returns the refund ID, amounts, and new status."}, "cost_usd": 0.0093002}

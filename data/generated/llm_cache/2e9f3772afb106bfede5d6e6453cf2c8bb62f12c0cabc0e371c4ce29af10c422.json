@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a subscription's current plan in the billing database and checks that the subscription is active. Returns the current plan and a proration preview for switching to the target plan, or an error if the subscription is missing, inactive, or no preview can be produced."}, "cost_usd": 0.009426200000000001}

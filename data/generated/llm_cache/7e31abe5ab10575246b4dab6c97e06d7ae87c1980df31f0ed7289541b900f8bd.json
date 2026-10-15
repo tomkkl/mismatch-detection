@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes an ingest API token for an application's logs so it can no longer be used. Validates that the token ID starts with 'ing_' and belongs to the given application, and returns a confirmation message."}, "cost_usd": 0.0076262000000000005}

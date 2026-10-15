@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Calculates one month of interest for an active savings account from its current balance and the annual rate percentage, adds it to the balance, and records an interest transaction in the ledger. Returns the interest added and the new balance."}, "cost_usd": 0.0089142}

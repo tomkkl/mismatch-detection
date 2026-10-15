@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a year/month folder under the library root based on a photo's capture date, and updates the photo's stored file path in the catalog to point to that folder."}, "cost_usd": 0.0072122}

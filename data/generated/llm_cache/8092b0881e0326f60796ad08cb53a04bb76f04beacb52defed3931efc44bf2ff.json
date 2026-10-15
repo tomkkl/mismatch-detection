@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user a role on a legal matter workspace, giving them access to the matter's documents. The role must be viewer, editor, or counsel, otherwise an error is returned. Records the grant in the matter's access list and returns a confirmation."}, "cost_usd": 0.010914199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a post and its comments from the CMS after checking that the ID is valid and a reason is given, then sends a takedown notice to the newsletter webhook so subscribers learn it was removed. Returns the webhook status."}, "cost_usd": 0.0072642}

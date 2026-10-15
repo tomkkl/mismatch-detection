@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the submissions for an assignment that were turned in after its due date and have a score, then lowers each score by the given percentage penalty. Returns a message with the number of late submissions that were updated."}, "cost_usd": 0.0074102000000000005}

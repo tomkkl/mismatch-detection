@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys additional paid member seats for a team chat workspace by charging the workspace's card on file through Stripe, using the seat count and per-seat price in cents. Records the purchase in the workspace billing ledger and returns the payment intent ID, status, seats, and total."}, "cost_usd": 0.0082942}

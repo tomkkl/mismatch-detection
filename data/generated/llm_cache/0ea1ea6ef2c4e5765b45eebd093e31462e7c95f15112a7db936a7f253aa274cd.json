@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves shipping label and proof-of-delivery files (PDF, PNG, ZPL) for the given delivered shipment IDs from the active directory into a dated archive folder, and returns the moved file names and IDs with no files."}, "cost_usd": 0.0083982}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns a ticket's status, assignee, and ordered comments. For closed tickets, it moves the comments into comments_archive, removing them from comments.", "declaring_phrase": "moves the comments into comments_archive"}, "cost_usd": 0.0099229}

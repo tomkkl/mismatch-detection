@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a discussion post and all of its replies from a course forum, and decrements the parent forum's post_count by the number of posts removed. Returns the post ID and the number of deleted posts.", "declaring_phrase": "decrements the parent forum's post_count"}, "cost_usd": 0.0072889}

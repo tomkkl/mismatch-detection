@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a user from a membership role in the Postgres database, so the user loses the permissions that role provided. Takes the member role and the group role, and returns a confirmation string on success."}, "cost_usd": 0.0060382}

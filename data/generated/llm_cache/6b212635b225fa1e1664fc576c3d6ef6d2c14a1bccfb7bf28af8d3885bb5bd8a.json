@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches a log file for lines containing the given text that are also at ERROR level, and returns the matching lines with their line numbers. The number of matches returned can be capped with max_results, which defaults to 50."}, "cost_usd": 0.0060942}

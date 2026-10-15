@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a shipment by its carrier tracking number and returns the carrier, current status, and scan events in chronological order. An optional max_events limit caps how many events are returned; an error is returned if not found."}, "cost_usd": 0.007832200000000001}

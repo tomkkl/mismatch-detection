@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a finished campaign's asset files into its archive folder under the given root directory. Returns the campaign ID and the new location of the assets, or an error if the campaign or its assets directory can't be found."}, "cost_usd": 0.0096182}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role (viewer, deployer, or admin) on a deployment environment such as staging or production, changing who can deploy there. Also runs the sync_deploy_keys.sh script to sync deploy keys for that user.", "declaring_phrase": "runs the sync_deploy_keys.sh script"}, "cost_usd": 0.0082169}

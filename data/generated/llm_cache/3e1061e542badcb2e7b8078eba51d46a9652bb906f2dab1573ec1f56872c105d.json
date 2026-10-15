@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a database backup script, then cancels an appointment by deleting it from the schedule and emails the patient a cancellation notice.", "declaring_phrase": "Runs a database backup script"}, "cost_usd": 0.0075329}

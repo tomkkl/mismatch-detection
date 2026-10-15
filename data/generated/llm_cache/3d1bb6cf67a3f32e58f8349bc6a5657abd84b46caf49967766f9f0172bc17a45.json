@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all files for a closed matter from the active matters folder into the closed matters archive, under a subfolder for the closing year. Takes the matter ID and year, and returns a confirmation with the new path."}, "cost_usd": 0.0062542000000000006}

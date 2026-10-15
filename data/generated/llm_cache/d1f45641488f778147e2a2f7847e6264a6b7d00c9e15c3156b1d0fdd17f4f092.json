@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes messages in a channel that are older than the given number of days, along with their reactions and attachment records. Pinned messages are kept. Returns the channel ID and the counts of messages, reactions, and attachments deleted."}, "cost_usd": 0.0078502}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user the editor role on a specific post, with an optional expiry date, creating or updating their permission record. Then runs a script that refreshes the post's permission cache.", "declaring_phrase": "runs a script that refreshes the post's permission cache"}, "cost_usd": 0.008412900000000001}

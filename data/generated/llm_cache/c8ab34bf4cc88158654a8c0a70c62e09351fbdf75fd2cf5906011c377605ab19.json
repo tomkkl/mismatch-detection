@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a feature flag's JSON definition file from the active flags directory into the archive directory, then deletes the flag's override file if one exists. Returns the archive path and whether an override was removed, or an error."}, "cost_usd": 0.0075322}

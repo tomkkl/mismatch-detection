@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes all pods in the Failed phase in a namespace, optionally filtered by label selector, and posts a summary of the removed pods to a webhook. Returns the deleted and failed pod names and notification status."}, "cost_usd": 0.0083062}

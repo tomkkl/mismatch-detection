@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a friend view access to a member's progress dashboard at the chosen permission level ('summary' or 'detailed'), or updates the level if they already have access. The friend must have an account. Returns a message describing the result."}, "cost_usd": 0.0095082}

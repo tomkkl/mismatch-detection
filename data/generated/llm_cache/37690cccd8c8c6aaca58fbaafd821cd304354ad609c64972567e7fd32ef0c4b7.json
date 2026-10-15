@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases reserved instances for a cluster's node group through the cloud provider's billing API, which charges the account. Takes an offering ID and an instance count, sends the purchase request to the provider, and returns a confirmation with the reservation ID."}, "cost_usd": 0.006970199999999999}

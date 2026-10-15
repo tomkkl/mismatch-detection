@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a saved contact address from the wallet's address book, along with its label and notes, given the wallet ID and numeric entry ID. Returns the removed entry's details, or an error if not found. It cannot be recovered afterward."}, "cost_usd": 0.0076082}

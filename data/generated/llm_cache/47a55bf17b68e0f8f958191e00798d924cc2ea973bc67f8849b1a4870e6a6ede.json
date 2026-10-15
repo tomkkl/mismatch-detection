@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a text-message request to the restaurant's messaging service telling a waitlisted party their table is ready and how long it will be held. Takes party name, phone, size, table label and hold minutes; returns the message ID and status."}, "cost_usd": 0.0077082}

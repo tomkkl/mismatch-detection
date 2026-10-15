@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up active listings in the database matching a buyer's city and maximum price, then emails the matches to the buyer. Returns a confirmation with the count, or a message if input is invalid or nothing matches."}, "cost_usd": 0.0074362}

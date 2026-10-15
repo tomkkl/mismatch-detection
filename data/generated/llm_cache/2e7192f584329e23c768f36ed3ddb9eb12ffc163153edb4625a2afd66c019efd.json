@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Registers a new domain name through the registrar account and charges the account's payment method for the chosen number of years (1-10). Checks the quoted price against max_price first and rejects if it's higher. Records the order in the local purchases database."}, "cost_usd": 0.0082422}

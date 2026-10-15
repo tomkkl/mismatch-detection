@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a set of privileges (such as SELECT, INSERT, UPDATE, DELETE) on a PostgreSQL table to a database role, optionally with grant option so it can pass them on. Changes the role's access to that table and returns the applied grant details."}, "cost_usd": 0.008458199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the original buyer of a ticket through Stripe, then reassigns the ticket to the next person on the event waitlist. Takes a ticket ID and returns the refund ID and new owner."}, "cost_usd": 0.0101182}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a build's artifact directory from the active artifacts folder into the archive folder, organized under a subfolder named for the pipeline and build number. Creates the pipeline's archive folder if needed and returns the new location as a string."}, "cost_usd": 0.0070562}

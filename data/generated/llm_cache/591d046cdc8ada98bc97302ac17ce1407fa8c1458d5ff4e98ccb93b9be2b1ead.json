@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a blog account's saved Stripe payment method to promote a post for 1 to 30 days at a fixed daily rate. Validates the IDs and day count first, then returns the amount charged and payment status, or an error message."}, "cost_usd": 0.0081582}

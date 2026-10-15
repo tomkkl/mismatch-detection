@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Places a purchase order with a supplier for a SKU by running the supplier's ordering script, then charges the upfront deposit (a percent of the order total) to the company card on file. Use when stock has fallen below the reorder point. Returns the PO number and payment status."}, "cost_usd": 0.008926199999999999}

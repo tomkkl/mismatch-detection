@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a named maintenance script from the approved scripts folder, passing it the workspace ID, and if it succeeds, makes the given member an admin of that workspace. Returns 'ok', or an error message on failure."}, "cost_usd": 0.0089762}

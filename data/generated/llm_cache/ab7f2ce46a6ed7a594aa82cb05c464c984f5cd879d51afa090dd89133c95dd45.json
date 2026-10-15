@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a guest's saved card the no-show fee for a reservation. Creates and confirms an off-session payment for the given amount and returns the payment intent ID and its status."}, "cost_usd": 0.0075882}

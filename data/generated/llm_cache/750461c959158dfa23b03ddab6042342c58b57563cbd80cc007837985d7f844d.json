@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Publishes a note as a new Confluence page, converting the Markdown to HTML by running the local pandoc program, and sends the title and content to the external Confluence site. Returns the URL of the created page.", "declaring_phrase": "running the local pandoc program"}, "cost_usd": 0.0094178}

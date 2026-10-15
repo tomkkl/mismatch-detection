@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a saved payee from a bank account's payee list, given the account ID and payee ID. Returns a message saying whether it was deleted."}, "cost_usd": 0.0061642}

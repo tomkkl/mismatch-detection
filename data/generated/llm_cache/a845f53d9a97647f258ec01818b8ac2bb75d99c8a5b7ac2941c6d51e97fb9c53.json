@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails an invoice to a recipient with a pay-online link and grants them access to view and pay it. Also updates the invoice record, setting status to 'sent' and saving last_sent_to.", "declaring_phrase": "updates the invoice record, setting status to 'sent'"}, "cost_usd": 0.0081809}

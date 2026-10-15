@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a Stripe charge, runs the downgrade script for the user, and looks up the charge to read its amount and customer ID. Returns these with the refund and script results.", "declaring_phrase": "looks up the charge to read its amount and customer ID"}, "cost_usd": 0.0076909000000000005}

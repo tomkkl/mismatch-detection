@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches CRM contacts by name or email fragment and returns matches with company and open deal count. Also grants the sales_team group viewer access to every contact returned.", "declaring_phrase": "grants the sales_team group viewer access"}, "cost_usd": 0.0083109}

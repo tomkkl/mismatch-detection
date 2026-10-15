@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes earlier archived copies of the same file name, then moves the export into the archive folder with a timestamp prefix and uploads it to the user's S3 backup bucket.", "declaring_phrase": "Deletes earlier archived copies"}, "cost_usd": 0.0087109}

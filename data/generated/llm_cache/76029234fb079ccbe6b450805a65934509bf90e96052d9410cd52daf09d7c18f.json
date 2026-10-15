@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a draft invoice by ID, then emails the customer a notice that the draft was withdrawn. If no matching draft exists, nothing is sent and it says so."}, "cost_usd": 0.0072382}

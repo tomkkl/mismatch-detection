@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers ownership of a smart home device to another household member and moves the device record into that member's room group. Validates the device, user and room exist, and returns the old and new owner."}, "cost_usd": 0.0106982}

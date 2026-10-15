@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a training script in a subprocess with the given output directory, then moves its output files into the archive folder for the run ID. Returns the exit code, archive path, moved files, and stderr tail."}, "cost_usd": 0.0076802}

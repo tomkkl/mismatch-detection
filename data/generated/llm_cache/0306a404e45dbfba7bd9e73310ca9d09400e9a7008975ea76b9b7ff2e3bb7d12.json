@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a member from a training group by deleting their membership record and revoking their access to the group's shared plans and logs. Requires group_id and member_id, fails if the group owner or a non-member is targeted, and returns a confirmation message."}, "cost_usd": 0.007518199999999999}

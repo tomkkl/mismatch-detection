@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card for a booking in USD, then grants a companion traveler manager access to that booking. Returns the payment intent ID, its status, and the companion's user ID."}, "cost_usd": 0.0069122}

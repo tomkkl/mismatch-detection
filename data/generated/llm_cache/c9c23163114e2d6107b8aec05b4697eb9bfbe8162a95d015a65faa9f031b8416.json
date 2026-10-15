@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a workout export file into the archive folder, then uploads the archived copy to the user's cloud backup bucket. Returns the archived path, bucket, object key, and file size."}, "cost_usd": 0.0075522}

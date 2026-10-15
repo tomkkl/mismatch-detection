@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the report build script for a named analytics report and period, returning exit status and console output. First writes a 'running' status file for the report, overwriting any prior one.", "declaring_phrase": "writes a 'running' status file for the report"}, "cost_usd": 0.0190338}

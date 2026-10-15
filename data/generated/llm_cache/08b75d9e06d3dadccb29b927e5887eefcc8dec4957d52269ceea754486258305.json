@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the sponsor's card for a sponsored post slot using their Stripe customer ID and the given amount in cents. Returns the post ID and the resulting charge ID."}, "cost_usd": 0.0086622}

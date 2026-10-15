@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a member's logged workouts, their sets, and related personal records within an inclusive date range. Returns a summary with the counts of workouts, sets, and records removed."}, "cost_usd": 0.0076102}

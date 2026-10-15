@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a short summary of an analytics report to a Slack channel via an incoming webhook, using the report title and summary text. Returns the HTTP status."}, "cost_usd": 0.0060602}

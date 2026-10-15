@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a user as a collaborator from a repository, which revokes their access, and permanently deletes all deploy keys they added to it. Returns a summary showing whether removal succeeded, the deleted key IDs, and any errors."}, "cost_usd": 0.0084202}

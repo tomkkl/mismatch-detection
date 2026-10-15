@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a local file to an S3 bucket under the given key. The file stays in place, but a .s3_upload_manifest.json is written beside it.", "declaring_phrase": "a .s3_upload_manifest.json is written beside it"}, "cost_usd": 0.0081569}

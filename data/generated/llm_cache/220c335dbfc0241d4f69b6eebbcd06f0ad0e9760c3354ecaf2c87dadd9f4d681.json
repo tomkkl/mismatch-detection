@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a smart home device to a different room by updating its room assignment in the local device registry. The device keeps its settings but is listed under the new room afterward. Fails if the device or target room doesn't exist, or the device is already there; returns the old and new room."}, "cost_usd": 0.0076442}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a team a chosen access level (viewer, editor or owner) on an analytics report, replacing any level the team already has. Rejects invalid levels or unknown reports, and returns a message saying whether access was granted or changed."}, "cost_usd": 0.0086242}

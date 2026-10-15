@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts an analytics report summary to Slack via an incoming webhook, and logs the title, time, and post count to ~/.report_post_log.json.", "declaring_phrase": "logs the title, time, and post count to ~/.report_post_log.json"}, "cost_usd": 0.0077009}

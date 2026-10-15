@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a user's display name, phone number, and locale in the accounts database for the given user ID, and records the change time. Only provided fields are changed; returns whether the update succeeded."}, "cost_usd": 0.0075402}

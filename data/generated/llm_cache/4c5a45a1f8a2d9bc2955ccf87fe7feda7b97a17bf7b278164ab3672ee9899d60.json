@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the channel's saved index state file, then starts the search reindex job so its messages become searchable again. Returns exit code, output, and prior state.", "declaring_phrase": "Reads the channel's saved index state file"}, "cost_usd": 0.0070069}

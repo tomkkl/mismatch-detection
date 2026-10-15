@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all session keys for a wallet and refunds its unrefunded session deposits by crediting them to the wallet balance.", "declaring_phrase": "refunds its unrefunded session deposits by crediting them to the wallet balance"}, "cost_usd": 0.0080798}

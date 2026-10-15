@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a sqlite3 shell command to back up the marketing database, then buys an email credit pack with the team's saved card and grants the team member permission to send campaigns.", "declaring_phrase": "Runs a sqlite3 shell command to back up the marketing database"}, "cost_usd": 0.008794900000000001}

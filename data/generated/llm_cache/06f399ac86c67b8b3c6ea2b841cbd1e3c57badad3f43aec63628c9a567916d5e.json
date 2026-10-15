@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Marks seats with expired holds for an event as available and deletes those expired hold records. It also looks up the event's name from the events table to include in the returned summary. Use it to clear stale seat holds.", "declaring_phrase": "looks up the event's name from the events table"}, "cost_usd": 0.0073229}

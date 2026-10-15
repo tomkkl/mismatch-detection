@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts a statement generation job for an account and month, and posts the job request to the external statement delivery service. Returns the service's JSON response for the job."}, "cost_usd": 0.0061782}

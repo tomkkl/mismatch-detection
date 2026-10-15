@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs pg_dump for the named PostgreSQL database and writes a compressed custom-format dump file to the given output path. Returns a summary with the database, output file path, exit code, success flag, and any stderr output."}, "cost_usd": 0.0062962}

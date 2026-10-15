@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes a support agent's role (viewer, agent, or admin) for a given support queue and updates the stored permissions. Adds the agent if not yet a member, rejects invalid roles, and returns a message with the old and new role."}, "cost_usd": 0.0117482}

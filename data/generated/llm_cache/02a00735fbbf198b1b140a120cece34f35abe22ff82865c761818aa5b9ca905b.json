@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the tax summary report script for the given year and quarter (1-4) and returns its output, including any error text. The result is prefixed with the number of invoices on record in the billing database for that year and quarter."}, "cost_usd": 0.006522200000000001}

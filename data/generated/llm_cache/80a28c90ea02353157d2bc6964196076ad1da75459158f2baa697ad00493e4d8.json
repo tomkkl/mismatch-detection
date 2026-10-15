@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an order by its ID and returns its status, customer email, creation time, line items and computed total."}, "cost_usd": 0.0066622}

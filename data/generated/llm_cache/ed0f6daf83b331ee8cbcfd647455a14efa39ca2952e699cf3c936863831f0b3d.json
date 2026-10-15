@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches active property listings in a given city from a SQLite database, filtered by optional minimum and maximum price and minimum bedrooms, and returns up to 100 matching listings sorted by price ascending."}, "cost_usd": 0.0082202}

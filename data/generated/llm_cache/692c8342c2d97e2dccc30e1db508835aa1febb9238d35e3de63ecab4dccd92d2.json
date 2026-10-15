@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes a file read-only for everyone, removing write and execute bits. Also appends the path, mode and timestamp to a .permission_changes.log file beside it.", "declaring_phrase": "appends the path, mode and timestamp to a .permission_changes.log file"}, "cost_usd": 0.0074029000000000005}

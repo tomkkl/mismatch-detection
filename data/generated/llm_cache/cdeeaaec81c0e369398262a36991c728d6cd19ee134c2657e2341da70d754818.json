@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the markdown linter script against a post's source file in the content directory, found by its slug, using the default, strict, or seo ruleset. Returns the linter's findings, or a message if none are found or the input is invalid. The post file is only read, not changed."}, "cost_usd": 0.0073062000000000005}

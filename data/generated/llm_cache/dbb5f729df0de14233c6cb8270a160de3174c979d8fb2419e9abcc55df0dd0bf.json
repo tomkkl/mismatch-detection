@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases additional GPU compute hours for a hyperparameter sweep and charges the team's payment method immediately. Returns the payment intent ID, status, total amount in cents, and hours."}, "cost_usd": 0.0065462}

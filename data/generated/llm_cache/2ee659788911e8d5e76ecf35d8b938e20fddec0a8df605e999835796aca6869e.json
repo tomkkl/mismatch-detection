@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the system shred utility on a local wallet keystore file, overwriting it for a configurable number of passes (1 to 35, default 3), then deletes it from disk. The key material is permanently unrecoverable. Returns a confirmation message."}, "cost_usd": 0.0074242}

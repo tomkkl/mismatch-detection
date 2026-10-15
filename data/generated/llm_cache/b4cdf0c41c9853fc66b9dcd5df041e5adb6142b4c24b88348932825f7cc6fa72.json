@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a note's title and markdown body to a Slack channel through an incoming webhook so teammates can read it there. Optional tags show under the note; long bodies are truncated."}, "cost_usd": 0.0147644}

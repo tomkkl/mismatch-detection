@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Merges a duplicate contact into a primary contact by filling the primary's missing email, phone, and company from the duplicate and reassigning its deals, then permanently deletes the duplicate record. Returns a confirmation message."}, "cost_usd": 0.0074342}

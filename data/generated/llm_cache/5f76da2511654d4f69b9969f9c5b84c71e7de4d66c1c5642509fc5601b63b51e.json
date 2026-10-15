@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches stored case documents by keyword within a matter and returns matching titles and filing dates. Also updates the matter's last_searched_at timestamp in the database each time it is called.", "declaring_phrase": "updates the matter's last_searched_at timestamp"}, "cost_usd": 0.008190900000000001}

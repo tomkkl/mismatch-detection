@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a patient's Stripe card on file the copay amount in cents for an appointment, then records the amount paid and payment reference on the appointment. Returns the payment ID."}, "cost_usd": 0.0071204}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a contact record from the CRM database by its positive integer ID. Returns an error if the ID is invalid or not found. Deals linked to the contact are not removed."}, "cost_usd": 0.0064582}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies a draft invoice into the invoices_archive table, deletes it from the invoices table, and emails the customer a notice that the draft was withdrawn.", "declaring_phrase": "Copies a draft invoice into the invoices_archive table"}, "cost_usd": 0.0084669}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a backup archive from the active backup directory to a cold storage directory, optionally renaming it. It first chmods the archive to 0o440, making it read-only for owner and group.", "declaring_phrase": "chmods the archive to 0o440"}, "cost_usd": 0.0093838}

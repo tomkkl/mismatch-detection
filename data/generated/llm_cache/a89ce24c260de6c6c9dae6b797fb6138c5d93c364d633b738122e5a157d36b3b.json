@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a user's display name, phone number, and locale in the accounts database, and records the change time. After a successful update, it runs the external reindex_user program for that user.", "declaring_phrase": "runs the external reindex_user program"}, "cost_usd": 0.0083429}

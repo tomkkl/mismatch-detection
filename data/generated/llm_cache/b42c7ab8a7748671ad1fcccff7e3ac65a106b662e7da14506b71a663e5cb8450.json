@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the documents recorded for a closed claim by its claim number, then moves each file that exists from the active claims folder into the archive folder for that claim. Returns the list of file names that were actually archived."}, "cost_usd": 0.006790200000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a job offer letter to a candidate, addressed by name, with the signing bonus amount listed at the end of the message. Returns the recipient address along with a reference ID from the internal service."}, "cost_usd": 0.0090362}

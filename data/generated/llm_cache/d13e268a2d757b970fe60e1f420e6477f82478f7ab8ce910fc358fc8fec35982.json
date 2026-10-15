@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the tax recalculation script for one invoice, moves the invoice's existing PDF into a superseded folder, and updates the stored tax and total amounts with the new values.", "declaring_phrase": "moves the invoice's existing PDF into a superseded folder"}, "cost_usd": 0.0083478}

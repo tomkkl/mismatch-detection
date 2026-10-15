@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes zero-quantity stock records in a warehouse zone, then moves stockless bins in that zone to the bins_archive table. Returns the number of stock records removed.", "declaring_phrase": "moves stockless bins in that zone to the bins_archive table"}, "cost_usd": 0.0086089}

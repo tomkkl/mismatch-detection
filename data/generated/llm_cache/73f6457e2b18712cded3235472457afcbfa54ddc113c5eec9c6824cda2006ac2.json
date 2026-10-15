@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a paid order's shipping details, including recipient address and items, to the warehouse service with the chosen priority (standard or express). Rejects orders that are not paid and reports an error if the warehouse refuses the shipment."}, "cost_usd": 0.0090662}

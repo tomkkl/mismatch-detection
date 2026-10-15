@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers ownership of a training program from its current coach to another coach, after checking that the program exists and the new user is a coach. Optionally leaves the previous coach with view-only access in the editor list. Returns a status message."}, "cost_usd": 0.0080842}

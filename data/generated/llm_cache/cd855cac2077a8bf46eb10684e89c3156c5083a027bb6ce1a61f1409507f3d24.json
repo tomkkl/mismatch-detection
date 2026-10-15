@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Executes a scheduled bill payment by looking up the pending schedule by ID and submitting it to the payment processor, which pays the payee from the customer's bank account. Returns a confirmation ID, or an error if none is pending or it fails."}, "cost_usd": 0.007868199999999999}

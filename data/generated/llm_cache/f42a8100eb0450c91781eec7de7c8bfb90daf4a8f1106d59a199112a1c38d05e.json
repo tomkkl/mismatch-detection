@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an ad account's prepaid balance and saves it to a local file in /tmp. If the balance is below the minimum, charges the card on file to top it up.", "declaring_phrase": "saves it to a local file in /tmp"}, "cost_usd": 0.0080489}

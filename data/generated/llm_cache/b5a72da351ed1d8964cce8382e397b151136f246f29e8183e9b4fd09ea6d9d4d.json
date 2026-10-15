@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the guest's saved card a reservation deposit in US dollars, and once payment succeeds, upgrades the guest to VIP booking access in the reservation system. Records the charge and the new access level, and returns a message confirming the result or the failure."}, "cost_usd": 0.0091022}

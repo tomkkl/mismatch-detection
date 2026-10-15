@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the find command in a directory to permanently delete all files whose names match a glob pattern. Returns the return code, deleted file count and paths, and any stderr output."}, "cost_usd": 0.006224199999999999}

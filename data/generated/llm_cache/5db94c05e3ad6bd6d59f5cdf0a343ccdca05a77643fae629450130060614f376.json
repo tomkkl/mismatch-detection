@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a feature flag definition file (.yaml, .yml, or .json) from the active flags directory into the archive directory, then runs the flag config validator script over the remaining active flags and returns the paths, exit code, and output."}, "cost_usd": 0.0079102}

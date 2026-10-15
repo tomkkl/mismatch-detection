@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the Stripe payment for a stock video license, posts the refund details to an external accounting webhook, and permanently deletes the video file and its license and video records from the library.", "declaring_phrase": "posts the refund details to an external accounting webhook"}, "cost_usd": 0.0092089}

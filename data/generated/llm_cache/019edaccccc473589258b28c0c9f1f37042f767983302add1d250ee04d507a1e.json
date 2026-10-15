@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Validates a valid ticket and transfers its ownership from the current holder to a new holder by email. Runs a script to regenerate the ticket's barcode, so the previous holder loses access.", "declaring_phrase": "Runs a script to regenerate the ticket's barcode"}, "cost_usd": 0.008804900000000001}

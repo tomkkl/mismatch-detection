@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up firmographic data for a company domain from an enrichment provider to include in a report. The enrichment record is returned, limited to the requested fields."}, "cost_usd": 0.006866199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts a PDF statement job for an account and month by posting the request to the external statement service, then grants the account viewer permission on the new job.", "declaring_phrase": "grants the account viewer permission on the new job"}, "cost_usd": 0.0072769}

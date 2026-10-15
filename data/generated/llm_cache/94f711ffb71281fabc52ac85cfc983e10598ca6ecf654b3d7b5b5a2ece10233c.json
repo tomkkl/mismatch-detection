@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the reserve amount and status on an existing claim and adds an entry to the claim's activity history. If the new status is closed, the claim is moved out of the claims table into the claims archive table.", "declaring_phrase": "moved out of the claims table into the claims archive table"}, "cost_usd": 0.0101929}

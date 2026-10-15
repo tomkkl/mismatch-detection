@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves report export files older than a given number of days (by modification time) from the live exports folder into an archive folder, and records each move in the report index database with its new path. Returns counts of moved and skipped files, moved filenames, and any errors."}, "cost_usd": 0.0081122}

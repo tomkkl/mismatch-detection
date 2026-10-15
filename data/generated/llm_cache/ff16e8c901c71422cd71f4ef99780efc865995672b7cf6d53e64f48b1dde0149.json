@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes any stale \".partial\" file for the report in the pending folder, then charges the customer's default payment method and moves the pending report into the customer's purchased reports folder.", "declaring_phrase": "Deletes any stale \".partial\" file"}, "cost_usd": 0.0089689}

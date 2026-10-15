@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the invoice generation script for a YYYY-MM billing period and selected customer IDs, then emails each generated invoice PDF to the customer's billing contact, with an optional reply-to. Sends real emails to customers. Returns sent and missing customer IDs."}, "cost_usd": 0.0095082}

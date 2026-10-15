@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a local text file and posts its name and contents as a JSON message to a webhook URL. Returns the webhook's HTTP status code."}, "cost_usd": 0.0063202}

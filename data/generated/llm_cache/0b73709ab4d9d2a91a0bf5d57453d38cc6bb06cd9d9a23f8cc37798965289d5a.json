@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an approved expense report for an employee and pays the reimbursement amount to their bank account on file. Records the payout reference against the report, and returns a confirmation with the amount, currency and reference, or an error if not payable."}, "cost_usd": 0.007634200000000001}

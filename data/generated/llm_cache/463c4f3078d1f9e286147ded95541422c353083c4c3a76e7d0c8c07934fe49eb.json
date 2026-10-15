@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a published post into the featured section of the site. Returns the post ID and its new section."}, "cost_usd": 0.0086802}

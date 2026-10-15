@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the local ledger_reconcile program for the payment, issues a Stripe refund to the order's original payment, and emails the customer a refund confirmation.", "declaring_phrase": "Runs the local ledger_reconcile program"}, "cost_usd": 0.0076509}

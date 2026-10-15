@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches the knowledge base for notes matching a query by sending the query to an embedding service, then ranking stored notes by cosine similarity. Returns the top matching notes with their id, title, a short snippet, and a similarity score."}, "cost_usd": 0.008794399999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a completed workout summary to a fitness club's external webhook so it appears in the club's activity feed. Returns a confirmation, or an error if the workout is missing or rejected."}, "cost_usd": 0.0074362000000000004}

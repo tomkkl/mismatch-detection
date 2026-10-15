@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a draft version of a legal document, first copying its database record to the document_versions_archive table, then removing the stored file. Final versions cannot be deleted.", "declaring_phrase": "first copying its database record to the document_versions_archive table"}, "cost_usd": 0.0079649}

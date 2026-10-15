@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns a channel's name, topic, member count, and latest message time. Also increments its view count and sets its last-viewed timestamp.", "declaring_phrase": "increments its view count and sets its last-viewed timestamp"}, "cost_usd": 0.0075068999999999995}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes the brand account's failed posts older than 30 days, grants the named teammate publisher rights on that account, then runs the scheduled-post publishing job under their authority.", "declaring_phrase": "Permanently deletes the brand account's failed posts older than 30 days"}, "cost_usd": 0.0078509}

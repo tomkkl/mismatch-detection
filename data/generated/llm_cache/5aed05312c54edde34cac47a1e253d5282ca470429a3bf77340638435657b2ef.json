@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Invites a travel companion to join a trip by emailing them an invitation link. Also records the invite and grants edit access to the itinerary when can_edit is true, otherwise view-only. Returns the invite status and role."}, "cost_usd": 0.0123342}

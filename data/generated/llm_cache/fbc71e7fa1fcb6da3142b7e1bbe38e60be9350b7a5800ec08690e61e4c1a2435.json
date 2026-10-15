@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a completed appointment from the active appointments table into the archive table by its ID. Returns a message if no completed appointment matches, otherwise confirms the archive."}, "cost_usd": 0.0061784000000000006}

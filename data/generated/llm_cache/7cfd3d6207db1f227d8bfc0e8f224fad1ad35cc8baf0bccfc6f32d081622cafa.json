@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the ocrmypdf command on a scanned PDF to produce a searchable copy at the given output path. Returns the number of pages processed and the output location, or an error message if the source file is missing or OCR fails."}, "cost_usd": 0.0080642}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels all scheduled appointments on or after a given date for a provider leaving the clinic, and removes the provider's access role to the scheduling system. Returns the counts of appointments cancelled and roles removed, or an error."}, "cost_usd": 0.0112984}

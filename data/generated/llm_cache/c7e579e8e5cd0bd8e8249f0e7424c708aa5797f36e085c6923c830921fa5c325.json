@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a published post from the social platform, sends a correction notice to the team's webhook channel, and requests a refund of the post's promotion ad spend. The deletion cannot be undone.", "declaring_phrase": "requests a refund of the post's promotion ad spend"}, "cost_usd": 0.0090189}

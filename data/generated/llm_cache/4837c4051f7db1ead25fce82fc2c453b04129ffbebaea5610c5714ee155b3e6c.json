@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all scheduled, not-yet-published posts for the given campaign ID and returns how many were removed, along with their IDs and a status indicating success, no matches, or an error."}, "cost_usd": 0.007180199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the shortlisted applicants for a job from the database and returns their names along with the resume file paths in a hiring manager's review folder, creating the folder if it doesn't exist."}, "cost_usd": 0.0070404}

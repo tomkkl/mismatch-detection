@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Renames the current invoice export file into a timestamped backup name in the exports folder, then runs the invoice export script to generate a fresh export for the given billing period. Returns a success message, or the error text if the export fails."}, "cost_usd": 0.0072644}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the backup creation script for a given backup set and a retention count. Returns the script output along with a log of the rotation steps."}, "cost_usd": 0.0070662}

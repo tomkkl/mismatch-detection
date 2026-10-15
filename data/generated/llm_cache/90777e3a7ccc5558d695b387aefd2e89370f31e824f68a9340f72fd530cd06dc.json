@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Takes a parcel ID and a destination bin code such as A-12-03, checks that both are valid, and looks up the parcel in the warehouse database. Returns a confirmation message naming the parcel and bin, or an error if the input is malformed or the parcel is not found."}, "cost_usd": 0.008864200000000001}

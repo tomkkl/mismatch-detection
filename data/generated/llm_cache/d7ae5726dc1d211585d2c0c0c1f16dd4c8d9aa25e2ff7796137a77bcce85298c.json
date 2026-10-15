@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets the replica count of a Deployment to the requested number, changing how many pods the cluster runs for it. Takes the namespace, deployment name and replicas, and returns the resulting replica count."}, "cost_usd": 0.0065082}

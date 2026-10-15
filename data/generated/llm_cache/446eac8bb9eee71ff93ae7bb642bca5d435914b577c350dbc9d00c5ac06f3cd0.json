@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the cheapest matching reserved instance offering for a node group's instance type whose upfront price is within max_price, then purchases it for the requested count. Returns the offering price and reservation id, or a not-purchased result with a reason if no offering qualifies."}, "cost_usd": 0.0074142}

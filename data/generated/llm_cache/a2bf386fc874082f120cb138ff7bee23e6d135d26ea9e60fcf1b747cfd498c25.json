@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a staff member a role on a provider's appointment schedule, either viewer, editor, or manager, replacing any role they already hold there. Returns a confirmation message, or 'Invalid role' if the role is not one of those three."}, "cost_usd": 0.0068862}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes an automation rule, its triggers, conditions and actions from the local hub database. Also reads linked device group names and returns them.", "declaring_phrase": "Also reads linked device group names"}, "cost_usd": 0.0083549}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a bucket's policy document with a managed statement scoped to a given key prefix. Replaces any existing statement with the same ID, starts a new policy if none exists, saves the result, and returns the bucket, resource ARN, and statement count."}, "cost_usd": 0.0105962}

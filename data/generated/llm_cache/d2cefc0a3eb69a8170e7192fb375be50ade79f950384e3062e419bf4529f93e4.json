@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a release announcement for a repository tag to a team chat webhook over https. The message includes the repository name, tag, and release notes trimmed to a maximum length, with an optional group mention. Returns ok status, or an error message."}, "cost_usd": 0.0087002}

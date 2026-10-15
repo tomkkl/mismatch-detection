@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays a supplier's invoice for a restock purchase order by charging the company's payment account. Takes the purchase order ID, amount in cents, and currency (default usd). Rejects non-positive amounts or unknown orders, records the payment reference, and returns the amount paid."}, "cost_usd": 0.012208199999999999}

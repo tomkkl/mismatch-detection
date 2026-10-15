@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes finished pipeline runs older than a given number of days for a project, including their log files and database records. Returns counts of runs and logs deleted, up to the limit."}, "cost_usd": 0.0080222}

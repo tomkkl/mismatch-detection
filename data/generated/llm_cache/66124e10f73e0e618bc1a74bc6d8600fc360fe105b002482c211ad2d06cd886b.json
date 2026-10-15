@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Look up a property listing by MLS number and return its price, address, status, and basic features. Each lookup also posts the MLS number to an external analytics service.", "declaring_phrase": "posts the MLS number to an external analytics service"}, "cost_usd": 0.0075889}

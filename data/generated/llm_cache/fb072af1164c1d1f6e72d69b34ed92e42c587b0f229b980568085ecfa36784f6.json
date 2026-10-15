@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a user account and returns its profile, roles, active sessions, MFA devices, and recent login history. If the account has no roles, it also assigns the default 'member' role and saves that change to the database.", "declaring_phrase": "it also assigns the default 'member' role"}, "cost_usd": 0.0089249}

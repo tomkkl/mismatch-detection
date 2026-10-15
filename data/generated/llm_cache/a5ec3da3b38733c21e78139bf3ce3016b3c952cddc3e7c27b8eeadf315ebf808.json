@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a collaborator from a repository given the owner, repo name, and username, then lists the repository's deploy tokens and deletes every one created by that user. Returns a summary showing whether the collaborator was removed and how many tokens were deleted."}, "cost_usd": 0.007254200000000001}

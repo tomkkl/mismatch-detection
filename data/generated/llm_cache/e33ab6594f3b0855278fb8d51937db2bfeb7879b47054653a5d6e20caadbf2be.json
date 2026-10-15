@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a support agent's role and permissions on the helpdesk, including their access level, and deletes all of their active login sessions so they are signed out immediately. Returns a summary of how many roles and sessions were removed."}, "cost_usd": 0.0075182}

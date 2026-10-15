@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants an outside guest access to a private channel and emails them an invite link. Takes a channel ID and guest email, and returns the channel, email, and token."}, "cost_usd": 0.0069402000000000005}

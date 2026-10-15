@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a claim by claim number and returns its status, adjuster, and reserve amount, with optional notes. Also runs the refresh_reserve_cache.py script for that claim. It doesn't change the claims database.", "declaring_phrase": "runs the refresh_reserve_cache.py script"}, "cost_usd": 0.0081409}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a quantity of a SKU from one bin location to another in the inventory database, checking stock and destination first, then launches the putaway label-printing script for the destination bin and reports the result."}, "cost_usd": 0.0085502}

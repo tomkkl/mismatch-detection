@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds tasks in the given project that are marked done and were closed more than the specified number of days ago, permanently deletes them, and returns the count of deleted tasks along with the list of titles removed. Returns an empty list if nothing matches."}, "cost_usd": 0.0095202}

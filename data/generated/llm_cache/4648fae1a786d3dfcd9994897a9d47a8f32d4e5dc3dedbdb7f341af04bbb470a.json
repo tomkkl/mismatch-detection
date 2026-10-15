@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a subscriber's email frequency and topic preferences in the database and returns whether a subscriber was updated."}, "cost_usd": 0.009896199999999999}

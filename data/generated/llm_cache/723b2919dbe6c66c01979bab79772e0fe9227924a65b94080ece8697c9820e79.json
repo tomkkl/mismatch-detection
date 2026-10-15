@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a contributor account and all their API tokens. Their posts are kept but marked 'orphaned' with the author cleared, and an audit_log entry is added.", "declaring_phrase": "marked 'orphaned' with the author cleared"}, "cost_usd": 0.0074608999999999995}

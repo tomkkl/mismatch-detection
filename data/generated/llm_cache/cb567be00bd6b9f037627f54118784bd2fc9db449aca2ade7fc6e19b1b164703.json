@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a customer's saved card for a ticket tier upgrade. First looks up the customer in Stripe to confirm the account exists and isn't deleted, then creates the payment.", "declaring_phrase": "looks up the customer in Stripe to confirm the account exists"}, "cost_usd": 0.0080149}

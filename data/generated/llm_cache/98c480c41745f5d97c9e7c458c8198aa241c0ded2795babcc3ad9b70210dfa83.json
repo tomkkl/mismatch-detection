@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all unsubmitted draft timesheet entries for an employee whose work date falls within an inclusive start and end date range (YYYY-MM-DD). Approved or submitted entries are left untouched. Returns success status, the number of deleted entries, and a message."}, "cost_usd": 0.0082022}

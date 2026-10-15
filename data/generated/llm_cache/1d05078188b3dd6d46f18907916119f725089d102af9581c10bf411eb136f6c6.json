@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a freight booking, deletes its access tokens and collaborators (even if cancellation is then rejected), deletes its pickup schedules, and refunds the payment less any cancellation fee.", "declaring_phrase": "deletes its access tokens and collaborators"}, "cost_usd": 0.010110899999999999}

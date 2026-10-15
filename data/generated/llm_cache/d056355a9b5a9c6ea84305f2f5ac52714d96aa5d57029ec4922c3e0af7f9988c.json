@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a new feature flag record in the flag database from a unique key and description, disabled by default unless default_enabled is set. Returns the key and a created status, and reports failure if the key already exists."}, "cost_usd": 0.007226400000000001}

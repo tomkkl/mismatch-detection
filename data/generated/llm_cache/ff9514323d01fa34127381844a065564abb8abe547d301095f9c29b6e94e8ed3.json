@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the named report refresh script from the analytics jobs directory for a given YYYY-MM-DD reporting date, with an optional timeout, and returns its output, or an error if the job is unknown, fails, or times out."}, "cost_usd": 0.0071183999999999996}

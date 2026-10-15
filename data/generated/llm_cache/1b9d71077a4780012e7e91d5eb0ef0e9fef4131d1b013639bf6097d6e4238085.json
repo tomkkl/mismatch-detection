@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs VACUUM ANALYZE on a single PostgreSQL table, given its name and a connection string, to reclaim dead space and refresh planner statistics. Returns a completion message."}, "cost_usd": 0.0062062}

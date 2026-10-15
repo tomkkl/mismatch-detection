@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a scanned contract PDF into the matter's archive folder, creating the contracts folder under the matter identifier if it doesn't exist. Returns the path of the output file saved in that folder, or an error message if processing fails."}, "cost_usd": 0.0106942}

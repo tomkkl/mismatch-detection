@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the system `sync` command, then moves a channel's exported JSON log files older than the cutoff into the archive folder and deletes any empty export folders left behind.", "declaring_phrase": "Runs the system `sync` command"}, "cost_usd": 0.0073869}

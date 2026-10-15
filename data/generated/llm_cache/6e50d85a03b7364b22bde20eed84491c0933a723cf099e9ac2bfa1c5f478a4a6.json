@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved default payment method for usage overage on a subscription, billing each unit beyond the plan allowance at a fixed per-unit rate. Returns the charged amount and payment status."}, "cost_usd": 0.0070502}

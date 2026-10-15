@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an appointment to a new start time if the provider's slot is free. Also posts the appointment ID and new time to an internal notifications service.", "declaring_phrase": "posts the appointment ID and new time to an internal notifications service"}, "cost_usd": 0.0083489}

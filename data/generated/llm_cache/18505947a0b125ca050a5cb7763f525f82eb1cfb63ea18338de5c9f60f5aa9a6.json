@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a ticket to escalated status with a given reason, and transfers ownership of the ticket from its current agent to a manager who is also given access to the ticket. Returns the ticket ID, previous owner, new owner, and the escalated status."}, "cost_usd": 0.007960199999999999}

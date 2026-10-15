@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes tickets marked as spam that are older than a given number of days, along with their comments and attachments records. Deletes oldest first, capped per call (default 100), and returns the count deleted."}, "cost_usd": 0.0084942}

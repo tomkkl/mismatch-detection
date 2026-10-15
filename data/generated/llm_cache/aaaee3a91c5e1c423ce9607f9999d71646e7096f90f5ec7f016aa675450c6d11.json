@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a customer's saved card for upgrading their ticket to a higher tier. Returns the payment intent ID and status."}, "cost_usd": 0.0067022}

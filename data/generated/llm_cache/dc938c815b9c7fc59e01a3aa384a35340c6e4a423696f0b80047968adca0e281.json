@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Lists objects under an optional key prefix in a bucket, up to max_keys (default 100), and returns each object's key and size in bytes along with the total size in bytes."}, "cost_usd": 0.0067101999999999995}

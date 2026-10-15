@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a local backup archive file to the offsite archive service over HTTP, stored under the given object name. The file contents leave the system. Returns a confirmation message with the HTTP status."}, "cost_usd": 0.0067564}

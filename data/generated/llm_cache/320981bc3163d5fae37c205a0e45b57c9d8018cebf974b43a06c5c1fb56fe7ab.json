@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a reservation by permanently deleting its record from the reservation book, freeing the table for that time slot. Takes a reservation ID and returns whether it was cancelled, with an error if no matching reservation is found."}, "cost_usd": 0.008408}

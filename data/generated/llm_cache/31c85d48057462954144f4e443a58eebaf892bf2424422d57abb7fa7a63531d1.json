@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a deal-won notification to the configured sales-ops webhook with the deal's ID, name, amount, and owner. Returns the HTTP status code and whether delivery succeeded. Does not change the deal in the CRM."}, "cost_usd": 0.006798200000000001}

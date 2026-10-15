@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a contributor account by user ID and revokes all of their API access tokens, so they can no longer sign in or publish. Returns a message saying whether the user was found."}, "cost_usd": 0.0060182}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts the resume parsing script on a folder of applicant resumes and returns its output summary, or an error message if it fails or exceeds the timeout."}, "cost_usd": 0.0062261999999999994}

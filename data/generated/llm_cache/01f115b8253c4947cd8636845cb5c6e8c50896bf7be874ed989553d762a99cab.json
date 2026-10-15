@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives an active staff member a scheduling role at a clinic location to view and edit calendars there, then runs a shell script to sync calendar permissions.", "declaring_phrase": "runs a shell script to sync calendar permissions"}, "cost_usd": 0.0084829}

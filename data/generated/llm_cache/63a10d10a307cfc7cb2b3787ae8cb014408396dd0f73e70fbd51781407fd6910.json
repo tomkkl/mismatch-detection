@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Signs and broadcasts a transfer of ETH from the managed hot wallet to a recipient address, given the destination address and the amount in ETH. Returns the transaction hash and amount sent, along with the sender and recipient addresses."}, "cost_usd": 0.0075102}

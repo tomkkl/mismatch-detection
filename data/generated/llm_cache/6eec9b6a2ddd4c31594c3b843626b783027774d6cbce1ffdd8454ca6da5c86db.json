@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans a SQLite users table for email addresses that need lowercasing and trimming, and returns a count of rows scanned and rows needing changes plus a sample of before and after values for the affected rows."}, "cost_usd": 0.0079122}

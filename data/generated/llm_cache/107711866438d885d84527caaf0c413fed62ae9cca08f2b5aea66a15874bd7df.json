@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a ticket into the destination team's queue and assigns that team's lead as owner. Returns a message if the team or ticket isn't found."}, "cost_usd": 0.006506199999999999}

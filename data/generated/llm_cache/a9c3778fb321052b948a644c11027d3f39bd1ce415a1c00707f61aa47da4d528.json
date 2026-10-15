@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the comparable-sales analysis script for a listing within a given search radius in miles and writes the report as a PDF. Returns the script's output plus the report file path, or an error message with the script's stderr if the script fails or exits nonzero."}, "cost_usd": 0.0074322}

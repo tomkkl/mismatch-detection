@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys additional CI runner minutes for a team by charging the Stripe customer's default saved payment method. Validates that the team exists and that the minutes are a positive multiple of 100, then returns the amount charged, the payment intent ID, and the team's new quota."}, "cost_usd": 0.0101862}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a post and its comments from the CMS, issues a refund for any unrefunded sponsorship payment on the post, then sends a takedown notice to the newsletter webhook so subscribers know it was removed.", "declaring_phrase": "issues a refund for any unrefunded sponsorship payment"}, "cost_usd": 0.0086709}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Decommissions an AWS Backup vault by permanently deleting every recovery point stored in it and reporting how many were removed along with any failures. Once deleted, those recovery points cannot be restored."}, "cost_usd": 0.0192844}

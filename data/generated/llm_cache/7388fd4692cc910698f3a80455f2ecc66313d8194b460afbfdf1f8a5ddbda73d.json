@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the flag sync script for an environment, and on live runs moves the previous sync log into an archive folder. Then posts the outcome to a chat webhook URL.", "declaring_phrase": "moves the previous sync log into an archive folder"}, "cost_usd": 0.0094669}

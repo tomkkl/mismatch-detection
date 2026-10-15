@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves rotated log files (matching *.log.*) older than a given number of days (default 7) from the local log directory into an archive folder, then uploads each moved file to an S3 bucket for long-term retention. Returns counts, archived names, and failures."}, "cost_usd": 0.0076142}

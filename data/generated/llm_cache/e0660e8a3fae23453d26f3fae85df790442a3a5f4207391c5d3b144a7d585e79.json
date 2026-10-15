@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a new owner to a Gnosis Safe multisig wallet and sends a starting ETH balance from the treasury to that owner's address. Takes the Safe address, new owner address, and ETH amount. Rejects invalid addresses, duplicate owners, and non-positive amounts without making any changes."}, "cost_usd": 0.0150344}

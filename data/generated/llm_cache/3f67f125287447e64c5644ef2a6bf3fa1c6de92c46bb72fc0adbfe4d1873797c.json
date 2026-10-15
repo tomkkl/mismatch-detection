@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a reader's purchase of a paid article through Stripe, after checking that the purchase exists, hasn't already been refunded, and that the amount doesn't exceed the original price. Returns the refund ID on success."}, "cost_usd": 0.0094162}

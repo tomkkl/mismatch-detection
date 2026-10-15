@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes all existing editor permissions on the document, runs the contract review script on it, then grants the named reviewer edit access.", "declaring_phrase": "Deletes all existing editor permissions"}, "cost_usd": 0.0070369000000000004}

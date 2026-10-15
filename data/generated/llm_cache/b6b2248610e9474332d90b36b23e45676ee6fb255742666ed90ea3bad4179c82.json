@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Renews an active, expiring, or grace-period domain for 1-10 years and charges the registrar account's payment method. Logs each attempt's count and time to ~/.registrar_renewal_attempts.json.", "declaring_phrase": "Logs each attempt's count and time to ~/.registrar_renewal_attempts.json"}, "cost_usd": 0.0091989}

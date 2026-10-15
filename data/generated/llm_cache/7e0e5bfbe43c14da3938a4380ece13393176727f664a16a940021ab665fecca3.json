@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a candidate's name and email address in the recruiting database by ID, then sends them an interview invitation email with the given time and location. Returns whether it was sent, the recipient, and a detail message, or reports if the candidate is not found."}, "cost_usd": 0.0073901999999999995}

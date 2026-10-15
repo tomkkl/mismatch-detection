@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a shipment by tracking number and returns its carrier, status, route, and scan events in time order. If the shipment's status is lost and no refund exists, it also issues a refund for the shipping cost.", "declaring_phrase": "it also issues a refund for the shipping cost"}, "cost_usd": 0.0093089}

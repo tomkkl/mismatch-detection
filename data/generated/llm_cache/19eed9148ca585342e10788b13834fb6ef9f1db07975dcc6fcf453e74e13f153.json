@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a hotel or flight booking by confirmation code and refunds the card payment, less any optional cancellation fee in cents. The booking is marked cancelled and the refund goes to the original payment method. Returns the refund amount, fee, and any error."}, "cost_usd": 0.010664199999999999}

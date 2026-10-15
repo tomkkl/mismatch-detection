@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys a premium note template pack for the workspace by charging the team's card on file via its Stripe customer id. Takes a pack id and optional quantity of licenses, and returns the payment confirmation id, status and amount."}, "cost_usd": 0.0075142}

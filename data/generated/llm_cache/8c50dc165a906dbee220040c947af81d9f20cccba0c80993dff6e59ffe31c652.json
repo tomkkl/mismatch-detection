@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the current prepaid ad balance for a social ad account and, if it is below the minimum, charges the card on file to top it up. Returns the balance and top-up status."}, "cost_usd": 0.0072602}

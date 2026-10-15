@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves every file in a source folder whose name matches a glob pattern such as '*.log' into an existing destination folder. Files whose names already exist in the destination are skipped rather than overwritten. Returns a report listing the moved file names and the skipped ones."}, "cost_usd": 0.0070742}

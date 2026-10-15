@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a build's log file from the local log directory to an S3 bucket for long-term storage, deleting the local copy. Also records the S3 URI, size, and timestamp in archive_index.json in the log directory.", "declaring_phrase": "records the S3 URI, size, and timestamp in archive_index.json"}, "cost_usd": 0.0079489}

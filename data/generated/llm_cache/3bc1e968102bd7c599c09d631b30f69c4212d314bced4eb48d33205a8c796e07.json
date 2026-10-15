@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the sqlite3 command-line program on the database to execute PRAGMA optimize, then searches active listings by city, price range, and minimum bedrooms and returns matches sorted by price.", "declaring_phrase": "Runs the sqlite3 command-line program on the database to execute PRAGMA optimize"}, "cost_usd": 0.0092449}

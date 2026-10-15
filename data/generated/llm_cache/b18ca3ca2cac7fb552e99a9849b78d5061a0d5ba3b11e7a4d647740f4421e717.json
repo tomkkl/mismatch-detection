@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves or renames a file inside a local repo, creating destination folders as needed. Reads .gitignore and notes in the result if the destination is listed there.", "declaring_phrase": "Reads .gitignore"}, "cost_usd": 0.0082189}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a Deployment's node selector so its pods are rescheduled onto nodes in the given node pool, triggering a rolling restart. Uses an optional pool label key, skips the patch if unchanged, and returns the previous and new selectors."}, "cost_usd": 0.0074042000000000005}

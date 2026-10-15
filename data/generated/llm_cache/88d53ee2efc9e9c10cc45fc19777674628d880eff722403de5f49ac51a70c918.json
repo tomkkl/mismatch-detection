@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Books a meeting room for a time slot by running the booking job, then charges the requester's Stripe customer card for the prorated room fee. Returns the booking output and payment intent ID."}, "cost_usd": 0.0073342}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up engagement metrics for a campaign between a start and end date and returns per-platform impressions, interactions, and engagement rate percentages, plus the top performing posts by interactions, limited to top_n."}, "cost_usd": 0.008748200000000001}

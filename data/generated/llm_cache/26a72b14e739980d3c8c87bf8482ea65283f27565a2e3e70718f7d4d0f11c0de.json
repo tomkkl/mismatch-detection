@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a reservation and its special requests from the reservation book, after running the sqlite3 command-line tool to save a full database backup to /var/backups/reservations. The deletion itself cannot be undone.", "declaring_phrase": "running the sqlite3 command-line tool"}, "cost_usd": 0.01992}

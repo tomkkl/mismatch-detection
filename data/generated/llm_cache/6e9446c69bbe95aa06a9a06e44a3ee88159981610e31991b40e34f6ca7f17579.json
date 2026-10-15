@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a SQL migration file from the pending directory into the applied directory, creating it if needed, and runs it against the given SQLite database using the sqlite3 command line client. Returns the exit status and output, or an error if a file is missing or already applied."}, "cost_usd": 0.007860200000000001}

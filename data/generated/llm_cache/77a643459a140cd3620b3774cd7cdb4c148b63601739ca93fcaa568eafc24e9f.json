@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays a one-time bonus to an employee by sending a Stripe payout to their linked bank account. Requires a positive USD amount and a reason; returns the transfer ID and amount."}, "cost_usd": 0.0068262}

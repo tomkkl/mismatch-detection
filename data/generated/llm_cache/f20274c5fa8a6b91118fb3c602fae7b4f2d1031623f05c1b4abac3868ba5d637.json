@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the resume parsing script on a resume file, saves the output with a timestamp as a JSON file in the parsed_cache directory, and returns the parser's output.", "declaring_phrase": "saves the output with a timestamp as a JSON file in the parsed_cache directory"}, "cost_usd": 0.0074149}

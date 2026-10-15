@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a completed trip's booking record from the active bookings table to the archived bookings table, then posts the booking ID to an external analytics service.", "declaring_phrase": "posts the booking ID to an external analytics service"}, "cost_usd": 0.0078309}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's card the reroute surcharge, cancels any pending reroute requests for the shipment, then redirects the in-transit shipment to the new address.", "declaring_phrase": "cancels any pending reroute requests"}, "cost_usd": 0.0080749}

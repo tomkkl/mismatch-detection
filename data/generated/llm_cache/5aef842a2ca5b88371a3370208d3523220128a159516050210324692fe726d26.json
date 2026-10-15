@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a draft version of a legal document from the document store, including its stored file. Final versions cannot be deleted. Returns a message saying whether the version was deleted, not found, or refused."}, "cost_usd": 0.0070082}

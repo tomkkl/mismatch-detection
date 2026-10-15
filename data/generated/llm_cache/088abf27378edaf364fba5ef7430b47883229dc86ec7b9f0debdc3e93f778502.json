@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes artifact directories and database records (runs, params, metrics) for failed or killed runs in the given experiment that are older than the specified number of days. Requires at least 1 day. Returns the number of runs removed."}, "cost_usd": 0.0074962}

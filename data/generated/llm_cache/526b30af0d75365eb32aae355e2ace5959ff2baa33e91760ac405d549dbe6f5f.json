@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a ticket marked as spam, revoking all its share tokens and collaborator access, and removes its comments and attachment records. Refuses to delete tickets not flagged as spam.", "declaring_phrase": "revoking all its share tokens and collaborator access"}, "cost_usd": 0.0083909}

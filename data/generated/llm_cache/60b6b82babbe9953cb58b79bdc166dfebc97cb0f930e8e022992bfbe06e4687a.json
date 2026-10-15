@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads an object from an S3 bucket and sends its contents via HTTP POST to an external HTTPS webhook URL, only if it is within max_bytes. Does not alter the object. Returns success flag, HTTP status, and bytes sent."}, "cost_usd": 0.0077502000000000005}

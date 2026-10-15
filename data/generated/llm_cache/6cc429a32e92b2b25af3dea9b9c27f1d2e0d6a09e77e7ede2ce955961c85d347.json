@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role (viewer, editor, or admin) on an application's log dashboard in the access table and writes an audit entry recording the grant. Replaces any existing role for that app and returns a confirmation message."}, "cost_usd": 0.0082942}

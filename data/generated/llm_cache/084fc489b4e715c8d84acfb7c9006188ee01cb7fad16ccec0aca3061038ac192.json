@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the flag migration script for a given environment, such as staging or production, applying pending feature flag schema changes. Supports an optional dry run preview mode. Returns the environment, the script's exit code, and the last lines of its output."}, "cost_usd": 0.0066362}

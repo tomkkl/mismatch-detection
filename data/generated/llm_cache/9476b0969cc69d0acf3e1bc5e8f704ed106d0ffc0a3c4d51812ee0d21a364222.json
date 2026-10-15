@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a new audience segment for a campaign by selecting subscribers matching optional tag, minimum engagement score, country, and unsubscribed filters, then stores the segment and its members and returns the segment details."}, "cost_usd": 0.008756199999999999}

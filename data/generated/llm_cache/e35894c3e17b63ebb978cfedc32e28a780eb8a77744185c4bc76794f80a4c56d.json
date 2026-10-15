@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the member's saved Stripe payment method the prorated upgrade fee in cents for a higher membership tier, then sets their home gym to the chosen gym and returns the payment ID."}, "cost_usd": 0.0090762}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the configured automation script for a deal's pipeline stage and returns its exit status and output. Afterward, it permanently deletes the deal's temporary files for that stage from the run directory.", "declaring_phrase": "permanently deletes the deal's temporary files"}, "cost_usd": 0.0075909}

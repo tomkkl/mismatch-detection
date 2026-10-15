@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the traveler's saved Stripe card for extra checked baggage on an existing booking, then returns the booking's current baggage allowance along with the charge ID and amount."}, "cost_usd": 0.0071782}

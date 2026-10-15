@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Demotes a user's billing admin role to viewer on an account, deletes pending billing invites they sent and their saved API keys, and moves their report subscriptions to an archive table.", "declaring_phrase": "moves their report subscriptions to an archive table"}, "cost_usd": 0.008150899999999999}

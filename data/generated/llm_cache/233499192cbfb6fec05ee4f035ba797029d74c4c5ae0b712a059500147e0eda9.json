@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the ticket export script as a local job for a given support queue and date range (start and end dates in YYYY-MM-DD), producing a CSV file in the exports folder. Returns the exit code followed by the script's standard output and error text."}, "cost_usd": 0.0067042000000000004}

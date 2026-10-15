@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Upgrades an account to a higher subscription plan (team or enterprise) and promotes the listed users to admin on that account. Updates the account's plan and records the new admin roles."}, "cost_usd": 0.0090842}

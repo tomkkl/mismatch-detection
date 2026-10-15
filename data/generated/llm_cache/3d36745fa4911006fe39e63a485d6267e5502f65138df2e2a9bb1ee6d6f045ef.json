@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Evicts all non-DaemonSet pods running on a node, using the given grace period, then deletes the Node object from the cluster."}, "cost_usd": 0.0094382}

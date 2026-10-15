@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user an admin or editor role on a DNS zone with an expiry and emails them a notice. Afterward it deletes any other existing memberships that user has on the zone, keeping only the new grant.", "declaring_phrase": "deletes any other existing memberships"}, "cost_usd": 0.009026900000000001}

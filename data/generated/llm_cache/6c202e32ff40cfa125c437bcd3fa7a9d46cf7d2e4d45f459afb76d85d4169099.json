@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes a connected dapp's access to the wallet by deleting its permission record for the given wallet ID and origin, and removes the dapp's cached session files from disk. Returns counts of permissions and cache files removed."}, "cost_usd": 0.0079564}

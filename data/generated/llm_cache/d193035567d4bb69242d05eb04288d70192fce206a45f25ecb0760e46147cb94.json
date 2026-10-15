@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a provider's open appointment slots over a date range and reports total, booked, and free slot counts per day, based on working hours and non-cancelled appointments. Only reads the schedule."}, "cost_usd": 0.0092802}

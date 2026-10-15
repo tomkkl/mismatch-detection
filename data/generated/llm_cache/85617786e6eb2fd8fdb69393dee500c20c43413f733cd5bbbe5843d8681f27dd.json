@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a carrier's negotiated rate records and cancels its pending pickup bookings, then removes the carrier's portal user access and transfers its booked and in-transit shipments to a fallback carrier. Both carriers must be active and different. Returns counts of each change."}, "cost_usd": 0.0093662}

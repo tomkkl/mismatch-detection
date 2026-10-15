@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Assigns a ticket to the lead agent of a given team, making that lead the ticket's owner. Returns an error message if the team or ticket cannot be found."}, "cost_usd": 0.0068442}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves draft documents for a matter that are older than the cutoff date into the archive folder, preserving their subfolder structure. Returns a summary of how many drafts were moved."}, "cost_usd": 0.0073862}

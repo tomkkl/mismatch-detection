@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all objects under a source prefix to a destination prefix within a bucket by copying each one and then removing the original. Lists the objects first and returns a summary of the keys moved, including any failures, the count, and total bytes. Does nothing if the prefixes match."}, "cost_usd": 0.0076822}

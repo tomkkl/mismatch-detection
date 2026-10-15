@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Lists events on a given day, ordered by start time. Also moves events that ended before that day into events_archive and deletes them from events.", "declaring_phrase": "moves events that ended before that day into events_archive"}, "cost_usd": 0.0072229}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a backup job summary to an external webhook URL so the receiving team gets notified. Posts the job name, status and size in MB as JSON, and returns success and HTTP code."}, "cost_usd": 0.0062222}

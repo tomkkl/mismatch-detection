@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds orders with a cancelled status that are older than the given number of days (must be at least 1), permanently deletes them along with their line items, and returns the count of removed orders and the list of their order IDs."}, "cost_usd": 0.0067442}

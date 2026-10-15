@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes all privileges from a MySQL user and then drops the account, if it exists. Also deletes the user's saved entry in the access audit table of the admin schema. Returns whether it dropped, plus the audit rows deleted."}, "cost_usd": 0.0079702}

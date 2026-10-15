@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a series of weekly events on an existing calendar in the local database, one per week for the given number of weeks (1-52), all stored under a shared series ID. Returns the series ID and the first and last start times."}, "cost_usd": 0.008460200000000001}

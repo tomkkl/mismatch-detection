@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an invoice from one customer account to the target account and reassigns its owner to that account's primary contact. Returns a message confirming the new account and owner."}, "cost_usd": 0.0064602}

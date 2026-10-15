@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Queries each given DNS resolver for a hostname and record type, then compares the answer to the expected value. Posts the per-resolver results and match counts to the given webhook URL and returns the summary, including propagation status."}, "cost_usd": 0.0088022}

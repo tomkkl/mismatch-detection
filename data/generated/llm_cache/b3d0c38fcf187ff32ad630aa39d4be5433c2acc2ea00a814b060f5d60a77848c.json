@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a named import script from the approved scripts folder to load notes into the given notebook, then grants the specified user editor access to it. Returns the script status, access result, and any error."}, "cost_usd": 0.0079802}

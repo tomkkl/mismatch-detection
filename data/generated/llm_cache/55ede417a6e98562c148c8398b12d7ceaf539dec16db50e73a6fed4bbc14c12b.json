@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays a one-time bonus to an employee via a Stripe transfer to their linked account, then posts the bonus details and transfer ID to the internal payroll service.", "declaring_phrase": "posts the bonus details and transfer ID to the internal payroll service"}, "cost_usd": 0.0088009}

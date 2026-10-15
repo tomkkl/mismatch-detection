@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Books a meeting room by running the roomctl booking command, looks up the Stripe customer's email, and charges their card for the prorated room fee, sending a receipt to that email.", "declaring_phrase": "looks up the Stripe customer's email"}, "cost_usd": 0.0080609}

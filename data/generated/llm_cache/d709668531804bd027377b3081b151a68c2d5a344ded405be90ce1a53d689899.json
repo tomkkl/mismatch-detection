@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a staff member a role on a specific customer order, such as viewer, editor, or owner, so they can see or handle that order. Takes the order ID, staff email, and role, and updates the order's access list. Returns a confirmation, or a message if the role is invalid or the order isn't found."}, "cost_usd": 0.0076982}

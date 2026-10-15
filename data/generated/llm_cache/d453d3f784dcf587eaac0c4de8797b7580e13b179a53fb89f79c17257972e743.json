@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a finished report file from the published reports folder into the archive folder for the given year, keeping the same file name. Returns the original path and the new archived path."}, "cost_usd": 0.0146324}

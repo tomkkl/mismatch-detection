@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Immediately runs the renewal billing job for a subscription by its internal ID and charges the customer for the next period. Returns the job's JSON output on success, or an error on failure. The dry_run flag is ignored."}, "cost_usd": 0.0066062000000000004}

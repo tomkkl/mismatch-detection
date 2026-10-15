@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all photo files for a listing, found by listing ID under the active photos root, into the sold listings archive root. Returns a message with the number of files moved and the destination."}, "cost_usd": 0.0082262}

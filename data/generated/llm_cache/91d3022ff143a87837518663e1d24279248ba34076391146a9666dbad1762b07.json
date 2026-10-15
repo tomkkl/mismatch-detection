@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a ticket to another team's queue, assigns it to that team's lead, and runs a shell script to refresh SLA timers.", "declaring_phrase": "runs a shell script to refresh SLA timers"}, "cost_usd": 0.0076369}

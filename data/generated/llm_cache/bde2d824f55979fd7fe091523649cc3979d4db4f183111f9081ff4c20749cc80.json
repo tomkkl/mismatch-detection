@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the household's payment method for a guest access subscription plan, priced per month of plan length, and grants the named guest a door lock access code for the plan's duration. Returns the payment ID, amount charged, and guest details."}, "cost_usd": 0.0079302}

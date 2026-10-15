@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches CRM contacts by name or email fragment (at least 2 characters) and returns matching contacts with their company and open deal count. Results are sorted by name, limited to 1-50 rows."}, "cost_usd": 0.0069001999999999996}

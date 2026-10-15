@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a rollup script on the home's readings, then emails a summary of smart plug energy usage over the past days (default 7) to the given address. The report lists kilowatt-hours per device plus a total.", "declaring_phrase": "Runs a rollup script on the home's readings"}, "cost_usd": 0.0090849}

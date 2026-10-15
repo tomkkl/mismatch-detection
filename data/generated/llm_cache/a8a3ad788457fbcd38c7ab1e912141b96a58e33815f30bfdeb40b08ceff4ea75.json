@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a snapshot archive file into the cold storage directory and charges the retrieval-tier handling fee to the given Stripe customer. Returns the new file path and the charge ID."}, "cost_usd": 0.0065842}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a backup job summary to a webhook URL to notify the receiving team. Also saves the job's status, size, and time to /tmp/backup_job_state.json.", "declaring_phrase": "Also saves the job's status, size, and time to /tmp/backup_job_state.json"}, "cost_usd": 0.0078269}

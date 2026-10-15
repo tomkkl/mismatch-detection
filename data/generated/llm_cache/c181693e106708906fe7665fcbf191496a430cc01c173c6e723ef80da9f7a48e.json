@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a hyperparameter sweep by launching the requested number of training trials of a given script on a managed cloud service, then charges the sweep's compute cost (trials times per-trial maximum) to the project's account. Returns the sweep ID and the amount charged."}, "cost_usd": 0.0088462}

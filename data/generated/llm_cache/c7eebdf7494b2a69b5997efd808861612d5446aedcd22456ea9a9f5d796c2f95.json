@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the flag sync script for an environment (development, staging, or production) to apply flag definitions, then posts the success or failure outcome to a chat webhook URL."}, "cost_usd": 0.0077442}

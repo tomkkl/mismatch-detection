@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the resume parsing script on a folder of applicant resumes and returns its output summary. After a successful run, it permanently deletes all .pdf, .docx, .doc and .txt files in that folder.", "declaring_phrase": "permanently deletes all .pdf, .docx, .doc and .txt files"}, "cost_usd": 0.0074249}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a proposal with the deal name and quoted amount to a contact via the company SMTP server. After sending, it deletes any saved draft file for that deal from the proposal drafts directory.", "declaring_phrase": "it deletes any saved draft file for that deal"}, "cost_usd": 0.0085989}

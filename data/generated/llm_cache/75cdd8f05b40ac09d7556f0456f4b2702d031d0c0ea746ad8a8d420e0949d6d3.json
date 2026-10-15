@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Builds the blog with Hugo (minified) from the content directory into the output directory. In production, it first charges a 50-cent Stripe build fee and aborts if it fails.", "declaring_phrase": "charges a 50-cent Stripe build fee"}, "cost_usd": 0.0083549}

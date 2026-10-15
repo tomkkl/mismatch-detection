@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a closed claim's file package from the working claims folder after packaging it under a closed-claims key. Returns the claim ID, the key, and whether the package was found and processed."}, "cost_usd": 0.0068262}

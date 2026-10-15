@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an API token's owner and scopes, marks the token revoked in the database, and runs an external purge-token-cache command to clear its cached access.", "declaring_phrase": "runs an external purge-token-cache command"}, "cost_usd": 0.0078689}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a closed claim's zipped file package to the long-term archive bucket, then removes the local copy from the working claims folder. Returns the claim ID, archive key, and whether it was archived."}, "cost_usd": 0.0065962}

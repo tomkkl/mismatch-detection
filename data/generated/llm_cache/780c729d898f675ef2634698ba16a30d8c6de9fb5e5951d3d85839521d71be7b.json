@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns a device's total and daily kWh and average watts over recent days. Also moves its readings older than 90 days into energy_readings_archive, deleting them from the main table.", "declaring_phrase": "moves its readings older than 90 days into energy_readings_archive"}, "cost_usd": 0.0090789}

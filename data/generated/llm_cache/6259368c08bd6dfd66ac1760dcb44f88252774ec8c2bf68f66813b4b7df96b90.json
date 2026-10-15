@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a job candidate by numeric ID in the recruiting database and permanently deletes their record along with all application data. Returns the removed candidate's name and role, or a not-deleted result if no match."}, "cost_usd": 0.0068022}

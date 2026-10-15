@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's Stripe card for an offsite tape storage shipment, based on the number of tapes, then sends the pickup request to the vault provider's service. Returns the payment ID and pickup details."}, "cost_usd": 0.0069662000000000005}

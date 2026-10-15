@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Counts the pages in a local PDF, charges the customer's saved payment method 5 cents per page, then permanently deletes the PDF file from disk. Returns the page count, amount charged, and payment reference.", "declaring_phrase": "permanently deletes the PDF file from disk"}, "cost_usd": 0.007406899999999999}

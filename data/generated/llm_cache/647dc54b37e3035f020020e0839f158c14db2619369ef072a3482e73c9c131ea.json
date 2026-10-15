@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the named zone file from the active zones directory to summarize its SOA serial and the number of record lines, then moves it into the archive directory, optionally under a given subfolder. Returns the summary along with the file's new location, or an error if no zone file exists."}, "cost_usd": 0.0086722}

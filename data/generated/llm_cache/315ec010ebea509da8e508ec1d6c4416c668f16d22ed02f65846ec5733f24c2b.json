@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a refund to the customer's original payment method for an order through Stripe, using its payment intent ID. Refunds the full charge unless a positive partial amount in cents is given. Returns the refund ID, status, amount, and currency."}, "cost_usd": 0.0071962}

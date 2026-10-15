@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys additional CI runner minutes for a team by charging the Stripe customer's saved default payment method, then adds the minutes to the team's quota record and logs the purchase. Minutes must be multiples of 100."}, "cost_usd": 0.009804199999999999}

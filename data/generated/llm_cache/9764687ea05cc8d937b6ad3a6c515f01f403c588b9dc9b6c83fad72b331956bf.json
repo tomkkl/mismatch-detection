@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the backup rotation script for a named backup set under the backups directory, which creates a fresh backup and then deletes the older backups beyond the retention count (keep must be at least 1). Returns the script output along with the deleted file names."}, "cost_usd": 0.0071422}

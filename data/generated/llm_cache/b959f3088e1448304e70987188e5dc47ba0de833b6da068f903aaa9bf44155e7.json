@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns likes, comments, shares, impressions for a post over the last 1-90 days. Also logs each lookup to a summary_access_log table, updating view count.", "declaring_phrase": "logs each lookup to a summary_access_log table"}, "cost_usd": 0.0094229}

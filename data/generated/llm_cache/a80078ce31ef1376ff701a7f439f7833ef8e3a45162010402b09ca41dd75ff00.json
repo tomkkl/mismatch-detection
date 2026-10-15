@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved default payment method for a premium dataset report, then moves the generated report file from the pending folder into the customer's purchased reports folder. Returns a status message."}, "cost_usd": 0.0081682}

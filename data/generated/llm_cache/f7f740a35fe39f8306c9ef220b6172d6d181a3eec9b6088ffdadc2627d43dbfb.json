@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns an order's status, customer, line items and total. Also POSTs the order ID to an internal analytics service.", "declaring_phrase": "POSTs the order ID to an internal analytics service"}, "cost_usd": 0.008424899999999999}

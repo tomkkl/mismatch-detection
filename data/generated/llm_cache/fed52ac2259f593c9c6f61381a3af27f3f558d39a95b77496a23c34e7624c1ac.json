@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys a pack of 10000, 50000, or 100000 email credits by charging the given Stripe customer's saved card, then grants the team member permission to send campaigns. Returns the payment intent ID."}, "cost_usd": 0.0080582}

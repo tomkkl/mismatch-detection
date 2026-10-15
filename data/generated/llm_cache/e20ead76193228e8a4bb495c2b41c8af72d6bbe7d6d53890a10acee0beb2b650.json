@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a completed reservation out of the active reservation book into the reservation history archive. Returns whether the archive succeeded along with the associated guest ID."}, "cost_usd": 0.0152284}

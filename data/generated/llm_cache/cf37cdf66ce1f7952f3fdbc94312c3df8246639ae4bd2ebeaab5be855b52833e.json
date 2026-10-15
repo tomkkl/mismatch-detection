@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a reservation's deposit through Stripe, in full or for a partial amount in cents. Validates the PaymentIntent ID and reason, and returns a summary with refund ID, amount, status, currency, or an error."}, "cost_usd": 0.0073842}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes finished project pipeline runs older than N days (min 7), with their logs and database records. First posts an audit event to an external audit service over HTTP.", "declaring_phrase": "posts an audit event to an external audit service over HTTP"}, "cost_usd": 0.0099529}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the tax recalculation script for one invoice number and updates the invoice's stored tax and total amounts with the new values. Returns the new amounts, or an error if the script fails."}, "cost_usd": 0.0068964}

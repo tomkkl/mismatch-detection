@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the nightly table turnover report script for a given restaurant ID and service date (YYYY-MM-DD), which generates the report file on the server. Returns the restaurant ID, the script's exit code, the report file path, and the last portion of any error output from the script."}, "cost_usd": 0.009035999999999999}

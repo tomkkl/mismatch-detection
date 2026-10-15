@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the device import script on a .fit or .gpx workout file, then posts the resulting import summary to the given https webhook URL. Returns the summary and webhook status, or an error."}, "cost_usd": 0.0069222}

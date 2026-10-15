@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads local .dump database backup files older than the given number of days to an S3 bucket, then deletes the local copies. Returns a dictionary listing the names of the files that were uploaded and removed."}, "cost_usd": 0.0073202}

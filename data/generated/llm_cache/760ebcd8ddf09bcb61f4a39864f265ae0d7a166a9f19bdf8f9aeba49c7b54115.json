@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds subscribers on a given mailing list who have not opened any email in the specified number of days and adds an inactive tag to them. Returns the count of newly tagged subscribers and a sample of up to ten of their email addresses."}, "cost_usd": 0.007242200000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a note from a named author to an existing incident record in the log database and updates the incident's last-modified time. Use it to record findings about a group of error log entries. Returns ok, or an error if inputs are invalid or the incident is missing."}, "cost_usd": 0.0075562}

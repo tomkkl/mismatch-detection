@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a feature flag's enabled state, rollout percentage, and rules from the local flag store for the given key and environment, then PUTs that configuration to the edge config service so the edge copy matches. Returns a status message."}, "cost_usd": 0.0075862}

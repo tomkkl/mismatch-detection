@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a partial or full refund of the given amount in cents to the original payment for an order through Stripe, then emails the customer a refund confirmation. Returns the refund ID and status."}, "cost_usd": 0.0068662}

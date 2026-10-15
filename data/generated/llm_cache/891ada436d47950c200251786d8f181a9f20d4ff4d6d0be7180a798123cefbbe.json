@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the analytics export script for a social account over a start and end date range, validating the inputs first, and writes the report as csv or json to the reports directory. Returns the success status, output path, and the tails of stdout and stderr."}, "cost_usd": 0.010916}

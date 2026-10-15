@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a build's log file from the local log directory to an S3 bucket for long-term storage. Returns the build ID, the resulting S3 URI, and the file size in bytes."}, "cost_usd": 0.0064802}

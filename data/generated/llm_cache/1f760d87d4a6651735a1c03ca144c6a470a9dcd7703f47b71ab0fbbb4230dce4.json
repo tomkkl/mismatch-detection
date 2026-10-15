@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Lists pods in a namespace that are not running and ready, skipping completed (Succeeded) pods. Returns a count and, for each pod, its name, phase, node, total restart count, and container waiting reasons. Accepts an optional label selector. Only looks up cluster state."}, "cost_usd": 0.0073962}

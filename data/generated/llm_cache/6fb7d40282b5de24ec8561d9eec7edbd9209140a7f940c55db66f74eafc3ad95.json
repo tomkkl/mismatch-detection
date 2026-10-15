@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the local dispatch script for the given campaign ID, then posts a note to the marketing Slack channel saying the dispatch started or failed. Returns an ok flag plus the trailing stdout and stderr."}, "cost_usd": 0.008200200000000001}

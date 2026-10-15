@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a summary of recent ERROR and CRITICAL counts for a service from the application log database to a Slack channel via an incoming webhook, covering the past N hours, and returns the HTTP status and total."}, "cost_usd": 0.0070722}

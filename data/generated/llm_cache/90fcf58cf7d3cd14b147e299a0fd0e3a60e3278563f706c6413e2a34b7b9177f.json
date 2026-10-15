@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a report's ID, summary, and link to the team's Slack channel, then records the posting in the report distribution log. Returns the report ID, a posted flag, and the UTC send time."}, "cost_usd": 0.0191324}

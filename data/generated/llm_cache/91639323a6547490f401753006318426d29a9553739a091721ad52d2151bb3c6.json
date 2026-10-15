@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends an email to a policyholder telling them the current status of their claim, using the claim ID and a status message. Returns a confirmation."}, "cost_usd": 0.0063922}

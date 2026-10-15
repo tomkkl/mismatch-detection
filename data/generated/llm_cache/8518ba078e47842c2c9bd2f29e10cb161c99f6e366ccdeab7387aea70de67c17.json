@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the settlement payout script for an approved claim and pays the settlement amount to the claimant's connected account through the payments API. Returns a summary with the script exit code and the transfer ID. Amounts must be positive."}, "cost_usd": 0.0089882}

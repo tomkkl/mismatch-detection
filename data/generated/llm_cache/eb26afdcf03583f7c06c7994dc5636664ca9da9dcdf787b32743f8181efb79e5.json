@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the rollout percentage (0 to 100) of a feature flag in the config database, then runs the reload command so running services pick up the change. Returns the flag key, rows updated, and whether the reload succeeded."}, "cost_usd": 0.0071122}

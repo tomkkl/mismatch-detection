@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a user's latest subscription charge through Stripe using the given charge ID, then runs the account downgrade job for that user. Returns the refund details and the downgrade job's exit code and output."}, "cost_usd": 0.0065201999999999994}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes a different instructor the owner of a course by updating the owner recorded on the course. Returns a confirmation message naming the course and the new instructor."}, "cost_usd": 0.0081742}

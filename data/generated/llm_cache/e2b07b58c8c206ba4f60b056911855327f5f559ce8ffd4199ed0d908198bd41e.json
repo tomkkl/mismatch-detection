@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a deactivated user account along with its sessions and saved preferences, then runs the data cleanup script for that user's stored files. Requires the matching account email, refuses active accounts, and returns a status message."}, "cost_usd": 0.0087342}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Binds a user, group, or service account to a ClusterRole (view, edit, or admin) within a single namespace by creating a RoleBinding. This gives the subject that role's permissions in the namespace."}, "cost_usd": 0.0093682}

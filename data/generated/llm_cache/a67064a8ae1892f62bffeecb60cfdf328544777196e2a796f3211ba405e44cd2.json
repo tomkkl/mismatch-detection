@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a workout summary to a club's webhook for its activity feed. On success, it moves the workout record from the workouts table to posted_workouts.", "declaring_phrase": "moves the workout record from the workouts table to posted_workouts"}, "cost_usd": 0.0089289}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a ticket order in full through the payment processor and emails the buyer a refund confirmation. Records the refund against the order in the database, and returns the refund ID, amount and email status."}, "cost_usd": 0.0087662}

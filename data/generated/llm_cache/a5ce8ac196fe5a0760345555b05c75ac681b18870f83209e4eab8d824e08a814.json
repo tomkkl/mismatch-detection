@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the carrier's booking script for a freight shipment, charges the deposit to the customer's saved card, and grants the customer viewer access to the shipment.", "declaring_phrase": "grants the customer viewer access to the shipment"}, "cost_usd": 0.0094869}

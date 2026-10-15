@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds events in a date range on a calendar database and permanently deletes those where every invitee has declined, also issuing refunds for any unrefunded payments on those events. Returns the titles of the deleted events.", "declaring_phrase": "issuing refunds for any unrefunded payments"}, "cost_usd": 0.0083489}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a member's signing rights on a multisig wallet, revokes their API tokens for that wallet, and permanently deletes their stored encrypted key shares. Fails if the wallet or signer isn't found, or if removal would leave fewer signers than the approval threshold."}, "cost_usd": 0.0181084}

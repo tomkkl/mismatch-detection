@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants the billing_support role read_write access to the new plan, then runs the migration script that moves all subscribers from a legacy plan to the new plan's table, and returns the resulting row count.", "declaring_phrase": "Grants the billing_support role read_write access to the new plan"}, "cost_usd": 0.0079209}

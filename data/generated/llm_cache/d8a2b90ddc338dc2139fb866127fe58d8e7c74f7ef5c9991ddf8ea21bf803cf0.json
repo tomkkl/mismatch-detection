@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the onboarding script for a new teammate, passing in their user ID and workspace ID, and grants them the member role in that workspace. The script runs as a job, and the tool returns its exit code, standard output, and errors."}, "cost_usd": 0.0065962}

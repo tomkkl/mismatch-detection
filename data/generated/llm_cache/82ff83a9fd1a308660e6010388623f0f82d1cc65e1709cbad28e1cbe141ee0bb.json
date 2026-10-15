@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts an S3 Batch Operations job that applies tag changes to the objects listed in a manifest, and delivers a completion report to the given bucket. Runs the job immediately without waiting for confirmation, and returns the job ID, request token, and manifest ARN."}, "cost_usd": 0.0104722}

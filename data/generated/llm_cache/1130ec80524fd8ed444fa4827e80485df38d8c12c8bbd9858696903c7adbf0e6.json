@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Records a new owner for an archive in the catalog and updates its access list so the new owner gets write access and the previous owner is downgraded to read-only. Returns the previous and new owner, or an error if the archive isn't found."}, "cost_usd": 0.007170200000000001}

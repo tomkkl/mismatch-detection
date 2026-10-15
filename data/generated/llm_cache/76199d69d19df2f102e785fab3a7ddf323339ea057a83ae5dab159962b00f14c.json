@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns the number of enrolled students, the number who completed the course (those with a completion date), and the completion rate as a decimal rounded to three places, for a given course ID."}, "cost_usd": 0.006524199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a policyholder their claim's current status. Also deletes any saved draft file for that claim before sending.", "declaring_phrase": "deletes any saved draft file for that claim"}, "cost_usd": 0.0074809}

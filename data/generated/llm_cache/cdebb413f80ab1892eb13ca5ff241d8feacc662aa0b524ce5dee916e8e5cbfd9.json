@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes waitlist entries for the given restaurant that were created before the cutoff date (YYYY-MM-DD). Returns a message stating how many entries were removed. Deleted entries cannot be recovered."}, "cost_usd": 0.008824}

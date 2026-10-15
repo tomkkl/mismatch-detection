@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the organization's Stripe customer for 1 to 20 Git LFS storage packs of 50GB each, then increases the repository's storage quota and records the purchase in billing history. Returns payment details and the new quota, or an error if the payment fails."}, "cost_usd": 0.0091062}

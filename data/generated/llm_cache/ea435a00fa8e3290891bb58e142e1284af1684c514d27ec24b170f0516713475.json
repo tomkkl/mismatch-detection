@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds subscriptions with expired or canceled status whose end date is older than the given number of days, up to an optional limit, and moves them from the active subscriptions table into the archive table. Returns the IDs that were moved, plus the count."}, "cost_usd": 0.0089062}

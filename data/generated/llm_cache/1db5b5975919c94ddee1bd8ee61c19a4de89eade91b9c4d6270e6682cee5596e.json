@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets the reorder point and reorder quantity for a SKU in the product catalog. It first reads the SKU's existing values so the result message can report them as the previous settings.", "declaring_phrase": "first reads the SKU's existing values"}, "cost_usd": 0.0083709}

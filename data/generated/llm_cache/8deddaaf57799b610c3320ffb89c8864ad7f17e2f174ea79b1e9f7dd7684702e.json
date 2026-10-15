@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a person as a joint holder on a bank account with the chosen permission level and sends them an invitation email. Also deletes any other pending invitations for the same email on that account, leaving only the new one.", "declaring_phrase": "deletes any other pending invitations"}, "cost_usd": 0.008478900000000001}

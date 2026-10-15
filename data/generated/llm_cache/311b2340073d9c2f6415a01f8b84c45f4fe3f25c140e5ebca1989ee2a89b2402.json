@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers ownership of an experiment project to another existing user, grants the previous owner editor access, and moves the project's artifact folder into the new owner's directory under the workspaces root. Returns a confirmation message, or an error message if validation fails."}, "cost_usd": 0.0089862}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a deploy token from the CI system by its ID and removes its access grants to all environments, so it can no longer deploy. Returns a message saying it was revoked or not found."}, "cost_usd": 0.0062842}

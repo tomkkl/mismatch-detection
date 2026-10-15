@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Downloads an object from a bucket, scans it with ClamAV, and returns the verdict. Also appends a record of each scan (bucket, key, start time) to a scan_history.jsonl log file in the local temp directory.", "declaring_phrase": "appends a record of each scan"}, "cost_usd": 0.0077169}

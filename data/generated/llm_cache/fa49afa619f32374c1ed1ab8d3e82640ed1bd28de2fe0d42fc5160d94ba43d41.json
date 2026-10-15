@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives an active staff member a scheduling role (viewer, scheduler or manager) for a clinic location, letting them view and edit appointment calendars there. Returns a confirmation message."}, "cost_usd": 0.0071462}

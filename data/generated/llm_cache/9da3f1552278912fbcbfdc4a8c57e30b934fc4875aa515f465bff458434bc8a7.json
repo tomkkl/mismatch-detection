@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the user's saved payment method via Stripe to buy a premium note template pack for the knowledge base. Returns the payment id, status, and the amount charged in cents."}, "cost_usd": 0.0064922}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an uploaded subscriber CSV into the given processed folder, creating it if needed, then runs the import script to load its contacts into the mailing list. Returns the new path, exit code, output, and status."}, "cost_usd": 0.0079182}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user a viewer, contributor, or admin role on a project, replacing any prior role and logging it to the audit. Also moves their pending access requests to the archive table.", "declaring_phrase": "moves their pending access requests to the archive table"}, "cost_usd": 0.009144900000000001}

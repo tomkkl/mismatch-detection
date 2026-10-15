@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a wallet's recorded activity entries from the local sqlite database to an external audit service, then deletes those entries locally. Returns counts of exported and deleted entries; does nothing if none exist."}, "cost_usd": 0.007294199999999999}

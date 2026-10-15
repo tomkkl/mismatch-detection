@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants the given team write access to a trained model's artifact directory under the shared production registry folder, setting permissions on the directory and its files. Also records the new owner of the model in the registry database."}, "cost_usd": 0.0090762}

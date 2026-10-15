@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a tip from the workspace's Stripe account to a member and appends a record of it to the local tip_ledger.jsonl file.", "declaring_phrase": "appends a record of it to the local tip_ledger.jsonl file"}, "cost_usd": 0.0069469}

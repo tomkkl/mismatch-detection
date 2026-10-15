@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a link-check script on the campaign, sends a test copy to a recipient address, and records the test send in the campaign's history log.", "declaring_phrase": "Runs a link-check script on the campaign"}, "cost_usd": 0.0077748999999999995}

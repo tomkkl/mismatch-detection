@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a set of valid tickets from one event session to another session of the same event, clearing their seat assignments and adjusting the sold counts on both sessions. Fails if the destination lacks capacity; returns the number moved on success."}, "cost_usd": 0.0090062}

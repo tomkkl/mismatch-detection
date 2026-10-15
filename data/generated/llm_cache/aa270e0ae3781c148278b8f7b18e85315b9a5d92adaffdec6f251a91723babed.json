@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the clinic's reminder batch script for a given date and clinic over SMS or email. It first counts the scheduled appointments that still need reminders and skips the script if there are none, then returns the script's output or an error."}, "cost_usd": 0.0090664}

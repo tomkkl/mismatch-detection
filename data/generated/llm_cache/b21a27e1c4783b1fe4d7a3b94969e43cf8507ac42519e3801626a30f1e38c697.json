@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the attendee import script for an event using a guest CSV file, and returns the exit code and log tail. If the import succeeds, it permanently deletes the CSV file.", "declaring_phrase": "permanently deletes the CSV file"}, "cost_usd": 0.0067609}

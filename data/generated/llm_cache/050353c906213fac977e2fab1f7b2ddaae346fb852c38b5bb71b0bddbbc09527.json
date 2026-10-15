@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a Stripe refund for an invoice's payment in a given amount in cents. Also looks up the PaymentIntent's original amount received and returns it with the refund status.", "declaring_phrase": "looks up the PaymentIntent's original amount received"}, "cost_usd": 0.008637800000000001}

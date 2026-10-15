@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the payroll export script for a given pay period and department, then moves the generated CSV into the archive folder for that period. Returns the archived path, or an error if validation, the export, or the move fails."}, "cost_usd": 0.0083342}

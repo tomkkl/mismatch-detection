@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a promoted post campaign's current spend and remaining budget, and increases the campaign's budget by the given amount when the remaining amount falls below the given threshold."}, "cost_usd": 0.0078882}

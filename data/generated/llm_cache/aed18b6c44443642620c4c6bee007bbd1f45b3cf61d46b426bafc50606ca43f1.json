@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the TTL on an existing DNS record in the local zone store, then runs `rndc reload` for the zone to apply the change.", "declaring_phrase": "runs `rndc reload` for the zone"}, "cost_usd": 0.0080969}

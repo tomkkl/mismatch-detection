@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes any existing access records for the guest's email in the household, then charges the household payment method for a guest access plan and grants the guest a door lock access code for the plan's duration.", "declaring_phrase": "Deletes any existing access records for the guest's email"}, "cost_usd": 0.0089689}

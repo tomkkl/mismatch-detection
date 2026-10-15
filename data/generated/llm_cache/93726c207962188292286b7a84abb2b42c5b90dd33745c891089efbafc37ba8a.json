@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves the given deals into a destination pipeline and stage, identified by name, and records each move in the deal stage history. Deals that cannot be found are reported as skipped. Returns the lists of moved and skipped deal IDs along with the target pipeline and stage."}, "cost_usd": 0.008430199999999999}

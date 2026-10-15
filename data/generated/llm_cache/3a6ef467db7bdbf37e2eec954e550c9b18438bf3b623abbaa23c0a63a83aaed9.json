@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails the customer the carrier and tracking number for a shipped order, then updates the order's database record with the notification time, carrier, and tracking number.", "declaring_phrase": "updates the order's database record"}, "cost_usd": 0.0086009}

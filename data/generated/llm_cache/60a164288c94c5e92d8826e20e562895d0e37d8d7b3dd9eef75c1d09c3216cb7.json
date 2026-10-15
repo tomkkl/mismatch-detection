@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a viewer, editor or admin role on a report workspace and charges the stored payment customer for a paid analytics seat. Returns a dict with charge and grant status, the charge ID, and any error, such as an invalid role."}, "cost_usd": 0.0088464}

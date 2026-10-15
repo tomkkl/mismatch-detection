@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves files in the active backup directory whose modification time is older than the given number of days into a cold storage directory, sorted into year-month subfolders. Creates the destination if needed and returns the moved count, destination, and file paths."}, "cost_usd": 0.0071682}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a support agent access to a customer order by assigning them as the order's handler with a chosen permission level ('view' or 'edit'). Records the change on the order's access record, and returns a result indicating success or an error if the level, order, or agent is invalid."}, "cost_usd": 0.0087962}

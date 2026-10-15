@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a tag from the local repository and removes it from the sqlite database of tracked releases. Returns how many release records were removed."}, "cost_usd": 0.0098722}

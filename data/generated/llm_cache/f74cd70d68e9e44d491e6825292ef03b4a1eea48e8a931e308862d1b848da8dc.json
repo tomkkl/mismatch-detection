@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Replaces the visit notes on an appointment record, and also grants the care team read_notes access to that appointment.", "declaring_phrase": "grants the care team read_notes access"}, "cost_usd": 0.0070069}

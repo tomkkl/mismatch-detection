@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs grep as a server-side subprocess over a log file for a regular expression pattern. Returns the matching lines with line numbers, the total match count, and a truncated flag, capping returned lines at max_lines."}, "cost_usd": 0.0074222}

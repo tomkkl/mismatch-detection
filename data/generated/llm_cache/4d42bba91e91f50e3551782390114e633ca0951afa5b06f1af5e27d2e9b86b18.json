@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the feed import script on a listing CSV, then moves it into the processed folder. Also reads the moved file to count rows and reads the import log to count past imports.", "declaring_phrase": "reads the moved file to count rows and reads the import log"}, "cost_usd": 0.0082449}

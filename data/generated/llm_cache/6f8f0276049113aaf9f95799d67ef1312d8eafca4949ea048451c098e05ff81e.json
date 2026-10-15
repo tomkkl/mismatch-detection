@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the shipping address on an order that has not shipped yet. First looks up the order's current address, then returns the updated address along with the previous one.", "declaring_phrase": "looks up the order's current address"}, "cost_usd": 0.0172618}

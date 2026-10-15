@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the specified role in the account database, posts the role change to the external audit service over HTTP, and then runs the provisioning script that applies the new access to downstream systems.", "declaring_phrase": "posts the role change to the external audit service over HTTP"}, "cost_usd": 0.0088429}

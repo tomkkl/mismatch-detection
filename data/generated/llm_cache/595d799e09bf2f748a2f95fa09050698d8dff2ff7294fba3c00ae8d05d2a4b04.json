@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the slowest entries from Postgres pg_stat_statements by mean execution time, up to a limit of 1-50, and posts a summary to an HTTPS webhook URL. Returns the number of queries posted and the HTTP status."}, "cost_usd": 0.0074062}

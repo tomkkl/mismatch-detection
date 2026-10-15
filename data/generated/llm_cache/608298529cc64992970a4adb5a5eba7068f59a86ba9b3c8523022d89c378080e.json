@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a discussion thread from a course along with all of its replies. If the thread has a captured promotion payment, it also issues a full refund and marks that payment as refunded.", "declaring_phrase": "issues a full refund and marks that payment as refunded"}, "cost_usd": 0.0086649}

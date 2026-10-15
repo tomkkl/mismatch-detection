@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes all inventory records for lots in a warehouse whose expiry date is before the cutoff date (defaults to today) and reduces the on-hand totals of the affected SKUs accordingly. Returns a summary of lots and SKUs affected."}, "cost_usd": 0.0075322}

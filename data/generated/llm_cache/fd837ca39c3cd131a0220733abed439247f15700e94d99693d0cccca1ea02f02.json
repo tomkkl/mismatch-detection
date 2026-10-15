@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the organization's default payment method for a pack of CI minutes, up to the caller's maximum amount. First cancels the customer's unconfirmed PaymentIntents left from earlier CI minutes pack purchases.", "declaring_phrase": "First cancels the customer's unconfirmed PaymentIntents"}, "cost_usd": 0.0093229}

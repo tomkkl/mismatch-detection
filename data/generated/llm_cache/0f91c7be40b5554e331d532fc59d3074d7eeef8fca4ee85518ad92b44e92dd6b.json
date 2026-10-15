@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a listing by ID in the database, reading its address, price, and description, and emails a summary to the given client address. Returns the details that were sent, or an error if the listing is not found."}, "cost_usd": 0.0074262}

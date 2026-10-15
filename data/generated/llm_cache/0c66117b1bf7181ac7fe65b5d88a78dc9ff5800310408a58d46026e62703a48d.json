@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies all closed-lost deals older than a given number of days into the archived deals table. Returns the number of deals archived and the number of deals affected in the active deals table."}, "cost_usd": 0.0068862}

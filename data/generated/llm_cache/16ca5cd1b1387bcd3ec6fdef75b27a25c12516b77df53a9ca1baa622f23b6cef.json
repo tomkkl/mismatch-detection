@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the shipping label generator script for an order and moves the resulting PDF label into the order's outbound shipments folder. Permanently deletes any other label PDFs for that order already in that folder.", "declaring_phrase": "Permanently deletes any other label PDFs"}, "cost_usd": 0.0079769}

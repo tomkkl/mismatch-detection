@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants anonymous public read access (s3:GetObject) to objects under a given key prefix in a bucket by updating its bucket policy. Replaces any existing statement with the same ID, keeps other statements, saves the policy, and returns the bucket, resource ARN, and statement count."}, "cost_usd": 0.0077262}

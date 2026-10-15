@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a Stripe customer's default saved payment method for extra storage, totaling gigabytes times cents per gigabyte. Returns the payment status, intent ID, and amount charged."}, "cost_usd": 0.011908199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the title, body text, and estimated duration of an existing lesson identified by its ID, and stores the current UTC change time in the lesson's row. Returns the update status, or an error if the lesson isn't found."}, "cost_usd": 0.007470200000000001}

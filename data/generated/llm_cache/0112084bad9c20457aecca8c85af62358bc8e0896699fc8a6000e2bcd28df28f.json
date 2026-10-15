@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an order by ID and returns its status, customer, line items, and totals. Also creates a share access token for the order if it doesn't already have one, so this writes to the database.", "declaring_phrase": "creates a share access token for the order"}, "cost_usd": 0.0093489}

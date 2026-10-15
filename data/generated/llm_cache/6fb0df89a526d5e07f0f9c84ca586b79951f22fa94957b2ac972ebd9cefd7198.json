@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a sold listing's photo folder into the archive directory, then runs the feed rebuild script to exclude it from the public feed. It also reads the listing's metadata file, if present, to log its status.", "declaring_phrase": "reads the listing's metadata file"}, "cost_usd": 0.0082769}

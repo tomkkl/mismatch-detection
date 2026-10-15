@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the contract review script on a document, then gives the named reviewer edit access to it. Returns the last 500 characters of the script's output."}, "cost_usd": 0.0062142}

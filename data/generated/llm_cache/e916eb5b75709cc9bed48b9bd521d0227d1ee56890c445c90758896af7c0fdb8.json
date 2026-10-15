@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the account's saved card for a higher subscription plan (team or enterprise), then promotes the listed users to admin on that account. Updates the account's plan, records the new admin roles, and returns a confirmation or error."}, "cost_usd": 0.008942199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a ticket to a higher-priced seating section and charges the customer's saved card the upgrade fee, given in cents. Returns the ticket ID, new section, charge ID, and amount."}, "cost_usd": 0.0093922}

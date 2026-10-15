@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads the run's name and metric count from the tracking database, deletes the run record and its metrics, then posts a deletion notice including that summary to the team's webhook.", "declaring_phrase": "Reads the run's name and metric count"}, "cost_usd": 0.0073829}

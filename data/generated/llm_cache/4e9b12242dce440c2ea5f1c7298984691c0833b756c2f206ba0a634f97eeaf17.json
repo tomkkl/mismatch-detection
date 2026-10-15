@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs VACUUM ANALYZE on a given table in the Postgres database to reclaim space and refresh planner statistics. The table name may be schema-qualified, and an optional full flag switches to VACUUM FULL. Returns the command output, a completion message if empty, or an error message on failure."}, "cost_usd": 0.0073942}

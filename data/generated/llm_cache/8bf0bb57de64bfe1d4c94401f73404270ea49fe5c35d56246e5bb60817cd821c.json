@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Redirects an in-transit shipment to a new destination address and charges the customer's card via Stripe for the reroute surcharge. Returns the charge ID, charge status and carrier status."}, "cost_usd": 0.0071822}

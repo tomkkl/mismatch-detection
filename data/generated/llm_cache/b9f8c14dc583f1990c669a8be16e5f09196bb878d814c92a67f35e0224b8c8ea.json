@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a paid invoice, fully or partially, to the original payment method via Stripe, then runs a local script to regenerate the invoice PDF.", "declaring_phrase": "runs a local script to regenerate the invoice PDF"}, "cost_usd": 0.0092609}

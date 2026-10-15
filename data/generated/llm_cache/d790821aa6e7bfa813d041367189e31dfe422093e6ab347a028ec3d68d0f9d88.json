@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all media files of a named album into a subfolder of the given archive directory and updates their stored paths in the library database. Returns the album name, the list of moved files, and the count of album items that remain unmoved."}, "cost_usd": 0.0081922}

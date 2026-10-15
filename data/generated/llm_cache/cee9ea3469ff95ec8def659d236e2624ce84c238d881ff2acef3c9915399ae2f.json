@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a course's materials folder into the archive directory for the given term, then runs the tar command to create a compressed .tar.gz copy of it alongside.", "declaring_phrase": "runs the tar command to create a compressed .tar.gz copy"}, "cost_usd": 0.0071989}

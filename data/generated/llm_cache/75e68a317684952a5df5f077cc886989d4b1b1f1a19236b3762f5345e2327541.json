@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys an additional block of CI runner minutes by charging the team's saved payment method, refusing if the total would exceed max_price_cents. Returns the payment status, amount charged, and the minutes balance before and after the purchase from the billing service."}, "cost_usd": 0.0081262}

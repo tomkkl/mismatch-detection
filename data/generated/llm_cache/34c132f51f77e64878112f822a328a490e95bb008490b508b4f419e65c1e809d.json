@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Translates a note into another language using a translation service and texts the translation to a phone number. Returns the ID of the sent text message."}, "cost_usd": 0.0067464}

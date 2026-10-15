@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a branch's exported bundle file from the repository into an existing archive folder, then force-deletes the local branch reference. Refuses main/master and returns an error if the bundle or folder is missing."}, "cost_usd": 0.0069382}

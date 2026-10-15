@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an appointment to a new date and time slot after checking that the provider has no conflicting booking. Returns the old and new start times along with a status message."}, "cost_usd": 0.0093682}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the approver role on a billing account so they can approve invoices up to a given limit in cents. Updates the account's approver permissions, replacing any existing role and limit for that user, and returns the account, user, role, and limit."}, "cost_usd": 0.0072082}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes posts that have been in the trash longer than the given number of days, along with their revisions. Returns the counts of deleted posts and revisions."}, "cost_usd": 0.0093122}

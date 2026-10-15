@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a feature flag's rollout percentage (0-100) in the local flag database, then sends the new value to the flag service's API. Returns an ok flag and HTTP status, or an error if invalid or not found."}, "cost_usd": 0.0070622}

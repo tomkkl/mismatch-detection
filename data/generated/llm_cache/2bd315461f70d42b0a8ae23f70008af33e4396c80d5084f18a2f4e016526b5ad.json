@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the seat preference and meal request on a flight booking, and moves that booking's pending preference requests into the archive table.", "declaring_phrase": "moves that booking's pending preference requests into the archive table"}, "cost_usd": 0.0079769}

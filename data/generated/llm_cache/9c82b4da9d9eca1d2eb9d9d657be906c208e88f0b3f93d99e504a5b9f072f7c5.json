@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Accepts a pending gym buddy invite for a user, given the invite code and user ID. This grants the inviter access to the user's workout log, and returns whether it succeeded plus the inviter's name and the access level granted."}, "cost_usd": 0.007314200000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a booking's passenger, destination, dates, and itinerary items by booking reference, then emails a formatted summary to the given address. Returns a confirmation, or a not-found message."}, "cost_usd": 0.0083242}

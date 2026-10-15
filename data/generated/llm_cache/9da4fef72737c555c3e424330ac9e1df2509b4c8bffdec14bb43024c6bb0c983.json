@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved Stripe card the given amount in cents for an album print order, then grants the print lab's account viewer access to that album so it can fetch the images. Returns a confirmation."}, "cost_usd": 0.0070982}

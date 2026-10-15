@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a warehouse employee access to a storage zone with a chosen access level such as picker, supervisor, or manager. Replaces any existing level for that zone. The approver must be a manager of the zone. Returns success, the new level, and the previous level."}, "cost_usd": 0.0127442}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a customer's draft invoices, along with their line items, that were last edited before the given ISO cutoff date. An optional max_deletions limit caps how many drafts are removed; returns the deleted IDs."}, "cost_usd": 0.008746199999999999}

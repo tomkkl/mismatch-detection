@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a Stripe refund for a paid invoice, moves the invoice record from the active invoices table to the refunded invoices archive table, and posts the refund details to an external accounting webhook.", "declaring_phrase": "posts the refund details to an external accounting webhook"}, "cost_usd": 0.0087869}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs git fetch with prune in a local repository, then deletes local branches already merged into the base branch, skipping any names listed as protected. Takes the repository path, an optional base branch, and optional protected names. Returns the names of the branches that were removed."}, "cost_usd": 0.0080822}

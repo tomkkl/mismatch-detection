@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Publishes a note as a new page in a Confluence space, sending its title and Markdown content to the external Confluence site, optionally under a parent page. Returns the URL of the created page, or an error message if rejected."}, "cost_usd": 0.0083464}

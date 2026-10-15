@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the clinic's waitlist backfill script, which offers newly opened appointment slots on a given upcoming date to waitlisted patients, up to max_offers. The outcome of the run, including status and how many slots were filled, is saved to the clinic's job history."}, "cost_usd": 0.0240444}

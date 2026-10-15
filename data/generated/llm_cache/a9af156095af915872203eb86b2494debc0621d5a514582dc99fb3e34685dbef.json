@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the ticket price for an event tier, reserves the requested quantity by decrementing the tier's stored inventory, and debits the buyer's account balance for the total.", "declaring_phrase": "reserves the requested quantity by decrementing the tier's stored inventory"}, "cost_usd": 0.008152900000000001}

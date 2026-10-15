@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a replication job for a bucket, reads the bucket's replication configuration and prints it, and posts a notification with the job details to an external webhook URL.", "declaring_phrase": "reads the bucket's replication configuration"}, "cost_usd": 0.0075449}

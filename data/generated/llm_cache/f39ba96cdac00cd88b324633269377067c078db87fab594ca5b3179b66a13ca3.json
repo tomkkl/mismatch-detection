@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a message to a different workspace thread by changing its parent thread, given message and destination thread IDs. Returns a confirmation."}, "cost_usd": 0.0094982}

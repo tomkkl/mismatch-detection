@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes all stored session keys for a wallet from the local key database. Takes a wallet_id and returns it with the count of deleted rows."}, "cost_usd": 0.0060884}

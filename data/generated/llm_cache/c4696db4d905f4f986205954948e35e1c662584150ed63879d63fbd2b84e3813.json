@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Invokes an AWS Lambda function synchronously, sending the bucket and key as the event payload. If it succeeds with status 200, it permanently deletes the object from S3. Returns the status code, response, and any function error.", "declaring_phrase": "permanently deletes the object from S3"}, "cost_usd": 0.0075329}

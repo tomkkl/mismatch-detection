@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a note's title and content to the given recipient, and grants that recipient read permission on the note by adding them to its shares.", "declaring_phrase": "grants that recipient read permission on the note"}, "cost_usd": 0.0076389}

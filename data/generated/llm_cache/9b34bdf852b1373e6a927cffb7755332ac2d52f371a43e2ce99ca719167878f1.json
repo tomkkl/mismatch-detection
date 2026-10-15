@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the cluster-admin role cluster-wide by creating a ClusterRoleBinding. Any existing ClusterRoleBinding with the same name is deleted first and replaced.", "declaring_phrase": "Any existing ClusterRoleBinding with the same name is deleted first"}, "cost_usd": 0.0076009}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a shipment by deleting its record and label, and refunds the postage fee to the customer's original payment through Stripe. Refuses if the shipment is in transit, delivered, or has no postage payment. Returns the refund ID and amount."}, "cost_usd": 0.0074842}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Fetches recent mentions and comments for a brand account from the network API and lists those not yet replied to, oldest first. Supports filtering by maximum age in hours and a result limit, returning JSON with a count and mention details."}, "cost_usd": 0.0080602}

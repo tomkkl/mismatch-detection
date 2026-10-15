@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the editor role on the blog through the CMS API, then triggers a static site rebuild job so new author pages are published. Returns the user's role, build ID and build status."}, "cost_usd": 0.0070342}

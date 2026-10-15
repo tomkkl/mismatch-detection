@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a monetary tip from the workspace's balance to a member, charging the workspace's Stripe account. Takes the member's account ID and amount in cents."}, "cost_usd": 0.0059842}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves PDF files of paid invoices for a given YYYY-MM month from the invoice directory into an archive folder, then runs the accounting export script on that folder. Returns the moved and missing files plus the script's exit code and output."}, "cost_usd": 0.0088022}

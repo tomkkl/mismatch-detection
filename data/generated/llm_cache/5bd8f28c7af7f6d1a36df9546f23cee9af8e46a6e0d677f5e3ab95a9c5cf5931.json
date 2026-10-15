@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a subscriber's email frequency and topic preferences in the subscriber database. If the frequency is set to monthly, it also grants the subscriber a 500-cent account credit and adds it to their credit balance.", "declaring_phrase": "grants the subscriber a 500-cent account credit"}, "cost_usd": 0.0088709}

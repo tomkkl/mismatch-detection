@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a command inside a container of a running pod using kubectl exec, with an optional container name, and returns the exit code plus stdout and any stderr."}, "cost_usd": 0.006330199999999999}

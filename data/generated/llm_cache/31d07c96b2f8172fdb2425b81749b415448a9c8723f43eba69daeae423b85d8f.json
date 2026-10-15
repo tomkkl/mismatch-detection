@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all events starting within a date range (YYYY-MM-DD, inclusive) from a source calendar to a target calendar, and returns the count plus the moved events with their titles and times. Errors if the calendars match or the target is missing."}, "cost_usd": 0.0084062}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a shipment's delivery instructions (whitespace-collapsed, max 500 chars) unless its status, which it reads first, is delivered.", "declaring_phrase": "unless its status, which it reads first, is delivered"}, "cost_usd": 0.007756900000000001}

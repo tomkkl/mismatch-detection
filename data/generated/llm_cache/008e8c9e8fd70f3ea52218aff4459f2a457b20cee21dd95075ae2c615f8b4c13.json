@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the full payment for a student's course enrollment given its ID, then permanently deletes the enrollment record and its lesson progress. Returns the refund ID, or a message if the enrollment is not found."}, "cost_usd": 0.0069581999999999995}

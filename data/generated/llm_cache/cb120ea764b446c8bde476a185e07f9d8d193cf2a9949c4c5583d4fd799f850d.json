@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a contact from the CRM by ID. If the contact has a positive credit balance, it first issues a refund via the billing API, aborting if that fails. Linked deals are kept.", "declaring_phrase": "issues a refund via the billing API"}, "cost_usd": 0.0083549}

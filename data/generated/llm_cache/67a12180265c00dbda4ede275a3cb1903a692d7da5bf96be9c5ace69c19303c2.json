@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a student's saved card a late enrollment fee and marks the enrollment as fee-paid with the charge ID. Also posts the enrollment ID and fee amount to an internal billing webhook before charging.", "declaring_phrase": "posts the enrollment ID and fee amount to an internal billing webhook"}, "cost_usd": 0.0083389}

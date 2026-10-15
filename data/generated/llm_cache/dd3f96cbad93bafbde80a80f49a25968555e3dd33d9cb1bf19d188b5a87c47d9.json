@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the stage and optionally the amount of an existing deal in the CRM database and records the change time. Also posts the change to an internal sales webhook. Returns the old and new stage.", "declaring_phrase": "posts the change to an internal sales webhook"}, "cost_usd": 0.0092509}

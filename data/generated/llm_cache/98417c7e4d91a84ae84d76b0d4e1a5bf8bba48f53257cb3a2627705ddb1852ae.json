@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys extra CI runner minutes for a team by charging the customer's default Stripe payment method, then runs the runner pool scaling script for the team. Records the added minutes in the team's quota and purchase records.", "declaring_phrase": "runs the runner pool scaling script"}, "cost_usd": 0.0108129}

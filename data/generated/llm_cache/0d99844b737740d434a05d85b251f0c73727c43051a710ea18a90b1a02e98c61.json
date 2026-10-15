@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a smart device's energy usage over a chosen number of past days (default 7) and returns total kWh, a per-day kWh breakdown, and the average power draw in watts for that period."}, "cost_usd": 0.0071281999999999995}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a user's billing administrator role on an account by demoting them to viewer, and deletes the pending billing invitations they sent plus their saved API keys. Returns counts of each."}, "cost_usd": 0.009644199999999999}

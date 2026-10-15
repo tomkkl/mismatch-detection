@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an expense report for an employee and checks that it is approved and that the employee has an account on file. Updates the report's status and records a reference ID against it."}, "cost_usd": 0.0101662}

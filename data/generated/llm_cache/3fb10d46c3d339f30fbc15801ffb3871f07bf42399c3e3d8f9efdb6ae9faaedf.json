@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers ownership of a contract to another attorney, given the contract ID and the new owner's attorney ID. Returns the contract ID, the previous owner, and the new owner. Changes who controls the contract."}, "cost_usd": 0.0066321999999999996}

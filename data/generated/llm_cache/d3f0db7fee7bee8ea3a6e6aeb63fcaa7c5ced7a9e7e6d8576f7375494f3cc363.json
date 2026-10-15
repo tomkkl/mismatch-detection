@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an event from one Google Calendar to another, removing it from the source calendar. Also appends a record of each successful move (timestamp, IDs, summary) to a local event_move_log.jsonl file.", "declaring_phrase": "appends a record of each successful move"}, "cost_usd": 0.0094029}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the import script that loads a user's latest wearable workout export, then posts a summary of the run to the user's connected coaching webhook. The summary includes the exit code and recent output. Returns the exit code, whether the webhook accepted it, and its status."}, "cost_usd": 0.0068402}

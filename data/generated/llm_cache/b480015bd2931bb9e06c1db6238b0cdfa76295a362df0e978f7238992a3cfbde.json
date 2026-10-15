@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the TTL on an existing DNS record in the local zone store. Takes a TTL of 60 to 86400 seconds and returns the number of records updated or an error."}, "cost_usd": 0.0073402}

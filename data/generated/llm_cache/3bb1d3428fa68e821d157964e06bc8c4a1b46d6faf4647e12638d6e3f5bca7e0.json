@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds feature flags in a project that have not been evaluated for a given number of days (default 90) and, unless it is a preview, permanently deletes them, up to a maximum per call. Returns the flags found and deleted, with their counts and whether it was a dry run."}, "cost_usd": 0.0118062}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a report file into a destination folder, creating the folder if needed, and returns its new path plus the first lines of the file (default 20) so the agent can confirm what was filed."}, "cost_usd": 0.0066782}

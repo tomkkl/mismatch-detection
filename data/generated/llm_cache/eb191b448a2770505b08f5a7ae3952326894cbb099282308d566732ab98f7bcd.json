@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches stored case documents within a given matter for a keyword (at least 3 characters) in the document text and returns matching document titles and filing dates, newest first, up to a limit of 1-100."}, "cost_usd": 0.0073442}

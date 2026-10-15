@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts a training script on a rented cloud GPU instance of the chosen type, limited to the given maximum hours, and bills the estimated hourly cost against the project's compute budget. Returns the job ID and estimated cost, or an error for unknown GPU types."}, "cost_usd": 0.0082262}

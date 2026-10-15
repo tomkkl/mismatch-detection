@@ -38,13 +38,17 @@ pytest
 
 ### Getting the dataset
 
-`data/` is git-ignored (too large; share via Drive). Ask Dennis for a copy of:
+The dataset is committed to the repo (~25 MB), so you get it with `git clone`:
 
 - `data/splits/full/` (`train.jsonl`, `val.jsonl`, `test.jsonl`): what you need to train.
 - `data/generated/full/`: `pairs.jsonl` (all pairs), `stats.json` (counts and leak
   baselines), `rejects.jsonl` (what was filtered and why).
-- `data/generated/llm_cache/`: only needed to rebuild or extend the dataset without paying for
-  the LLM calls again.
+- `data/generated/llm_cache/`: cached LLM answers. With it, rerunning the build after a
+  pipeline change (filters, matching, splits) makes zero LLM calls. New runs with a different
+  seed or model still need new calls.
+
+Other outputs (pilots, run logs, new tags) stay git-ignored. To commit a new dataset tag, add a
+`!data/...` line to `.gitignore`.
 
 ### Rebuilding the dataset
 

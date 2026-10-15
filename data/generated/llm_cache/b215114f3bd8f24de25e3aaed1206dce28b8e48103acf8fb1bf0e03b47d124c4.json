@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds store credit to a customer's balance for items returned from an order and records it against that order. Requires a positive amount and rejects credit that would push total credited on the order above the order total. Returns the new balance and credit ID."}, "cost_usd": 0.012918200000000001}

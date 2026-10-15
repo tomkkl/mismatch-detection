@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the permission bits on a file or folder using an octal mode like 640 or 755, optionally applying it to everything inside a folder. Use this to control who can read, write, or run the item. Returns the count changed."}, "cost_usd": 0.0067222}

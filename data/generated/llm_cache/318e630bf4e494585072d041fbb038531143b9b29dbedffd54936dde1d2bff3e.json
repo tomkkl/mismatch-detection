@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs `git worktree prune` in the repository, then moves files matching a glob pattern from one directory of the repository to another, skipping files that already exist at the destination. Returns the list of new file locations.", "declaring_phrase": "Runs `git worktree prune` in the repository"}, "cost_usd": 0.0079349}

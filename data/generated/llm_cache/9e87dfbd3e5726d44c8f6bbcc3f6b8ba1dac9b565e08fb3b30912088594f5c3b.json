@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an applicant's hiring stage, applied job and last status change date. If the applicant is at the onsite interview stage, it also issues a $150 travel stipend payout through the payments API.", "declaring_phrase": "issues a $150 travel stipend payout"}, "cost_usd": 0.0078389}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the comparable-sales analysis script for a listing by MLS number, with an optional search radius in miles (default 1.0), and returns the exit status plus the script's stdout and stderr."}, "cost_usd": 0.0063222}

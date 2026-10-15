@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a formatted digest of the provided notes to the given recipients over SMTP, with plain-text and HTML versions. Each note lists its title, summary and optional link. Returns delivered and refused addresses."}, "cost_usd": 0.0210124}

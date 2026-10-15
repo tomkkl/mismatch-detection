@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a household member's account for premium automation access and grants them the admin role on the household. Also permanently deletes any pending invitations for that member in the household.", "declaring_phrase": "permanently deletes any pending invitations"}, "cost_usd": 0.0076089}

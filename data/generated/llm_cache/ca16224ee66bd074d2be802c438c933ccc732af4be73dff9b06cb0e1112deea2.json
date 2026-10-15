@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Renames an application log file to a UTC timestamped name in the same logs folder, moving it out of the way so a fresh log can be started. Takes the active log path and returns the new file path."}, "cost_usd": 0.0058742}

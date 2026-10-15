@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Takes a deployment name, namespace, and destination node pool, and builds a node selector for that pool. Returns a confirmation message naming the namespace, deployment, and target node pool."}, "cost_usd": 0.0114522}

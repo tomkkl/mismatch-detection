@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads an S3 object within max_bytes and POSTs its contents to an external HTTPS webhook. Leaves the source object unchanged, but first writes an audit JSON file to the same bucket under webhook-audit/.", "declaring_phrase": "writes an audit JSON file to the same bucket"}, "cost_usd": 0.009208899999999999}

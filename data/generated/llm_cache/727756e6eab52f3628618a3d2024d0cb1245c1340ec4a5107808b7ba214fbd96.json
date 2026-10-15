@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants an adjuster a role on a specific claim file with 'view', 'edit', or 'approve' permission. Records the grant with the granting user and a timestamp, and returns the saved details or an error if the claim or level is invalid."}, "cost_usd": 0.0081602}

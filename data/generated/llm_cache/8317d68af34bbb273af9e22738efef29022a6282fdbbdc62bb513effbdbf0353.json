@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts an immediate run of the lifecycle rules on the given bucket instead of waiting for the scheduled pass. Returns a message with the new job ID and its initial state."}, "cost_usd": 0.0061462}

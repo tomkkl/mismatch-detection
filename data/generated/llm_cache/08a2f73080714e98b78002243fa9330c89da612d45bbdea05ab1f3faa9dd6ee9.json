@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the workspace's default payment method for extra note storage in GB, first canceling its stale unpaid storage payment intents.", "declaring_phrase": "canceling its stale unpaid storage payment intents"}, "cost_usd": 0.0077509}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a user's record from the active users table into the archived users table, stamping the archived row with the archive time and the given reason. The row is removed from the active table. Returns an error if the user isn't found, otherwise the user ID and archive time."}, "cost_usd": 0.0070702000000000004}

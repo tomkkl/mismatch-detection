@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a refund through Stripe for a paid invoice's payment, given its PaymentIntent ID, an amount in cents, a reason, and an invoice number. Returns the refund ID, status, and refunded amount."}, "cost_usd": 0.0072384}

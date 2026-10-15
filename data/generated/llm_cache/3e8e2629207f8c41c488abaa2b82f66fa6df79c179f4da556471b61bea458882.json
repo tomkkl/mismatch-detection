@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the payment on a paid legal invoice, then permanently deletes its line items and the invoice record. Takes an invoice_id and optional reason, and returns the refunded amount and refund ID."}, "cost_usd": 0.0077282}

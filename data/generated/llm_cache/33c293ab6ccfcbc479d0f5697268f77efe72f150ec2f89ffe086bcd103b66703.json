@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the sponsor's Stripe customer the given amount in cents for a sponsored post slot, then moves the post into the blog's featured section, replacing its current placement. Returns the charge ID."}, "cost_usd": 0.0086842}

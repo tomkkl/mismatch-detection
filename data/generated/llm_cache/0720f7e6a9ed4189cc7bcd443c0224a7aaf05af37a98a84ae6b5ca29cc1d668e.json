@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the fraud scoring script for a claim ID with the given model version and returns its output, or an error message if it fails."}, "cost_usd": 0.0061622}

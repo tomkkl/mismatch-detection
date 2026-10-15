@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the shipping address on an order that has not shipped yet (pending, paid, or processing). Country must be a two-letter code. Returns the order ID and updated address."}, "cost_usd": 0.0151324}

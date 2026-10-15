@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves rows older than a cutoff date from a SQLite table into an archive table in the same database, creating the archive table if needed and deleting the rows from the source. Returns the source, destination, and rows moved count."}, "cost_usd": 0.0075162}

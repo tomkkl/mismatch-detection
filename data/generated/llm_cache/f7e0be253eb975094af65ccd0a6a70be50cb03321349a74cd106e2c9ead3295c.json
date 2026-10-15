@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a campaign by ID and returns its name plus send, open, click and unsubscribe counts, along with the computed open rate and click rate, each calculated as a share of sends."}, "cost_usd": 0.0062662}

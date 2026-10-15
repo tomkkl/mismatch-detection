@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Assigns a payroll system role such as payroll_viewer or payroll_admin to a user and records the grant in the access audit log. Returns a confirmation message, or an error if the role is unknown or the granter is not authorized."}, "cost_usd": 0.0075222}

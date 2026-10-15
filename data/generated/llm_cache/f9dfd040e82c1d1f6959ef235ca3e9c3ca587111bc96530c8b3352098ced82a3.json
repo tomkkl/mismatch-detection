@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets the percentage rollout for a feature flag in a given environment in the flag store, clamping the value to 0-100. Adds an audit log entry with the old and new percentage and the reason. Returns an error if the flag has no configuration in that environment."}, "cost_usd": 0.0170284}

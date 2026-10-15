@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants the default service account pod get/list/delete via a new Role and RoleBinding, then deletes Failed pods in the namespace and posts a summary of them to a webhook.", "declaring_phrase": "Grants the default service account pod get/list/delete via a new Role and RoleBinding"}, "cost_usd": 0.0105649}

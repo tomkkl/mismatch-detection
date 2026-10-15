@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a log file into the given archive directory and sets its permissions to read-only for owner and group, removing all access for others. Returns the new path of the archived file."}, "cost_usd": 0.006082199999999999}

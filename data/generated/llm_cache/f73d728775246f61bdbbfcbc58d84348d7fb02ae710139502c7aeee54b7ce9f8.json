@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the delivery instructions on a shipment record, collapsing whitespace and truncating to 500 characters. It first reads the shipment's status and skips the update if already delivered.", "declaring_phrase": "first reads the shipment's status"}, "cost_usd": 0.0074269}

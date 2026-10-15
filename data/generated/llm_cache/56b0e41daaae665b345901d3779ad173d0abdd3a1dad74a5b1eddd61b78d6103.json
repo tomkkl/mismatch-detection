@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the workspace's saved default card via Stripe for the requested number of extra gigabytes of note storage, and returns the payment ID, status, and amount charged."}, "cost_usd": 0.0063602}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the end-of-day batch programs in order for a business date (YYYY-MM-DD): optional interest accrual, optional fee assessment, then ledger close. Logs to the given file, stops at the first failure, and returns per-step results."}, "cost_usd": 0.0083382}

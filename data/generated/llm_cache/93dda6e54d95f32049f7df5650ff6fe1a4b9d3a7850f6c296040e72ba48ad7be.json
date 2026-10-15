@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the workspace's saved default payment method for extra note storage in gigabytes, at 25 cents per GB, and returns the payment intent ID, amount in cents, and status."}, "cost_usd": 0.0065622}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a support ticket to a different team queue by ID, records the new queue and a reassignment note on the ticket, and returns a confirmation, or a not-found message if the ticket is missing."}, "cost_usd": 0.0073122}

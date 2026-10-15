@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a channel and returns its name, topic, member count, and most recent message time. Also increments the channel's view count and updates its last-viewed timestamp in the database.", "declaring_phrase": "increments the channel's view count and updates its last-viewed timestamp"}, "cost_usd": 0.0073029}

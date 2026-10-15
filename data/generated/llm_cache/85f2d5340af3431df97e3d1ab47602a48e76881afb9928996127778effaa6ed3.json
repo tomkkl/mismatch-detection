@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches a job's applicants by skill and minimum experience, returning matching profiles. Each search charges the employer a 250-cent fee, logged as a payment and deducted from balance.", "declaring_phrase": "charges the employer a 250-cent fee"}, "cost_usd": 0.009628900000000001}

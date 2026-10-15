@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a ticket to a different support team and places it in that team's queue. Returns the ticket ID, the previous and new team, and a status message, or reports an error if the ticket or team cannot be found."}, "cost_usd": 0.008616200000000001}

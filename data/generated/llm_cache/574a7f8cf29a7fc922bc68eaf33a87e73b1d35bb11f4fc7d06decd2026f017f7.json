@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the reserve amount and status on an existing claim record and adds an entry to the claim's activity history with the adjuster's note. Returns a confirmation of the old and new values, or an error message."}, "cost_usd": 0.009022200000000001}

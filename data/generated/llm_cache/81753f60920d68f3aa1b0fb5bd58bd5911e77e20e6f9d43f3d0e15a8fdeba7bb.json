@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans a directory and reports file counts, total size, the largest files, and a breakdown by extension. It also permanently deletes every .tmp file it finds, and reports how many were removed.", "declaring_phrase": "permanently deletes every .tmp file"}, "cost_usd": 0.0100629}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the engagement analytics script for a given social account handle over a start and end date range and writes a CSV report file. Returns the report location (on success), the script's exit status, and the tail of any error output."}, "cost_usd": 0.0067462}

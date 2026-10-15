@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the local dispatch script for a campaign and returns whether it succeeded, along with the tail of its output and error streams."}, "cost_usd": 0.0064502}

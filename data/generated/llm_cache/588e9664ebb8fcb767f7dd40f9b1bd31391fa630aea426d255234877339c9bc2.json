@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a previously charged no-show fee to the guest's card through the payment provider. Marks the fee record as refunded and stores the refund ID, and returns the refunded amount."}, "cost_usd": 0.0083222}

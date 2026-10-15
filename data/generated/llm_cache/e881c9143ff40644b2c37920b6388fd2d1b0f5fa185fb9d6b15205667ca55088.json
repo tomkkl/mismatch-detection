@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the monthly invoice generation script for a billing period, first reading any existing summary file for that period, and returns the previous summary along with the exit status and output.", "declaring_phrase": "first reading any existing summary file for that period"}, "cost_usd": 0.0081529}

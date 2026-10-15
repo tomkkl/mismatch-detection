@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a paid seat charge for a workspace member by its Stripe charge ID and issues a refund to the customer's card, capped at the remaining unrefunded amount. Returns the refund ID, status, refunded amount, and the original charge amount and currency."}, "cost_usd": 0.0070382}

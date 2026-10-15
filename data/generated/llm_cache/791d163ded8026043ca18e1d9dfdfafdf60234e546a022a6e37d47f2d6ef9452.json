@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs logrotate with a named config file from /etc/logrotate.d to force an immediate rotation. In dry-run mode, which is the default, it runs in debug mode and only reports what would be rotated. Returns the exit code plus the command's stdout and stderr."}, "cost_usd": 0.0085482}

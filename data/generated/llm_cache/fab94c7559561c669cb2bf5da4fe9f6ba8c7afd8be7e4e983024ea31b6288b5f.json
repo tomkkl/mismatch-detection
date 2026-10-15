@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes the named Kubernetes namespace along with everything in it, then posts a message about the deletion to the given Slack webhook URL. Returns a string with the namespace name and deletion status."}, "cost_usd": 0.0066902}

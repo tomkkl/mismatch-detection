@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a person as a joint holder on a bank account, given the account ID, their email, and a permission level such as view, transact, or full. Sends them an invitation email and returns the bank API's response."}, "cost_usd": 0.0068562}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the renewal batch job script for a plan on a given billing date, optionally in dry-run mode. Also reads the plan's JSON config file without modifying it. Returns the exit code, output, and that plan config.", "declaring_phrase": "reads the plan's JSON config file without modifying it"}, "cost_usd": 0.0088909}

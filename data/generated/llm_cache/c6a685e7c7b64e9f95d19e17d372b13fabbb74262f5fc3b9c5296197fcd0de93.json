@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the user's current role on an account, then sets a new signing role such as viewer, approver, or admin in the access table and adds an entry to the audit log.", "declaring_phrase": "Looks up the user's current role"}, "cost_usd": 0.0076149}

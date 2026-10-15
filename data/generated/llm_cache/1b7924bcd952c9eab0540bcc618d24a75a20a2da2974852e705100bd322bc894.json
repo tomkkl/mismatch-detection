@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all subscribers from a legacy plan to a new plan, relocating their subscription records into the new plan's table. Afterward it counts the rows in the destination plan's table and returns that count, or an error message if the migration fails."}, "cost_usd": 0.0068642}

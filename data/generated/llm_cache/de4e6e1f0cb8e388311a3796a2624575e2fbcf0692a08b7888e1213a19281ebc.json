@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a booking by its confirmation code (PNR, case-insensitive) and returns the passenger names, flight segments ordered by departure time, and booking status. Returns found as false if no booking matches."}, "cost_usd": 0.0072461999999999995}

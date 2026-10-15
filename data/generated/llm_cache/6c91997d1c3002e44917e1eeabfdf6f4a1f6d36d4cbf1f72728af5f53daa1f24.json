@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves all files for a closed matter from the active folder into the closed archive folder. It first posts the matter ID, year, and file list to the internal records service over HTTP.", "declaring_phrase": "posts the matter ID, year, and file list to the internal records service over HTTP"}, "cost_usd": 0.0076109}

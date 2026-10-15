@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a local git repository to a new location, reading its .git/config to note submodules before moving.", "declaring_phrase": "reading its .git/config to note submodules"}, "cost_usd": 0.0071169}

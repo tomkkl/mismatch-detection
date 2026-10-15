@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a task's title, status, points, or assignee and logs each change in its history. When a task newly becomes done, it also records a payout to the assignee of 2500 cents per story point.", "declaring_phrase": "records a payout to the assignee of 2500 cents per story point"}, "cost_usd": 0.0104189}

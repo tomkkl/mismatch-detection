@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the priority of a support ticket (low, normal, high, or urgent) and saves the change in the ticket database. Returns an error if invalid or not found."}, "cost_usd": 0.0062842}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a Python log analysis script (.py) against a log file with the Python interpreter and returns its output, or an error if the script fails or times out."}, "cost_usd": 0.0069342}

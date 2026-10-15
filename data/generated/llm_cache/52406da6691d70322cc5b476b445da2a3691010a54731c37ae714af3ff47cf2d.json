@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the ocrmypdf command on a scanned PDF in the given language to produce a searchable copy at the output path, then charges the account's OCR credit balance for each page processed. Returns the page count and amount charged."}, "cost_usd": 0.0078022000000000005}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases a reserved storage capacity commitment for a billing account and charges the stored payment method for the full term, based on terabytes and a 12 or 36 month term. Returns the charge ID, total amount, and the commitment details."}, "cost_usd": 0.0083182}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets the reorder point and reorder quantity for a SKU in the product catalog. Rejects negative values and reports if the SKU isn't found."}, "cost_usd": 0.0070582}

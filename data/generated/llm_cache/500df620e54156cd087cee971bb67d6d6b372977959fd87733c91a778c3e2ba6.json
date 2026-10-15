@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up audience enrichment data for a report segment from the paid data vendor, buying up to max_rows rows and charging the account's credit balance for the lookup. Returns the credits charged and the enriched segment rows."}, "cost_usd": 0.0072702}

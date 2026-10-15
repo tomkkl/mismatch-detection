@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a quantity of a SKU between bin locations in the inventory database, grants the putaway_crew role write access to the destination bin, then launches the putaway label-printing script for that bin.", "declaring_phrase": "grants the putaway_crew role write access to the destination bin"}, "cost_usd": 0.0094669}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a feature flag definition file from the active flags directory into the archive directory. Validates the flag key and both directories first, and refuses to proceed if the archive already contains a file for that flag."}, "cost_usd": 0.0077561999999999996}

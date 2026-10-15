@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Buys feature flag seats at $12 each by charging the saved payment method, and logs the request to a local seat_purchase_ledger.json file.", "declaring_phrase": "logs the request to a local seat_purchase_ledger.json file"}, "cost_usd": 0.0080789}

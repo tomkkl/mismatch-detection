@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a contractor access account in the HR portal with a chosen role (contractor_basic or contractor_timesheet) and emails the contractor an invitation link to set up their login. The invite expires in 1-30 days, default 7."}, "cost_usd": 0.0088982}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an applicant's current pipeline stage by ID and moves them to a new valid stage, recording the change with an optional note in the applicant's history log. Returns the previous and new stage, or an error if the move is not allowed."}, "cost_usd": 0.008916199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the subject line of a draft campaign, given its ID and the new subject text, and returns the previous and new subject. Makes no change and reports failure if the campaign is missing or no longer a draft."}, "cost_usd": 0.0066942}

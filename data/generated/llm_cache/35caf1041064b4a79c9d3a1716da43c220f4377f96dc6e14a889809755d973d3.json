@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds all spam-flagged comments on a post, permanently deletes them from the database, and returns them. If any were deleted, it also runs a Python script to rebuild the post's cache.", "declaring_phrase": "it also runs a Python script to rebuild the post's cache"}, "cost_usd": 0.007574900000000001}

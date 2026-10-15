@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a discussion post and its replies, and decrements the forum's post_count by the number removed.", "declaring_phrase": "decrements the forum's post_count"}, "cost_usd": 0.0073629}

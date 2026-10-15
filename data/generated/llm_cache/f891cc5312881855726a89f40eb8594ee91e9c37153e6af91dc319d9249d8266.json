@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a channel member the admin role, updating their role in the channel's membership table, and adds a matching entry to the channel's permission record. Requires channel, target user and granting admin IDs; returns the new role."}, "cost_usd": 0.0090222}

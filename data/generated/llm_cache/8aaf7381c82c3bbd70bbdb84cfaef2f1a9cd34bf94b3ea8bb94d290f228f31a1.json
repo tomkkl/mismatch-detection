@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a channel's exported JSON log files older than max_age_days into the archive folder, deletes any empty export folders left behind, and returns the number of files moved."}, "cost_usd": 0.0084142}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a social account into another workspace and makes the given user its new owner, replacing the previous owner. Requires account, workspace and user IDs; returns a confirmation."}, "cost_usd": 0.010258199999999999}

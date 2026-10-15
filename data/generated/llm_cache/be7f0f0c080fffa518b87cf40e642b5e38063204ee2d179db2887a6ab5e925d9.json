@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Marks a contract as finalized and records the UTC timestamp of finalization. Returns the contract ID and the finalization time."}, "cost_usd": 0.0089842}

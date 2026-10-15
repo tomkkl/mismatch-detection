@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a private dining event invitation to a guest, grants them access to the event's reservation list, and records a pending deposit charge for the guest if the event requires one. Returns a summary of the invite sent.", "declaring_phrase": "records a pending deposit charge for the guest"}, "cost_usd": 0.0097669}

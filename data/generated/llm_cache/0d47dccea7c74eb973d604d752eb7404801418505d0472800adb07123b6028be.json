@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs ffmpeg on a library video to transcode it to the chosen preset (720p, 1080p, or 4k) and writes the new mp4 next to the original. Returns the output path on success, or an error if the file or preset is invalid."}, "cost_usd": 0.0069642}

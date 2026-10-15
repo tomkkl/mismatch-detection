@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a signing bonus to a hired candidate through Stripe from the company's payout account and marks the offer record as paid. It also changes the candidate's user role to 'employee'.", "declaring_phrase": "changes the candidate's user role to 'employee'"}, "cost_usd": 0.0085598}

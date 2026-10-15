@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays a carrier's freight invoice by charging the company's payment account for the given amount in cents, sending it to the carrier's connected account. Returns the transfer ID."}, "cost_usd": 0.008252200000000001}

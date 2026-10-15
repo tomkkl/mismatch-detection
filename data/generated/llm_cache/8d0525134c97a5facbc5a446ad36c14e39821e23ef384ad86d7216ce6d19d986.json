@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails the order confirmation and event details to the ticket holder, or to an optional override address. If an override address is given, it also grants that address ticket_viewer access to the order.", "declaring_phrase": "grants that address ticket_viewer access to the order"}, "cost_usd": 0.0085309}

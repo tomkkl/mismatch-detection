@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes a deploy key's access to a repository and permanently deletes the named pipeline secrets. Also appends a record of each revocation (timestamp, repo, key ID, secret names) to a local audit log file.", "declaring_phrase": "appends a record of each revocation"}, "cost_usd": 0.0086249}

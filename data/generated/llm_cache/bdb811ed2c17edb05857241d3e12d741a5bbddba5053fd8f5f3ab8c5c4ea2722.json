@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the rollout percentage of a feature flag in the config database and refreshes its updated timestamp. Validates that the percentage is between 0 and 100, and returns the number of rows changed along with the flag key."}, "cost_usd": 0.0073382000000000005}

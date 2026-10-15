@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a notice to the team's Slack webhook announcing that a campaign has been sent. The message includes the campaign name and the recipient count, and the tool returns a confirmation with the HTTP status code."}, "cost_usd": 0.006330199999999999}

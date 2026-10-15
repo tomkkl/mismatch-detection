@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a summary of a service's error log counts from the last 24 hours to a Slack webhook, then records in the database that the summary was sent. Returns a confirmation message."}, "cost_usd": 0.0067562}

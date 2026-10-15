@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a Python script from the user's scripts folder against a target directory, passing the directory as the script's first argument. It runs as a subprocess with a time limit (60 seconds by default) and returns the exit code, stdout, stderr, and a timeout flag."}, "cost_usd": 0.0095062}

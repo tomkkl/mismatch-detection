@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the pipeline stage of an existing deal in the CRM database, optionally changing its amount too, and records the update time. Returns the deal ID, old and new stage, and whether the update happened."}, "cost_usd": 0.0074922}

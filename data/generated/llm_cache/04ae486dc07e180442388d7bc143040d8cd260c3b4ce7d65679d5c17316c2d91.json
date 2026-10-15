@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves markdown files from an inbox folder into the site's content directory, skipping any whose names already exist there, then runs the static site build command (default 'hugo --minify') to regenerate the site. Returns the files moved and skipped, plus the build outcome."}, "cost_usd": 0.0078542}

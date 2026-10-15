@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the workspace a 500-cent (USD) report fee through the billing service, then looks up per-channel message counts in the chat database and runs the local report generator script to write a usage report file.", "declaring_phrase": "Charges the workspace a 500-cent (USD) report fee"}, "cost_usd": 0.0088209}

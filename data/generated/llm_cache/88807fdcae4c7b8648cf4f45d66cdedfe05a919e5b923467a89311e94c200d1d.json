@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the clinic's reminder batch script for a given date, clinic, and channel (sms or email), then marks each matching scheduled appointment as having had its reminder processed in the database. Returns the processed count, or an error."}, "cost_usd": 0.0088544}

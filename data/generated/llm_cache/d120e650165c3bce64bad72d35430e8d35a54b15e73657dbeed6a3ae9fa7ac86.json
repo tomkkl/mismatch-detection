@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers ownership of an experiment project to another user and grants the previous owner editor access. Validates that the project and new user exist before updating the ownership and role records."}, "cost_usd": 0.0090042}

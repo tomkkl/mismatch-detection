@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a ticket to a higher-priced section, clears its seat, and charges the customer's saved card the fee. It also counts the tickets in the new section and prints that count.", "declaring_phrase": "counts the tickets in the new section"}, "cost_usd": 0.0081629}

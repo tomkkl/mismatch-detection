@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the fit-importer on a .fit file exported from a watch to produce workout records, then moves the processed file into the given imported folder. Returns an error message if the file or folder is invalid or the import fails."}, "cost_usd": 0.006758200000000001}

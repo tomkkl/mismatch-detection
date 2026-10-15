@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs an existing .sql migration file against a Postgres database via psql, then records the file's name in the schema_migrations table. Returns the applied migration name, or an error message if it fails."}, "cost_usd": 0.007140199999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails an invitation to a private dining event to a guest and grants that guest access to the event's reservation list with the given role (attendee or host). Returns a summary of the invite, including success or any error."}, "cost_usd": 0.0083242}

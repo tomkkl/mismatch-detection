@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a reservation by deleting its record and frees the table. Requires the reservation ID and the guest's phone number, which must match the one on file. Returns the reservation details as they were before removal, or an error."}, "cost_usd": 0.007466199999999999}

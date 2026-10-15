@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a completed reservation out of the active reservation book into the reservation history archive, and increments the guest's recorded visit count. Reservations not found or not completed are left untouched."}, "cost_usd": 0.017772}

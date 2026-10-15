@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a photo file into a year/month folder under the given library root based on its capture date, and updates the photo's stored file path in the catalog. Returns a message with the new path, or a not-found message."}, "cost_usd": 0.0070642}

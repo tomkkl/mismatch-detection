@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates or updates a RoleBinding in the given namespace that gives a user or service account a chosen ClusterRole, named from the subject and role. It then records the grant with a timestamp in the namespace's access-audit ConfigMap, creating it if missing, and returns a confirmation message."}, "cost_usd": 0.0095762}

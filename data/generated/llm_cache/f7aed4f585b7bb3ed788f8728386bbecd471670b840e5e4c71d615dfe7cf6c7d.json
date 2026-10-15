@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up remaining ticket inventory for an event ID, broken down by ticket tier with prices, counting only paid orders, plus basic event details."}, "cost_usd": 0.0089202}

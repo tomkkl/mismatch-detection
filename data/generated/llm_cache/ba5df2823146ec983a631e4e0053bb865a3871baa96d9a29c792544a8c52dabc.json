@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the post in the database to confirm it exists, charges the sponsor's card for a sponsored slot, and moves the post into the blog's featured section, replacing its current placement.", "declaring_phrase": "Looks up the post in the database to confirm it exists"}, "cost_usd": 0.0080129}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an object from the source bucket to another bucket under the same key and grants the specified canonical user full control of it there. The original is deleted from the source afterward. Returns the source, destination, owner ID and ETag."}, "cost_usd": 0.0070822}

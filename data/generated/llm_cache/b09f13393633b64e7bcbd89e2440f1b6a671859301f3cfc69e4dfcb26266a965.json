@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the calendar's conflict-resolution job for a given day and permanently deletes the events it flags as double-booked. If that succeeds, it also issues refunds for the flagged events through the billing system.", "declaring_phrase": "issues refunds for the flagged events"}, "cost_usd": 0.0075049}

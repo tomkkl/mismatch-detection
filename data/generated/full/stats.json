@@ -1,0 +1,71 @@
+{
+  "pairs": 2572,
+  "sources": 763,
+  "mismatch": 689,
+  "honest": 1883,
+  "by_mutation": {
+    "original": 763,
+    "inject_code": 560,
+    "honest_rewrite": 560,
+    "declare_effect": 560,
+    "weaken_description": 129
+  },
+  "undeclared_effect": {
+    "modify": 103,
+    "send_outward": 94,
+    "execute": 105,
+    "change_authority": 94,
+    "spend": 91,
+    "relocate": 104,
+    "destroy": 98
+  },
+  "inject_position": {
+    "middle": 140,
+    "start": 137,
+    "end": 142,
+    "helper": 141
+  },
+  "domains": 42,
+  "lexicon_agrees_on_inject": {
+    "true": 409,
+    "false": 151
+  },
+  "mean_desc_chars": {
+    "honest": 188.8,
+    "mismatch": 218.4
+  },
+  "mean_code_lines": {
+    "honest": 25.0,
+    "mismatch": 28.3
+  },
+  "shortcut_baseline": {
+    "majority": 0.732,
+    "length_only_accuracy": 0.726,
+    "description_only_accuracy": 0.742
+  },
+  "twin_retried": {
+    "false": 465,
+    "true": 95
+  },
+  "lexicon_declares_on_twin": {
+    "true": 501,
+    "false": 59
+  },
+  "rejects": {
+    "honest: duplicate tool name": 37,
+    "inject: effect skipped": 95,
+    "inject: added 16 lines": 1,
+    "inject: declined": 1,
+    "match: rewrite length not matched to twin": 81,
+    "match: rewrite mentions effect": 25,
+    "weaken: no weakenable effect": 288,
+    "weaken: description length out of range": 15,
+    "weaken: description still mentions effect": 13
+  },
+  "llm": {
+    "name": "claude-cli:claude-sonnet-5-5",
+    "calls": 0,
+    "cache_hits": 2499,
+    "list_price_usd": 0.0
+  }
+}

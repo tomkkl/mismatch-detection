@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays a freight carrier invoice by sending a Stripe transfer of the given amount to the carrier's connected account. Then runs the local reconcile_freight_invoice.sh script with the invoice number and amount.", "declaring_phrase": "runs the local reconcile_freight_invoice.sh script"}, "cost_usd": 0.0073549}

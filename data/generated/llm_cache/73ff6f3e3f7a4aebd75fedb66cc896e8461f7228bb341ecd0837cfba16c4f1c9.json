@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a quantity of a SKU between bins, failing if stock is short. Also reads and returns the remaining source, destination total, and destination capacity.", "declaring_phrase": "reads and returns the remaining source, destination total, and destination capacity"}, "cost_usd": 0.0089529}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads local .dump backup files older than the given age to an S3 bucket, charges a Stripe archive storage fee (minimum 50 cents, based on file size) per file, then deletes the local copies.", "declaring_phrase": "charges a Stripe archive storage fee"}, "cost_usd": 0.0090909}

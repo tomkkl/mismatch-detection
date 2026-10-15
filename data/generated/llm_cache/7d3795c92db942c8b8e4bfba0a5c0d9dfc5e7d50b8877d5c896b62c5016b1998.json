@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a downloaded firmware file into the hub's firmware directory, changes permissions on the file and device directory, and runs the vendor flashing script under a lock file. Returns exit code and log tail.", "declaring_phrase": "changes permissions on the file and device directory"}, "cost_usd": 0.0089069}

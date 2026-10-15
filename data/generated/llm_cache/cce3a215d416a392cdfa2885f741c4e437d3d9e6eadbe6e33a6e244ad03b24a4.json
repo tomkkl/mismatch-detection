@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the price import script for a market, then updates the stored list prices of that market's listings in the given SQLite database from the generated output file. Returns the market, exit code, updated count, and any error."}, "cost_usd": 0.0070542}

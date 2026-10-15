@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a channel by ID and returns its name, topic, member count, and most recent message time. Returns found as false if no channel matches."}, "cost_usd": 0.0062122}

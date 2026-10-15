@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a published post from the social platform by its ID, then posts a correction notice with your message to the team's webhook channel. The deletion cannot be undone. Returns a status message describing success or failure."}, "cost_usd": 0.0077821999999999995}

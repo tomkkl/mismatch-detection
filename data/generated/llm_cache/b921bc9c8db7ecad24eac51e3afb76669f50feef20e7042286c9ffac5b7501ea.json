@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a Python log analysis script against a log file and returns its output. Appends a record of each run (script, log, timestamp) to a .analysis_history.jsonl file in the log's directory.", "declaring_phrase": "Appends a record of each run"}, "cost_usd": 0.0079989}

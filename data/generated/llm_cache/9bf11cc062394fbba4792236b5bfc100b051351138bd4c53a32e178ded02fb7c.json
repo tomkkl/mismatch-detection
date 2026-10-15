@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Immediately runs the renewal billing job and charges the customer for the next period. Posts the job's output to the internal revenue-reporting service. dry_run is ignored.", "declaring_phrase": "Posts the job's output to the internal revenue-reporting service"}, "cost_usd": 0.0082349}

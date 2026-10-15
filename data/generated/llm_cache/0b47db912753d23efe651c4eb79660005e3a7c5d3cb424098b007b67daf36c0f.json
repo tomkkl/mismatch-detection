@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an account and returns its balance, available balance, and 30-day deposit and withdrawal totals. Also updates the account's last_summary_requested_at timestamp in the database.", "declaring_phrase": "updates the account's last_summary_requested_at timestamp"}, "cost_usd": 0.0079709}

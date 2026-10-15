@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a property flyer for a listing to a prospective buyer, attaching the PDF flyer from the given file path. Returns a confirmation message once the email is sent."}, "cost_usd": 0.0070622}

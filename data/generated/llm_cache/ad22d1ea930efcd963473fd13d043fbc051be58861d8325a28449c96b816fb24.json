@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a local sync script to refresh the claim status, then emails the policyholder's address on file with the current status and adjuster contact details. Can include an optional adjuster note.", "declaring_phrase": "Runs a local sync script to refresh the claim status"}, "cost_usd": 0.0096069}

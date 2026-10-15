@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a contact's saved card through Stripe for a deal, then emails the contact a receipt confirming the charge. Returns the payment intent ID and status."}, "cost_usd": 0.0071322}

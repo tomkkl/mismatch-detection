@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the onboarding script for a new teammate in the given workspace. It runs the script as a job and returns its exit code, output, and error output."}, "cost_usd": 0.0066362}

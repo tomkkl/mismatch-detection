@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role (viewer, editor, or admin) on an experiment in the tracking server, replacing any existing role. First deletes the user's pending access requests for that experiment.", "declaring_phrase": "deletes the user's pending access requests"}, "cost_usd": 0.0087189}

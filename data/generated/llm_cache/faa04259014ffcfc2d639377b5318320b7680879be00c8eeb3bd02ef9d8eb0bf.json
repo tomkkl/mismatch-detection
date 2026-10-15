@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a course's uploaded materials folder into the archive directory for the given term, creating the term folder if needed. Returns the new path, or a message if the course has no folder."}, "cost_usd": 0.0063942}

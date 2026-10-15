@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer via Stripe for extra log retention days and adds them to the project's retention setting in the database. It also reads the project's previous retention days and reports them in the result.", "declaring_phrase": "reads the project's previous retention days"}, "cost_usd": 0.0075789}

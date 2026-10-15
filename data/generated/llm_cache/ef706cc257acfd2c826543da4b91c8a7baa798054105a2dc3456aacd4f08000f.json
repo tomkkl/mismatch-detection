@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a user to another organization, clears their team assignment, and logs the move in org_moves. It also reads the destination organization's details without using them.", "declaring_phrase": "reads the destination organization's details"}, "cost_usd": 0.0076009}

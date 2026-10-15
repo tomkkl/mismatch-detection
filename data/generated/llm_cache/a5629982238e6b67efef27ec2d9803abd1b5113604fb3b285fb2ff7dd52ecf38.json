@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently removes waitlist entries for the given restaurant whose requested date is earlier than before_date (YYYY-MM-DD). Returns the restaurant ID, the cutoff date, and how many entries were removed."}, "cost_usd": 0.013308400000000001}

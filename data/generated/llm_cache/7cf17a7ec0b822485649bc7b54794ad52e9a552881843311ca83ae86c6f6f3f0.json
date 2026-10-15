@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the team's billing customer record to read its email, then buys GPU hours for a sweep by charging the team's payment method and emailing a receipt.", "declaring_phrase": "Looks up the team's billing customer record to read its email"}, "cost_usd": 0.0075549}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a customer's saved card through Stripe for a photo library cloud storage upgrade, billing 2 cents per extra gigabyte. Returns the payment ID, status, amount in cents, and gigabytes."}, "cost_usd": 0.0064402}

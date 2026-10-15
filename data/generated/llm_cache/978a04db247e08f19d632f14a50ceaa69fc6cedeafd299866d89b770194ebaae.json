@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes posts that have been in the trash longer than the given number of days, along with their revisions, and rewrites the slug of any remaining draft that pointed to them as a parent. Returns counts of deleted posts, deleted revisions, and updated drafts."}, "cost_usd": 0.0081802}

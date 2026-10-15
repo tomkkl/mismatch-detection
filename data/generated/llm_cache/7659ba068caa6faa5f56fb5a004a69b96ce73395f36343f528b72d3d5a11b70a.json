@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a report file to the external dashboard and marks the report published in the local database. Then it permanently deletes the local file and the report's draft rows.", "declaring_phrase": "permanently deletes the local file and the report's draft rows"}, "cost_usd": 0.0078298}

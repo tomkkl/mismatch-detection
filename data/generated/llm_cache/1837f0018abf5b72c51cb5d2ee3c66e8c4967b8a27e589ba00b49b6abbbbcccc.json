@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the per-ticket price for an event tier, multiplies it by the requested quantity, and debits that total from the buyer's account balance. Returns the amount charged in cents and the transaction details."}, "cost_usd": 0.0072502}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Generates an attendee list CSV for an event and moves the finished file into the archive folder for that event. Returns the archived file path."}, "cost_usd": 0.0072602}

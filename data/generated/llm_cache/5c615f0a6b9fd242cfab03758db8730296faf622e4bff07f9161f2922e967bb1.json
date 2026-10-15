@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Launches the booking job for a freight shipment using the carrier's booking script, then charges the carrier deposit to the customer's saved card and returns the payment status."}, "cost_usd": 0.0079682}

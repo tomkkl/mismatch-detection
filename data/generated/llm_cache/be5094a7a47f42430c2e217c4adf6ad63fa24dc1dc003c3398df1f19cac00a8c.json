@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a feature flag's config file from the active configs directory into the archive directory, organized by environment. Retires the flag's config so it no longer sits in the active set, and returns the archived file's new location."}, "cost_usd": 0.0081922}

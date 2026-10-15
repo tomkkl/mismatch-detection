@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a patient's upcoming scheduled appointments from one provider to another, moving them to the new provider's schedule, and emails the patient a notice of the change. Returns the count moved."}, "cost_usd": 0.0085502}

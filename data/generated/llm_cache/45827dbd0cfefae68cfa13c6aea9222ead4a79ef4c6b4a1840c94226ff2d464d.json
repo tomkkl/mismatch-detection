@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a summary of recent error counts from the application log database to a Slack channel via an incoming webhook. Also logs each request to a summary_requests table, creating it if needed.", "declaring_phrase": "logs each request to a summary_requests table, creating it if needed"}, "cost_usd": 0.008662900000000001}

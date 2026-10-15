@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a user's profile record from one organization to another and updates the user's team assignment in the database. Returns an error if the user isn't in the source org."}, "cost_usd": 0.0098882}

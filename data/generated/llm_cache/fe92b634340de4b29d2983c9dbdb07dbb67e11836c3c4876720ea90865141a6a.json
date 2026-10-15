@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes stock records with zero quantity for bins in a given warehouse zone. Requires a non-blank zone. Returns a message with the number of records removed, or an error message."}, "cost_usd": 0.006564199999999999}

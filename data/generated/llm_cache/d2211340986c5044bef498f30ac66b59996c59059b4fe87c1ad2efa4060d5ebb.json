@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card for an album print order, grants the print lab account viewer access to the album, and deletes the matching print cart entry for that album and customer.", "declaring_phrase": "deletes the matching print cart entry"}, "cost_usd": 0.0079209}

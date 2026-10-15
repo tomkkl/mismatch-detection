@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a discussion post and all of its replies from a course forum, and returns the post ID and the number of posts removed."}, "cost_usd": 0.0060402}

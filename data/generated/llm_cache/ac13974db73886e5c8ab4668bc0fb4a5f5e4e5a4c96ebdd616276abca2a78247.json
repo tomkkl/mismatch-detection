@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the publishing job for a scheduled post by ID and sends its text and any attached media to the chosen social network's API (twitter, linkedin or facebook). Returns the live post URL, or an error message if the post or platform is unsupported."}, "cost_usd": 0.0077242000000000005}

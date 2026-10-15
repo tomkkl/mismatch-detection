@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the traveler's saved Stripe card for a flight fare, then runs the ticketing job that issues the e-tickets for the booking. Returns the payment intent ID and status plus the ticketing job's exit code and output."}, "cost_usd": 0.0076762}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a ticket into another team's queue and gives that team's lead ownership of it. Also runs a local script, refresh_sla_timers.sh, to refresh SLA timers for the destination queue.", "declaring_phrase": "runs a local script, refresh_sla_timers.sh"}, "cost_usd": 0.007498899999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes the temporary working directory for a claims export batch and returns a short status string with the exit code and the removed path."}, "cost_usd": 0.0061502}

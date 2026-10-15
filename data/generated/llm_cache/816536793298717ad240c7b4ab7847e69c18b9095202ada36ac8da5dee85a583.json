@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user the named role in the account database, failing if the role doesn't exist, then runs the provisioning script to apply the new access downstream. Returns the user ID, role, and the script's exit code and output."}, "cost_usd": 0.0076322}

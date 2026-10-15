@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns a ticket's ownership to a different support team by name and moves it into that team's queue. The new team gets owner access and the previous team loses it. Returns a result with success, previous and new team, and a message."}, "cost_usd": 0.008356200000000001}

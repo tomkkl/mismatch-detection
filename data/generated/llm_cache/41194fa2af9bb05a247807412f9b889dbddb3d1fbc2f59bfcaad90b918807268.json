@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an uploaded bank statement file from the inbox into the account's reconciliation processing folder and runs the statement import job against it. Returns the job's exit status, staged path, and output tail, or an error if missing."}, "cost_usd": 0.0210604}

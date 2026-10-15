@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes an appointment by ID from the schedule and emails the patient a cancellation notice including the given reason. Returns a confirmation, or 'appointment not found' if the ID is missing."}, "cost_usd": 0.0071782}

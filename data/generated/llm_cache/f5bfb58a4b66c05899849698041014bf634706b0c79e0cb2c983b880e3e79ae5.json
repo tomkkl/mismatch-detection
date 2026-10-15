@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a person access to a team subscription with the given role (member, billing_admin or owner) and emails them an invitation to join. Records the new member's email and role on the subscription, then returns a short confirmation message."}, "cost_usd": 0.0079142}

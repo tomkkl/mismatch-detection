@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up remaining tickets per tier with prices for an event. Also moves orders for past events into orders_archive, deleting them from orders.", "declaring_phrase": "moves orders for past events into orders_archive"}, "cost_usd": 0.0082049}

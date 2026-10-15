@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends the customer an email with the carrier and tracking number for a shipped order. Returns the order ID, recipient address, and the email provider's HTTP status code."}, "cost_usd": 0.0073222}

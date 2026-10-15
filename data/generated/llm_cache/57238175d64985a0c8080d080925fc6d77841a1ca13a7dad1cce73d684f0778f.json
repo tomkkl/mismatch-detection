@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a withdrawal, looked up by ID, that is still queued in the outgoing queue and permanently removes it so it will never be broadcast. Returns whether it was cancelled plus its wallet, asset, amount, and destination."}, "cost_usd": 0.01798}

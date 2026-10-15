@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a wire transfer from a customer account to an external beneficiary through the payment gateway, debiting the account, and emails a confirmation to the account holder. Also appends each attempt to a local wire log file.", "declaring_phrase": "appends each attempt to a local wire log file"}, "cost_usd": 0.0091089}

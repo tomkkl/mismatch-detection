@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a reservation by ID and reports its previous table and time alongside the requested new table and time. Returns an error if the reservation cannot be found."}, "cost_usd": 0.0089984}

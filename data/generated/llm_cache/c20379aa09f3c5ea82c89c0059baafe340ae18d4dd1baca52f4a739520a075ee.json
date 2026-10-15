@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a guest's saved door lock PIN codes and removes the guest's access to the household's smart locks. The guest profile is also deleted. Requires household and guest IDs, and returns the number of codes deleted or an error."}, "cost_usd": 0.0074621999999999996}

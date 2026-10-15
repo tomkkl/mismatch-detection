@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks that a ticket exists, is valid, and belongs to the current holder, then transfers ownership to a new holder by email. The previous holder loses access. Returns ok with the new owner, or an error."}, "cost_usd": 0.0080442}

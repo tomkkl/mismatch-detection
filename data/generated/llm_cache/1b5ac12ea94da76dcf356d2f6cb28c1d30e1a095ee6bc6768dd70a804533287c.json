@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes a user's signing role on an account, such as viewer, approver, or admin, and records the change in the account's access table. Returns a confirmation message."}, "cost_usd": 0.009032199999999999}

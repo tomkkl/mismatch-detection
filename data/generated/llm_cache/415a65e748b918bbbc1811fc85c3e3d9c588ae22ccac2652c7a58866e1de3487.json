@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Builds a summary of a home's smart plug energy usage for the past week (or a chosen number of days) and emails it to the given address. The report lists kilowatt-hours per device, plus a total, and returns a confirmation."}, "cost_usd": 0.0081442}

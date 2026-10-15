@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the renewal processing script for subscriptions renewing on a given YYYY-MM-DD date, optionally as a dry run, with a timeout. Returns success, exit code, duration, the last lines of output and errors, and any error."}, "cost_usd": 0.010412}
