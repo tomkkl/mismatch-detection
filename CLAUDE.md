@@ -62,7 +62,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-10-15)
+## 2. Where we are and what's next (updated 2026-10-23)
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -70,6 +70,29 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 - Training dataset `full`: **2,572 pairs from 763 source tools, 689 mismatches (26.8%)**.
   Splits: train 2,062 / val 259 / test 251. Balanced across the 7 injected effects (91–105
   each) and the 4 injection positions. Full breakdown in section 3.
+- Token lengths measured (2026-10-23): **about half the pairs are over 512 tokens.** Numbers
+  in section 3 ("Token lengths"). This needs the team decision below before training.
+
+### Open decision: how to handle inputs over 512 tokens
+
+Description + code is over 512 tokens for 49.6% of pairs, and still 29–39% after collapsing
+whitespace. Mismatches are longer than honest pairs (60.5% vs 45.6% over 512), so plain
+truncation would cut mismatches more often, often right at the added lines.
+
+1. **Chunk + max-pool, as planned** (already assumed by the `dataset.py` stub and
+   `configs/binary.yaml`). Repeat the interface in each chunk; most pairs need 2–3 chunks. No
+   change to section 5, but each chunk sees only part of the code, so the model can't compare
+   the description against the whole function at once.
+2. **Collapse whitespace, then chunk + max-pool (recommended).** Same design, but only ~30% of
+   pairs need more than one chunk instead of ~55%, so most pairs see their whole function at
+   once. We believe GraphCodeBERT's fine-tuning scripts already join code tokens with spaces,
+   so indentation is probably not something it relies on (to confirm). Cost: a normalization
+   change that must also run on real code at scan time (section 5).
+3. **Switch to a longer-context code model**, e.g. UniXcoder (believed to take ~1,024 tokens,
+   which would fit almost everything; to confirm). Changes the base-model decision in
+   section 5, and loses the tree-sitter data-flow ablation that GraphCodeBERT is built for.
+
+Whichever we pick: watch for a "more chunks means mismatch" leak in the val breakdowns.
 
 **Open issues (not blocking)**
 - Few weakened mismatches (129, ~5% of pairs): 288 tools had no effect that could be removed
@@ -83,8 +106,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 Steps 1–2 and 3 can run at the same time with different people.
 
-1. **Measure token lengths** of description + code on `full` with the GraphCodeBERT tokenizer.
-   The limit is 512; if many pairs are longer, the chunking design needs a team decision.
+1. **Decide how to handle long inputs** (team decision, see "Open decision" above).
 2. **Train the first model (binary).** Fill in the stubs in `src/agentlint/model/`
    (`dataset.py`, `classifier.py`, `train.py`), add a training config and a Colab notebook.
    Use a weighted loss (~27% mismatch). Also train the "before fine-tuning" baseline (frozen
@@ -165,7 +187,25 @@ Not every tool gets all five pairs:
 
 - Code: median 25 lines, max 60. Comments and docstrings are stripped.
 - Descriptions: median 200 characters, max 352.
-- Fit against GraphCodeBERT's 512-token limit not measured yet (next step 1).
+### Token lengths (GraphCodeBERT tokenizer, all 2,572 pairs, measured 2026-10-23)
+
+| Input | Median | p95 | Max | Over 512 |
+|---|---|---|---|---|
+| Code alone | 466 | 879 | 1,111 | — |
+| Description + code | 508 | 932 | 1,172 | **49.6%** |
+| Name + params (compact) + description + code | 562 | 994 | 1,211 | 58.4% |
+| Name + params (raw JSON) + description + code | 610 | 1,050 | 1,252 | 65.9% |
+| Description + code, indentation cut to 1 space per level | 438 | 763 | 1,022 | 36.4% |
+| Description + code, all whitespace collapsed | 405 | 715 | 974 | 29.0% |
+| Name + params (compact) + description + code, whitespace collapsed | 459 | 784 | 1,019 | 39.0% |
+
+- Code is long in tokens for ~25 lines because the tokenizer makes **one token per indentation
+  space**: ~21% of code tokens are whitespace.
+- **Mismatches are longer:** over 512 for 60.5% of mismatches vs 45.6% of honest pairs
+  (description + code). Truncation would hit mismatches harder.
+- Lengths include the special tokens of a pair encoding (`tok(first_segment, code)`).
+  "Compact" params = `name (type, required): description` per parameter, joined with `; `.
+- Rerun with `python scripts/token_lengths.py [pairs.jsonl]`.
 
 ### Splits (by tool, so no tool spans two splits)
 
@@ -315,6 +355,7 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 
 - `src/agentlint/data/`: dataset pipeline (`build.py` runs generate → verify → inject + twin →
   match → weaken → split)
+- `scripts/token_lengths.py`: input lengths vs the 512-token limit (section 3)
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
 - `src/agentlint/model/`, `src/agentlint/eval/`: training and evaluation (stubs so far)
 - `configs/datagen.yaml`: dataset settings; `configs/binary.yaml`, `multilabel.yaml`: training
@@ -368,8 +409,9 @@ cancel an order and write a refund row) gave indistinguishable output. A hostile
   (e.g. `aa_run/<case>/order_service/tools/orders.py`).
 - **Always include a positive control** (eval / `shell=True`) in any Agent Audit run. A silent
   result without a firing control proves nothing.
-- **512-token limit.** Measure the length distribution early; chunk + max-pool instead of
-  truncating (truncation can cut the exact lines that carry the label).
+- **512-token limit.** About half of `full` is over it (section 3). Never truncate: truncation
+  can cut the exact lines that carry the label, and mismatches are longer than honest pairs.
+  Indentation is expensive: the tokenizer makes one token per space.
 - **Generation prompts must not sound like concealment.** Asking for an undeclared operation
   with "no comments, no logging, must look ordinary" got 23/40 refusals (read as planting a
   backdoor). Stating the detector-training purpose and asking for an ordinary feature got 0/40.
@@ -391,6 +433,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-10-23:** Measured token lengths on `full` with the GraphCodeBERT tokenizer:
+  description + code is over 512 for 49.6% of pairs (median 508, max 1,172), 29% after
+  collapsing whitespace. Mismatches run longer than honest pairs. Opened a team decision on
+  long inputs (section 2); recommended collapsing whitespace + chunk and max-pool.
 - **2026-10-15:** Moved the repo to the team's GitHub (`tomkkl/mismatch-detection`). Reorganized
   this file for the team.
 - **2026-10-14:** Dropped `read` injections (section 5). Rebuilt `full` from cache with 0 new
