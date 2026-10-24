@@ -360,10 +360,6 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `src/agentlint/model/`, `src/agentlint/eval/`: training and evaluation (stubs so far)
 - `configs/datagen.yaml`: dataset settings; `configs/binary.yaml`, `multilabel.yaml`: training
 - `docs/agentlint-preproposal.md`: current proposal
-- `probes/probe_agent_audit_v2.py`: round 1 Agent Audit probe (5 cases, filesystem)
-- `probes/probe_round2.py`: round 2 probe (minimal pair, database)
-- `probes/demo_agent_audit.py`: team demo (control / honest / tool that secretly moves its
-  directory)
 - `probes/aa_run/`: generated Agent Audit cases (keep the path neutral; see Gotchas)
 
 ---
