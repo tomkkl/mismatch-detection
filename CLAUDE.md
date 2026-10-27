@@ -97,7 +97,8 @@ Steps 2 and 3 can run at the same time with different people.
    PR-AUC, best-F1 threshold saved), `src/agentlint/eval/metrics.py` (P / R / F1, PR-AUC,
    group accuracy, breakdowns by chunks / effect / position / mutation, tested in
    `tests/test_metrics.py`), configs `binary.yaml` and `binary_frozen.yaml`, and
-   `notebooks/train_binary.ipynb`. Next: train on USC CARC (or Colab with the notebook), smoke test first.
+   `notebooks/train_binary.ipynb`. Next: write a SLURM job script for USC CARC (needs the
+   partition, GPU type and Python setup there), then train, smoke test first.
    Done when we have val precision / recall / F1, PR-AUC, group accuracy and the chunk-count
    breakdown for both.
 3. **Build the other test sets.**
@@ -275,6 +276,21 @@ tests, refactors inside one module, docs. When unsure whether something is archi
   shows an undeclared operation). Never truncate.
 - The model says *whether*; it cannot say *where*. Line numbers in reports come from the AST
   (`localize.py`).
+
+### Training (decided 2026-10-26)
+
+- **Where:** USC CARC (SLURM job script still to write). Colab notebook as a fallback. Never a
+  laptop (a full run froze a Mac).
+- **Loss:** BCE with `pos_weight` = honest / mismatch count in train (~2.7), on the max-pooled
+  pair logit.
+- **Batching:** 8 pairs per step (each pair brings 1–3+ chunks), gradient accumulation 2
+  (effective 16 pairs), fp16 on GPU. AdamW, lr 2e-5, weight decay 0.01, 10% linear warmup,
+  grad clip 1.0, 5 epochs, seed 566.
+- **Model selection:** keep the epoch with the best val PR-AUC. The threshold with the best F1
+  on val is saved (`threshold.json`) and reused unchanged when scoring `test`. `train.py` never
+  reads `test`.
+- **"Before" baseline** (`binary_frozen.yaml`): encoder frozen, standard RoBERTa head trained
+  (dense + tanh + output), lr 1e-3, 10 epochs.
 
 ### Evaluation (decided 2026-10-05)
 
