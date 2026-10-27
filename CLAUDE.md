@@ -264,6 +264,13 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 - **One detector:** a **GraphCodeBERT cross-encoder** (`microsoft/graphcodebert-base`).
   Description and code go in together as one input; a classification head on `[CLS]` gives
   the verdict. (Earlier two-tier / trace-auditing designs were dropped.)
+- **Head (decided 2026-10-26):** GraphCodeBERT is released as an encoder only, with no
+  classifier. `build_model` adds transformers' standard RoBERTa classification head, randomly
+  initialized and **trained by us**: `[CLS]` (768) → dropout → dense 768→768 → tanh →
+  dropout → linear 768→1 (or 768→8 for multi-label). Two layers, not one: the same head is
+  used in the fine-tuned model and in the frozen "before" baseline, so the only difference
+  between the two runs is whether the encoder is fine-tuned. A single linear layer would make
+  the baseline weaker and flatter fine-tuning.
 - Start **binary** (mismatch yes/no), then **multi-label** (one sigmoid output per effect class).
 - Start **text-only**. Adding data flow (tree-sitter) is a later ablation.
 - **Input (decided 2026-10-26):** first segment = name + compact params + description
@@ -289,8 +296,8 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 - **Model selection:** keep the epoch with the best val PR-AUC. The threshold with the best F1
   on val is saved (`threshold.json`) and reused unchanged when scoring `test`. `train.py` never
   reads `test`.
-- **"Before" baseline** (`binary_frozen.yaml`): encoder frozen, standard RoBERTa head trained
-  (dense + tanh + output), lr 1e-3, 10 epochs.
+- **"Before" baseline** (`binary_frozen.yaml`): encoder frozen, only the 2-layer head trains
+  (see "Head" above), lr 1e-3, 10 epochs.
 
 ### Evaluation (decided 2026-10-05)
 
@@ -304,9 +311,9 @@ tests, refactors inside one module, docs. When unsure whether something is archi
   leak.
 - **Group accuracy:** share of source tools where *every* pair is right (mutant flagged, twin
   and rewrite cleared). The hardest number to get by shortcut.
-- **Before vs after fine-tuning:** "before" = frozen GraphCodeBERT + a trained classification
-  head (an untrained head is just random). The head is the model's standard RoBERTa head
-  (dense + tanh + output layer), the same one the fine-tuned model uses (decided 2026-10-26).
+- **Before vs after fine-tuning:** "before" = frozen GraphCodeBERT + the same 2-layer head,
+  trained (an untrained head is just random). In writing: "a frozen GraphCodeBERT encoder with a
+  trained 2-layer classification head", not "linear head".
 - **Agent Audit** (the professor's tool) is the only baseline. Frame it as coverage: run both on
   the same set (our mismatches + some conventional bugs like eval / shell injection) and report
   what each catches and the union.
@@ -464,8 +471,9 @@ Newest first. Add an entry when a milestone lands or a plan changes.
 
 - **2026-10-26 (later):** Wrote the binary training loop, the metrics module (with tests),
   the frozen-encoder baseline config and the Colab notebook. Not run yet: a local training run
-  froze the Mac, so training moves to USC CARC. Kept the standard 2-layer RoBERTa head for the
-  frozen baseline (section 5 wording updated).
+  froze the Mac, so training moves to USC CARC. Kept transformers' standard 2-layer RoBERTa head
+  (trained from scratch by us) for both runs instead of a single linear layer (section 5,
+  "Head").
 
 - **2026-10-26:** Team picked option 2 for long inputs: collapse whitespace, chunk (512, 128
   overlap, interface repeated), max-pool chunk logits, loss on the pooled logit. Implemented
