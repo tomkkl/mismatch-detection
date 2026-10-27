@@ -1,0 +1,15 @@
+# "Before fine-tuning" baseline: frozen GraphCodeBERT + trained linear head (section 5)
+model_name: microsoft/graphcodebert-base
+task: binary
+max_length: 512
+chunk_stride: 128
+batch_size: 8
+grad_accum: 2
+lr: 1.0e-3              # only the head trains, so a much higher rate than fine-tuning
+weight_decay: 0.01
+warmup: 0.1
+epochs: 10
+freeze_encoder: true
+seed: 566
+data_dir: data/splits/full
+output_dir: checkpoints/binary_frozen

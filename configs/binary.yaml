@@ -3,9 +3,13 @@ model_name: microsoft/graphcodebert-base
 task: binary            # binary | multilabel
 max_length: 512
 chunk_stride: 128       # overlap between chunks; chunk logits are max-pooled
-batch_size: 16
+batch_size: 8           # pairs per step (~13-20 chunks of 512); fits a T4 with fp16
+grad_accum: 2           # effective batch 16 pairs
 lr: 2.0e-5
+weight_decay: 0.01
+warmup: 0.1             # share of steps with linear warmup
 epochs: 5
+freeze_encoder: false
 seed: 566
-data_dir: data/splits
+data_dir: data/splits/full
 output_dir: checkpoints/binary

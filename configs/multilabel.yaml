@@ -7,5 +7,5 @@ batch_size: 16
 lr: 2.0e-5
 epochs: 5
 seed: 566
-data_dir: data/splits
+data_dir: data/splits/full
 output_dir: checkpoints/multilabel

@@ -33,7 +33,7 @@ pytest
 ```
 
 - Python 3.10+ (developed on 3.13). `baseline` installs Agent Audit v0.19.2.
-- Training runs on Colab (a T4 is enough for this model size).
+- Training runs on USC CARC or Colab (a T4 is enough for this model size).
 - macOS: if `agentlint` suddenly can't be imported, see "Gotchas".
 
 ### Getting the dataset
@@ -92,18 +92,21 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 Steps 2 and 3 can run at the same time with different people.
 
 1. ~~Decide how to handle long inputs~~ (done 2026-10-26).
-2. **Train the first model (binary).** Input construction and pooling are done; fill in
-   `src/agentlint/model/train.py` (loss on the pooled logits: `max_pool_by_pair`, then weighted
-   BCE, ~27% mismatch) and add a Colab notebook. Also train the "before fine-tuning" baseline
-   (frozen encoder + linear head). Done when we have val precision / recall / F1, PR-AUC, group
-   accuracy and the chunk-count breakdown for both.
+2. **Train the first model (binary).** Code is written but not run yet:
+   `src/agentlint/model/train.py` (weighted BCE on the max-pooled logit, best epoch by val
+   PR-AUC, best-F1 threshold saved), `src/agentlint/eval/metrics.py` (P / R / F1, PR-AUC,
+   group accuracy, breakdowns by chunks / effect / position / mutation, tested in
+   `tests/test_metrics.py`), configs `binary.yaml` and `binary_frozen.yaml`, and
+   `notebooks/train_binary.ipynb`. Next: train on USC CARC (or Colab with the notebook), smoke test first.
+   Done when we have val precision / recall / F1, PR-AUC, group accuracy and the chunk-count
+   breakdown for both.
 3. **Build the other test sets.**
    - Rung 2: a fresh-seed Opus set, ~100–150 tools (`--tag rung2-opus`, new `seed`, never 566).
    - Rung 3: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers)
      and inject with the same pipeline. The collection format is still an open design question.
    - Agent Audit coverage set: our mismatches + some conventional bugs (eval, `shell=True`).
-4. **Evaluation code** in `src/agentlint/eval/`: all metrics and breakdowns from section 5.
-   Then score `test` and rungs 2–3 **once**, and run Agent Audit on the coverage set.
+4. **Evaluation code** in `src/agentlint/eval/`: metrics and breakdowns are in `metrics.py`;
+   still needed is a script that scores a saved checkpoint on a test set. Then score `test` and rungs 2–3 **once**, and run Agent Audit on the coverage set.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -285,8 +288,9 @@ tests, refactors inside one module, docs. When unsure whether something is archi
   leak.
 - **Group accuracy:** share of source tools where *every* pair is right (mutant flagged, twin
   and rewrite cleared). The hardest number to get by shortcut.
-- **Before vs after fine-tuning:** "before" = frozen GraphCodeBERT + a trained linear head (an
-  untrained head is just random).
+- **Before vs after fine-tuning:** "before" = frozen GraphCodeBERT + a trained classification
+  head (an untrained head is just random). The head is the model's standard RoBERTa head
+  (dense + tanh + output layer), the same one the fine-tuned model uses (decided 2026-10-26).
 - **Agent Audit** (the professor's tool) is the only baseline. Frame it as coverage: run both on
   the same set (our mismatches + some conventional bugs like eval / shell injection) and report
   what each catches and the union.
@@ -357,8 +361,12 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
   match → weaken → split)
 - `scripts/token_lengths.py`: input lengths vs the 512-token limit (section 3)
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
-- `src/agentlint/model/`, `src/agentlint/eval/`: training and evaluation (stubs so far)
-- `configs/datagen.yaml`: dataset settings; `configs/binary.yaml`, `multilabel.yaml`: training
+- `src/agentlint/model/`: input construction, model, training loop (`train.py`)
+- `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns); test-set
+  scoring not written yet
+- `configs/datagen.yaml`: dataset settings; `configs/binary.yaml`, `binary_frozen.yaml`
+  (before-fine-tuning baseline), `multilabel.yaml`: training
+- `notebooks/train_binary.ipynb`: Colab notebook that trains both binary models
 - `docs/agentlint-preproposal.md`: current proposal
 - `probes/aa_run/`: generated Agent Audit cases (keep the path neutral; see Gotchas)
 
@@ -413,6 +421,10 @@ cancel an order and write a refund row) gave indistinguishable output. A hostile
   silently drops the rest of the code (3,200 code tokens came back as 512 + 142). transformers
   5 also removed `build_inputs_with_special_tokens`. `encode_pair` builds the windows and the
   RoBERTa pair layout by hand; a test checks it matches `tok(a, b)` for short pairs.
+- **Don't train on a laptop.** A full `agentlint train` run froze a Mac (2026-10-26):
+  ~2,000 pairs, up to 3+ chunks of 512 each, through a 125M-parameter encoder. Train on USC CARC or Colab
+  (`notebooks/train_binary.ipynb`). Locally, set `limit_train` / `limit_val` in a copy of the
+  config for a quick check.
 - **Generation prompts must not sound like concealment.** Asking for an undeclared operation
   with "no comments, no logging, must look ordinary" got 23/40 refusals (read as planting a
   backdoor). Stating the detector-training purpose and asking for an ordinary feature got 0/40.
@@ -433,6 +445,11 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-10-26 (later):** Wrote the binary training loop, the metrics module (with tests),
+  the frozen-encoder baseline config and the Colab notebook. Not run yet: a local training run
+  froze the Mac, so training moves to USC CARC. Kept the standard 2-layer RoBERTa head for the
+  frozen baseline (section 5 wording updated).
 
 - **2026-10-26:** Team picked option 2 for long inputs: collapse whitespace, chunk (512, 128
   overlap, interface repeated), max-pool chunk logits, loss on the pooled logit. Implemented
