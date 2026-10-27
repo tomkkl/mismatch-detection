@@ -62,7 +62,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-10-23)
+## 2. Where we are and what's next (updated 2026-10-26)
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -70,29 +70,11 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 - Training dataset `full`: **2,572 pairs from 763 source tools, 689 mismatches (26.8%)**.
   Splits: train 2,062 / val 259 / test 251. Balanced across the 7 injected effects (91–105
   each) and the 4 injection positions. Full breakdown in section 3.
-- Token lengths measured (2026-10-23): **about half the pairs are over 512 tokens.** Numbers
-  in section 3 ("Token lengths"). This needs the team decision below before training.
-
-### Open decision: how to handle inputs over 512 tokens
-
-Description + code is over 512 tokens for 49.6% of pairs, and still 29–39% after collapsing
-whitespace. Mismatches are longer than honest pairs (60.5% vs 45.6% over 512), so plain
-truncation would cut mismatches more often, often right at the added lines.
-
-1. **Chunk + max-pool, as planned** (already assumed by the `dataset.py` stub and
-   `configs/binary.yaml`). Repeat the interface in each chunk; most pairs need 2–3 chunks. No
-   change to section 5, but each chunk sees only part of the code, so the model can't compare
-   the description against the whole function at once.
-2. **Collapse whitespace, then chunk + max-pool (recommended).** Same design, but only ~30% of
-   pairs need more than one chunk instead of ~55%, so most pairs see their whole function at
-   once. We believe GraphCodeBERT's fine-tuning scripts already join code tokens with spaces,
-   so indentation is probably not something it relies on (to confirm). Cost: a normalization
-   change that must also run on real code at scan time (section 5).
-3. **Switch to a longer-context code model**, e.g. UniXcoder (believed to take ~1,024 tokens,
-   which would fit almost everything; to confirm). Changes the base-model decision in
-   section 5, and loses the tree-sitter data-flow ablation that GraphCodeBERT is built for.
-
-Whichever we pick: watch for a "more chunks means mismatch" leak in the val breakdowns.
+- Token lengths measured (2026-10-23): about half the pairs are over 512 tokens (section 3).
+- **Long inputs decided (2026-10-26): collapse whitespace, then chunk + max-pool** (section 5,
+  "Input"). Implemented in `src/agentlint/model/dataset.py` (`encode_pair`, `PairDataset`,
+  `collate_chunks`) and `classifier.py` (`build_model`, `max_pool_by_pair`), with tests. On
+  `full`: 61.0% of pairs fit in 1 chunk, 33.8% need 2, 5.2% need 3+.
 
 **Open issues (not blocking)**
 - Few weakened mismatches (129, ~5% of pairs): 288 tools had no effect that could be removed
@@ -101,17 +83,20 @@ Whichever we pick: watch for a "more chunks means mismatch" leak in the val brea
   role tables, insert-then-delete) and even `stripe.PaymentIntent.create`. Labels are fine
   (hand-checked), but fix it before using `localize.py` for line numbers in reports.
 - The description-only baseline is ~1 point above majority (74.2% vs 73.2%). Small; watch it.
+- **Chunk count goes with the label:** 48.9% of mismatches need 2+ chunks vs 35.4% of honest
+  pairs. With max-pooling, more chunks also means more chances for a high score. Report val by
+  chunk count (1 / 2 / 3+) and check honest multi-chunk pairs aren't over-flagged.
 
 ### What's next
 
-Steps 1–2 and 3 can run at the same time with different people.
+Steps 2 and 3 can run at the same time with different people.
 
-1. **Decide how to handle long inputs** (team decision, see "Open decision" above).
-2. **Train the first model (binary).** Fill in the stubs in `src/agentlint/model/`
-   (`dataset.py`, `classifier.py`, `train.py`), add a training config and a Colab notebook.
-   Use a weighted loss (~27% mismatch). Also train the "before fine-tuning" baseline (frozen
-   encoder + linear head). Done when we have val precision / recall / F1, PR-AUC and group
-   accuracy for both.
+1. ~~Decide how to handle long inputs~~ (done 2026-10-26).
+2. **Train the first model (binary).** Input construction and pooling are done; fill in
+   `src/agentlint/model/train.py` (loss on the pooled logits: `max_pool_by_pair`, then weighted
+   BCE, ~27% mismatch) and add a Colab notebook. Also train the "before fine-tuning" baseline
+   (frozen encoder + linear head). Done when we have val precision / recall / F1, PR-AUC, group
+   accuracy and the chunk-count breakdown for both.
 3. **Build the other test sets.**
    - Rung 2: a fresh-seed Opus set, ~100–150 tools (`--tag rung2-opus`, new `seed`, never 566).
    - Rung 3: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers)
@@ -205,6 +190,9 @@ Not every tool gets all five pairs:
   (description + code). Truncation would hit mismatches harder.
 - Lengths include the special tokens of a pair encoding (`tok(first_segment, code)`).
   "Compact" params = `name (type, required): description` per parameter, joined with `; `.
+- **Chunks per pair** under the chosen input (last row above, chunks of 512 with a 128-token
+  overlap): 1 chunk 61.0%, 2 chunks 33.8%, 3+ chunks 5.2%. Mismatches: 51.1 / 39.9 / 9.0%;
+  honest: 64.6 / 31.5 / 3.9%.
 - Rerun with `python scripts/token_lengths.py [pairs.jsonl]`.
 
 ### Splits (by tool, so no tool spans two splits)
@@ -274,6 +262,14 @@ tests, refactors inside one module, docs. When unsure whether something is archi
   the verdict. (Earlier two-tier / trace-auditing designs were dropped.)
 - Start **binary** (mismatch yes/no), then **multi-label** (one sigmoid output per effect class).
 - Start **text-only**. Adding data flow (tree-sitter) is a later ablation.
+- **Input (decided 2026-10-26):** first segment = name + compact params + description
+  (`format_interface`); second segment = code with all whitespace collapsed to single spaces
+  (`collapse_whitespace`). If that's over 512 tokens, the code is split into overlapping
+  windows (128 tokens shared between neighbours), each a full input
+  `<s> interface </s></s> code slice </s>` with the interface repeated. Each chunk gets a logit;
+  the pair's logit is the **max over its chunks** (per label for multi-label), and the loss is
+  computed on that pooled logit (multiple-instance learning: a pair is a mismatch if any chunk
+  shows an undeclared operation). Never truncate.
 - The model says *whether*; it cannot say *where*. Line numbers in reports come from the AST
   (`localize.py`).
 
@@ -284,7 +280,9 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 - Rung 1 is `data/splits/full/test.jsonl`. Tune on `val`; score `test` **once**, at the end.
 - **Metrics per test set:** precision / recall / F1 on the mismatch class, and PR-AUC. Not plain
   accuracy (only ~27% of pairs are mismatches).
-- **Breakdowns:** recall per effect class, per injection position, and inject vs weaken.
+- **Breakdowns:** recall per effect class, per injection position, and inject vs weaken; plus
+  precision and recall by chunk count (1 / 2 / 3+), to catch a "more chunks means mismatch"
+  leak.
 - **Group accuracy:** share of source tools where *every* pair is right (mutant flagged, twin
   and rewrite cleared). The hardest number to get by shortcut.
 - **Before vs after fine-tuning:** "before" = frozen GraphCodeBERT + a trained linear head (an
@@ -309,7 +307,9 @@ What the dataset contains is in section 3. This lists **why each piece exists:**
 - `stats.json` reports a **length-only** and a **description-only** (tf-idf) baseline on every
   run. Both should stay near the majority rate.
 - **Normalization by AST round-trip:** parse, drop docstrings, `ast.unparse`. Removes comments
-  and makes formatting uniform. The same step must run on real code at scan time.
+  and makes formatting uniform. The model input then collapses all whitespace
+  (`model/dataset.py`). Both steps must run on real code at scan time: `normalize_code`, then
+  `collapse_whitespace`.
 - **Split by source tool:** a tool and all its variants share a split; duplicate tool names are
   dropped so near-copies can't cross splits. Never split randomly.
 - **No `read` injections** (2026-10-14, `skip_inject_effects: [read]` in
@@ -407,7 +407,12 @@ cancel an order and write a refund row) gave indistinguishable output. A hostile
   result without a firing control proves nothing.
 - **512-token limit.** About half of `full` is over it (section 3). Never truncate: truncation
   can cut the exact lines that carry the label, and mismatches are longer than honest pairs.
-  Indentation is expensive: the tokenizer makes one token per space.
+  Indentation is expensive (one token per space), hence `collapse_whitespace` + chunking.
+- **Don't use the tokenizer's own chunking.** In transformers 5.x,
+  `return_overflowing_tokens=True` on a (text, code) pair stops after one extra chunk and
+  silently drops the rest of the code (3,200 code tokens came back as 512 + 142). transformers
+  5 also removed `build_inputs_with_special_tokens`. `encode_pair` builds the windows and the
+  RoBERTa pair layout by hand; a test checks it matches `tok(a, b)` for short pairs.
 - **Generation prompts must not sound like concealment.** Asking for an undeclared operation
   with "no comments, no logging, must look ordinary" got 23/40 refusals (read as planting a
   backdoor). Stating the detector-training purpose and asking for an ordinary feature got 0/40.
@@ -428,6 +433,12 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-10-26:** Team picked option 2 for long inputs: collapse whitespace, chunk (512, 128
+  overlap, interface repeated), max-pool chunk logits, loss on the pooled logit. Implemented
+  input construction and pooling in `model/dataset.py` and `model/classifier.py`, with tests;
+  smoke-tested a forward pass on val. On `full`, 39% of pairs need 2+ chunks (48.9% of
+  mismatches vs 35.4% of honest pairs), so chunk count is now a required val breakdown.
 
 - **2026-10-23:** Measured token lengths on `full` with the GraphCodeBERT tokenizer:
   description + code is over 512 for 49.6% of pairs (median 508, max 1,172), 29% after

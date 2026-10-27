@@ -4,7 +4,8 @@ Usage: python scripts/token_lengths.py [pairs.jsonl] [--model microsoft/graphcod
 
 Reports, for several ways of building the input, the length distribution and the share of
 pairs over the limit (overall and per label). Lengths include the special tokens of a pair
-encoding: tok(first_segment, code).
+encoding: tok(first_segment, code). Then the number of chunks per pair under the chosen input
+(`agentlint.model.dataset.encode_pair`), to watch for a "more chunks means mismatch" leak.
 """
 
 import argparse
@@ -15,16 +16,10 @@ import numpy as np
 from transformers import AutoTokenizer
 from transformers.utils import logging
 
+from agentlint.model.dataset import collapse_whitespace, encode_pair, params_compact
+from agentlint.schema import ToolPair
+
 LIMIT = 512
-
-
-def params_compact(params: dict) -> str:
-    """One `name (type, required): description` entry per parameter, joined with '; '."""
-    required = set(params.get("required", []))
-    return "; ".join(
-        f"{k} ({v.get('type', '?')}{', required' if k in required else ''}): {v.get('description', '')}"
-        for k, v in params.get("properties", {}).items()
-    )
 
 
 def one_space_indent(code: str) -> str:
@@ -32,10 +27,6 @@ def one_space_indent(code: str) -> str:
     return "\n".join(
         re.sub(r"^( {4})+", lambda m: " " * (len(m.group(0)) // 4), line) for line in code.split("\n")
     )
-
-
-def collapse_whitespace(code: str) -> str:
-    return re.sub(r"\s+", " ", code).strip()
 
 
 def interface(r: dict) -> str:
@@ -88,6 +79,14 @@ def main() -> None:
             f"{name:<60} {np.median(lengths):>6.0f} {np.percentile(lengths, 95):>5.0f} {lengths.max():>5} "
             f"{over.mean():>6.1%} {over[mismatch].mean():>6.1%} {over[~mismatch].mean():>6.1%}"
         )
+
+
+    chunks = np.array([len(encode_pair(ToolPair.from_dict(r), tok)) for r in rows])
+    print(f"\nchunks per pair (encode_pair: max_length {LIMIT}, stride 128)")
+    print(f"{'chunks':<8} {'all':>6} {'mism.':>6} {'honest':>6}")
+    for label, sel in (("1", chunks == 1), ("2", chunks == 2), ("3+", chunks >= 3)):
+        print(f"{label:<8} {sel.mean():>6.1%} {sel[mismatch].mean():>6.1%} {sel[~mismatch].mean():>6.1%}")
+
 
 
 if __name__ == "__main__":
