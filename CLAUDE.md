@@ -97,8 +97,10 @@ Steps 2 and 3 can run at the same time with different people.
    PR-AUC, best-F1 threshold saved), `src/agentlint/eval/metrics.py` (P / R / F1, PR-AUC,
    group accuracy, breakdowns by chunks / effect / position / mutation, tested in
    `tests/test_metrics.py`), configs `binary.yaml` and `binary_frozen.yaml`, and
-   `notebooks/train_binary.ipynb`. Next: write a SLURM job script for USC CARC (needs the
-   partition, GPU type and Python setup there), then train, smoke test first.
+   `notebooks/train_binary.ipynb`. CARC scripts are in `scripts/carc/` (2026-10-28):
+   `bash scripts/carc/setup.sh` once on a login node, then
+   `sbatch -A <account> scripts/carc/train.slurm <config>`. Not yet run on CARC. Next: smoke
+   test (`runs/smoke.yaml`, written by setup), then both configs.
    Done when we have val precision / recall / F1, PR-AUC, group accuracy and the chunk-count
    breakdown for both.
 3. **Build the other test sets.**
