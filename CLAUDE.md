@@ -475,7 +475,6 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-
 - **2026-10-26 (later):** Wrote the binary training loop, the metrics module (with tests),
   the frozen-encoder baseline config and the Colab notebook. Not run yet: a local training run
   froze the Mac, so training moves to USC CARC. Kept transformers' standard 2-layer RoBERTa head
