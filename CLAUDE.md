@@ -475,6 +475,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-10-28:** Added `scripts/carc/` (setup + SLURM job script) and got setup working on
+  Discovery after two fixes (BLAS thread cap; model download without importing transformers).
+  First smoke test landed on a P100 and failed with a filesystem read error; the installed
+  torch can't run on P100 / V100 anyway. Smoke-test retries on A40 / A100 / L40S are queued.
 - **2026-10-26 (later):** Wrote the binary training loop, the metrics module (with tests),
   the frozen-encoder baseline config and the Colab notebook. Not run yet: a local training run
   froze the Mac, so training moves to USC CARC. Kept transformers' standard 2-layer RoBERTa head
