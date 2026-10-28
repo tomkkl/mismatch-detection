@@ -101,7 +101,7 @@ Steps 2 and 3 can run at the same time with different people.
    `bash scripts/carc/setup.sh` once on a login node, then
    `sbatch -A <account> --gres=gpu:a40:1 scripts/carc/train.slurm <config>`. Setup works on
    Discovery (2026-10-28). The smoke test (`runs/smoke.yaml`, written by setup) has not run
-   yet: one try on a P100 failed (see Gotchas), and three retries (A40 / A100 / L40S, account
+   yet: the installed torch only runs on A40 / A100 / L40S (not P100 / V100), and three retries (A40 / A100 / L40S, account
    `yzhao010_1531`) are waiting in the queue. Next: when one starts, cancel the others, check
    the log, then submit both configs.
    Done when we have val precision / recall / F1, PR-AUC, group accuracy and the chunk-count
@@ -454,20 +454,6 @@ cancel an order and write a refund row) gave indistinguishable output. A hostile
   ~2,000 pairs, up to 3+ chunks of 512 each, through a 125M-parameter encoder. Train on USC CARC or Colab
   (`notebooks/train_binary.ipynb`). Locally, set `limit_train` / `limit_val` in a copy of the
   config for a quick check.
-- **CARC: only A40, A100 or L40S GPUs.** `pip install torch` gives 2.15+cu132, which supports
-  sm_75 and newer only, so P100 and V100 can't run it; H100 isn't offered on Discovery. Always
-  pass a GPU type (`--gres=gpu:a40:1`); `train.slurm` exits early on an unsupported GPU. The
-  queue can take hours: submit to several types and cancel the extras once one starts.
-- **CARC: login-node imports.** OpenBLAS starts one thread per core and the login node caps
-  threads per user, so `import scipy` hung or segfaulted. `env.sh` sets `OMP_NUM_THREADS` /
-  `OPENBLAS_NUM_THREADS` (1 on the login node, the job's CPUs in a job). Imports of torch are
-  also slow there (network filesystem); `setup.sh` prints a note so it doesn't look stuck.
-- **CARC: `read(): ... Input/output error`** while loading the model from `/scratch1` hit one
-  job on node d23-14; the file read fine from the login node. Treated as a node problem.
-  If it repeats on other nodes, move `HF_HOME` off `/scratch1`.
-- **CARC from Claude Code on Windows:** Git Bash ssh can't share a login (ControlMaster), and
-  CARC needs password + Duo, so Claude Code can't run commands on CARC from Windows. Its
-  failed attempts count against the login limit. Run commands on CARC yourself.
 - **Generation prompts must not sound like concealment.** Asking for an undeclared operation
   with "no comments, no logging, must look ordinary" got 23/40 refusals (read as planting a
   backdoor). Stating the detector-training purpose and asking for an ordinary feature got 0/40.
@@ -489,10 +475,6 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-10-28:** Added `scripts/carc/` (setup + SLURM job script) and got setup working on
-  Discovery after two fixes (BLAS thread cap; model download without importing transformers).
-  First smoke test landed on a P100 and failed with a filesystem read error; the installed
-  torch can't run on P100 / V100 anyway. Smoke-test retries on A40 / A100 / L40S are queued.
 
 - **2026-10-26 (later):** Wrote the binary training loop, the metrics module (with tests),
   the frozen-encoder baseline config and the Colab notebook. Not run yet: a local training run
