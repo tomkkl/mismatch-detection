@@ -100,10 +100,10 @@ Steps 2 and 3 can run at the same time with different people.
    `notebooks/train_binary.ipynb`. CARC scripts are in `scripts/carc/` (2026-10-28):
    `bash scripts/carc/setup.sh` once on a login node, then
    `sbatch -A <account> --gres=gpu:a40:1 scripts/carc/train.slurm <config>`. Setup works on
-   Discovery (2026-10-28). The smoke test (`runs/smoke.yaml`, written by setup) has not run
-   yet: the installed torch only runs on A40 / A100 / L40S (not P100 / V100), and three retries (A40 / A100 / L40S, account
-   `yzhao010_1531`) are waiting in the queue. Next: when one starts, cancel the others, check
-   the log, then submit both configs.
+   Discovery (2026-10-28). The smoke test (`runs/smoke.yaml`, 64 train / 32 val pairs, 1 epoch)
+   passed on an L40S (job 13526862, account `yzhao010_1531`): training, val metrics, threshold
+   and checkpoint saving all work. The installed torch only runs on A40 / A100 / L40S (not
+   P100 / V100). Next: submit `binary.yaml` and `binary_frozen.yaml`.
    Done when we have val precision / recall / F1, PR-AUC, group accuracy and the chunk-count
    breakdown for both.
 3. **Build the other test sets.**
@@ -478,7 +478,9 @@ Newest first. Add an entry when a milestone lands or a plan changes.
 - **2026-10-28:** Added `scripts/carc/` (setup + SLURM job script) and got setup working on
   Discovery after two fixes (BLAS thread cap; model download without importing transformers).
   First smoke test landed on a P100 and failed with a filesystem read error; the installed
-  torch can't run on P100 / V100 anyway. Smoke-test retries on A40 / A100 / L40S are queued.
+  torch can't run on P100 / V100 anyway. The retry passed on an L40S (job 13526862): the full
+  train → val → save path works. The "568 > 512" tokenizer warning and the LOAD REPORT
+  (`lm_head` unexpected, `classifier` missing) are expected.
 - **2026-10-26 (later):** Wrote the binary training loop, the metrics module (with tests),
   the frozen-encoder baseline config and the Colab notebook. Not run yet: a local training run
   froze the Mac, so training moves to USC CARC. Kept transformers' standard 2-layer RoBERTa head
