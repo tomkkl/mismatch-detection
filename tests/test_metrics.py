@@ -16,7 +16,7 @@ ROWS = [
     _row("a", False, 0.2, 2, mutation="declare_effect"),
     # tool b: mutant caught, but the twin is wrongly flagged -> whole group wrong
     _row("b", True, 0.8, 3, "spend", "inject_code", "end"),
-    _row("b", False, 0.7, 3, mutation="declare_effect"),
+    _row("b", False, 0.7, 3, mutation="declare_effect", position="end"),
     # tool c: weakened description missed
     _row("c", False, 0.3), _row("c", True, 0.4, 1, "modify", "weaken_description"),
 ]
@@ -44,10 +44,18 @@ def test_breakdowns():
     chunks = breakdown(ROWS, chunk_bucket, 0.5)
     assert {k: v["n"] for k, v in chunks.items()} == {"1": 3, "2": 2, "3+": 2}
     assert chunks["3+"]["precision"] == 0.5
+    assert chunks["3+"]["fp_rate"] == 1.0 and chunks["2"]["fp_rate"] == 0.0
     full = report(ROWS, 0.5)["breakdowns"]
     assert full["mutation"] == {
-        "inject_code": {"precision": 1.0, "recall": 1.0, "n": 2, "n_mismatch": 2},
-        "weaken_description": {"precision": 0.0, "recall": 0.0, "n": 1, "n_mismatch": 1},
+        "declare_effect": {"precision": None, "recall": None, "fp_rate": 0.5,
+                           "n": 2, "n_mismatch": 0, "n_honest": 2},
+        "inject_code": {"precision": None, "recall": 1.0, "fp_rate": None,
+                        "n": 2, "n_mismatch": 2, "n_honest": 0},
+        "original": {"precision": None, "recall": None, "fp_rate": 0.0,
+                     "n": 2, "n_mismatch": 0, "n_honest": 2},
+        "weaken_description": {"precision": None, "recall": 0.0, "fp_rate": None,
+                               "n": 1, "n_mismatch": 1, "n_honest": 0},
     }
-    assert set(full["effect"]) == {"destroy", "spend", "modify"}
-    assert set(full["position"]) == {"start", "end"}
+    assert set(full["effect"]) == {"destroy", "spend"}
+    assert set(full["effect_weaken"]) == {"modify"}
+    assert full["position"]["start"]["n"] == 1 and full["position"]["end"]["fp_rate"] == 1.0

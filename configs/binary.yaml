@@ -8,7 +8,7 @@ grad_accum: 2           # effective batch 16 pairs
 lr: 2.0e-5
 weight_decay: 0.01
 warmup: 0.1             # share of steps with linear warmup
-epochs: 5
+epochs: 10              # val PR-AUC and loss still improving at epoch 5 of 5 (2026-10-29)
 freeze_encoder: false
 seed: 566
 data_dir: data/splits/full

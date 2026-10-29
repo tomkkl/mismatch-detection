@@ -42,20 +42,26 @@ def chunk_bucket(r: dict) -> str:
     return "3+" if r["n_chunks"] >= 3 else str(r["n_chunks"])
 
 
-def effect_key(r: dict) -> str | None:
-    return r["undeclared"][0] if r["undeclared"] else None
+def effect_key(mutation: str):
+    """Hidden effect of one mismatch type, so inject and weaken recall aren't mixed."""
+    return lambda r: r["undeclared"][0] if r["undeclared"] and r["mutation"] == mutation else None
 
 
 BREAKDOWNS = {
-    "chunks": chunk_bucket,                                    # precision matters here: leak check
-    "effect": effect_key,                                      # recall per hidden effect
-    "position": lambda r: r.get("position") if r["label"] else None,
-    "mutation": lambda r: r["mutation"] if r["label"] else None,  # inject vs weaken
+    "chunks": chunk_bucket,                                    # honest FP rate here: leak check
+    "effect": effect_key("inject_code"),                       # recall per hidden effect
+    "effect_weaken": effect_key("weaken_description"),
+    "position": lambda r: r.get("position"),                   # inject recall + twin FP rate
+    "mutation": lambda r: r["mutation"] or "original",         # every pair type
 }
 
 
 def breakdown(rows: list[dict], key, threshold: float = 0.5) -> dict:
-    """Precision / recall / counts per group; rows whose key is None are left out."""
+    """Counts, recall and honest FP rate per group; rows whose key is None are left out.
+
+    Recall is None for a group with no mismatches, fp_rate is None for a group with no honest
+    pairs, and precision is None unless the group has both (it would mean nothing otherwise).
+    """
     groups: dict[str, list[dict]] = defaultdict(list)
     for r in rows:
         k = key(r)
@@ -65,8 +71,12 @@ def breakdown(rows: list[dict], key, threshold: float = 0.5) -> dict:
     for k in sorted(groups):
         g = groups[k]
         m = binary_metrics([r["label"] for r in g], [r["score"] for r in g], threshold)
-        out[k] = {"precision": m["precision"], "recall": m["recall"], "n": m["n"],
-                  "n_mismatch": sum(bool(r["label"]) for r in g)}
+        n_mismatch = sum(bool(r["label"]) for r in g)
+        n_honest = len(g) - n_mismatch
+        out[k] = {"precision": m["precision"] if n_honest and n_mismatch else None,
+                  "recall": m["recall"] if n_mismatch else None,
+                  "fp_rate": m["fp"] / n_honest if n_honest else None,
+                  "n": m["n"], "n_mismatch": n_mismatch, "n_honest": n_honest}
     return out
 
 
