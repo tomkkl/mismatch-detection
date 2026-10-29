@@ -1,4 +1,4 @@
-# "Before fine-tuning" baseline: frozen GraphCodeBERT + trained linear head (section 5)
+# "Before fine-tuning" baseline: frozen GraphCodeBERT + trained 2-layer head (section 5)
 model_name: microsoft/graphcodebert-base
 task: binary
 max_length: 512
