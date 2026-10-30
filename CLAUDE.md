@@ -92,10 +92,11 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 - **Rewrite pairs get flagged by wording:** 9/55 rewrites flagged vs 1/76 originals, with the
   same code. E.g. `c0196-1`: original 0.03, rewrite 0.97, descriptions nearly the same. Part of
   the score may come from the rewritten-description style (rewrite and inject share it).
-- **Twins get flagged too:** 8/55, some with high scores (`c0032-3` twin 0.95). In some the
-  description covers the added operation only loosely (`c0032-3` says it backs up the
-  database with the sqlite3 tool). Worth a hand check of the 8 flagged twins: a loose twin
-  description may really be a mismatch, which would be a label problem, not a model one.
+- **Twins get flagged too:** 8/55, scores 0.69–0.95. Hand-checked 2026-10-29: all 8 state the
+  added operation clearly (e.g. `c0193-1` "posts the moved files and build outcome to that
+  webhook"), so the labels are right and these are model errors. The added operation is
+  usually an extra clause ("Also posts…", "then…"). Within a tool the mutant still scores
+  above its twin (55/55). Recheck the twin `fp_rate` on the 10-epoch rerun (job 13589508).
 
 ### What's next
 
