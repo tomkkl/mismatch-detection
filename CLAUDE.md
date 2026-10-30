@@ -92,6 +92,10 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 - **Rewrite pairs get flagged by wording:** 9/55 rewrites flagged vs 1/76 originals, with the
   same code. E.g. `c0196-1`: original 0.03, rewrite 0.97, descriptions nearly the same. Part of
   the score may come from the rewritten-description style (rewrite and inject share it).
+- **Twins get flagged too:** 8/55, some with high scores (`c0032-3` twin 0.95). In some the
+  description covers the added operation only loosely (`c0032-3` says it backs up the
+  database with the sqlite3 tool). Worth a hand check of the 8 flagged twins: a loose twin
+  description may really be a mismatch, which would be a label problem, not a model one.
 
 ### What's next
 
@@ -115,8 +119,16 @@ Steps 2 and 3 can run at the same time with different people.
    (local only, git-ignored). Running the scripts: `bash scripts/carc/setup.sh` once, then
    `sbatch -A yzhao010_1531 --gres=gpu:a40:1 scripts/carc/train.slurm <config>` (A40 / A100 /
    L40S only; not P100 / V100).
-   **Next:** rerun `binary.yaml`, now 10 epochs (train loss and val PR-AUC were still improving at
-   epoch 5 of 5). The frozen run needs no rerun (flat after epoch 5).
+   **In progress (submitted 2026-10-29):** rerun of `binary.yaml` with 10 epochs (commit
+   ecd2d3a), because train loss (0.53 → 0.40) and val PR-AUC (0.842 → 0.856) were still
+   improving at epoch 5 of 5. The frozen run already used 10 epochs and was flat after epoch 5
+   (0.46–0.48), so it is not rerun. To resubmit: `git pull`, move the old
+   `checkpoints/binary` aside (the run overwrites it), then
+   `sbatch -A yzhao010_1531 --gres=gpu:a100:1 --time=06:00:00 scripts/carc/train.slurm configs/binary.yaml`
+   (the script's default limit is 3 h; 10 epochs takes about twice as long as 5).
+   When it lands, compare with the 5-epoch table above: PR-AUC, F1, group accuracy, the best
+   epoch (if it's 9–10, it may still be improving), and the `mutation` breakdown (twin and
+   rewrite `fp_rate`, weaken recall). Then pick the checkpoint to score on `test`.
 3. **Build the other test sets.**
    - Rung 2: a fresh-seed Opus set, ~100–150 tools (`--tag rung2-opus`, new `seed`, never 566).
    - Rung 3: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers)
@@ -493,7 +505,7 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   position / mutation held only mismatches, so precision was always 1.0. Each group now gives
   recall, honest FP rate and precision only when it has both kinds; mutation covers every pair
   type, position adds twins, and weakened pairs get their own `effect_weaken`. Raised
-  `binary.yaml` to 10 epochs for the rerun.
+  `binary.yaml` to 10 epochs and submitted the rerun on CARC (results pending).
 - **2026-10-28:** Added `scripts/carc/` (setup + SLURM job script) and got setup working on
   Discovery after two fixes (BLAS thread cap; model download without importing transformers).
   First smoke test landed on a P100 and failed with a filesystem read error; the installed
