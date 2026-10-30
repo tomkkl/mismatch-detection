@@ -119,14 +119,9 @@ Steps 2 and 3 can run at the same time with different people.
    (local only, git-ignored). Running the scripts: `bash scripts/carc/setup.sh` once, then
    `sbatch -A yzhao010_1531 --gres=gpu:a40:1 scripts/carc/train.slurm <config>` (A40 / A100 /
    L40S only; not P100 / V100).
-   **In progress (submitted 2026-10-29):** rerun of `binary.yaml` with 10 epochs (commit
-   ecd2d3a), because train loss (0.53 → 0.40) and val PR-AUC (0.842 → 0.856) were still
-   improving at epoch 5 of 5. The frozen run already used 10 epochs and was flat after epoch 5
-   (0.46–0.48), so it is not rerun. To resubmit: `git pull`, move the old
-   `checkpoints/binary` aside (the run overwrites it), then
-   `sbatch -A yzhao010_1531 --gres=gpu:a100:1 --time=06:00:00 scripts/carc/train.slurm configs/binary.yaml`
-   (the script's default limit is 3 h; 10 epochs takes about twice as long as 5).
-   When it lands, compare with the 5-epoch table above: PR-AUC, F1, group accuracy, the best
+   **In progress (submitted 2026-10-29, job 13589508):** rerun of `binary.yaml` with 10
+   epochs (commit ecd2d3a), because train loss (0.53 → 0.40) and val PR-AUC (0.842 → 0.856)
+   were still improving at epoch 5 of 5. When it lands, compare with the 5-epoch table above: PR-AUC, F1, group accuracy, the best
    epoch (if it's 9–10, it may still be improving), and the `mutation` breakdown (twin and
    rewrite `fp_rate`, weaken recall). Then pick the checkpoint to score on `test`.
 3. **Build the other test sets.**
@@ -505,7 +500,7 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   position / mutation held only mismatches, so precision was always 1.0. Each group now gives
   recall, honest FP rate and precision only when it has both kinds; mutation covers every pair
   type, position adds twins, and weakened pairs get their own `effect_weaken`. Raised
-  `binary.yaml` to 10 epochs and submitted the rerun on CARC (results pending).
+  `binary.yaml` to 10 epochs and submitted the rerun on CARC (job 13589508, results pending).
 - **2026-10-28:** Added `scripts/carc/` (setup + SLURM job script) and got setup working on
   Discovery after two fixes (BLAS thread cap; model download without importing transformers).
   First smoke test landed on a P100 and failed with a filesystem read error; the installed
