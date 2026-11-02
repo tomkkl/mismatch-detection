@@ -151,9 +151,13 @@ Steps 2 and 3 can run at the same time with different people.
    for PR-AUC, and writes `<checkpoint>/eval/<tag>/{predictions.jsonl,metrics.json}`. It
    refuses to overwrite a result (`--force` only to redo a broken run). Weights are only on
    CARC, so run it there:
-   `sbatch -A yzhao010_1531 --gres=gpu:a40:1 scripts/carc/score.slurm checkpoints/binary data/splits/full/test.jsonl`.
-   **Next:** score `test` with `checkpoints/binary` (once), then rungs 2–3 when built, and run
-   Agent Audit on the coverage set.
+   `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/splits/full/test.jsonl`.
+   **In progress (submitted 2026-11-01, A100):** scoring `test` with `checkpoints/binary`
+   (10 epochs, best epoch 9), once. Results will be in `checkpoints/binary/eval/full-test/` and
+   `runs/slurm-agentlint-score-<job>.out`. When they land: report P / R / F1 at 0.5 (main) and
+   at 0.0035, PR-AUC with its interval, group accuracy, and the mutation and chunk breakdowns;
+   compare with val. Don't rescore `test` after looking at it.
+   Then rungs 2–3 when built, and Agent Audit on the coverage set.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -523,7 +527,8 @@ Newest first. Add an entry when a milestone lands or a plan changes.
 - **2026-11-01 (later):** Wrote test-set scoring (`eval/score.py`, `agentlint score`,
   `scripts/carc/score.slurm`) and a tool-bootstrap PR-AUC interval in `metrics.py`, with a test.
   Smoke-tested locally on a tiny random checkpoint (30 test pairs): writes both result files and
-  refuses a second run. `test` not scored yet.
+  refuses a second run. Submitted the `test` scoring job on CARC (A100) with
+  `checkpoints/binary`; results pending.
 
 - **2026-11-01:** 10-epoch binary rerun landed (job 13589508). Best epoch 9: val PR-AUC 0.981
   (CI 0.965–0.994) vs 0.856 at 5 epochs; at 0.5, P 0.96 / R 0.88 / F1 0.91, group acc 0.84.
