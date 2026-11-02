@@ -8,6 +8,12 @@ def main() -> None:
     sub = parser.add_subparsers(dest="cmd", required=True)
     train = sub.add_parser("train", help="fine-tune the classifier")
     train.add_argument("config")
+    score = sub.add_parser("score", help="score a saved checkpoint on a test set (once)")
+    score.add_argument("checkpoint", help="e.g. checkpoints/binary")
+    score.add_argument("pairs", help="e.g. data/splits/full/test.jsonl")
+    score.add_argument("--tag", help="results subfolder (default: <dir>-<file>, e.g. full-test)")
+    score.add_argument("--force", action="store_true", help="overwrite an existing result")
+    score.add_argument("--batch-size", type=int, help="override batch_size from the checkpoint config")
     scan = sub.add_parser("scan", help="check tools in a file or directory")
     scan.add_argument("path")
     data = sub.add_parser("data", help="build the generated dataset")
@@ -35,6 +41,15 @@ def main() -> None:
     elif args.cmd == "train":
         from agentlint.model.train import train as run_train
         run_train(args.config)
+    elif args.cmd == "score":
+        import sys
+
+        from agentlint.eval.score import score as run_score
+        try:
+            run_score(args.checkpoint, args.pairs, args.tag, args.force, args.batch_size)
+        except FileExistsError as e:
+            print(e, file=sys.stderr)
+            sys.exit(1)
     elif args.cmd == "scan":
         raise NotImplementedError
 

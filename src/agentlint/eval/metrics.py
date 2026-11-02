@@ -38,6 +38,23 @@ def group_accuracy(rows: list[dict], threshold: float = 0.5) -> float:
     return sum(ok.values()) / len(ok)
 
 
+def bootstrap_pr_auc(rows: list[dict], n: int = 2000, seed: int = 0) -> tuple[float, float]:
+    """95% interval for PR-AUC, resampling whole source tools (pairs of a tool aren't independent)."""
+    by_tool: dict[str, list[dict]] = defaultdict(list)
+    for r in rows:
+        by_tool[r["source_id"]].append(r)
+    tools = list(by_tool.values())
+    rng = np.random.default_rng(seed)
+    values = []
+    for _ in range(n):
+        sample = [r for i in rng.integers(len(tools), size=len(tools)) for r in tools[i]]
+        labels = [r["label"] for r in sample]
+        if any(labels) and not all(labels):
+            values.append(average_precision_score(labels, [r["score"] for r in sample]))
+    lo, hi = np.percentile(values, [2.5, 97.5])
+    return float(lo), float(hi)
+
+
 def chunk_bucket(r: dict) -> str:
     return "3+" if r["n_chunks"] >= 3 else str(r["n_chunks"])
 

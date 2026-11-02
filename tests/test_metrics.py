@@ -1,7 +1,7 @@
 import pytest
 
-from agentlint.eval.metrics import (best_f1_threshold, binary_metrics, breakdown, chunk_bucket,
-                                    group_accuracy, report)
+from agentlint.eval.metrics import (best_f1_threshold, binary_metrics, bootstrap_pr_auc, breakdown,
+                                    chunk_bucket, group_accuracy, report)
 
 
 def _row(source: str, label: bool, score: float, n_chunks: int = 1, effect: str | None = None,
@@ -59,3 +59,10 @@ def test_breakdowns():
     assert set(full["effect"]) == {"destroy", "spend"}
     assert set(full["effect_weaken"]) == {"modify"}
     assert full["position"]["start"]["n"] == 1 and full["position"]["end"]["fp_rate"] == 1.0
+
+
+def test_bootstrap_pr_auc_brackets_the_point_estimate():
+    lo, hi = bootstrap_pr_auc(ROWS, n=500)
+    point = report(ROWS, 0.5)["pr_auc"]
+    assert 0 <= lo <= point <= hi <= 1
+    assert bootstrap_pr_auc(ROWS, n=500) == (lo, hi)  # seeded

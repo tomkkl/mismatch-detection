@@ -32,7 +32,8 @@ verified facts about Agent Audit, and gotchas.
 - **Next:** measure input lengths, train the first (binary) model and a before-fine-tuning
   baseline, build the other test sets, and write the evaluation code. The full list is under
   "What's next" in `CLAUDE.md`.
-- `src/agentlint/model/` and `src/agentlint/eval/` are still stubs.
+- Model, training and evaluation code is in `src/agentlint/model/` and `src/agentlint/eval/`
+  (`agentlint train <config>`, `agentlint score <checkpoint> <pairs.jsonl>`).
 
 ## Quick start
 
@@ -129,8 +130,8 @@ src/agentlint/
     verify.py        code normalization (AST round-trip) + AST label checks
     split.py         group split by source (never random)
     build.py         pipeline: generate -> verify -> mutate -> split
-  model/             (stubs) dataset, GraphCodeBERT cross-encoder, training loop
-  eval/              (stubs) metrics, Agent Audit coverage run
+  model/             dataset, GraphCodeBERT cross-encoder, training loop
+  eval/              metrics, test-set scoring, Agent Audit coverage run
   localize.py        AST: which lines carry the undeclared effect
   cli.py             `agentlint` entry point
 configs/             datagen.yaml (dataset), binary.yaml / multilabel.yaml (training)

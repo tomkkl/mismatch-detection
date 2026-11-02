@@ -146,9 +146,14 @@ Steps 2 and 3 can run at the same time with different people.
      and inject with the same pipeline. The collection format is still an open design question.
    - Agent Audit coverage set: our mismatches + some conventional bugs (eval, `shell=True`).
 4. **Evaluation code** in `src/agentlint/eval/`: metrics and breakdowns are in `metrics.py`;
-   still needed is a script that scores a saved checkpoint on a test set. It reports
-   `metrics.report(rows, t)` twice: at 0.5 and at the cut-off in `threshold.json`. Then score
-   `test` and rungs 2–3 **once**, and run Agent Audit on the coverage set.
+   test-set scoring is in `score.py` (2026-11-01): `agentlint score <checkpoint> <pairs.jsonl>`
+   reports at 0.5 and at the cut-off in `threshold.json`, plus a tool-bootstrap 95% interval
+   for PR-AUC, and writes `<checkpoint>/eval/<tag>/{predictions.jsonl,metrics.json}`. It
+   refuses to overwrite a result (`--force` only to redo a broken run). Weights are only on
+   CARC, so run it there:
+   `sbatch -A yzhao010_1531 --gres=gpu:a40:1 scripts/carc/score.slurm checkpoints/binary data/splits/full/test.jsonl`.
+   **Next:** score `test` with `checkpoints/binary` (once), then rungs 2–3 when built, and run
+   Agent Audit on the coverage set.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -429,12 +434,13 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `scripts/token_lengths.py`: input lengths vs the 512-token limit (section 3)
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
 - `src/agentlint/model/`: input construction, model, training loop (`train.py`)
-- `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns); test-set
-  scoring not written yet
+- `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns, PR-AUC bootstrap
+  interval); `score.py` (score a checkpoint on a test set, once)
 - `configs/datagen.yaml`: dataset settings; `configs/binary.yaml`, `binary_frozen.yaml`
   (before-fine-tuning baseline), `multilabel.yaml`: training
 - `notebooks/train_binary.ipynb`: Colab notebook that trains both binary models
-- `scripts/carc/`: USC CARC setup (`setup.sh`, `env.sh`) and SLURM job script (`train.slurm`)
+- `scripts/carc/`: USC CARC setup (`setup.sh`, `env.sh`) and SLURM job scripts (`train.slurm`,
+  `score.slurm`)
 - `docs/agentlint-preproposal.md`: current proposal
 - `probes/aa_run/`: generated Agent Audit cases (keep the path neutral; see Gotchas)
 
@@ -513,6 +519,11 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-11-01 (later):** Wrote test-set scoring (`eval/score.py`, `agentlint score`,
+  `scripts/carc/score.slurm`) and a tool-bootstrap PR-AUC interval in `metrics.py`, with a test.
+  Smoke-tested locally on a tiny random checkpoint (30 test pairs): writes both result files and
+  refuses a second run. `test` not scored yet.
 
 - **2026-11-01:** 10-epoch binary rerun landed (job 13589508). Best epoch 9: val PR-AUC 0.981
   (CI 0.965–0.994) vs 0.856 at 5 epochs; at 0.5, P 0.96 / R 0.88 / F1 0.91, group acc 0.84.
