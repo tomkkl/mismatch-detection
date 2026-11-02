@@ -1,0 +1,38 @@
+job 13535510 on a01-01.hpc.usc.edu | config configs/binary_frozen.yaml | commit ad4ebf7
+name, memory.total [MiB]
+NVIDIA A100-PCIE-40GB, 40960 MiB
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (568 > 512). Running this sequence through the model will result in indexing errors
+Loading weights:   0%|          | 0/197 [00:00<?, ?it/s]Loading weights: 100%|██████████| 197/197 [00:00<00:00, 29414.33it/s]
+[transformers] [1mRobertaForSequenceClassification LOAD REPORT[0m from: microsoft/graphcodebert-base
+Key                        | Status     | 
+---------------------------+------------+-
+lm_head.bias               | UNEXPECTED | 
+lm_head.layer_norm.weight  | UNEXPECTED | 
+lm_head.decoder.weight     | UNEXPECTED | 
+lm_head.decoder.bias       | UNEXPECTED | 
+lm_head.dense.bias         | UNEXPECTED | 
+lm_head.dense.weight       | UNEXPECTED | 
+lm_head.layer_norm.bias    | UNEXPECTED | 
+classifier.out_proj.weight | MISSING    | 
+classifier.dense.weight    | MISSING    | 
+classifier.out_proj.bias   | MISSING    | 
+classifier.dense.bias      | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+device cuda | train 2062 pairs / 2980 chunks | val 259 | pos_weight 2.75 | trainable params 591,361
+epoch 1 | loss 1.0419 | PR-AUC 0.353 | @0.5 P 0.283 R 0.973 F1 0.438 | @0.63 F1 0.453 group acc 0.092
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.48s/it]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.48s/it]
+epoch 2 | loss 1.0180 | PR-AUC 0.433 | @0.5 P 0.316 R 0.849 F1 0.461 | @0.62 F1 0.489 group acc 0.342
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.56s/it]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.56s/it]
+epoch 3 | loss 0.9929 | PR-AUC 0.408 | @0.5 P 0.339 R 0.781 F1 0.473 | @0.51 F1 0.489 group acc 0.184
+epoch 4 | loss 1.0131 | PR-AUC 0.431 | @0.5 P 0.468 R 0.493 F1 0.480 | @0.41 F1 0.500 group acc 0.211
+epoch 5 | loss 0.9824 | PR-AUC 0.489 | @0.5 P 0.344 R 0.712 F1 0.464 | @0.56 F1 0.509 group acc 0.329
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.51s/it]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.51s/it]
+epoch 6 | loss 0.9712 | PR-AUC 0.460 | @0.5 P 0.391 R 0.616 F1 0.479 | @0.45 F1 0.518 group acc 0.289
+epoch 7 | loss 0.9507 | PR-AUC 0.465 | @0.5 P 0.432 R 0.521 F1 0.472 | @0.40 F1 0.521 group acc 0.289
+epoch 8 | loss 0.9652 | PR-AUC 0.472 | @0.5 P 0.369 R 0.712 F1 0.486 | @0.53 F1 0.515 group acc 0.276
+epoch 9 | loss 0.9527 | PR-AUC 0.474 | @0.5 P 0.403 R 0.685 F1 0.508 | @0.50 F1 0.515 group acc 0.276
+epoch 10 | loss 0.9382 | PR-AUC 0.480 | @0.5 P 0.398 R 0.644 F1 0.492 | @0.45 F1 0.519 group acc 0.289
+best epoch 5: PR-AUC 0.489, saved to checkpoints/binary_frozen

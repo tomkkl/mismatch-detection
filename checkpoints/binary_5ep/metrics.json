@@ -1,0 +1,1445 @@
+{
+  "best_epoch": 5,
+  "best": {
+    "epoch": 5,
+    "train_loss": 0.40094669007284695,
+    "val_at_0.5": {
+      "precision": 0.7763157894736842,
+      "recall": 0.8082191780821918,
+      "f1": 0.7919463087248322,
+      "pr_auc": 0.8559235124050408,
+      "threshold": 0.5,
+      "tp": 59,
+      "fp": 17,
+      "fn": 14,
+      "n": 259,
+      "group_accuracy": 0.631578947368421,
+      "breakdowns": {
+        "chunks": {
+          "1": {
+            "precision": 0.7692307692307693,
+            "recall": 0.7692307692307693,
+            "n": 156,
+            "n_mismatch": 39
+          },
+          "2": {
+            "precision": 0.7647058823529411,
+            "recall": 0.8387096774193549,
+            "n": 96,
+            "n_mismatch": 31
+          },
+          "3+": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "n": 7,
+            "n_mismatch": 3
+          }
+        },
+        "effect": {
+          "change_authority": {
+            "precision": 1.0,
+            "recall": 0.9166666666666666,
+            "n": 12,
+            "n_mismatch": 12
+          },
+          "destroy": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "n": 8,
+            "n_mismatch": 8
+          },
+          "execute": {
+            "precision": 1.0,
+            "recall": 0.9,
+            "n": 10,
+            "n_mismatch": 10
+          },
+          "modify": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "n": 8,
+            "n_mismatch": 8
+          },
+          "relocate": {
+            "precision": 1.0,
+            "recall": 0.6923076923076923,
+            "n": 13,
+            "n_mismatch": 13
+          },
+          "send_outward": {
+            "precision": 1.0,
+            "recall": 0.9230769230769231,
+            "n": 13,
+            "n_mismatch": 13
+          },
+          "spend": {
+            "precision": 1.0,
+            "recall": 0.8888888888888888,
+            "n": 9,
+            "n_mismatch": 9
+          }
+        },
+        "position": {
+          "end": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "n": 6,
+            "n_mismatch": 6
+          },
+          "helper": {
+            "precision": 1.0,
+            "recall": 0.8461538461538461,
+            "n": 13,
+            "n_mismatch": 13
+          },
+          "middle": {
+            "precision": 1.0,
+            "recall": 0.95,
+            "n": 20,
+            "n_mismatch": 20
+          },
+          "start": {
+            "precision": 1.0,
+            "recall": 0.9375,
+            "n": 16,
+            "n_mismatch": 16
+          }
+        },
+        "mutation": {
+          "inject_code": {
+            "precision": 1.0,
+            "recall": 0.9272727272727272,
+            "n": 55,
+            "n_mismatch": 55
+          },
+          "weaken_description": {
+            "precision": 1.0,
+            "recall": 0.4444444444444444,
+            "n": 18,
+            "n_mismatch": 18
+          }
+        }
+      }
+    },
+    "val_at_best_f1": {
+      "precision": 0.7777777777777778,
+      "recall": 0.863013698630137,
+      "f1": 0.8181818181818182,
+      "pr_auc": 0.8559235124050408,
+      "threshold": 0.3319854736328125,
+      "tp": 63,
+      "fp": 18,
+      "fn": 10,
+      "n": 259,
+      "group_accuracy": 0.6710526315789473,
+      "breakdowns": {
+        "chunks": {
+          "1": {
+            "precision": 0.7560975609756098,
+            "recall": 0.7948717948717948,
+            "n": 156,
+            "n_mismatch": 39
+          },
+          "2": {
+            "precision": 0.7837837837837838,
+            "recall": 0.9354838709677419,
+            "n": 96,
+            "n_mismatch": 31
+          },
+          "3+": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "n": 7,
+            "n_mismatch": 3
+          }
+        },
+        "effect": {
+          "change_authority": {
+            "precision": 1.0,
+            "recall": 0.9166666666666666,
+            "n": 12,
+            "n_mismatch": 12
+          },
+          "destroy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "n": 8,
+            "n_mismatch": 8
+          },
+          "execute": {
+            "precision": 1.0,
+            "recall": 0.9,
+            "n": 10,
+            "n_mismatch": 10
+          },
+          "modify": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "n": 8,
+            "n_mismatch": 8
+          },
+          "relocate": {
+            "precision": 1.0,
+            "recall": 0.7692307692307693,
+            "n": 13,
+            "n_mismatch": 13
+          },
+          "send_outward": {
+            "precision": 1.0,
+            "recall": 0.9230769230769231,
+            "n": 13,
+            "n_mismatch": 13
+          },
+          "spend": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "n": 9,
+            "n_mismatch": 9
+          }
+        },
+        "position": {
+          "end": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "n": 6,
+            "n_mismatch": 6
+          },
+          "helper": {
+            "precision": 1.0,
+            "recall": 0.9230769230769231,
+            "n": 13,
+            "n_mismatch": 13
+          },
+          "middle": {
+            "precision": 1.0,
+            "recall": 0.95,
+            "n": 20,
+            "n_mismatch": 20
+          },
+          "start": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "n": 16,
+            "n_mismatch": 16
+          }
+        },
+        "mutation": {
+          "inject_code": {
+            "precision": 1.0,
+            "recall": 0.9636363636363636,
+            "n": 55,
+            "n_mismatch": 55
+          },
+          "weaken_description": {
+            "precision": 1.0,
+            "recall": 0.5555555555555556,
+            "n": 18,
+            "n_mismatch": 18
+          }
+        }
+      }
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0197087824344635,
+      "val_at_0.5": {
+        "precision": 0.5,
+        "recall": 0.0821917808219178,
+        "f1": 0.1411764705882353,
+        "pr_auc": 0.4232039380067093,
+        "threshold": 0.5,
+        "tp": 6,
+        "fp": 6,
+        "fn": 67,
+        "n": 259,
+        "group_accuracy": 0.21052631578947367,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.5,
+              "recall": 0.16129032258064516,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 0.5,
+              "recall": 0.3333333333333333,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.16666666666666666,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.23076923076923078,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 0.1111111111111111,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 0.16666666666666666,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.07692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.1,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 0.0625,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.09090909090909091,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.05555555555555555,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      },
+      "val_at_best_f1": {
+        "precision": 0.3875968992248062,
+        "recall": 0.684931506849315,
+        "f1": 0.49504950495049516,
+        "pr_auc": 0.4232039380067093,
+        "threshold": 0.43620169162750244,
+        "tp": 50,
+        "fp": 79,
+        "fn": 23,
+        "n": 259,
+        "group_accuracy": 0.2236842105263158,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.41304347826086957,
+              "recall": 0.48717948717948717,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.36363636363636365,
+              "recall": 0.9032258064516129,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.8333333333333334,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 0.625,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.25,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.6923076923076923,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 0.7777777777777778,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 0.8333333333333334,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.85,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 0.625,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.7636363636363637,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.4444444444444444,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.881475957211598,
+      "val_at_0.5": {
+        "precision": 0.47794117647058826,
+        "recall": 0.8904109589041096,
+        "f1": 0.6220095693779905,
+        "pr_auc": 0.7080244943236491,
+        "threshold": 0.5,
+        "tp": 65,
+        "fp": 71,
+        "fn": 8,
+        "n": 259,
+        "group_accuracy": 0.3157894736842105,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.4722222222222222,
+              "recall": 0.8717948717948718,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.46774193548387094,
+              "recall": 0.9354838709677419,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.9166666666666666,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 0.875,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.75,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.8461538461538461,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.9454545454545454,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.7222222222222222,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      },
+      "val_at_best_f1": {
+        "precision": 0.6136363636363636,
+        "recall": 0.7397260273972602,
+        "f1": 0.670807453416149,
+        "pr_auc": 0.7080244943236491,
+        "threshold": 0.7396105527877808,
+        "tp": 54,
+        "fp": 34,
+        "fn": 19,
+        "n": 259,
+        "group_accuracy": 0.4473684210526316,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.627906976744186,
+              "recall": 0.6923076923076923,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.5813953488372093,
+              "recall": 0.8064516129032258,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.75,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 0.625,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.8,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.8461538461538461,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 0.7777777777777778,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 0.8333333333333334,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.6923076923076923,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.8,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 0.9375,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.8181818181818182,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.6909101719773093,
+      "val_at_0.5": {
+        "precision": 0.6588235294117647,
+        "recall": 0.7671232876712328,
+        "f1": 0.7088607594936709,
+        "pr_auc": 0.7851356905352688,
+        "threshold": 0.5,
+        "tp": 56,
+        "fp": 29,
+        "fn": 17,
+        "n": 259,
+        "group_accuracy": 0.5,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.6666666666666666,
+              "recall": 0.7692307692307693,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.631578947368421,
+              "recall": 0.7741935483870968,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.75,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 0.625,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 0.7777777777777778,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.85,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 0.9375,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.8727272727272727,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.4444444444444444,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      },
+      "val_at_best_f1": {
+        "precision": 0.7012987012987013,
+        "recall": 0.7397260273972602,
+        "f1": 0.7200000000000001,
+        "pr_auc": 0.7851356905352688,
+        "threshold": 0.5851011276245117,
+        "tp": 54,
+        "fp": 23,
+        "fn": 19,
+        "n": 259,
+        "group_accuracy": 0.5131578947368421,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.7073170731707317,
+              "recall": 0.7435897435897436,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.6764705882352942,
+              "recall": 0.7419354838709677,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.75,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.8461538461538461,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 0.7777777777777778,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.85,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 0.875,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.8545454545454545,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.3888888888888889,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.5296855716453505,
+      "val_at_0.5": {
+        "precision": 0.7333333333333333,
+        "recall": 0.7534246575342466,
+        "f1": 0.7432432432432433,
+        "pr_auc": 0.842290377144141,
+        "threshold": 0.5,
+        "tp": 55,
+        "fp": 20,
+        "fn": 18,
+        "n": 259,
+        "group_accuracy": 0.5526315789473685,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.7368421052631579,
+              "recall": 0.717948717948718,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.7142857142857143,
+              "recall": 0.8064516129032258,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.9166666666666666,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 0.25,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.8461538461538461,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 0.8888888888888888,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 0.875,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.8727272727272727,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.3888888888888889,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      },
+      "val_at_best_f1": {
+        "precision": 0.7380952380952381,
+        "recall": 0.8493150684931506,
+        "f1": 0.7898089171974523,
+        "pr_auc": 0.842290377144141,
+        "threshold": 0.35644665360450745,
+        "tp": 62,
+        "fp": 22,
+        "fn": 11,
+        "n": 259,
+        "group_accuracy": 0.618421052631579,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.7380952380952381,
+              "recall": 0.7948717948717948,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.717948717948718,
+              "recall": 0.9032258064516129,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.9166666666666666,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 0.875,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.8461538461538461,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.95,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.9454545454545454,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.5555555555555556,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.40094669007284695,
+      "val_at_0.5": {
+        "precision": 0.7763157894736842,
+        "recall": 0.8082191780821918,
+        "f1": 0.7919463087248322,
+        "pr_auc": 0.8559235124050408,
+        "threshold": 0.5,
+        "tp": 59,
+        "fp": 17,
+        "fn": 14,
+        "n": 259,
+        "group_accuracy": 0.631578947368421,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.7692307692307693,
+              "recall": 0.7692307692307693,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.7647058823529411,
+              "recall": 0.8387096774193549,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.9166666666666666,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 0.75,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.6923076923076923,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 0.8888888888888888,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.8461538461538461,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.95,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 0.9375,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.9272727272727272,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.4444444444444444,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      },
+      "val_at_best_f1": {
+        "precision": 0.7777777777777778,
+        "recall": 0.863013698630137,
+        "f1": 0.8181818181818182,
+        "pr_auc": 0.8559235124050408,
+        "threshold": 0.3319854736328125,
+        "tp": 63,
+        "fp": 18,
+        "fn": 10,
+        "n": 259,
+        "group_accuracy": 0.6710526315789473,
+        "breakdowns": {
+          "chunks": {
+            "1": {
+              "precision": 0.7560975609756098,
+              "recall": 0.7948717948717948,
+              "n": 156,
+              "n_mismatch": 39
+            },
+            "2": {
+              "precision": 0.7837837837837838,
+              "recall": 0.9354838709677419,
+              "n": 96,
+              "n_mismatch": 31
+            },
+            "3+": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 7,
+              "n_mismatch": 3
+            }
+          },
+          "effect": {
+            "change_authority": {
+              "precision": 1.0,
+              "recall": 0.9166666666666666,
+              "n": 12,
+              "n_mismatch": 12
+            },
+            "destroy": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "execute": {
+              "precision": 1.0,
+              "recall": 0.9,
+              "n": 10,
+              "n_mismatch": 10
+            },
+            "modify": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "n": 8,
+              "n_mismatch": 8
+            },
+            "relocate": {
+              "precision": 1.0,
+              "recall": 0.7692307692307693,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "send_outward": {
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "spend": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 9,
+              "n_mismatch": 9
+            }
+          },
+          "position": {
+            "end": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 6,
+              "n_mismatch": 6
+            },
+            "helper": {
+              "precision": 1.0,
+              "recall": 0.9230769230769231,
+              "n": 13,
+              "n_mismatch": 13
+            },
+            "middle": {
+              "precision": 1.0,
+              "recall": 0.95,
+              "n": 20,
+              "n_mismatch": 20
+            },
+            "start": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "n": 16,
+              "n_mismatch": 16
+            }
+          },
+          "mutation": {
+            "inject_code": {
+              "precision": 1.0,
+              "recall": 0.9636363636363636,
+              "n": 55,
+              "n_mismatch": 55
+            },
+            "weaken_description": {
+              "precision": 1.0,
+              "recall": 0.5555555555555556,
+              "n": 18,
+              "n_mismatch": 18
+            }
+          }
+        }
+      }
+    }
+  ]
+}

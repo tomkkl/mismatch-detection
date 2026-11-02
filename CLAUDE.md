@@ -116,8 +116,8 @@ Steps 2 and 3 can run at the same time with different people.
    its twin, rewrite and original (55/55, 18/18); all errors are scores that don't carry across
    tools. Honest FP rate by chunks 1 / 2 / 3+: 9% / 12% / 0% (fine-tuned), 15% / 52% / 50%
    (frozen, so the chunk leak is real for the frozen model but small after fine-tuning).
-   Files: `checkpoints/{binary,binary_frozen}/` and `runs/slurm-agentlint-1353551{0,9}.out`
-   (local only, git-ignored). Running the scripts: `bash scripts/carc/setup.sh` once, then
+   Files: `checkpoints/{binary_5ep,binary_frozen}/` and `runs/slurm-agentlint-1353551{0,9}.out`
+   (committed; the `model.safetensors` weights are git-ignored, too big for GitHub). Running the scripts: `bash scripts/carc/setup.sh` once, then
    `sbatch -A yzhao010_1531 --gres=gpu:a40:1 scripts/carc/train.slurm <config>` (A40 / A100 /
    L40S only; not P100 / V100).
    **In progress (submitted 2026-10-29, job 13589508):** rerun of `binary.yaml` with 10
