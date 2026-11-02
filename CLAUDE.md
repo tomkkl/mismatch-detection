@@ -62,7 +62,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-10-29)
+## 2. Where we are and what's next (updated 2026-11-01)
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -87,16 +87,15 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
   pairs. With max-pooling, more chunks also means more chances for a high score. Report val by
   chunk count (1 / 2 / 3+) and check honest multi-chunk pairs aren't over-flagged.
   (First runs: fine-tuned 9% vs 12% honest FP for 1 vs 2 chunks, fine; frozen 15% vs 52%.)
-- **Weakened mismatches are the weak spot:** recall 10/18 vs 53/55 for injections; 4 of the 5
-  weakened `modify` pairs in val are missed.
+- **Weakened mismatches are the weak spot:** recall 10/18 vs 53/55 for injections (5 epochs);
+  10 epochs: 9/18 at 0.5, 14/18 only at the fragile 0.0035 threshold. The missed ones score
+  ~0.001–0.002, same as honest pairs (`c0143-1`, `c0008-2`, `c0148-2`, `c0000-3`).
 - **Rewrite pairs get flagged by wording:** 9/55 rewrites flagged vs 1/76 originals, with the
-  same code. E.g. `c0196-1`: original 0.03, rewrite 0.97, descriptions nearly the same. Part of
-  the score may come from the rewritten-description style (rewrite and inject share it).
-- **Twins get flagged too:** 8/55, scores 0.69–0.95. Hand-checked 2026-10-29: all 8 state the
-  added operation clearly (e.g. `c0193-1` "posts the moved files and build outcome to that
-  webhook"), so the labels are right and these are model errors. The added operation is
-  usually an extra clause ("Also posts…", "then…"). Within a tool the mutant still scores
-  above its twin (55/55). Recheck the twin `fp_rate` on the 10-epoch rerun (job 13589508).
+  same code (5 epochs). 10 epochs: 3/55 vs 0/76, scoring 0.93–1.0 (`c0069-3`, `c0145-0`, and
+  again `c0196-1`: original 0.001, rewrite 0.996). Part of the score may come from the
+  rewritten-description style (rewrite and inject share it).
+- **Twins:** 8/55 flagged at 5 epochs (hand-checked 2026-10-29: labels right, model errors).
+  Fixed by 10 epochs: 0/55 at 0.5, 2/55 at 0.0035 (scores 0.03 and 0.05).
 
 ### What's next
 
@@ -120,18 +119,36 @@ Steps 2 and 3 can run at the same time with different people.
    (committed; the `model.safetensors` weights are git-ignored, too big for GitHub). Running the scripts: `bash scripts/carc/setup.sh` once, then
    `sbatch -A yzhao010_1531 --gres=gpu:a40:1 scripts/carc/train.slurm <config>` (A40 / A100 /
    L40S only; not P100 / V100).
-   **In progress (submitted 2026-10-29, job 13589508):** rerun of `binary.yaml` with 10
-   epochs (commit ecd2d3a), because train loss (0.53 → 0.40) and val PR-AUC (0.842 → 0.856)
-   were still improving at epoch 5 of 5. When it lands, compare with the 5-epoch table above: PR-AUC, F1, group accuracy, the best
-   epoch (if it's 9–10, it may still be improving), and the `mutation` breakdown (twin and
-   rewrite `fp_rate`, weaken recall). Then pick the checkpoint to score on `test`.
+   **10-epoch rerun (job 13589508, A100, commit ecd2d3a), landed 2026-11-01:**
+   `checkpoints/binary/`, `runs/slurm-agentlint-13589508.out`. Best epoch 9 of 10, and it has
+   flattened out (PR-AUC by epoch 8 / 9 / 10: 0.980 / 0.981 / 0.976), so no more epochs needed.
+
+   | Run | Threshold | PR-AUC (95% CI, tool bootstrap) | P | R | F1 | Group acc |
+   |---|---|---|---|---|---|---|
+   | `binary` 10 ep, saved best-F1 | 0.0035 | **0.981** (0.965–0.994) | 0.93 | 0.95 | 0.94 | 0.88 |
+   | `binary` 10 ep, fixed | 0.5 | 0.981 | 0.96 | 0.88 | 0.91 | 0.84 |
+   | `binary_5ep` (above), saved best-F1 | 0.33 | 0.856 (0.82–0.90) | 0.78 | 0.86 | 0.82 | 0.67 |
+
+   By pair type (saved thr / 0.5): inject recall 55/55 / 55/55; weaken recall 14/18 / 9/18;
+   flagged honest pairs: original 0/76 / 0/76, twin 2/55 / 0/55, rewrite 3/55 / 3/55. Honest FP
+   by chunks 1 / 2 / 3+ at 0.5: 0.9% / 3.1% / 0%. The gain over 5 epochs is mostly the LR
+   schedule: with decay over 10 epochs the LR stays higher, and epoch 5 of this run already
+   had PR-AUC 0.958.
+   **Cut-off for `test` decided (2026-11-01): 0.5 main, saved best-F1 (0.0035) as a second
+   operating point** (section 5, "Model selection"). Why: scores are saturated (187/259 val
+   pairs below 0.01, 65 above 0.99, 7 in between), and the best-F1 cut-off sits just above the
+   highest honest score (0.0034), right on one weakened pair's score. The cost: weakened recall
+   9/18 at 0.5 vs 14/18 at 0.0035. The missed weakened pairs score like honest ones, so the fix
+   is more weakened training data, not a lower cut-off.
 3. **Build the other test sets.**
    - Rung 2: a fresh-seed Opus set, ~100–150 tools (`--tag rung2-opus`, new `seed`, never 566).
    - Rung 3: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers)
      and inject with the same pipeline. The collection format is still an open design question.
    - Agent Audit coverage set: our mismatches + some conventional bugs (eval, `shell=True`).
 4. **Evaluation code** in `src/agentlint/eval/`: metrics and breakdowns are in `metrics.py`;
-   still needed is a script that scores a saved checkpoint on a test set. Then score `test` and rungs 2–3 **once**, and run Agent Audit on the coverage set.
+   still needed is a script that scores a saved checkpoint on a test set. It reports
+   `metrics.report(rows, t)` twice: at 0.5 and at the cut-off in `threshold.json`. Then score
+   `test` and rungs 2–3 **once**, and run Agent Audit on the coverage set.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -317,9 +334,12 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 - **Batching:** 8 pairs per step (each pair brings 1–3+ chunks), gradient accumulation 2
   (effective 16 pairs), fp16 on GPU. AdamW, lr 2e-5, weight decay 0.01, 10% linear warmup,
   grad clip 1.0, 10 epochs (raised from 5 on 2026-10-29: still improving at epoch 5), seed 566.
-- **Model selection:** keep the epoch with the best val PR-AUC. The threshold with the best F1
-  on val is saved (`threshold.json`) and reused unchanged when scoring `test`. `train.py` never
-  reads `test`.
+- **Model selection:** keep the epoch with the best val PR-AUC. `train.py` never reads `test`.
+- **Cut-off (decided 2026-11-01):** the main cut-off for `test` and rungs 2–3 is a fixed **0.5**.
+  The best-F1 cut-off on val is still saved (`threshold.json`) and reported, unchanged, as a
+  second operating point. Reason: after 10 epochs val scores sit near 0 or 1, so the best-F1
+  cut-off landed at 0.0035, tuned to a single val pair; 18 weakened val pairs are too few to
+  tune on. Scores are not calibrated probabilities (`pos_weight` tilts them toward flagging).
 - **"Before" baseline** (`binary_frozen.yaml`): encoder frozen, only the 2-layer head trains
   (see "Head" above), lr 1e-3, 10 epochs.
 
@@ -328,8 +348,8 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 - **Test sets:** rungs 1–3 of the test ladder (section 6), each reported separately, plus the
   Agent Audit coverage set.
 - Rung 1 is `data/splits/full/test.jsonl`. Tune on `val`; score `test` **once**, at the end.
-- **Metrics per test set:** precision / recall / F1 on the mismatch class, and PR-AUC. Not plain
-  accuracy (only ~27% of pairs are mismatches).
+- **Metrics per test set:** precision / recall / F1 on the mismatch class (at 0.5, and at the
+  saved val cut-off), and PR-AUC. Not plain accuracy (only ~27% of pairs are mismatches).
 - **Breakdowns:** recall per effect class, per injection position, and inject vs weaken; plus
   precision and recall by chunk count (1 / 2 / 3+), to catch a "more chunks means mismatch"
   leak.
@@ -493,6 +513,13 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-11-01:** 10-epoch binary rerun landed (job 13589508). Best epoch 9: val PR-AUC 0.981
+  (CI 0.965–0.994) vs 0.856 at 5 epochs; at 0.5, P 0.96 / R 0.88 / F1 0.91, group acc 0.84.
+  Twin false positives gone (0/55 at 0.5); 3 rewrites still flagged. Weakened recall 9/18 at 0.5.
+  The saved best-F1 threshold is 0.0035 because the scores are saturated. That's fragile, so
+  the team decided (before scoring `test`): 0.5 is the main cut-off, 0.0035 is reported too.
+  Cost: weakened recall 9/18 at 0.5 vs 14/18 at 0.0035.
 
 - **2026-10-29:** First binary runs on CARC (A100). Fine-tuned: val PR-AUC 0.856, F1 0.82,
   group acc 0.67, still improving at epoch 5. Frozen-encoder baseline: PR-AUC 0.489, F1 0.51,
