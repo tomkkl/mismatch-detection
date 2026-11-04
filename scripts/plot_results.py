@@ -67,15 +67,29 @@ def end_label(ax, x, y, text, color):
             markeredgewidth=1.5)
 
 
-def training_curves(hist: dict, out: Path):
+def loss_scale(train_path: Path) -> float:
+    """Mean pair weight under train.py's pos_weight (honest / mismatch count in train).
+
+    BCEWithLogitsLoss(pos_weight=w) averages w*loss over mismatches and loss over honest pairs
+    without dividing by the weights, so the logged loss runs ~1.47x plain BCE. Dividing by the
+    mean weight puts it back on the plain-BCE scale: ln 2 = 0.69 for a model that says 0.5.
+    """
+    labels = [bool(r["mismatch"]) for r in load_rows(train_path)]
+    n, n_pos = len(labels), sum(labels)
+    pos_weight = (n - n_pos) / n_pos
+    return (n - n_pos + pos_weight * n_pos) / n
+
+
+def training_curves(hist: dict, scale: float, out: Path):
     for name, key, ylabel, title in [
-        ("train_loss", "train_loss", "train loss (weighted BCE)", "Train loss by epoch"),
+        ("train_loss", "train_loss", f"train loss (weighted BCE / {scale:.2f})",
+         "Train loss by epoch, on the plain-BCE scale"),
         ("val_pr_auc", "pr_auc", "val PR-AUC", "Val PR-AUC by epoch"),
     ]:
         fig, ax = plt.subplots(figsize=(7, 3.6))
         for (ckpt, label), color in zip(RUNS.items(), SERIES):
             ep = [h["epoch"] for h in hist[ckpt]]
-            ys = [h["train_loss"] if key == "train_loss" else h["val_at_0.5"][key]
+            ys = [h["train_loss"] / scale if key == "train_loss" else h["val_at_0.5"][key]
                   for h in hist[ckpt]]
             ax.plot(ep, ys, color=color, label=label)
             end_label(ax, ep[-1], ys[-1], f"{ys[-1]:.2f}", color)
@@ -86,7 +100,10 @@ def training_curves(hist: dict, out: Path):
         if key == "pr_auc":
             ax.set_ylim(0, 1.02)
         else:
-            ax.set_ylim(0, None)
+            ax.set_ylim(0, 0.8)
+            ax.axhline(np.log(2), color=INK_2, linewidth=1, linestyle="--")
+            ax.annotate("ln 2 = 0.69: every score 0.5", (10.9, np.log(2)), xytext=(0, 4),
+                        textcoords="offset points", ha="right", fontsize=8, color=INK_2)
         ax.set_title(title, loc="left", fontsize=11, color=INK)
         ax.legend(loc="lower right" if key == "pr_auc" else "lower left")
         save(fig, out, name)
@@ -208,7 +225,8 @@ def main():
     test = json.loads((CKPT / "binary" / "eval" / "full-test" / "metrics.json").read_text())
     val_main = report(val_rows, MAIN)
 
-    training_curves(hist, out)
+    scale = loss_scale(Path("data/splits/full/train.jsonl"))
+    training_curves(hist, scale, out)
     headline(val_main, test["at_0.5"], out)
     by_pair_type(test_rows, saved, out)
     score_strip(test_rows, saved, out)
@@ -216,7 +234,9 @@ def main():
 
     for c in RUNS:
         best = max(hist[c], key=lambda h: h["val_at_0.5"]["pr_auc"])
-        print(f"{c}: loss {hist[c][0]['train_loss']:.3f} -> {hist[c][-1]['train_loss']:.3f} | "
+        print(f"{c}: loss {hist[c][0]['train_loss']:.3f} -> {hist[c][-1]['train_loss']:.3f} "
+              f"(/{scale:.3f}: {hist[c][0]['train_loss'] / scale:.3f} -> "
+              f"{hist[c][-1]['train_loss'] / scale:.3f}) | "
               f"best epoch {best['epoch']} val PR-AUC {best['val_at_0.5']['pr_auc']:.3f} | "
               "by epoch " + " ".join(f"{h['val_at_0.5']['pr_auc']:.3f}" for h in hist[c]))
     summary("val", val_rows, val_main, saved)

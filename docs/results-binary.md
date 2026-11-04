@@ -44,8 +44,14 @@ Three runs, all on the same train split:
 
 ![Val PR-AUC by epoch](figures/val_pr_auc.svg)
 
-- Fine-tuned train loss falls from 1.02 to 0.03. The frozen run barely moves (1.04 to 0.94): the
-  frozen encoder's `[CLS]` vector doesn't carry what the head needs.
+- **The loss chart is on the plain-BCE scale.** Training uses BCE with `pos_weight` 2.75, so
+  each mismatch counts 2.75 times and the logged loss runs 1.47x plain BCE (it starts at 1.02,
+  not 0.69). The chart divides the logged loss by 1.47, the mean pair weight in train. On this
+  scale a model that gives every pair 0.5 scores ln 2 = 0.69 (dashed line). Logged values are in
+  `checkpoints/*/metrics.json`.
+- Fine-tuned train loss falls from 0.69 to 0.02. The frozen run barely moves (0.71 to 0.64),
+  just below the "every score 0.5" line: the frozen encoder's `[CLS]` vector doesn't carry what
+  the head needs.
 - Val PR-AUC for the 10-epoch run by epoch: 0.41, 0.65, 0.82, 0.92, 0.96, 0.97, 0.97, 0.98,
   **0.98 (epoch 9, kept)**, 0.98. It flattens after epoch 8, so more epochs won't help.
 - The 10-epoch run beats the 5-epoch run even at epoch 5 (0.958 vs 0.856). The learning rate
