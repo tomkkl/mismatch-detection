@@ -32,7 +32,8 @@ python3 -m venv .venv
 pytest
 ```
 
-- Python 3.10+ (developed on 3.13). `baseline` installs Agent Audit v0.19.2.
+- Python 3.10+ (developed on 3.13). `baseline` installs Agent Audit v0.19.2; `plots` installs
+  matplotlib for `scripts/plot_results.py`.
 - Training runs on USC CARC or Colab (a T4 is enough for this model size).
 - macOS: if `agentlint` suddenly can't be imported, see "Gotchas".
 
@@ -461,6 +462,7 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `src/agentlint/data/`: dataset pipeline (`build.py` runs generate → verify → inject + twin →
   match → weaken → split)
 - `scripts/token_lengths.py`: input lengths vs the 512-token limit (section 3)
+- `scripts/plot_results.py`: charts for the results write-up, into `docs/figures/` (`plots` extra)
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
 - `src/agentlint/model/`: input construction, model, training loop (`train.py`)
 - `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns, PR-AUC bootstrap
@@ -471,6 +473,7 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `scripts/carc/`: USC CARC setup (`setup.sh`, `env.sh`) and SLURM job scripts (`train.slurm`,
   `score.slurm`)
 - `docs/agentlint-preproposal.md`: current proposal
+- `docs/results-binary.md`: binary model results write-up (training, val, test), with charts
 - `probes/aa_run/`: generated Agent Audit cases (keep the path neutral; see Gotchas)
 
 ---
@@ -549,6 +552,9 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-03 (later):** Wrote `docs/results-binary.md` (training, val and test results for
+  the binary model) with charts from `scripts/plot_results.py`; added the `plots` extra
+  (matplotlib).
 - **2026-11-03:** Scored rung 1 `test` once with `checkpoints/binary` (job 13657576). At
   0.5: PR-AUC 0.962 (CI 0.928–0.995), P 0.97 / R 0.89 / F1 0.93, group acc 0.91, close to val
   (0.981, F1 0.91). Inject recall 52/54, weaken 7/12; 2 twins flagged with scores ~0.99
