@@ -161,18 +161,19 @@ Steps 2 and 3 can run at the same time with different people.
    | Set | Threshold | PR-AUC (95% CI, tool bootstrap) | P | R | F1 | Group acc |
    |---|---|---|---|---|---|---|
    | **test** | **0.5 (main)** | **0.962** (0.928–0.995) | **0.97** | **0.89** | **0.93** | **0.91** |
-   | test | 0.0035 (saved best-F1) | 0.962 | 0.91 | 0.95 | 0.93 | 0.91 |
    | val | 0.5 | 0.981 (0.965–0.994) | 0.96 | 0.88 | 0.91 | 0.84 |
-   | val | 0.0035 | 0.981 | 0.93 | 0.95 | 0.94 | 0.88 |
+
+   Footnote only (2026-11-03): the saved best-F1 cut-off 0.0035 gives P 0.91 / R 0.95 / F1 0.93
+   on test, 4 more catches and 4 more false alarms, no F1 gain.
 
    At 0.5: TP 59, FP 2, FN 7 (66 mismatches). Test matches val: PR-AUC is 2 points lower but
    inside val's interval, and F1 / group accuracy are slightly higher. The model was not tuned
    to `test`.
-   - **By pair type (0.5 / 0.0035):** inject recall 52/54 / 54/54; weaken recall 7/12 / 9/12;
-     flagged honest pairs: original 0/77 / 1/77, twin 2/54 / 4/54, rewrite 0/54 / 1/54.
+   - **By pair type (0.5):** inject recall 52/54; weaken recall 7/12; flagged honest pairs:
+     original 0/77, twin 2/54, rewrite 0/54.
    - **Misses at 0.5:** 2 injections, both `relocate` at `start` with 2 chunks, scoring <0.01
-     (`c0083-0`, `c0188-0`), and 5 weakened pairs. Weakened `change_authority` 0/2 at both
-     cut-offs (scores ~0.001). Weakened stays the weak spot, as on val.
+     (`c0083-0`, `c0188-0`), and 5 weakened pairs. Weakened `change_authority` 0/2 (scores
+     ~0.001). Weakened stays the weak spot, as on val.
    - **False alarms at 0.5:** 2 twins, both confident: `c0106-2/twin-relocate-end` 0.999 and
      `c0145-1/twin-destroy-end` 0.990. That is why `end` has an honest FP rate of 2/8; every
      other position is 0. Worth a hand check (labels or model?). Val had 0/55 twins at 0.5.
@@ -180,9 +181,8 @@ Steps 2 and 3 can run at the same time with different people.
      0.86 / 1.0. No sign of a "more chunks means mismatch" leak.
    - **Within a tool:** the injected mutant outscores every honest pair of its tool 54/54;
      weakened 11/12.
-   - **Saturated scores again:** 188/251 at or below 0.01, 60 at or above 0.99, 3 in between.
-     The extra FPs at 0.0035 score 0.0036–0.011, so 0.0035 is a fragile operating point; 0.5
-     stays the number to quote.
+   - **Saturated scores again:** 188/251 at or below 0.01, 60 at or above 0.99, 3 in between,
+     so results at 0.5 barely depend on the exact cut-off.
    **Next:** rungs 2–3 when built, and Agent Audit on the coverage set.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
@@ -370,9 +370,11 @@ tests, refactors inside one module, docs. When unsure whether something is archi
   (effective 16 pairs), fp16 on GPU. AdamW, lr 2e-5, weight decay 0.01, 10% linear warmup,
   grad clip 1.0, 10 epochs (raised from 5 on 2026-10-29: still improving at epoch 5), seed 566.
 - **Model selection:** keep the epoch with the best val PR-AUC. `train.py` never reads `test`.
-- **Cut-off (decided 2026-11-01):** the main cut-off for `test` and rungs 2–3 is a fixed **0.5**.
-  The best-F1 cut-off on val is still saved (`threshold.json`) and reported, unchanged, as a
-  second operating point. Reason: after 10 epochs val scores sit near 0 or 1, so the best-F1
+- **Cut-off (decided 2026-11-01, updated 2026-11-03):** results for `test` and rungs 2–3 are
+  reported at a fixed **0.5**, plus PR-AUC and the PR curve (which cover every cut-off). The
+  best-F1 cut-off on val is still saved (`threshold.json`) and `score.py` still computes it,
+  but write-ups give it **only as a footnote** (2026-11-03: on `test` it gave no F1 gain, 0.93
+  at both, and it is fitted to one val pair). Reason for not using it: after 10 epochs val scores sit near 0 or 1, so the best-F1
   cut-off landed at 0.0035, tuned to a single val pair; 18 weakened val pairs are too few to
   tune on. Scores are not calibrated probabilities (`pos_weight` tilts them toward flagging).
 - **"Before" baseline** (`binary_frozen.yaml`): encoder frozen, only the 2-layer head trains
@@ -552,6 +554,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-03 (latest):** Demoted the 0.0035 cut-off to a footnote (section 5, "Cut-off"):
+  on `test` it matched 0.5 on F1 (0.93) and is fitted to one val pair. Results are 0.5 + PR-AUC
+  + PR curve. Updated `docs/results-binary.md`; the pair-type chart now compares val and test at
+  0.5 (`docs/figures/by_pair_type.svg`).
 - **2026-11-03 (later):** Wrote `docs/results-binary.md` (training, val and test results for
   the binary model) with charts from `scripts/plot_results.py`; added the `plots` extra
   (matplotlib).

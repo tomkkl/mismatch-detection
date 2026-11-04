@@ -28,7 +28,7 @@ epochs, best epoch 9). Test set: rung 1, `data/splits/full/test.jsonl`, **scored
 | Model | `microsoft/graphcodebert-base`, interface + code as one input, 2-layer head on `[CLS]`. Inputs over 512 tokens are split into overlapping chunks; the pair's score is the max over its chunks |
 | Training | weighted BCE (`pos_weight` 2.75), AdamW lr 2e-5, effective batch 16 pairs, 10% warmup, 10 epochs, seed 566, one A100 |
 | Model selection | epoch with the best val PR-AUC (epoch 9) |
-| Cut-offs | **0.5 is the main cut-off.** The best-F1 cut-off on val (0.0035) is reported as a second operating point |
+| Cut-off | **0.5**, plus PR-AUC and the precision-recall curve, which cover every cut-off. The best-F1 cut-off on val (0.0035) is only a footnote under the test table |
 
 ## 2. Training
 
@@ -66,7 +66,6 @@ Each run at its best epoch:
 | Run | Cut-off | PR-AUC | P | R | F1 | Group acc |
 |---|---|---|---|---|---|---|
 | **fine-tuned, 10 ep** | **0.5** | **0.981** | **0.96** | **0.88** | **0.91** | **0.84** |
-| fine-tuned, 10 ep | 0.0035 | 0.981 | 0.93 | 0.95 | 0.94 | 0.88 |
 | fine-tuned, 5 ep | 0.5 | 0.856 | 0.78 | 0.81 | 0.79 | 0.63 |
 | frozen + head | 0.5 | 0.489 | 0.34 | 0.71 | 0.46 | 0.17 |
 
@@ -82,23 +81,27 @@ position has recall 1.0. Weakened recall is low for `modify`, `relocate` (1/4 ea
 | Set | Cut-off | PR-AUC (95% CI) | P | R | F1 | Group acc | TP / FP / FN |
 |---|---|---|---|---|---|---|---|
 | **test** | **0.5** | **0.962** (0.928–0.995) | **0.97** | **0.89** | **0.93** | **0.91** | 59 / 2 / 7 |
-| test | 0.0035 | 0.962 | 0.91 | 0.95 | 0.93 | 0.91 | 63 / 6 / 3 |
 | val | 0.5 | 0.981 (0.965–0.994) | 0.96 | 0.88 | 0.91 | 0.84 | 64 / 3 / 9 |
+
+*Footnote: the best-F1 cut-off on val (0.0035) gives P 0.91 / R 0.95 / F1 0.93 on test (TP 63,
+FP 6, FN 3): 4 more mismatches caught, 4 more false alarms, no F1 gain. It sits just above the
+highest honest val score (0.0034), so it is fitted to one val pair. We report 0.5 and the
+precision-recall curve instead.*
 
 Test PR-AUC is 2 points below val but inside val's interval; F1 and group accuracy are a bit
 higher. With 66 test mismatches, one pair moves recall by 1.5 points, so the two sets agree.
 
-![Test results by pair type](figures/test_by_pair_type.svg)
+![Val and test by pair type](figures/by_pair_type.svg)
 
-**By pair type** (0.5 / 0.0035):
+**By pair type** (cut-off 0.5):
 
-| Pair type | Label | Test, 0.5 | Test, 0.0035 | Val, 0.5 |
-|---|---|---|---|---|
-| inject | mismatch | 52/54 caught | 54/54 | 55/55 |
-| weaken | mismatch | 7/12 caught | 9/12 | 9/18 |
-| original | honest | 0/77 flagged | 1/77 | 0/76 |
-| twin | honest | 2/54 flagged | 4/54 | 0/55 |
-| rewrite | honest | 0/54 flagged | 1/54 | 3/55 |
+| Pair type | Label | Test | Val |
+|---|---|---|---|
+| inject | mismatch | 52/54 caught | 55/55 |
+| weaken | mismatch | 7/12 caught | 9/18 |
+| original | honest | 0/77 flagged | 0/76 |
+| twin | honest | 2/54 flagged | 0/55 |
+| rewrite | honest | 0/54 flagged | 3/55 |
 
 **Other breakdowns at 0.5:**
 
@@ -116,9 +119,9 @@ higher. With 66 test mismatches, one pair moves recall by 1.5 points, so the two
 ![Test score distribution](figures/test_scores.svg)
 
 **Scores are nearly all at 0 or 1.** 188 of 251 test scores are 0.01 or lower, 60 are 0.99 or
-higher, and only 3 fall in between. The 0.0035 cut-off sits inside the honest cluster, and its
-extra false alarms score 0.0036–0.011, so results at that cut-off would change with tiny score
-shifts. 0.5 stays the number to quote.
+higher, and only 3 fall in between. So results at 0.5 barely depend on the exact cut-off: moving
+it anywhere between 0.02 and 0.98 changes 1 test pair (a weakened pair at 0.10). A cut-off down in the honest
+cluster, like the footnote's 0.0035, flips pairs on tiny score changes.
 
 ![Precision-recall curves](figures/pr_curves.svg)
 
@@ -138,8 +141,8 @@ shifts. 0.5 stays the number to quote.
 
 - Both missed injections move a file at the start of the code and need 2 chunks. Tools `c0083-0`
   and `c0188-0` lose both their mismatches, so the misses cluster by tool.
-- Three weakened pairs score about 0.001, the same as honest pairs, and are missed at either
-  cut-off. A lower cut-off can't fix these; more weakened training data might.
+- Three weakened pairs score about 0.001, the same as honest pairs, so no cut-off would catch
+  them without also flagging honest pairs. More weakened training data might.
 
 **False alarms (2):**
 

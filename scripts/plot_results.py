@@ -134,16 +134,16 @@ def counts(rows: list[dict], mutation: str, threshold: float) -> tuple[int, int]
     return sum(r["score"] >= threshold for r in sel), len(sel)
 
 
-def by_pair_type(rows: list[dict], saved: float, out: Path):
+def by_pair_type(val_rows: list[dict], test_rows: list[dict], out: Path):
     fig, axes = plt.subplots(1, 2, figsize=(8, 3.4), width_ratios=[2, 3])
     for ax, want_mismatch, title in [(axes[0], True, "Mismatches caught (recall)"),
                                      (axes[1], False, "Honest pairs flagged (FP rate)")]:
         muts = [m for m in MUTATIONS if m[2] == want_mismatch]
         x = np.arange(len(muts))
         w = 0.36
-        for i, (thr, label, color) in enumerate([(MAIN, "cut-off 0.5", SERIES[0]),
-                                                 (saved, f"cut-off {saved:.4f}", SERIES[1])]):
-            cs = [counts(rows, m, thr) for m, _, _ in muts]
+        for i, (rows, label, color) in enumerate([(val_rows, "val", SERIES[0]),
+                                                  (test_rows, "test", SERIES[1])]):
+            cs = [counts(rows, m, MAIN) for m, _, _ in muts]
             ys = [k / n for k, n in cs]
             bars = ax.bar(x + (i - 0.5) * (w + 0.02), ys, w, color=color, label=label)
             ax.bar_label(bars, labels=[f"{k}/{n}" for k, n in cs], padding=2, fontsize=8,
@@ -155,10 +155,11 @@ def by_pair_type(rows: list[dict], saved: float, out: Path):
         ax.grid(axis="x", visible=False)
         ax.set_title(title, loc="left", fontsize=11, color=INK)
     axes[1].legend(loc="upper right")
-    save(fig, out, "test_by_pair_type")
+    fig.suptitle("By pair type, cut-off 0.5", x=0.01, ha="left", fontsize=11, color=INK)
+    save(fig, out, "by_pair_type")
 
 
-def score_strip(rows: list[dict], saved: float, out: Path):
+def score_strip(rows: list[dict], out: Path):
     rng = np.random.default_rng(0)
     fig, ax = plt.subplots(figsize=(7, 2.8))
     names = []
@@ -168,10 +169,9 @@ def score_strip(rows: list[dict], saved: float, out: Path):
         y = i + rng.uniform(-0.25, 0.25, len(s))
         ax.scatter(s, y, s=14, color=color, alpha=0.75, linewidths=0.6, edgecolors="white")
         names.append(f"{label} ({len(s)})")
-    for thr, text in [(MAIN, "0.5"), (saved, f"{saved:.4f}")]:
-        ax.axvline(thr, color=INK_2, linewidth=1, linestyle="--")
-        ax.annotate(text, (thr, 1.45), xytext=(3, 0), textcoords="offset points", fontsize=8,
-                    color=INK_2, va="center")
+    ax.axvline(MAIN, color=INK_2, linewidth=1, linestyle="--")
+    ax.annotate("cut-off 0.5", (MAIN, 1.45), xytext=(3, 0), textcoords="offset points",
+                fontsize=8, color=INK_2, va="center")
     ax.set_xscale("logit")
     ax.set_xlim(3e-4, 1 - 3e-4)
     ticks = [0.001, 0.01, 0.1, 0.5, 0.9, 0.99, 0.999]
@@ -228,8 +228,8 @@ def main():
     scale = loss_scale(Path("data/splits/full/train.jsonl"))
     training_curves(hist, scale, out)
     headline(val_main, test["at_0.5"], out)
-    by_pair_type(test_rows, saved, out)
-    score_strip(test_rows, saved, out)
+    by_pair_type(val_rows, test_rows, out)
+    score_strip(test_rows, out)
     pr_curves(val_rows, test_rows, val_main["pr_auc"], test["at_0.5"]["pr_auc"], out)
 
     for c in RUNS:
