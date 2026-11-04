@@ -62,7 +62,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-11-01)
+## 2. Where we are and what's next (updated 2026-11-03)
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -152,12 +152,37 @@ Steps 2 and 3 can run at the same time with different people.
    refuses to overwrite a result (`--force` only to redo a broken run). Weights are only on
    CARC, so run it there:
    `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/splits/full/test.jsonl`.
-   **In progress (submitted 2026-11-01, A100):** scoring `test` with `checkpoints/binary`
-   (10 epochs, best epoch 9), once. Results will be in `checkpoints/binary/eval/full-test/` and
-   `runs/slurm-agentlint-score-<job>.out`. When they land: report P / R / F1 at 0.5 (main) and
-   at 0.0035, PR-AUC with its interval, group accuracy, and the mutation and chunk breakdowns;
-   compare with val. Don't rescore `test` after looking at it.
-   Then rungs 2–3 when built, and Agent Audit on the coverage set.
+   **Rung 1 `test` scored (2026-11-03, job 13657576, A100, commit 0da1a88), once. Do not
+   rescore.** `checkpoints/binary` (10 epochs, best epoch 9), 251 pairs from 77 tools. Files:
+   `checkpoints/binary/eval/full-test/{metrics.json,predictions.jsonl}`,
+   `runs/slurm-agentlint-score-13657576.out`.
+
+   | Set | Threshold | PR-AUC (95% CI, tool bootstrap) | P | R | F1 | Group acc |
+   |---|---|---|---|---|---|---|
+   | **test** | **0.5 (main)** | **0.962** (0.928–0.995) | **0.97** | **0.89** | **0.93** | **0.91** |
+   | test | 0.0035 (saved best-F1) | 0.962 | 0.91 | 0.95 | 0.93 | 0.91 |
+   | val | 0.5 | 0.981 (0.965–0.994) | 0.96 | 0.88 | 0.91 | 0.84 |
+   | val | 0.0035 | 0.981 | 0.93 | 0.95 | 0.94 | 0.88 |
+
+   At 0.5: TP 59, FP 2, FN 7 (66 mismatches). Test matches val: PR-AUC is 2 points lower but
+   inside val's interval, and F1 / group accuracy are slightly higher. The model was not tuned
+   to `test`.
+   - **By pair type (0.5 / 0.0035):** inject recall 52/54 / 54/54; weaken recall 7/12 / 9/12;
+     flagged honest pairs: original 0/77 / 1/77, twin 2/54 / 4/54, rewrite 0/54 / 1/54.
+   - **Misses at 0.5:** 2 injections, both `relocate` at `start` with 2 chunks, scoring <0.01
+     (`c0083-0`, `c0188-0`), and 5 weakened pairs. Weakened `change_authority` 0/2 at both
+     cut-offs (scores ~0.001). Weakened stays the weak spot, as on val.
+   - **False alarms at 0.5:** 2 twins, both confident: `c0106-2/twin-relocate-end` 0.999 and
+     `c0145-1/twin-destroy-end` 0.990. That is why `end` has an honest FP rate of 2/8; every
+     other position is 0. Worth a hand check (labels or model?). Val had 0/55 twins at 0.5.
+   - **Chunks (0.5):** honest FP rate 0.8% / 1.9% / 0% for 1 / 2 / 3+ chunks; recall 0.91 /
+     0.86 / 1.0. No sign of a "more chunks means mismatch" leak.
+   - **Within a tool:** the injected mutant outscores every honest pair of its tool 54/54;
+     weakened 11/12.
+   - **Saturated scores again:** 188/251 at or below 0.01, 60 at or above 0.99, 3 in between.
+     The extra FPs at 0.0035 score 0.0036–0.011, so 0.0035 is a fragile operating point; 0.5
+     stays the number to quote.
+   **Next:** rungs 2–3 when built, and Agent Audit on the coverage set.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -524,6 +549,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-03:** Scored rung 1 `test` once with `checkpoints/binary` (job 13657576). At
+  0.5: PR-AUC 0.962 (CI 0.928–0.995), P 0.97 / R 0.89 / F1 0.93, group acc 0.91, close to val
+  (0.981, F1 0.91). Inject recall 52/54, weaken 7/12; 2 twins flagged with scores ~0.99
+  (`c0106-2`, `c0145-1`), no originals or rewrites. Details in section 2, step 4.
 - **2026-11-01 (later):** Wrote test-set scoring (`eval/score.py`, `agentlint score`,
   `scripts/carc/score.slurm`) and a tool-bootstrap PR-AUC interval in `metrics.py`, with a test.
   Smoke-tested locally on a tiny random checkpoint (30 test pairs): writes both result files and

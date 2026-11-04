@@ -1,0 +1,10 @@
+job 13657576 on a01-06.hpc.usc.edu | score checkpoints/binary on data/splits/full/test.jsonl | commit 0da1a88
+name, memory.total [MiB]
+NVIDIA A100-PCIE-40GB, 40960 MiB
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:  45%|████▍     | 90/201 [00:00<00:00, 856.83it/s]Loading weights:  92%|█████████▏| 184/201 [00:00<00:00, 900.43it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 928.69it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (537 > 512). Running this sequence through the model will result in indexing errors
+data/splits/full/test.jsonl | 251 pairs | checkpoint checkpoints/binary (epoch 9)
+PR-AUC 0.962 (95% CI 0.928 to 0.995)
+@0.5 P 0.967 R 0.894 F1 0.929 group acc 0.909 | declare_effect FP 0.04 honest_rewrite FP 0.00 inject_code R 0.96 original FP 0.00 weaken_description R 0.58
+@0.003524 P 0.913 R 0.955 F1 0.933 group acc 0.909 | declare_effect FP 0.07 honest_rewrite FP 0.02 inject_code R 1.00 original FP 0.01 weaken_description R 0.75
+saved to checkpoints/binary/eval/full-test
