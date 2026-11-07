@@ -151,8 +151,15 @@ Steps 2 and 3 can run at the same time with different people.
      identical code) were dropped, as inside a build (section 5, "Dataset"); they are kept in
      `excluded.jsonl` for a footnote. Score the whole `pairs.jsonl`, not the splits:
      `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/rung2-opus/pairs.jsonl`.
-     Before scoring, hand-check some injections: the word-list check disagreed on 36/119
-     (30%, vs 33/560 on `full`), likely Opus writing effects in forms the list misses.
+     **Hand check (2026-11-07):** the word-list check disagreed on 31/110 kept injections
+     (vs 33/560 on `full`). All 31 checked by hand: every one adds a real undeclared
+     operation, so no label is wrong. 28 match their effect class; 3 are arguable on the
+     class only (`c0005-2` destroy = cancels pending payouts; `c0014-3` spend = writes a
+     credit to a local ledger file; `c0026-3` change authority = creates a Stripe dashboard
+     login link). The misses are the known word-list gaps (section 2, open issues): SQL
+     archive tables (`INSERT INTO x_archive SELECT …`, 8 of the 31), payment / payout / credit
+     rows, `stripe.PaymentIntent.create` / `stripe.Transfer.create`, `requests.post` to
+     billing endpoints, and permission rows. Opus uses SQL-table forms more than Sonnet.
    - Rung 3: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers)
      and inject with the same pipeline. The collection format is still an open design question.
    - Agent Audit coverage set: our mismatches + some conventional bugs (eval, `shell=True`).
@@ -571,7 +578,8 @@ Newest first. Add an entry when a milestone lands or a plan changes.
 - **2026-11-07 (latest):** Built rung 2 (`rung2-opus`, Opus 5.5, seed 2027): 150 tools, then 11 dropped
   because their names also appear in `full` (new `exclude_names_from` option in `build.py`,
   with a test). Result: 503 pairs from 139 tools, 144 mismatches; shortcut baselines at the
-  majority rate. Not scored yet. Details in section 2, step 3.
+  majority rate. Hand-checked the 31 injections the word list missed: no wrong labels, 3
+  arguable effect classes. Not scored yet. Details in section 2, step 3.
 - **2026-11-03 (latest of that day):** Demoted the 0.0035 cut-off to a footnote (section 5, "Cut-off"):
   on `test` it matched 0.5 on F1 (0.93) and is fitted to one val pair. Results are 0.5 + PR-AUC
   + PR curve. Updated `docs/results-binary.md`; the pair-type chart now compares val and test at
