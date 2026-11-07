@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a draft invoice and its line items from the billing database, then emails the customer's billing contact that the draft was withdrawn, including your reason. Only drafts can be deleted. The deletion can't be undone. Returns the invoice number and notified address."}, "cost_usd": 0.024236}

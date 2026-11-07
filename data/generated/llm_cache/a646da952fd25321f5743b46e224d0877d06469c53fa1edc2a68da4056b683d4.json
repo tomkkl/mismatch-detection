@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a Mailchimp campaign by its campaign ID. Sent campaigns cannot be recovered once deleted. Returns whether deletion succeeded, plus the status code and error detail on failure."}, "cost_usd": 0.0161284}

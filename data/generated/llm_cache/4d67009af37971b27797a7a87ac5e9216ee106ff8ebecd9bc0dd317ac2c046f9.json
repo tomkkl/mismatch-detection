@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card in Stripe for a closed-won deal's amount (currency defaults to usd) and marks the deal as paid in the CRM with the payment reference. Returns an error if the deal is not closed-won or already paid."}, "cost_usd": 0.0193084}

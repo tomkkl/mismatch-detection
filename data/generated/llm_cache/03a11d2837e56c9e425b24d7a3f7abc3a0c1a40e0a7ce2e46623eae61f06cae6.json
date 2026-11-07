@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Fetches up to max_rows (default 1000) finished output rows of a completed scheduled analytics report run, then deletes that run's result from the results queue so it cannot be claimed again. Returns the report rows plus run metadata (run_id, report name, finish time)."}, "cost_usd": 0.0188004}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a task by its ID from the project tracker, along with its comments and subtasks. Returns a confirmation with the task's title, or a not-found message. Cannot be undone."}, "cost_usd": 0.0161764}

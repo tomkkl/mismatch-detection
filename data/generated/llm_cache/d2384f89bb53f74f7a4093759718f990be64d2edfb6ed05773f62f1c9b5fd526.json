@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role (viewer, editor, or admin) on a feature flag project by slug, replacing any role they already have there and recording who granted it. Then emails the user to say they now have access. Fails on unknown roles or projects."}, "cost_usd": 0.0229084}

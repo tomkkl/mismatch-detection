@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives another support agent collaborator rights on a ticket ('viewer' or 'responder') so they can view and reply to it. It then moves the ticket to the shared collaboration queue.", "declaring_phrase": "moves the ticket to the shared collaboration queue"}, "cost_usd": 0.0213938}

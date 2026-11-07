@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes another user the owner of an analytics dashboard, taking ownership away from the current owner, and moves it into the new owner's personal workspace folder. Returns the previous owner, new owner and new folder ID."}, "cost_usd": 0.0190844}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a withdrawn listing record, its saved inquiries (unless include_inquiries is false), and its photo folder from disk. Fails if the listing isn't withdrawn. Returns counts and errors; can't be undone."}, "cost_usd": 0.0218084}

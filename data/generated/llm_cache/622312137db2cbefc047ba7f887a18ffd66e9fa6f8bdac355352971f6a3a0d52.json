@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs restic's forget-and-prune job on the given repository path or URL. It permanently removes snapshots outside the daily/weekly/monthly keep policy, along with the data only they referenced. Returns success, the exit code, and the last 4000 characters of output."}, "cost_usd": 0.0173364}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes audit log rows older than the given number of days from the SQLite audit database. older_than_days must be at least 30. Returns how many rows were removed, the UTC cutoff timestamp used, and an ok flag."}, "cost_usd": 0.0162844}

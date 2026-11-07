@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a task into a different sprint, or back to the backlog when no target sprint is given. Moving into a sprint records a billing charge (estimated hours times hourly rate) against that sprint.", "declaring_phrase": "records a billing charge"}, "cost_usd": 0.0234538}

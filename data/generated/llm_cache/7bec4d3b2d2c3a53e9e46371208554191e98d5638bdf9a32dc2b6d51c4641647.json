@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes another user the owner of an analytics dashboard, taking ownership away from the current owner and giving the new owner the owner permission. The new owner must have a personal workspace."}, "cost_usd": 0.0194604}

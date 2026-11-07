@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up the current prices of the given active courses, applies the optional bundle discount (0-100%), and charges the student's saved card on Stripe for the total. Returns the courses, subtotal, total, currency and charge status."}, "cost_usd": 0.0224484}

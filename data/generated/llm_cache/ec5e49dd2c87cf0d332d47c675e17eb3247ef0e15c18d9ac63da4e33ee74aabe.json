@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently removes a saved payee from a customer's address book so it can't be picked for future payments. Requires confirm=true, and the payee must belong to the customer and have no pending scheduled payments. Returns the payee's ID and nickname. This can't be undone."}, "cost_usd": 0.019572399999999997}

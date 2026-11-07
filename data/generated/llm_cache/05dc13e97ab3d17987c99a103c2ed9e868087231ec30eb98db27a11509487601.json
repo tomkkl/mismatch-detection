@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the MJML compiler on a campaign template file, with optional minification and a strict, soft, or skip validation level. Returns the responsive HTML email markup, its size in bytes, and any compiler warnings."}, "cost_usd": 0.0172724}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a draft post's Markdown file, found by its slug, from the drafts folder into the archive folder under a subfolder for the given year, creating that subfolder if needed. The draft no longer appears in the drafts folder."}, "cost_usd": 0.0169244}

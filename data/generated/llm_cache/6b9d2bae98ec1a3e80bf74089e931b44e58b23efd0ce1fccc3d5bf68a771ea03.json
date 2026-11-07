@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads checkpoint_metrics.json in the run directory, ranks checkpoints by the chosen validation metric, and permanently deletes every .pt checkpoint except the top-k. Returns kept and deleted names."}, "cost_usd": 0.0168924}

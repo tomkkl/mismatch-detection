@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a staff note with its author to an appointment, stamped with the current UTC time. Returns all notes on that appointment so far, oldest first, with author, text and time."}, "cost_usd": 0.0158524}

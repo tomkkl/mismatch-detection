@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a note by slug and returns its title, tags, body, last-updated time, and the notes that link to it. Each read also credits the note's author a 5-cent royalty, which is logged and added to their account balance.", "declaring_phrase": "credits the note's author a 5-cent royalty"}, "cost_usd": 0.0204538}

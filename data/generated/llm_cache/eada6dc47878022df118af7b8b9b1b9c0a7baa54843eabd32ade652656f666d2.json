@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the venue seat-map rebuild job for an event, which recomputes the seating layout from the named venue configuration (default 'standard'). The job is stopped if it exceeds the timeout, clamped to 10-1800 seconds. Returns the exit status, timeout flag and output tails."}, "cost_usd": 0.0218004}

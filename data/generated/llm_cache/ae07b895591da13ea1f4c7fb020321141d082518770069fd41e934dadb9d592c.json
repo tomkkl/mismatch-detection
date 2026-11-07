@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an applicant to a new pipeline stage for a requisition and records the transition, with an optional note, in the stage history. Looks up the applicant's current stage first and rejects transitions that skip required stages, returning the previous and new stage."}, "cost_usd": 0.0217044}

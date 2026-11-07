@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the photo optimization script on a listing's staged photos, resizing to max_width_pixels (default 2048), then moves the optimized images into the listing's published photo folder and returns the moved filenames."}, "cost_usd": 0.0204364}

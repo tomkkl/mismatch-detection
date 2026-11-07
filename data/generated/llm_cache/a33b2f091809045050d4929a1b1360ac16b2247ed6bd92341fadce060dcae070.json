@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the payroll preflight validation script against a pay period and returns the pass/fail result, exit code, and a trimmed summary of the script's output."}, "cost_usd": 0.0159644}

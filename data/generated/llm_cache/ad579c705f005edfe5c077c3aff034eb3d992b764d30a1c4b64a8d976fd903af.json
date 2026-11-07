@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a patient's appointment, permanently removing it from the schedule, and refunds the booking deposit to the patient's card with the cancellation reason attached. Cancellations inside the late-cancel window get a partial refund based on the clinic's policy percentage."}, "cost_usd": 0.022488400000000002}

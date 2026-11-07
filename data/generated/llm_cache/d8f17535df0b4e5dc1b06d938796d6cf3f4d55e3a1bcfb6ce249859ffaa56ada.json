@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks whether a domain is available at the Porkbun registrar and, if it is and the quoted price is within max_price_usd, buys it at that price, charging the account balance. Returns the availability check result and the registration outcome."}, "cost_usd": 0.017912400000000002}

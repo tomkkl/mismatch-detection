@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a patient's waitlist entry and the given schedule slot, and checks that the slot is still open. Returns the appointment details for the pairing, including the appointment ID, patient, provider, and start time."}, "cost_usd": 0.0234204}

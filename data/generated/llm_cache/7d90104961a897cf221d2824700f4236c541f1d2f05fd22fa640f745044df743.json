@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants an existing PostgreSQL role, limited to a fixed set of grantable roles, to a database user so the user gets the role's privileges on the schema. Checks that the user exists first. You can also let the user pass the role on to others. Returns whether the grant succeeded."}, "cost_usd": 0.0179724}

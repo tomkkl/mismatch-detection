@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Patches a Deployment's scale subresource to set replicas; scaling to zero also deletes HorizontalPodAutoscalers targeting it.", "declaring_phrase": "scaling to zero also deletes HorizontalPodAutoscalers"}, "cost_usd": 0.0215058}

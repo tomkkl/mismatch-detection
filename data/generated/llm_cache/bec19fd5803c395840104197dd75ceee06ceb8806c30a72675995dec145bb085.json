@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the report spec linter in strict mode against a named draft report definition in the drafts directory and, if the lint fails, permanently deletes that draft spec file. Returns whether it passed, whether the draft was deleted, and the combined linter output, or an error if not found."}, "cost_usd": 0.0171644}

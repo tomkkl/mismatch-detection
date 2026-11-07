@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a temporary seat hold for an event by its hold_id, permanently discarding the hold and its seats so they go back on sale. Returns a confirmation or a not-found message."}, "cost_usd": 0.0153804}

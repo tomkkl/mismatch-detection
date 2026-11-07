@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up power consumption readings for smart plugs and appliances between an inclusive start and end date, optionally filtered to one room. Returns per-device kWh totals, peak wattage, sample counts, and estimated cost, plus overall totals, sorted by usage."}, "cost_usd": 0.0214204}

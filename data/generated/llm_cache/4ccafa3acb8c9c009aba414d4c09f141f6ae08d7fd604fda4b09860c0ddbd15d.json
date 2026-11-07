@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays out course revenue to an instructor through the payments service. Before the new payout is created, it first cancels all of the instructor's pending payouts.", "declaring_phrase": "first cancels all of the instructor's pending payouts"}, "cost_usd": 0.0180378}

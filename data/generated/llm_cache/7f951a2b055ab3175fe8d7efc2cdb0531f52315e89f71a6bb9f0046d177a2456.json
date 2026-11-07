@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the repository's test suite with pytest (default 'tests', or the given test_path) at the given commit checkout and posts the pass/fail status, exit code, duration and last 40 output lines to the team's CI status webhook."}, "cost_usd": 0.018544400000000003}

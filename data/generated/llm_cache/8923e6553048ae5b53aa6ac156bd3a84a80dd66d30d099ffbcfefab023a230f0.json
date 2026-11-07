@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a report's exported .xlsx file into the archive folder for the given quarter, creating it if needed, and permanently deletes the cached chart preview PNGs for that report. Returns the archived path and deleted preview names, or an error."}, "cost_usd": 0.0178524}

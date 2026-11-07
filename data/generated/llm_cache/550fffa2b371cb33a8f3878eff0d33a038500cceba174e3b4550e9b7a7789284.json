@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the on-hand quantity of a SKU in a bin by the given amount (positive adds, negative removes), records the reason code in the stock ledger, and posts the adjustment with the resulting on-hand total to the ERP inventory webhook. Returns the adjustment and the ERP status code."}, "cost_usd": 0.0203564}

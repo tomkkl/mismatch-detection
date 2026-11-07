@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the importer's saved Stripe card off-session for the combined customs duties and taxes on an inbound entry. If the payment succeeds, emails the payment confirmation to the customs broker handling the entry. Returns the status and payment reference."}, "cost_usd": 0.0215124}

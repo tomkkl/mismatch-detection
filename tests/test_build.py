@@ -151,6 +151,29 @@ def test_skipped_effect_is_never_injected(tmp_path):
     assert pick(tmp_path / "b") == {x for x in pick(tmp_path / "a") if x[1] != "destroy"}
 
 
+def test_tools_named_in_another_dataset_are_excluded(tmp_path):
+    base = tmp_path / "a"
+    run(_cfg(base), "t", llm=FakeLLM())
+    before = _rows(base / "gen" / "t" / "pairs.jsonl")
+    originals = [p for p in before if p["mutation"] is None]
+    other = tmp_path / "other.jsonl"  # stands in for the training set
+    other.write_text("".join(json.dumps({"name": p["name"]}) + "\n" for p in originals[:3]))
+    gone = {p["source_id"] for p in originals[:3]}
+
+    cfg = {**_cfg(tmp_path / "b"), "exclude_names_from": [str(other)]}
+    stats = run(cfg, "t", llm=FakeLLM())
+    out = tmp_path / "b" / "gen" / "t"
+    after, excluded = _rows(out / "pairs.jsonl"), _rows(out / "excluded.jsonl")
+    assert {p["source_id"] for p in excluded} == gone
+    assert not {p["source_id"] for p in after} & gone
+    # Every other tool keeps exactly the pairs it had without the filter.
+    assert after == [p for p in before if p["source_id"] not in gone]
+    assert stats["sources"] == 17 and stats["rejects"]["exclude: tool name in another dataset"] == 3
+    splits = sum(len(_rows(tmp_path / "b" / "splits" / "t" / f"{s}.jsonl"))
+                 for s in ("train", "val", "test"))
+    assert splits == len(after)
+
+
 def test_twin_length_miss_is_retried(tmp_path):
     stats = run(_cfg(tmp_path), "t", llm=FakeLLM(long_twins=True))
     assert stats["by_mutation"]["declare_effect"] == 20

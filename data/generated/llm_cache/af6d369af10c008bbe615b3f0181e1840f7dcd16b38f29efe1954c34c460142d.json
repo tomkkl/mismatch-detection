@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the on-hand quantity of a SKU in a bin by the given amount, records the reason in the stock ledger, and returns the adjustment details along with the resulting on-hand quantity."}, "cost_usd": 0.020292400000000002}

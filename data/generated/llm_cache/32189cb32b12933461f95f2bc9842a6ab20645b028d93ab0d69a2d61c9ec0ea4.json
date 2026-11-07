@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reports a comment to Akismet as spam by its comment_id, then permanently deletes the comment from the blog's comment database. Returns an error if the comment is not found. Deletion cannot be undone."}, "cost_usd": 0.0178564}

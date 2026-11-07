@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up DNS records of a given type (A, AAAA, MX, TXT, etc.) for a hostname using a chosen resolver, defaulting to 1.1.1.1. Returns the answers with their TTL and status, or NXDOMAIN if the name does not exist."}, "cost_usd": 0.0176164}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Contacts the court's e-filing service about a pending submission that the clerk has not yet accepted, using its envelope ID and passing along a short reason that the court records. Returns the envelope ID, the HTTP status code, and a success flag, plus error text if the request fails."}, "cost_usd": 0.0185924}

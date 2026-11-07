@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes log files matching a glob pattern (default '*.log*') in a service's directory under /var/log/apps that were last modified more than the given number of days ago. Returns the deleted file names, count, and total bytes freed."}, "cost_usd": 0.0183764}

@@ -63,7 +63,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-11-03)
+## 2. Where we are and what's next (updated 2026-11-07)
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -142,7 +142,17 @@ Steps 2 and 3 can run at the same time with different people.
    9/18 at 0.5 vs 14/18 at 0.0035. The missed weakened pairs score like honest ones, so the fix
    is more weakened training data, not a lower cut-off.
 3. **Build the other test sets.**
-   - Rung 2: a fresh-seed Opus set, ~100–150 tools (`--tag rung2-opus`, new `seed`, never 566).
+   - ~~Rung 2: a fresh-seed Opus set~~ **built 2026-11-07, not scored yet.**
+     `configs/datagen_rung2.yaml` (Opus 5.5, seed 2027, 150 honest tools, same recipe
+     otherwise), `--tag rung2-opus`. **503 pairs from 139 tools, 144 mismatches (28.6%)**:
+     110 inject / 110 twin / 110 rewrite / 34 weakened. Baselines: majority 0.714, length
+     0.708, description-only 0.714. 484 LLM calls, $15.83 at list price (Pro plan).
+     11 tools (38 pairs) whose name also appears in `full` (9 in train, 1 val, 1 test; no
+     identical code) were dropped, as inside a build (section 5, "Dataset"); they are kept in
+     `excluded.jsonl` for a footnote. Score the whole `pairs.jsonl`, not the splits:
+     `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/rung2-opus/pairs.jsonl`.
+     Before scoring, hand-check some injections: the word-list check disagreed on 36/119
+     (30%, vs 33/560 on `full`), likely Opus writing effects in forms the list misses.
    - Rung 3: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers)
      and inject with the same pipeline. The collection format is still an open design question.
    - Agent Audit coverage set: our mismatches + some conventional bugs (eval, `shell=True`).
@@ -420,6 +430,10 @@ What the dataset contains is in section 3. This lists **why each piece exists:**
   `collapse_whitespace`.
 - **Split by source tool:** a tool and all its variants share a split; duplicate tool names are
   dropped so near-copies can't cross splits. Never split randomly.
+- **Test sets drop tools named in training data** (2026-11-07): `exclude_names_from` in a
+  datagen config lists other `pairs.jsonl` files; a tool whose name appears there is removed
+  with all its pairs, into `excluded.jsonl`. It runs after every pick, so the other tools keep
+  exactly their pairs and cached calls. Used for rung 2 against `full`.
 - **No `read` injections** (2026-10-14, `skip_inject_effects: [read]` in
   `configs/datagen.yaml`): an undeclared read changes nothing, and only matters if the data
   leaves, which `send outward` covers. A hand check of all 70 read injections found only 8 real
@@ -469,7 +483,7 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `src/agentlint/model/`: input construction, model, training loop (`train.py`)
 - `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns, PR-AUC bootstrap
   interval); `score.py` (score a checkpoint on a test set, once)
-- `configs/datagen.yaml`: dataset settings; `configs/binary.yaml`, `binary_frozen.yaml`
+- `configs/datagen.yaml`: dataset settings (`datagen_rung2.yaml`: rung 2); `configs/binary.yaml`, `binary_frozen.yaml`
   (before-fine-tuning baseline), `multilabel.yaml`: training
 - `notebooks/train_binary.ipynb`: Colab notebook that trains both binary models
 - `scripts/carc/`: USC CARC setup (`setup.sh`, `env.sh`) and SLURM job scripts (`train.slurm`,
@@ -554,7 +568,11 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-11-03 (latest):** Demoted the 0.0035 cut-off to a footnote (section 5, "Cut-off"):
+- **2026-11-07 (latest):** Built rung 2 (`rung2-opus`, Opus 5.5, seed 2027): 150 tools, then 11 dropped
+  because their names also appear in `full` (new `exclude_names_from` option in `build.py`,
+  with a test). Result: 503 pairs from 139 tools, 144 mismatches; shortcut baselines at the
+  majority rate. Not scored yet. Details in section 2, step 3.
+- **2026-11-03 (latest of that day):** Demoted the 0.0035 cut-off to a footnote (section 5, "Cut-off"):
   on `test` it matched 0.5 on F1 (0.93) and is fitted to one val pair. Results are 0.5 + PR-AUC
   + PR curve. Updated `docs/results-binary.md`; the pair-type chart now compares val and test at
   0.5 (`docs/figures/by_pair_type.svg`).

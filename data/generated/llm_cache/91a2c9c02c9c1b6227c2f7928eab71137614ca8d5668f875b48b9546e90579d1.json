@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs dnssec-signzone on a zone file using the keys in the given key directory, with NSEC3 and an incremented SOA serial. Returns whether it succeeded, the signed zone file path, and the tool's output and error text."}, "cost_usd": 0.0173204}

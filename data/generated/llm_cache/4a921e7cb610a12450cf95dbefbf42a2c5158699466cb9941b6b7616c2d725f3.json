@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the account's saved payment method off-session at 4 cents per GB for extra backup vault storage, then raises the vault's storage quota by the purchased amount. Returns the charge ID and the new quota in GB."}, "cost_usd": 0.0194964}

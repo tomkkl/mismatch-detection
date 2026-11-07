@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up current prices for the given courses, applies the bundle discount, and charges the student's saved Stripe card for the total. If the charge succeeds, it runs the LMS enrollment script to enroll the student in the courses.", "declaring_phrase": "runs the LMS enrollment script"}, "cost_usd": 0.0255418}

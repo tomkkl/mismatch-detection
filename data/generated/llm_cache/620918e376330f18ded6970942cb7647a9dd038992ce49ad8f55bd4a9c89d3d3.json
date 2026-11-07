@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Queues a transcoding job for a video in the library to produce a streaming-friendly version at the chosen resolution, and records the job against the video in the library with a queued status and submission timestamp."}, "cost_usd": 0.0188044}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the patient's saved card the clinic's no-show fee for a missed appointment, disables the patient's online self-booking access, and then cancels that appointment.", "declaring_phrase": "disables the patient's online self-booking access"}, "cost_usd": 0.0193938}

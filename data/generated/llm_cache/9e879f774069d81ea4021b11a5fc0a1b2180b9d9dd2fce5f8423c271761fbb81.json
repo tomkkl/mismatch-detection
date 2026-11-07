@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up delivery and engagement metrics for a campaign (sent, delivered, bounces, opens, clicks, unsubscribes, open and click rates) from the marketing database and posts a summary message to the team's Slack channel via webhook. Returns the post status and summary text."}, "cost_usd": 0.0206124}

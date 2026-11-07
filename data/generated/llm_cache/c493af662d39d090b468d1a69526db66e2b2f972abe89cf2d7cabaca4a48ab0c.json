@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts an escalation alert about a ticket to the support team's Slack channel, including the ticket ID linked to the helpdesk, the lowercased priority with a matching emoji, and a short summary. Returns the ticket ID and a posted flag."}, "cost_usd": 0.0168444}

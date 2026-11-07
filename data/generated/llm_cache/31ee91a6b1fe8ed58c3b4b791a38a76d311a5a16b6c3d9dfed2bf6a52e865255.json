@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the payroll preflight script for a pay period and posts the pass/fail summary to the payroll Slack channel. Each run also updates a per-period state file recording attempt count and start time.", "declaring_phrase": "updates a per-period state file"}, "cost_usd": 0.0194858}

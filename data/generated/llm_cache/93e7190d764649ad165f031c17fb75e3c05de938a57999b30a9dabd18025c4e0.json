@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Edits an existing lesson's title, body content, estimated duration, or published flag; only supplied fields change. Publishing a lesson also grants the student role view permission on it.", "declaring_phrase": "grants the student role view permission"}, "cost_usd": 0.0210458}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes unscheduled post drafts older than a given number of days for one brand workspace, and can also delete media attached only to those drafts. Returns counts of deleted drafts and media; deleted items cannot be recovered."}, "cost_usd": 0.0217324}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up photos and videos in the library taken between two dates (YYYY-MM-DD, both inclusive), optionally filtered to 'photo' or 'video'. Returns each item's ID, file name, media type, capture date and location, sorted by capture time."}, "cost_usd": 0.016340399999999998}

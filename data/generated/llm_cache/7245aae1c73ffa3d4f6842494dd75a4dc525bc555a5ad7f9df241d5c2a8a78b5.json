@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a client's personal training package by ID, permanently deletes its upcoming scheduled sessions, and refunds unused sessions pro rata to the card that paid. An optional reason is saved with the refund. Returns sessions used and deleted plus refund details."}, "cost_usd": 0.0251724}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds payment links that expired before the given ISO date (YYYY-MM-DD) and permanently deletes them from the billing database. Returns the purged count and each link's id, invoice, URL and expiry."}, "cost_usd": 0.020268}

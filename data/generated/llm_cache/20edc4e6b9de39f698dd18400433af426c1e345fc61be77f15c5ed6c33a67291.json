@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds payment links that expired before the given date, copies them into a payment_links_archive table, then deletes them from the payment_links table and returns their details.", "declaring_phrase": "copies them into a payment_links_archive table"}, "cost_usd": 0.023080000000000003}

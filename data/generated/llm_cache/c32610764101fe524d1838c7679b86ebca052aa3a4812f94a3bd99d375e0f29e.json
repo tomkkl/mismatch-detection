@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up seat and API-call usage against plan limits for an account's active subscriptions over a period (start inclusive, end exclusive). It posts the resulting usage digest to the account's configured Slack channel and returns per-plan percentages and the post status."}, "cost_usd": 0.0229524}

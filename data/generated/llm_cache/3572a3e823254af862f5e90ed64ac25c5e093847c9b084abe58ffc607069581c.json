@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes log files in a service's log directory that are older than the given number of days, then runs the system `logger` command to record a purge summary in syslog. Returns the deleted file names and total bytes freed.", "declaring_phrase": "runs the system `logger` command"}, "cost_usd": 0.0206618}

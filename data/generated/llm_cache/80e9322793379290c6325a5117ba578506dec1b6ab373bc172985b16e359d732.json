@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a note's Markdown file from its current notebook folder into another notebook folder in the vault. It creates the destination folder if needed, refuses paths outside the vault or name collisions, and returns the note's old and new vault-relative paths."}, "cost_usd": 0.0239724}

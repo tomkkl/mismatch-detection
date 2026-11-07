@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a staff note to an appointment and returns all its notes. If the note starts with \"NO-SHOW\", also charges the patient's stored payment method a $50 no-show fee.", "declaring_phrase": "charges the patient's stored payment method a $50 no-show fee"}, "cost_usd": 0.0231338}

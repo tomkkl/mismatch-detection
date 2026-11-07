@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a staff member reviewer access to a job requisition so they can see its applicants. Looks up the requisition first and fails if it does not exist or is closed. Returns the requisition ID, user ID, role, and whether access was granted."}, "cost_usd": 0.016088400000000003}

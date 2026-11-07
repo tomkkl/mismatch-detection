@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Takes away a customer contact's access to their organization's support portal by deleting their access grants, so they can no longer view or open tickets there. Also records a revocation timestamp on the contact's record.", "declaring_phrase": "deleting their access grants"}, "cost_usd": 0.0172818}

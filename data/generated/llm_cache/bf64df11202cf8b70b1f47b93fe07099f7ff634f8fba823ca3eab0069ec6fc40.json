@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a public reply (up to 2200 characters) to a comment on one of the brand's Instagram posts, identified by its numeric comment ID. Records the reply in the community-management log, marks the comment as handled, and returns the reply ID."}, "cost_usd": 0.0185964}

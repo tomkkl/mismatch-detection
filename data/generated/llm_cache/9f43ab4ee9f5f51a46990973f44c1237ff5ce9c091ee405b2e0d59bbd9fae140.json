@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Invites a GitHub user to a repository with the chosen permission level (pull, triage, push, maintain, or admin) and posts an announcement of the new access to the team's Slack channel. Returns the invitation ID, whether the user was already a collaborator, and Slack status."}, "cost_usd": 0.0177964}

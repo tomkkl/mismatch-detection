@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves messages older than the given number of days for a channel from the live messages table into the archived messages table in a single transaction. Returns the cutoff timestamp used and how many messages were archived."}, "cost_usd": 0.0198804}

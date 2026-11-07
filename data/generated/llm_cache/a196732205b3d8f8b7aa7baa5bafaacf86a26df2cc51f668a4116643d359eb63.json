@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a staff member a scanner role at a specific dock door group, allowing them to receive or load freight there. Returns the role that was granted, its facility/dock scope, and a status message."}, "cost_usd": 0.0182004}

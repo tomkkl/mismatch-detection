@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up which tables at a restaurant location are still free for a given date and seating time, keeping only tables whose capacity fits the party size. Tables with a non-cancelled booking for that slot are excluded. Returns each table's ID, capacity and section, smallest first."}, "cost_usd": 0.017020399999999998}

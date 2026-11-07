@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the payroll preflight validation script against the given pay period and posts the pass/fail summary to the payroll team's Slack channel. Returns the pass status, exit code, summary and Slack result."}, "cost_usd": 0.0156844}

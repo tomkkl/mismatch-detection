@@ -227,10 +227,16 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
 
     # 4. write
     pairs = sorted(honest + mutants + twins + rewrites + weakened, key=lambda p: p.pair_id)
+    # Test sets drop tools whose name appears in another dataset (e.g. training), the same
+    # rule step 1 applies within a build. Done here, after every pick, so the remaining
+    # tools keep exactly the pairs (and cached LLM calls) they would have had.
+    pairs, excluded = _exclude_known_names(pairs, cfg.get("exclude_names_from", []), reject)
     out = Path(cfg["out_dir"]) / tag
     out.mkdir(parents=True, exist_ok=True)
     _write_jsonl(out / "pairs.jsonl", [p.to_dict() for p in pairs])
     _write_jsonl(out / "rejects.jsonl", rejects)
+    if excluded:
+        _write_jsonl(out / "excluded.jsonl", [p.to_dict() for p in excluded])
 
     split_dir = Path(cfg["split_dir"]) / tag
     split_dir.mkdir(parents=True, exist_ok=True)
@@ -241,6 +247,22 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
     stats = _stats(pairs, rejects, llm)
     (out / "stats.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")
     return stats
+
+
+def _exclude_known_names(pairs: list[ToolPair], sources: list[str],
+                         reject: Callable) -> tuple[list[ToolPair], list[ToolPair]]:
+    """Split pairs into (kept, excluded): a tool is excluded, with all its pairs, when its
+    name appears in any of the given pairs.jsonl files."""
+    known: set[str] = set()
+    for path in sources:
+        with open(path, encoding="utf-8") as f:
+            known |= {json.loads(line)["name"] for line in f if line.strip()}
+    hit = {p.source_id for p in pairs if p.mutation is None and p.name in known}
+    for p in pairs:
+        if p.mutation is None and p.source_id in hit:
+            reject("exclude", p.pair_id, "tool name in another dataset")
+    return ([p for p in pairs if p.source_id not in hit],
+            [p for p in pairs if p.source_id in hit])
 
 
 def _write_jsonl(path: Path, rows: list[dict]):

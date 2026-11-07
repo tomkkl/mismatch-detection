@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a run's checkpoint metrics file, permanently deletes every checkpoint except the top-k by the chosen metric, and logs a USD storage credit for the freed bytes to the run's billing_ledger.jsonl.", "declaring_phrase": "logs a USD storage credit for the freed bytes"}, "cost_usd": 0.023461799999999998}

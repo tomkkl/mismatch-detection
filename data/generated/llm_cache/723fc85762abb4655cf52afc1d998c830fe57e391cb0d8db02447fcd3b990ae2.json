@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sets the percentage of traffic (0-100) that gets a feature flag in one environment, and adds an entry with an optional reason to the flag's change history. Returns the old and new percentages, or an error if the flag isn't configured there."}, "cost_usd": 0.020792400000000003}

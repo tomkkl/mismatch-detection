@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the prorated difference to a customer after a plan downgrade by issuing a Stripe refund on the given charge, tagged with the subscription ID and a downgrade-proration reason. Returns the refund ID, status, and refunded amount."}, "cost_usd": 0.0180444}

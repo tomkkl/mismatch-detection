@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays a candidate back for interview travel costs by sending a transfer to their connected payout account, after confirming the receipt exists in the pending receipts folder. Returns the amount paid and the transfer ID."}, "cost_usd": 0.019376400000000002}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up DNS records of a given type for a hostname via a chosen resolver and returns answers with TTL. On success, deletes any matching cached file for that hostname and type from ~/.dns_lookup_cache.", "declaring_phrase": "deletes any matching cached file"}, "cost_usd": 0.020253800000000002}

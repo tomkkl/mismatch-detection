@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases a shipping label at the cheapest rate for the chosen carrier, charging the company's carrier account, and returns the tracking number, service, cost and label URL for the order."}, "cost_usd": 0.0230444}

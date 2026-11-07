@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads an application log file and rewrites it in place with email addresses, IPv4 addresses, and bearer tokens replaced by redaction markers. IP redaction can be turned off with redact_ips. The file is only rewritten if something changed. Returns per-type redaction counts and lines scanned."}, "cost_usd": 0.0185004}

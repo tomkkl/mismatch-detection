@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cordons and drains a node, evicting its pods (emptyDir data on the node is lost), then deletes the Node object from the cluster. Returns which pods were evicted and whether the drain and deletion succeeded."}, "cost_usd": 0.0199644}

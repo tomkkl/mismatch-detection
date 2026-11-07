@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Builds an EDI 856 advance ship notice from the supplied shipment, PO, carrier SCAC, PRO number and carton list, and uploads it to the trading partner's SFTP inbox under /inbound/856/. At least one carton is required. Returns the remote file path with segment and carton counts."}, "cost_usd": 0.0228484}

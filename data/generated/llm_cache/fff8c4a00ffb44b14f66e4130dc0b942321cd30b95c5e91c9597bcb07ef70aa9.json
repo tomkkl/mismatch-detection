@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a ticket order, voiding all its tickets so they can't be used, and refunds the buyer's payment to the original card. Pass an amount in cents for a partial refund; default is the full total."}, "cost_usd": 0.0238644}

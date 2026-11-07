@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Edits an existing lesson in a course, changing its title, body content, estimated duration, or published flag. Only the fields you supply are changed; returns the updated field names or a not-found error."}, "cost_usd": 0.019316399999999997}

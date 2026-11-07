@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a task from its current sprint into a different sprint, or back to the backlog when no target sprint is given. Fails if the task or target sprint doesn't exist; returns the previous and new sprint IDs."}, "cost_usd": 0.0170324}

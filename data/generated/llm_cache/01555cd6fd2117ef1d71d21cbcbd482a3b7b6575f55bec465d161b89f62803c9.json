@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases a shipping label for the given package dimensions and weight at the cheapest rate for the chosen carrier, charging the company's carrier account. Saves the tracking number, cost and label URL to the order's shipment record and returns that record."}, "cost_usd": 0.0220084}

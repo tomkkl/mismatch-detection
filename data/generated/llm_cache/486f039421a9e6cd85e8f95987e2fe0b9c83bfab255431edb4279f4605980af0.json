@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a ticket order, voiding all its tickets and revoking every share of the order granted to other users, then refunds the buyer's original card. Pass an amount in cents for a partial refund.", "declaring_phrase": "revoking every share of the order granted to other users"}, "cost_usd": 0.0216458}

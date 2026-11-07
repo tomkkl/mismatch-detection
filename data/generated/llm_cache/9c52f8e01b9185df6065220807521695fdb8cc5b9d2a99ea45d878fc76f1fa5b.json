@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives another support agent collaborator rights on a ticket so they can view and reply to it. The permission level can be 'viewer' (default) or 'responder'. Returns the ticket, agent and permission."}, "cost_usd": 0.0179764}

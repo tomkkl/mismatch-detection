@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels and removes all scheduled open house showings for a listing on or after a given YYYY-MM-DD date, deleting the visitor sign-up records attached to those showings. Rejects past dates. Returns counts of showings canceled and visitor sign-ups removed."}, "cost_usd": 0.019980400000000002}

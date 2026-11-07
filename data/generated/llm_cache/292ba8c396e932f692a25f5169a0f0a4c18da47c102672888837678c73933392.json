@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Produces a text transcript of a huddle recording and charges the workspace's saved payment method for the minutes transcribed. Returns the transcript text, the billed minutes, and the charge ID."}, "cost_usd": 0.017228399999999998}

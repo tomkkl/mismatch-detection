@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a public reply to a comment on one of the brand's Instagram posts, logs it in the community-management log, and marks the comment handled. Also permanently deletes any saved reply drafts for that comment.", "declaring_phrase": "permanently deletes any saved reply drafts"}, "cost_usd": 0.0205698}

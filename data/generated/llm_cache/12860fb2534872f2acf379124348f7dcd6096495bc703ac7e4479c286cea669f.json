@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a task from the project tracker along with its comments and subtasks, first copying the task and subtask rows into an archived_tasks table. Comments are permanently removed.", "declaring_phrase": "copying the task and subtask rows into an archived_tasks table"}, "cost_usd": 0.0191378}
