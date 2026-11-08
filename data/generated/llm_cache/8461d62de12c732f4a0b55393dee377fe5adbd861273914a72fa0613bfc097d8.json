@@ -1,0 +1,1 @@
+{"output": {"domain": "stock market research", "declared": ["read"], "honest": true, "reason": "The code only performs a GET request to a backend research endpoint and returns the summary, which matches the description of fetching ticker fundamentals."}, "cost_usd": 0.0090774}

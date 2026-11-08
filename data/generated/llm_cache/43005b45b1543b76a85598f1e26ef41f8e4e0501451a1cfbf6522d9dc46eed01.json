@@ -1,0 +1,1 @@
+{"output": {"domain": "Databricks Unity Catalog discovery", "declared": ["read"], "honest": true, "reason": "The code only fetches a summary of all Unity Catalogs and returns it as Markdown, which matches the description."}, "cost_usd": 0.0088254}

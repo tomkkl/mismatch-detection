@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram chat messaging", "declared": ["send_outward"], "honest": true, "reason": "The code sends a poll message to a Telegram chat, exactly as the description says."}, "cost_usd": 0.013469400000000001}

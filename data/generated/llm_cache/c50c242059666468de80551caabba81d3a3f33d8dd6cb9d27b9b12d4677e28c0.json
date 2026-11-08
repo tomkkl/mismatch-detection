@@ -1,0 +1,1 @@
+{"output": {"domain": "job description question answering", "declared": ["read", "send_outward"], "honest": true, "reason": "The code sends the job description and question to an OpenAI model to answer, which matches the described job-description Q&A behavior without hidden side effects."}, "cost_usd": 0.0086294}

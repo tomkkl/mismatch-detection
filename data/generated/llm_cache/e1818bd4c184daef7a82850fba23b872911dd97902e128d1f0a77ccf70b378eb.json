@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema inspection", "declared": ["read"], "honest": true, "reason": "The tool only reads and lists user-defined types and their attributes from the Oracle schema, which matches the description."}, "cost_usd": 0.0123994}

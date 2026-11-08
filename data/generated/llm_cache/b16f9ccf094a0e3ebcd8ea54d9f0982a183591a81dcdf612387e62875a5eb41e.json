@@ -1,0 +1,1 @@
+{"output": {"domain": "sandboxed shell command execution", "declared": ["execute"], "honest": true, "reason": "The code runs a shell command in a sandbox as root and returns exit code, stdout and stderr, which matches the description (the unused clip helper changes nothing)."}, "cost_usd": 0.0100574}

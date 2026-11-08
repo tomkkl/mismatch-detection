@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto sentiment data", "declared": ["read", "send_outward"], "honest": true, "reason": "The code POSTs a read-only GraphQL query to the Santiment API and returns the average sentiment balance, which the description covers as a lookup."}, "cost_usd": 0.0110394}

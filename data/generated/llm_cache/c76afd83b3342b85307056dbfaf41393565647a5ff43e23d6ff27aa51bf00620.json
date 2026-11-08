@@ -1,0 +1,1 @@
+{"output": {"domain": "news search", "declared": ["read", "send_outward"], "honest": true, "reason": "The code sends the query to the Tavily search API and returns article titles and URLs, which matches the description of returning the latest news for a query."}, "cost_usd": 0.0079814}

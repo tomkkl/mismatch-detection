@@ -1,0 +1,1 @@
+{"output": {"domain": "voice agent speaker identification", "declared": ["read", "modify", "send_outward"], "honest": false, "reason": "The description says it assigns a name to a speaker label, but it omits that it fetches speaker IDs from the Speechmatics STT service, overwrites speakers.json on disk, and triggers a spoken greeting reply."}, "cost_usd": 0.011817399999999999}

@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema inspection", "declared": ["read"], "honest": true, "reason": "The tool only reads the source text of a single PL/SQL object from the database, which is what the description says."}, "cost_usd": 0.011883399999999999}

@@ -142,7 +142,10 @@ Steps 2 and 3 can run at the same time with different people.
    9/18 at 0.5 vs 14/18 at 0.0035. The missed weakened pairs score like honest ones, so the fix
    is more weakened training data, not a lower cut-off.
 3. **Build the other test sets.**
-   - ~~Rung 2: a fresh-seed Opus set~~ **built 2026-11-07, not scored yet.**
+   - ~~Rung 2: a fresh-seed Opus set~~ **built 2026-11-07; scoring on CARC in progress**
+     (Tom runs `score.slurm` on branch `rung2-opus`, 2026-11-07; results will land in
+     `checkpoints/binary/eval/rung2-opus-pairs/`, plus `rung2-opus-excluded/` for the
+     dropped pairs). Score once; do not rescore.
      `configs/datagen_rung2.yaml` (Opus 5.5, seed 2027, 150 honest tools, same recipe
      otherwise), `--tag rung2-opus`. **503 pairs from 139 tools, 144 mismatches (28.6%)**:
      110 inject / 110 twin / 110 rewrite / 34 weakened. Baselines: majority 0.714, length
@@ -160,8 +163,23 @@ Steps 2 and 3 can run at the same time with different people.
      archive tables (`INSERT INTO x_archive SELECT …`, 8 of the 31), payment / payout / credit
      rows, `stripe.PaymentIntent.create` / `stripe.Transfer.create`, `requests.post` to
      billing endpoints, and permission rows. Opus uses SQL-table forms more than Sonnet.
-   - Rung 3: collect real tool functions (LangChain / OpenAI Agents tools, Python MCP servers)
-     and inject with the same pipeline. The collection format is still an open design question.
+   - **Rung 3: format decided, collector written (2026-11-07); collection not run yet.**
+     Real tool functions from GitHub (LangChain-style `@tool`, MCP `@<server>.tool()`,
+     OpenAI Agents `@function_tool`), injected with the training pipeline (Sonnet). Target
+     ~150 tools after review. Design in section 5, "Rung 3". Steps:
+     `agentlint data collect configs/datagen_rung3.yaml` → hand review of every candidate
+     (`data/raw/rung3/candidates.jsonl` → `tools.jsonl`) →
+     `agentlint data build configs/datagen_rung3.yaml --tag rung3-github`. Andrea's
+     `scripts/githubtools.py` search is folded into `src/agentlint/data/collect.py`.
+     **First collection (2026-11-07, `runs/collect-rung3.log`):** 210 candidates (70 per
+     framework) from 62 licensed repos (MIT 138, Apache-2.0 63, other 9); 289 tools skipped
+     (121 over 80 lines, 76 unlicensed repos, 56 descriptions under 20 characters, …). Drafts:
+     197 honest, 13 already mismatches (drop), 11 with no effects (fix or drop). Effects are
+     mostly read (165) and send outward (59). Not reviewed yet. Problems: concentrated repos
+     (two give 25 and 23 tools; a cap of 5 per repo leaves 148), and 2 descriptions over 1,000
+     characters (`g0068` = 583 interface tokens, over the 380 the chunker allows).
+     **Decided 2026-11-07: keep all 210, no per-repo cap.** Reviewers must drop `g0068`
+     (scoring would fail on it); `g0118` (336 tokens) fits but its rewrites may not.
    - Agent Audit coverage set: our mismatches + some conventional bugs (eval, `shell=True`).
 4. **Evaluation code** in `src/agentlint/eval/`: metrics and breakdowns are in `metrics.py`;
    test-set scoring is in `score.py` (2026-11-01): `agentlint score <checkpoint> <pairs.jsonl>`
@@ -440,7 +458,7 @@ What the dataset contains is in section 3. This lists **why each piece exists:**
 - **Test sets drop tools named in training data** (2026-11-07): `exclude_names_from` in a
   datagen config lists other `pairs.jsonl` files; a tool whose name appears there is removed
   with all its pairs, into `excluded.jsonl`. It runs after every pick, so the other tools keep
-  exactly their pairs and cached calls. Used for rung 2 against `full`.
+  exactly their pairs and cached calls. Used for rungs 2 and 3 against `full`.
 - **No `read` injections** (2026-10-14, `skip_inject_effects: [read]` in
   `configs/datagen.yaml`): an undeclared read changes nothing, and only matters if the data
   leaves, which `send outward` covers. A hand check of all 70 read injections found only 8 real
@@ -450,6 +468,33 @@ What the dataset contains is in section 3. This lists **why each piece exists:**
 - **Generator: Claude Sonnet 5.5** (`claude-sonnet-5-5`) via `claude -p --json-schema`, on plan
   usage. Switched from Opus on 2026-10-05 (similar quality, less than half the cost). Results
   are cached on disk, keyed by model.
+
+### Rung 3: real GitHub tools (decided 2026-11-07)
+
+- **Format:** each collected tool is a ToolPair row (same fields as our pairs), with
+  `generator: "github"` and `meta.source = {repo, path, commit, license, url}`,
+  `meta.framework`, `meta.draft` (the LLM's draft label) and `meta.review`. Source ids are
+  `g0000`, `g0001`, …. `honest_from:` in a datagen config makes `build.py` skip generation and
+  run the usual inject / twin / rewrite / weaken steps on the tools marked `review: ok`.
+- **Code kept:** the tool function plus the module-level imports, constants and helpers it
+  uses (transitively, at most 6 helpers; never another tool), then normalized like our data.
+  Params come from the signature (type hints, defaults, `Annotated` / `Field` descriptions)
+  plus the docstring's Args / `:param:` lines; the description is the docstring without the
+  parameter section.
+- **Labels: LLM drafts, a person confirms.** The collector asks the generator for the domain,
+  the code's effects (`declared`) and whether the original is already honest. A person checks
+  every tool: `review: ok` (fixing `declared` if needed) or `drop` (original already a
+  mismatch, toy code, not a real tool). Nothing unreviewed reaches the test set.
+- **Filters:** skip test / fixture paths, descriptions under 20 characters or not in English,
+  tools with no calls, code over 80 lines, duplicate names or code, and names in `full`.
+- **Licensed code only:** a tool is kept only if its repo has an open-source license
+  (`licenses:` in `datagen_rung3.yaml`: MIT, Apache-2.0, BSD, GPL family, MPL, …). Repos with
+  no license, `NOASSERTION` or "other" are skipped, since we commit the code to our repo.
+  Each row keeps its repo, commit and SPDX id for attribution.
+- **Size and sources:** ~150 tools after review, from `@tool` (LangChain, CrewAI,
+  smolagents), MCP servers (`@mcp.tool`) and OpenAI Agents (`@function_tool`); collect ~70 per
+  framework so the review can drop some.
+- **Injection uses the training generator (Sonnet):** rung 3 changes the code, not the recipe.
 
 ---
 
@@ -483,7 +528,7 @@ that the name/params don't give it away.
 Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest`.
 
 - `src/agentlint/data/`: dataset pipeline (`build.py` runs generate → verify → inject + twin →
-  match → weaken → split)
+  match → weaken → split); `collect.py` gathers real GitHub tools for rung 3
 - `scripts/token_lengths.py`: input lengths vs the 512-token limit (section 3)
 - `scripts/plot_results.py`: charts for the results write-up, into `docs/figures/` (`plots` extra)
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
@@ -575,11 +620,16 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-11-07 (latest):** Built rung 2 (`rung2-opus`, Opus 5.5, seed 2027): 150 tools, then 11 dropped
+- **2026-11-07 (latest):** Decided the rung 3 format (section 5, "Rung 3"): ToolPair rows with
+  source fields, LLM-drafted labels confirmed by a person, function + what it uses, ~150
+  tools from `@tool` / MCP / OpenAI Agents. Wrote `data/collect.py` (`agentlint data collect`)
+  and `honest_from:` in `build.py`, with tests; config `configs/datagen_rung3.yaml`.
+- **2026-11-07:** Built rung 2 (`rung2-opus`, Opus 5.5, seed 2027): 150 tools, then 11 dropped
   because their names also appear in `full` (new `exclude_names_from` option in `build.py`,
   with a test). Result: 503 pairs from 139 tools, 144 mismatches; shortcut baselines at the
   majority rate. Hand-checked the 31 injections the word list missed: no wrong labels, 3
-  arguable effect classes. Not scored yet. Details in section 2, step 3.
+  arguable effect classes. Scoring job on CARC in progress (Tom). Details in section 2,
+  step 3.
 - **2026-11-03 (latest of that day):** Demoted the 0.0035 cut-off to a footnote (section 5, "Cut-off"):
   on `test` it matched 0.5 on F1 (0.93) and is fitted to one val pair. Results are 0.5 + PR-AUC
   + PR curve. Updated `docs/results-binary.md`; the pair-type chart now compares val and test at

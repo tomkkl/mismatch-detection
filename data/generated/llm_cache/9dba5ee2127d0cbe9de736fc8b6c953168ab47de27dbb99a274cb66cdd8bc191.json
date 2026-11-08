@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact management", "declared": ["read"], "honest": true, "reason": "The code only fetches the contact list from Telegram and formats it, which matches the description of listing contacts."}, "cost_usd": 0.0110294}

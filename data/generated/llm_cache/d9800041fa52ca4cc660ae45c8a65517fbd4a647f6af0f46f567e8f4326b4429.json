@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema inspection", "declared": ["read"], "honest": true, "reason": "The code only reads schema info for each listed table from the database context, matching the description of a batch schema lookup."}, "cost_usd": 0.0115714}

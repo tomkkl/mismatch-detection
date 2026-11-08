@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram bot management", "declared": ["modify", "send_outward"], "honest": true, "reason": "The code sets the bot's command list via the Telegram API (modifying remote state), which matches the description, including the bot-account restriction."}, "cost_usd": 0.0121774}

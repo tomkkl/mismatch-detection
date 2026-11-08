@@ -1,0 +1,1 @@
+{"output": {"domain": "web search similarity lookup", "declared": ["read"], "honest": true, "reason": "The code calls the Metaphor API to fetch similar results for a URL, which is a read-only lookup that the description covers."}, "cost_usd": 0.0079834}

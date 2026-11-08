@@ -1,0 +1,1 @@
+{"output": {"domain": "GitHub repository activity lookup", "declared": ["read"], "honest": true, "reason": "The code only reads the user's three most recently updated repos via the GitHub API, which matches the description (it returns repo name, URL and description rather than commit messages, but that is a minor mismatch and adds no side effects)."}, "cost_usd": 0.0089074}

@@ -1,0 +1,1 @@
+{"output": {"domain": "software engineering knowledge search", "declared": ["read"], "honest": true, "reason": "The tool runs a vector similarity search over a MongoDB collection and returns the matching text, which is the read-only lookup the description gives."}, "cost_usd": 0.010225399999999999}

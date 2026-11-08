@@ -1,0 +1,1 @@
+{"output": {"domain": "stock market data", "declared": ["read"], "honest": true, "reason": "The code only fetches historical closing prices via yfinance, which matches the description of fetching historical stock prices."}, "cost_usd": 0.0087514}

@@ -1,0 +1,1 @@
+{"output": {"domain": "traffic simulation fuel data", "declared": ["read", "send_outward"], "honest": false, "reason": "The code reads fuel data from the simulation, but it also emits the results to the connected client over a socket. The description says only \"get\" and doesn't mention that push or the filtering of edges shorter than 15 units."}, "cost_usd": 0.0096314}

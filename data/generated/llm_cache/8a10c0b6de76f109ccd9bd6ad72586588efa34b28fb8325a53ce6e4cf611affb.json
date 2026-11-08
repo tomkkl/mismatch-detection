@@ -1,0 +1,1 @@
+{"output": {"domain": "PDF document retrieval", "declared": ["read"], "honest": true, "reason": "The tool runs a similarity search over an in-memory vector store and returns the matching content and metadata, which is what the description says."}, "cost_usd": 0.010659400000000001}

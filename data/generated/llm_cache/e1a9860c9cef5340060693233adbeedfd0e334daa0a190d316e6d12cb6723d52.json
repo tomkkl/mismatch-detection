@@ -1,0 +1,1 @@
+{"output": {"domain": "PDF file encryption", "declared": ["read", "modify"], "honest": true, "reason": "The code reads the source PDF and writes a new encrypted copy with a _protected suffix, which matches the description of creating a new encrypted copy."}, "cost_usd": 0.0102414}

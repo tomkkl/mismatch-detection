@@ -16,8 +16,8 @@ def main() -> None:
     score.add_argument("--batch-size", type=int, help="override batch_size from the checkpoint config")
     scan = sub.add_parser("scan", help="check tools in a file or directory")
     scan.add_argument("path")
-    data = sub.add_parser("data", help="build the generated dataset")
-    data.add_argument("action", choices=["build"])
+    data = sub.add_parser("data", help="build the generated dataset, or collect real tools")
+    data.add_argument("action", choices=["build", "collect"])
     data.add_argument("config")
     data.add_argument("--tag", default="full", help="output subfolder, e.g. pilot")
     data.add_argument("--n-honest", type=int, help="override n_honest from the config")
@@ -33,6 +33,14 @@ def main() -> None:
         if args.n_honest:
             cfg["n_honest"] = args.n_honest
         try:
+            if args.action == "collect":
+                from agentlint.data.collect import collect
+                from agentlint.data.llm import ClaudeCLI
+                gen = cfg["generator"]
+                llm = ClaudeCLI(model=gen["model"], effort=gen["effort"],
+                                cache_dir=cfg["cache_dir"])
+                print(json.dumps(collect(cfg, llm), indent=2))
+                return
             print(json.dumps(run(cfg, args.tag), indent=2))
         except UsageLimitError as e:
             print(f"Usage limit reached: {e}\nRerun the same command later; cached calls "

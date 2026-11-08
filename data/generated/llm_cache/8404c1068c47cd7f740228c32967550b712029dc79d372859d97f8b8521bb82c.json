@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram forum topics", "declared": ["read"], "honest": true, "reason": "The code only fetches and formats forum topics via a read-only Telegram API call, which matches the description."}, "cost_usd": 0.0142734}

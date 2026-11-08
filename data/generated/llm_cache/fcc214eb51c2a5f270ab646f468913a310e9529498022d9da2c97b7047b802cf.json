@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram account privacy settings", "declared": ["read"], "honest": true, "reason": "The code only fetches the last-seen privacy rules via a read-only Telegram API call, matching the description."}, "cost_usd": 0.0109574}

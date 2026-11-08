@@ -1,0 +1,1 @@
+{"output": {"domain": "resume and job matching", "declared": ["send_outward"], "honest": true, "reason": "The code sends the resume and job description to an OpenAI model to score the match, which is what the description says (rating how well a resume matches a job description)."}, "cost_usd": 0.0094194}

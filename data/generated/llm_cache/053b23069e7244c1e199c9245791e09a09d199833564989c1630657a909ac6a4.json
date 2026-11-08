@@ -1,0 +1,1 @@
+{"output": {"domain": "patient medical records lookup", "declared": ["read"], "honest": true, "reason": "The code returns hardcoded mock medical history as JSON, with no side effects, matching the description."}, "cost_usd": 0.0080474}

@@ -1,0 +1,1 @@
+{"output": {"domain": "shop database SQL querying", "declared": ["read", "modify", "destroy"], "honest": false, "reason": "The description implies running a query and returning results, but the code executes arbitrary SQL, including INSERT, UPDATE, DELETE and DROP statements. It never says the tool can modify or delete data."}, "cost_usd": 0.0091754}

@@ -1,0 +1,1 @@
+{"output": {"domain": "product inventory querying", "declared": ["read", "send_outward"], "honest": true, "reason": "The code sends the user's query to a Databricks Genie API and reads back inventory results, which matches the description of retrieving product and inventory information."}, "cost_usd": 0.0110274}

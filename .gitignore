@@ -15,6 +15,7 @@ data/splits/*
 !data/generated/full/
 !data/generated/llm_cache/
 !data/generated/rung2-opus/
+!data/raw/rung3/
 !data/splits/full/
 # Training results and SLURM logs are committed; model weights (~476 MB each) are over
 # GitHub's 100 MB limit and stay local / on CARC.

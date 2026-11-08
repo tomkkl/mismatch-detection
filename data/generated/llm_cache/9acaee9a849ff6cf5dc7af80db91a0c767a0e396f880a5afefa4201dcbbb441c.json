@@ -1,0 +1,1 @@
+{"output": {"domain": "place search and navigation", "declared": ["read", "send_outward"], "honest": true, "reason": "The tool queries Google Places and sends the results to OpenAI for summarizing, and a reader of the description would expect a place search that returns locations."}, "cost_usd": 0.010145399999999999}

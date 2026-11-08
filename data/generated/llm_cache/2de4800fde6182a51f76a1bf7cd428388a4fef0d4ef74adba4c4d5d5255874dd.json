@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram profile management", "declared": ["read", "destroy"], "honest": true, "reason": "The code fetches the current profile photo and deletes it, which matches the description of deleting the current profile photo."}, "cost_usd": 0.010713400000000001}

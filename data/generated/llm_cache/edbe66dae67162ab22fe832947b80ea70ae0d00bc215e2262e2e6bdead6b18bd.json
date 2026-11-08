@@ -1,0 +1,1 @@
+{"output": {"domain": "RAGFlow knowledge base documents", "declared": ["modify", "send_outward"], "honest": false, "reason": "Besides uploading documents, the code also triggers asynchronous parsing of each uploaded document, which the description does not mention."}, "cost_usd": 0.009533400000000001}

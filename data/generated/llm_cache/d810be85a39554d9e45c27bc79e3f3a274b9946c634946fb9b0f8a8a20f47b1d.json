@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema inspection", "declared": ["read"], "honest": true, "reason": "The tool only reads and formats constraint metadata for a table (possibly from cache), which matches the description."}, "cost_usd": 0.012647400000000001}

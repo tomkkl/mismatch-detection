@@ -1,0 +1,1 @@
+{"output": {"domain": "Databricks Unity Catalog metadata", "declared": ["read"], "honest": true, "reason": "The code only fetches table details and optional lineage from Databricks, which matches the description of a read-only metadata lookup."}, "cost_usd": 0.0108094}

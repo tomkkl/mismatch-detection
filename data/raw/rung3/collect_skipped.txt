@@ -1,0 +1,289 @@
+HansonJames/general_digital_human_system/main.py: search: description under 20 characters
+definitive-io/llama3-function-calling/app.py: license none
+mrwadams/takedown-gpt/app.py: license none
+GaoDalie/LangGraph_Example/loop.py: license none
+Hegazy360/langchain-multi-agent/app.py: license none
+RidaNaz/Chatbot/app.py: license none
+YulionJuan-code/OmniRAG-/main.py: add: tool makes no calls
+solnone/LangChain-LangGraph-Ollama-MQTT/app.py: deviceState: over 80 lines
+solnone/LangChain-LangGraph-Ollama-MQTT/app.py: deviceControl: over 80 lines
+hungson175/mini-claw-code/main.py: license none
+awsdataarchitect/bedrock-dining-agent/app.py: license none
+codemaker2015/langgraph-demos/app.py: license none
+abhishekkumawat-47/bajaj-chatbot/main.py: license none
+fahimai001/Booking_Appointments_Automation_Agent/app.py: license none
+khanak0509/GenieBot/main.py: license none
+dimong4/hackathon-bot/main.py: url_loader: description not in English
+dimong4/hackathon-bot/main.py: translate_function: description not in English
+dimong4/hackathon-bot/main.py: search_tool: description not in English
+crzidea/example-langchain-openrouter/main.py: license none
+armaghanai/rag-assistant-pdf-text-sql/db.py: license none
+MariamOsama3/job_search/app.py: license none
+linjungz/copilot-azure-pricing/app.py: license none
+krishagarwal314/coding_agent/app.py: license none
+0xadityaa/Finchat/llm.py: license none
+JuanMontreuil08/stock-guru-api/app.py: license none
+skillcrush/national-park-tour-planner/app.py: license none
+flaviofrancisco/ollama-resume-analysis/app.py: license none
+bilalerg/fissler-ai-destek/ap.py: license none
+danielbirsan/cachingwithredis/app.py: license none
+Xv-E/LLM-Game/app.py: add: description under 20 characters
+Xv-E/LLM-Game/app.py: minus: description under 20 characters
+Xv-E/LLM-Game/app.py: divide: description under 20 characters
+Xv-E/LLM-Game/app.py: multiply: description under 20 characters
+peng2711/langcode/cli.py: read_file: description not in English
+peng2711/langcode/cli.py: write_file: description not in English
+peng2711/langcode/cli.py: bash: description not in English
+peng2711/langcode/cli.py: edit: description not in English
+peng2711/langcode/cli.py: glob: description not in English
+billatgameology/IntermediaryAI/app.py: OpenNewDocument: tool makes no calls
+billatgameology/IntermediaryAI/app.py: SummonUncleTim: tool makes no calls
+billatgameology/IntermediaryAI/app.py: ChangeModel: tool makes no calls
+billatgameology/IntermediaryAI/app.py: TransferDocumentToTim: tool makes no calls
+cyh5757/HackathonLLM/app.py: sql_search: description under 20 characters
+cyh5757/HackathonLLM/app.py: vector_search: description under 20 characters
+devtbit/whatsapp-leads-assistant-poc/app.py: license none
+Mohamed-Elnahla/AI-Scopus-Agent/app.py: license NOASSERTION
+DipeshDhote/RAG_Based_Chatbot/app.py: retriever_tool: duplicate or known name
+jana-nf/SmolagentsAIAgentProcessHuggingFace/app.py: my_custom_tool: tool makes no calls
+jana-nf/SmolagentsAIAgentProcessHuggingFace/app.py: get_current_time_in_timezone: duplicate or known name
+TomerGamerTV/civic-relay/app.py: draft_human_approved_outreach: tool makes no calls
+mahmoud-aymann/AI-Travel-Agent-Flask/app.py: addition: description under 20 characters
+mahmoud-aymann/AI-Travel-Agent-Flask/app.py: multiply: tool makes no calls
+mahmoud-aymann/AI-Travel-Agent-Flask/app.py: substraction: tool makes no calls
+mahmoud-aymann/AI-Travel-Agent-Flask/app.py: get_weather: duplicate or known name
+Katta-Nitish/grid07-cognitive-agent/app.py: license none
+Sri-Nidhi-25/Inventory_agent/abs.py: license none
+tahagunees/langchain--weather-agent/app.py: get_weather: duplicate or known name
+Chrisolande/Agents-Playground/app.py: add_numbers: tool makes no calls
+Chrisolande/Agents-Playground/app.py: multiply_numbers: tool makes no calls
+CarnageOP10/agent_email/app.py: get_current_time_in_timezone: duplicate or known name
+Mian-Arbaz/tool-calling-app/app.py: license none
+danielmeppiel/oracle-mcp-server/main.py: run_sql_query: duplicate or known name
+guangxiangdebizi/QMT-MCP/main.py: license none
+aptro/superset-mcp/main.py: superset_auth_check_token_validity: over 80 lines
+aptro/superset-mcp/main.py: superset_auth_refresh_token: over 80 lines
+aptro/superset-mcp/main.py: superset_auth_authenticate_user: over 80 lines
+aptro/superset-mcp/main.py: superset_dashboard_list: over 80 lines
+aptro/superset-mcp/main.py: superset_dashboard_get_by_id: over 80 lines
+aptro/superset-mcp/main.py: superset_dashboard_create: over 80 lines
+aptro/superset-mcp/main.py: superset_dashboard_update: over 80 lines
+aptro/superset-mcp/main.py: superset_dashboard_delete: over 80 lines
+aptro/superset-mcp/main.py: superset_chart_list: over 80 lines
+aptro/superset-mcp/main.py: superset_chart_get_by_id: over 80 lines
+aptro/superset-mcp/main.py: superset_chart_create: over 80 lines
+aptro/superset-mcp/main.py: superset_chart_update: over 80 lines
+aptro/superset-mcp/main.py: superset_chart_delete: over 80 lines
+aptro/superset-mcp/main.py: superset_database_list: over 80 lines
+aptro/superset-mcp/main.py: superset_database_get_by_id: over 80 lines
+aptro/superset-mcp/main.py: superset_database_create: over 80 lines
+aptro/superset-mcp/main.py: superset_database_get_tables: over 80 lines
+aptro/superset-mcp/main.py: superset_database_schemas: over 80 lines
+aptro/superset-mcp/main.py: superset_database_test_connection: over 80 lines
+aptro/superset-mcp/main.py: superset_database_update: over 80 lines
+aptro/superset-mcp/main.py: superset_database_delete: over 80 lines
+aptro/superset-mcp/main.py: superset_database_get_catalogs: over 80 lines
+aptro/superset-mcp/main.py: superset_database_get_connection: over 80 lines
+aptro/superset-mcp/main.py: superset_database_get_function_names: over 80 lines
+aptro/superset-mcp/main.py: superset_database_get_related_objects: over 80 lines
+aptro/superset-mcp/main.py: superset_database_validate_sql: over 80 lines
+aptro/superset-mcp/main.py: superset_database_validate_parameters: over 80 lines
+aptro/superset-mcp/main.py: superset_dataset_list: over 80 lines
+aptro/superset-mcp/main.py: superset_dataset_get_by_id: over 80 lines
+aptro/superset-mcp/main.py: superset_dataset_create: over 80 lines
+aptro/superset-mcp/main.py: superset_sqllab_execute_query: over 80 lines
+aptro/superset-mcp/main.py: superset_sqllab_get_saved_queries: over 80 lines
+aptro/superset-mcp/main.py: superset_sqllab_format_sql: over 80 lines
+aptro/superset-mcp/main.py: superset_sqllab_get_results: over 80 lines
+aptro/superset-mcp/main.py: superset_sqllab_estimate_query_cost: over 80 lines
+aptro/superset-mcp/main.py: superset_sqllab_export_query_results: over 80 lines
+aptro/superset-mcp/main.py: superset_sqllab_get_bootstrap_data: over 80 lines
+aptro/superset-mcp/main.py: superset_saved_query_get_by_id: over 80 lines
+aptro/superset-mcp/main.py: superset_saved_query_create: over 80 lines
+aptro/superset-mcp/main.py: superset_query_stop: over 80 lines
+aptro/superset-mcp/main.py: superset_query_list: over 80 lines
+aptro/superset-mcp/main.py: superset_query_get_by_id: over 80 lines
+aptro/superset-mcp/main.py: superset_activity_get_recent: over 80 lines
+aptro/superset-mcp/main.py: superset_user_get_current: over 80 lines
+aptro/superset-mcp/main.py: superset_user_get_roles: over 80 lines
+aptro/superset-mcp/main.py: superset_tag_list: over 80 lines
+aptro/superset-mcp/main.py: superset_tag_create: over 80 lines
+aptro/superset-mcp/main.py: superset_tag_get_by_id: over 80 lines
+aptro/superset-mcp/main.py: superset_tag_objects: over 80 lines
+aptro/superset-mcp/main.py: superset_tag_delete: over 80 lines
+aptro/superset-mcp/main.py: superset_tag_object_add: over 80 lines
+aptro/superset-mcp/main.py: superset_tag_object_remove: over 80 lines
+aptro/superset-mcp/main.py: superset_explore_form_data_create: over 80 lines
+aptro/superset-mcp/main.py: superset_explore_form_data_get: over 80 lines
+aptro/superset-mcp/main.py: superset_explore_permalink_create: over 80 lines
+aptro/superset-mcp/main.py: superset_explore_permalink_get: over 80 lines
+aptro/superset-mcp/main.py: superset_menu_get: over 80 lines
+aptro/superset-mcp/main.py: superset_advanced_data_type_convert: over 80 lines
+aptro/superset-mcp/main.py: superset_advanced_data_type_list: over 80 lines
+s4dp4nd4/frida-c2-mcp/ios.py: license NOASSERTION
+s4dp4nd4/frida-c2-mcp/cli.py: license NOASSERTION
+arlanrakh/talk-to-girlfriend-ai/main.py: get_messages: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: send_message: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: schedule_message: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: subscribe_public_channel: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: list_inline_buttons: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: press_inline_button: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: list_messages: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: list_chats: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_chat: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_contact_chats: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_last_interaction: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_message_context: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: delete_contact: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: block_user: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: unblock_user: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: create_group: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: invite_to_group: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: leave_chat: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_participants: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: send_file: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: download_media: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: set_privacy_settings: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: edit_chat_title: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: edit_chat_photo: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: delete_chat_photo: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: promote_admin: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: demote_admin: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: ban_user: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: unban_user: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_admins: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_banned_users: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_invite_link: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: export_chat_invite: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: send_voice: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: forward_message: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: edit_message: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: delete_message: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: pin_message: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: unpin_message: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: mark_as_read: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: reply_to_message: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_media_info: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: search_messages: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: mute_chat: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: unmute_chat: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: archive_chat: description under 20 characters
+arlanrakh/talk-to-girlfriend-ai/main.py: unarchive_chat: description under 20 characters
+arlanrakh/talk-to-girlfriend-ai/main.py: send_sticker: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: send_gif: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_history: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_user_photos: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_user_status: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_recent_actions: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_pinned_messages: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: send_reaction: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: remove_reaction: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: get_message_reactions: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: save_draft: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: clear_draft: over 80 lines
+arlanrakh/talk-to-girlfriend-ai/main.py: search_contacts: duplicate or known name
+liqiongyu/xueqiu_mcp/main.py: quotec: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: quote_detail: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: pankou: description not in English
+liqiongyu/xueqiu_mcp/main.py: kline: description not in English
+liqiongyu/xueqiu_mcp/main.py: earningforecast: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: report: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: capital_flow: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: capital_history: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: capital_assort: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: blocktrans: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: margin: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: indicator: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: income: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: balance: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: cash_flow: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: business: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: top_holders: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: main_indicator: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: holders: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: org_holding_change: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: bonus: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: industry_compare: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: watch_list: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: watch_stock: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: nav_daily: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: rebalancing_history: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: convertible_bond: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: index_basic_info: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: index_details_data: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: index_weight_top10: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: index_perf_7: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: index_perf_30: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: index_perf_90: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: northbound_shareholding_sh: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: northbound_shareholding_sz: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_detail: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_info: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_growth: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_nav_history: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_achievement: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_asset: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_manager: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_trade_date: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: fund_derived: description under 20 characters
+liqiongyu/xueqiu_mcp/main.py: suggest_stock: description under 20 characters
+xpn/mythic_mcp/main.py: license none
+oraichain/ragflow-mcp/main.py: get_ragflow_datasets: no docstring
+horw/esp-mcp/main.py: license none
+lsd-so/lsd-mcp/app.py: license none
+minhyeoky/mcp-server-ledger/main.py: license none
+AuthBits/webmcp/app.py: extract: over 80 lines
+thirdlayerinc/autoagent/agent.py: license none
+ralliesai/tenk/src/tools.py: license NOASSERTION
+humancomputerlab/lelamp_runtime/main.py: license none
+jawwad-ali/Sunday_Afternoon_Agentic_AI/class04/main.py: license none
+jawwad-ali/Sunday_Afternoon_Agentic_AI/class11/main.py: license none
+bangoc123/agentic-rag/rag.py: license none
+paras55/documentation_writer_agent_team/main.py: license none
+JinzoTun/livekit-agent-python/assistant.py: license none
+IAmTomShaw/interior-designer-agent/lib/tools.py: license none
+hieunhums/azure-openai-agents/main.py: license none
+IAmTomShaw/project-manager-agent/lib/tools.py: license none
+djcgh/AdbPhoneAgent/tools.py: license none
+xuyimingxym/SUMO_LLM_Agent/script.py: start_simulation_agent: over 80 lines
+xuyimingxym/SUMO_LLM_Agent/script.py: set_traffic_light_state: no docstring
+NanGePlus/OpenAIAgentsSDKTest/demo.py: get_weather: no docstring
+datasciencemonkey/agents-on-databricks/toolkit.py: license none
+SY-007-Research/interview_agent/qt/tools.py: tavily_search: description not in English
+datasciencemonkey/multi-agent-system-databricks/toolkit.py: get_business_conduct_policy_info: no docstring
+AbdullahMalik17/Deep-Research-Agent/tools.py: license none
+techwithtim/realtime-ai-avatar/agent.py: license none
+Shashank7275/NEXA_AI_ASSISTANT/youtube.py: license none
+IAmTomShaw/quotation-agent/main.py: license none
+AarohiSingla/OpenAI-Agents-SDK-/context.py: license none
+alejandro-ao/opencowork-tutorial/tools.py: license none
+kkdai/linebot-openai-agent/main.py: license none
+ShayneP/phone-assistant/agent.py: license none
+eya46/Project2/_main.py: set_finished: description under 20 characters
+eya46/Project2/_main.py: get_userinput: description under 20 characters
+eya46/Project2/_main.py: show_message: description under 20 characters
+scragz/phonosyne/tools.py: license none
+cozfuttu/agent-workshop-digital-twin/app.py: license none
+inematds/lk_agente_v3/agent.py: license none
+mdshoebkhanking/shell-ai-os-controller/shell_news.py: get_news_categories: tool makes no calls
+Khin-96/KhinsLLM/tools.py: license none
+colesmcintosh/social-media-agent-system/main.py: license NOASSERTION
+ruxakK/multiagent_vid/agent.py: license none
+ShayneP/ivr-agent/agent.py: license none
+marketcalls/Agentic-Trader/agent.py: license none
+lara-openai/agent-supply-chain-mcp/main.py: license none
+openknowledge/hateoas-agent/tools.py: license none
+veris-ai/RAISE/agent.py: license none
+HafizFasih/OpenAi-Agents-SDK/abcd.py: license none
+ihower/ihower-llm-workshop/utils.py: license none
+Khin-96/KhinsLLM/tools_base.py: license none
+Khin-96/KhinsLLM/music_tool.py: license none
+render-examples/voice-agent-workflow/agent/main.py: license none
+haizelabs/EvoForge/agent.py: license none
+naeemhussain-ai/Giaic-Wed-class-code/tool.py: license none
+SamaHassa/study-assistant/app.py: summarize_text: tool makes no calls
+SamaHassa/study-assistant/app.py: explain_topic: tool makes no calls
+PieroPaialungaAI/RestaurantGPT/sim.py: license none
+Quratulain-bilal/crypto_agen/app.py: license none
+ShayneP/livekit-agent-tasks-example/src/agent.py: license none
+mdshoebkhanking/shell-ai-os-controller/shell_ocr.py: ocr_pdf_tool: over 80 lines

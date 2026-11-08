@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram account information", "declared": ["read"], "honest": true, "reason": "The code only fetches the authenticated user's own profile from Telegram and returns it as JSON, matching the description."}, "cost_usd": 0.0117934}

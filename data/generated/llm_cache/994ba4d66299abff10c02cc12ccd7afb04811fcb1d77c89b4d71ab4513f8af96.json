@@ -1,0 +1,1 @@
+{"output": {"domain": "web search content retrieval", "declared": ["read"], "honest": true, "reason": "The code fetches webpage contents by id from the Metaphor API, a read-only lookup that matches the description."}, "cost_usd": 0.007965400000000001}

@@ -1,0 +1,1 @@
+{"output": {"domain": "document RAG ingestion", "declared": ["read", "modify", "send_outward"], "honest": true, "reason": "The description says it skips already-ingested files and otherwise ingests the folder with threaded processing, which matches the code's reads, index writes and embedding/LLM API calls."}, "cost_usd": 0.0164074}

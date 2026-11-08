@@ -1,0 +1,39 @@
+langchain: 500 search hits
+langchain: 70 tools
+mcp: 500 search hits
+mcp: 70 tools
+openai-agents: 500 search hits
+openai-agents: 70 tools
+  label: 10/210
+  label: 20/210
+  label: 30/210
+  label: 40/210
+  label: 50/210
+  label: 60/210
+  label: 70/210
+  label: 80/210
+  label: 90/210
+  label: 100/210
+  label: 110/210
+  label: 120/210
+  label: 130/210
+  label: 140/210
+  label: 150/210
+  label: 160/210
+  label: 170/210
+  label: 180/210
+  label: 190/210
+  label: 200/210
+  label: 210/210
+{
+  "tools": 210,
+  "by_framework": {
+    "langchain": 70,
+    "mcp": 70,
+    "openai-agents": 70
+  },
+  "draft_honest": 197,
+  "draft_mismatch": 13,
+  "skipped": 289,
+  "out": "data\\raw\\rung3\\candidates.jsonl"
+}

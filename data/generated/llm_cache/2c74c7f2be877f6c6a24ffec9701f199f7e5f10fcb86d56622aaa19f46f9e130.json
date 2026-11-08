@@ -1,0 +1,1 @@
+{"output": {"domain": "library documentation search", "declared": ["read", "send_outward"], "honest": true, "reason": "The tool sends the query to the Serper search API and fetches result pages to return their text, which matches the description of searching docs and returning text."}, "cost_usd": 0.0102714}

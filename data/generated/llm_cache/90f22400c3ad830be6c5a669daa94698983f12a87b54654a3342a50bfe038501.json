@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact management", "declared": ["modify", "send_outward"], "honest": true, "reason": "The code imports a contact into the Telegram account via the API (a remote write), which is exactly what the description says."}, "cost_usd": 0.0122974}

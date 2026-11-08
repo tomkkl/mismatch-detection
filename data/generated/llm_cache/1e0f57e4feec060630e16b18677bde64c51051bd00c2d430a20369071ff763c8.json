@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema metadata", "declared": ["read"], "honest": true, "reason": "The tool only reads index metadata for a table and formats it, which matches the description of enumerating indexes."}, "cost_usd": 0.012343400000000001}

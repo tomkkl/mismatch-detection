@@ -1,0 +1,1 @@
+{"output": {"domain": "documentation search RAG", "declared": ["read"], "honest": true, "reason": "The tool queries a RAG index over docs and returns an answer with sources, which is a read-only lookup that matches the description."}, "cost_usd": 0.0091894}

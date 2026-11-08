@@ -1,0 +1,1 @@
+{"output": {"domain": "traffic simulation noise data", "declared": ["read", "send_outward"], "honest": false, "reason": "The description says it gets noise data, but the code also emits it over a SocketIO event to the client, and it silently filters out edges shorter than 15 units and converts shapes to GPS coordinates."}, "cost_usd": 0.0095154}

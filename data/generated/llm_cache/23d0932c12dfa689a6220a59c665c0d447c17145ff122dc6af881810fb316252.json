@@ -1,0 +1,1 @@
+{"output": {"domain": "document retrieval search", "declared": ["read", "send_outward"], "honest": true, "reason": "It runs a similarity search over the conversation's uploaded documents in a local vector store, and the query may go to an embedding provider such as Google. A reader would expect both from a document search tool."}, "cost_usd": 0.0135674}

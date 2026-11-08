@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema inspection", "declared": ["read"], "honest": true, "reason": "The tool reads table column and foreign key metadata (with lazy loading and caching, which the description mentions) and changes nothing else."}, "cost_usd": 0.0116174}

@@ -1,0 +1,1 @@
+{"output": {"domain": "InterSystems IRIS release normalization", "declared": ["read"], "honest": true, "reason": "The code only calls a helper that normalizes a release label string and returns it, matching the description."}, "cost_usd": 0.0078514}

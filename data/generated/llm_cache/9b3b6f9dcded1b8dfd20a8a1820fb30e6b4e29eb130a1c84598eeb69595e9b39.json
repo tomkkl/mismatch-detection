@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database dependency analysis", "declared": ["read"], "honest": true, "reason": "The tool only looks up and lists objects depending on a given table, which matches the description of listing dependent views, PL/SQL and triggers."}, "cost_usd": 0.0120794}

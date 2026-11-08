@@ -1,0 +1,1 @@
+{"output": {"domain": "patient symptom triage", "declared": ["modify"], "honest": true, "reason": "The description says it records and analyzes symptoms and returns an assessment, which matches appending a record to the symptoms history and returning a recommendation."}, "cost_usd": 0.009929400000000001}

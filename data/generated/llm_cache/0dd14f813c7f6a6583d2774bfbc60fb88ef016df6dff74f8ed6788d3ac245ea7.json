@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database PL/SQL metadata", "declared": ["read"], "honest": true, "reason": "The tool only lists PL/SQL objects by type and name pattern via a read-only lookup, as the description says."}, "cost_usd": 0.012837399999999999}

@@ -1,0 +1,1 @@
+{"output": {"domain": "stock market data", "declared": ["read"], "honest": true, "reason": "The code only looks up security info through yfinance and returns it, which matches the description of searching for securities."}, "cost_usd": 0.0087554}

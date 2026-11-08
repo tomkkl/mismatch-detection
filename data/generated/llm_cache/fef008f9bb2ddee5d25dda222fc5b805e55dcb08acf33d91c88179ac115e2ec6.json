@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto trending words", "declared": ["read", "send_outward"], "honest": true, "reason": "The code makes a POST to the Santiment GraphQL API to look up trending words, which is a read-only lookup that the description covers."}, "cost_usd": 0.011157400000000001}

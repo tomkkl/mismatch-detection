@@ -1,0 +1,1 @@
+{"output": {"domain": "air quality lookup", "declared": ["read"], "honest": true, "reason": "The code only performs read-only lookups against the OpenWeather geocoding and air pollution APIs and returns the AQI, as the description says."}, "cost_usd": 0.0088354}

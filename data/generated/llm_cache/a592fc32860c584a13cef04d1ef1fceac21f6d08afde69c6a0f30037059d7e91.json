@@ -1,0 +1,1 @@
+{"output": {"domain": "document format conversion", "declared": ["read", "modify", "execute"], "honest": true, "reason": "The code runs the mdpdf command on a Markdown file and writes a PDF next to it, which the description states (conversion via mdpdf, returns PDF path)."}, "cost_usd": 0.0084154}

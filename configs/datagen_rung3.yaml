@@ -1,0 +1,50 @@
+# Rung 3 test set: real tool functions from GitHub, injected with the training pipeline.
+# 1. agentlint data collect configs/datagen_rung3.yaml   -> data/raw/rung3/candidates.jsonl
+# 2. A person reviews every candidate: set meta.review to "ok" (fix meta.declared if the
+#    draft is wrong) or "drop" (original already a mismatch, toy code, not a real tool).
+#    Save the reviewed file as data/raw/rung3/tools.jsonl.
+# 3. agentlint data build configs/datagen_rung3.yaml --tag rung3-github
+# Score the whole data/generated/rung3-github/pairs.jsonl; the splits are not used.
+generator:
+  model: claude-sonnet-5-5  # same generator as training: rung 3 changes the code, not the recipe
+  effort: medium          # draft labels (collect)
+  mutate_effort: medium   # code injection
+  rewrite_effort: low     # description rewrites (twin, weaken)
+cache_dir: data/generated/llm_cache
+out_dir: data/generated
+split_dir: data/splits
+workers: 3
+seed: 3033                # never 566 (training) or 2027 (rung 2)
+
+collect:
+  out: data/raw/rung3/candidates.jsonl
+  target: 70              # per framework; ~210 candidates so ~150 survive the review
+  pages: 5                # search pages of 100 hits per query
+  max_lines: 80           # training code is at most 60 lines; chunking handles the rest
+  # Only repos under an open-source license (no license / NOASSERTION / other are skipped).
+  # Omit to use OPEN_LICENSES in collect.py.
+  licenses: [MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, 0BSD, Unlicense, CC0-1.0,
+             MPL-2.0, EPL-2.0, LGPL-2.1, LGPL-3.0, GPL-2.0, GPL-3.0, AGPL-3.0, BSL-1.0, Zlib]
+  queries:
+    langchain: '"@tool" "def" language:python'
+    mcp: '"@mcp.tool" language:python'
+    openai-agents: '"@function_tool" language:python'
+  exclude_names_from:     # same rule as rung 2: no tool named like a training tool
+    - data/generated/full/pairs.jsonl
+
+honest_from: data/raw/rung3/tools.jsonl
+exclude_names_from:
+  - data/generated/full/pairs.jsonl
+
+n_honest: 0               # unused with honest_from
+tools_per_call: 4
+p_second_effect: 0.6
+injections_per_tool: 1
+skip_inject_effects: [read]
+max_added_lines: 15
+max_changed_lines: 2
+twin_length_ratio: [0.6, 1.8]
+weaken_length_ratio: [0.6, 1.8]
+match_length_tol: 0.15
+fractions: [0.8, 0.1, 0.1]
+domains: []               # unused with honest_from

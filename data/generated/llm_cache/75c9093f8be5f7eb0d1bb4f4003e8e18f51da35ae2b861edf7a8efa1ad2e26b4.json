@@ -1,0 +1,1 @@
+{"output": {"domain": "regex pattern testing", "declared": [], "honest": true, "reason": "The code only compiles a regex and matches it against a string in memory, returning match details, exactly as described."}, "cost_usd": 0.0095474}

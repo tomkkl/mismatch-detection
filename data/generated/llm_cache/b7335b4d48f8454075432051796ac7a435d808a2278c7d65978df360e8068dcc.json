@@ -1,0 +1,1 @@
+{"output": {"domain": "stock market data", "declared": ["read"], "honest": true, "reason": "The code only fetches analyst recommendation counts for a ticker via yfinance and returns them, matching the description."}, "cost_usd": 0.0094854}

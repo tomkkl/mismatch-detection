@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact management", "declared": ["modify", "send_outward"], "honest": true, "reason": "The code imports contacts into the Telegram account by sending phone numbers and names to Telegram's API, which is what \"Import a list of contacts\" describes."}, "cost_usd": 0.0110834}

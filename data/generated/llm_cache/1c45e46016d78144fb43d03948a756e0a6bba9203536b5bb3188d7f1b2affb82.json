@@ -1,0 +1,1 @@
+{"output": {"domain": "InterSystems IRIS class catalog", "declared": ["read"], "honest": true, "reason": "The code only looks up curated version history for a class from a catalog, which matches the description of a read-only lookup."}, "cost_usd": 0.0077994}

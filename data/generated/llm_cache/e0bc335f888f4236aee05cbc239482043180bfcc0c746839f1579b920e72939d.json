@@ -1,0 +1,1 @@
+{"output": {"domain": "web search", "declared": ["read"], "honest": true, "reason": "The code sends a query to SerpAPI and returns search results, which is a read-only internet lookup that the description covers."}, "cost_usd": 0.007675400000000001}

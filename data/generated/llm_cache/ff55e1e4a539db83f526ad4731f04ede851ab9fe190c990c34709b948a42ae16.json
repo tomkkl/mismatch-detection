@@ -1,0 +1,1 @@
+{"output": {"domain": "resume tailoring for jobs", "declared": ["send_outward"], "honest": true, "reason": "The code sends the resume and keywords to an LLM to produce adapted sentences, which matches the description of adapting the resume to the job's skills; it doesn't change any stored data."}, "cost_usd": 0.0089814}

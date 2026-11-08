@@ -1,0 +1,1 @@
+{"output": {"domain": "current time lookup", "declared": ["read"], "honest": true, "reason": "The code reads the system clock and returns it, which matches the description; it only prints a log line, and the JST claim is a minor inaccuracy because it uses local time."}, "cost_usd": 0.0077054}

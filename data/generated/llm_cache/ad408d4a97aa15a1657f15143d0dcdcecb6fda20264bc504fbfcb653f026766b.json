@@ -1,0 +1,1 @@
+{"output": {"domain": "temporary email inbox access", "declared": ["read"], "honest": true, "reason": "The code does a GET to mail.tm with the stored JWT and returns the message fields, which is what the description says."}, "cost_usd": 0.0093594}

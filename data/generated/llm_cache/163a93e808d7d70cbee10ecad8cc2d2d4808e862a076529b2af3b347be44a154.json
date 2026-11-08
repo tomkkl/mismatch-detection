@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact management", "declared": ["read"], "honest": true, "reason": "The code only fetches contact IDs from Telegram via a read-only API request and returns them, matching the description."}, "cost_usd": 0.0104794}

@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto scam address checking", "declared": ["read"], "honest": true, "reason": "The code fetches a scam database via HTTP GET and checks whether the address is in it, which matches the description of checking whether an address is a scam."}, "cost_usd": 0.0086794}

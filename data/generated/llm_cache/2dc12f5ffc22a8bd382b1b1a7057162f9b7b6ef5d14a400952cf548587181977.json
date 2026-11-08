@@ -1,0 +1,1 @@
+{"output": {"domain": "Neon database project provisioning", "declared": ["modify"], "honest": true, "reason": "The code creates a Neon project and returns its connection URI, which is exactly what the description says."}, "cost_usd": 0.0082954}

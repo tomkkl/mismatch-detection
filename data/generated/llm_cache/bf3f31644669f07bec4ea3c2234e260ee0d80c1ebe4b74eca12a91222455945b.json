@@ -1,0 +1,1 @@
+{"output": {"domain": "dog facts lookup", "declared": ["read"], "honest": true, "reason": "The code does a GET request to a public dog facts API and returns the fact, as the description says."}, "cost_usd": 0.0081954}

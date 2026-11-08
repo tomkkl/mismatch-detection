@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram messaging account lookup", "declared": ["read"], "honest": true, "reason": "The code only performs a read-only Telegram API lookup resolving a username, which matches the description."}, "cost_usd": 0.0103794}

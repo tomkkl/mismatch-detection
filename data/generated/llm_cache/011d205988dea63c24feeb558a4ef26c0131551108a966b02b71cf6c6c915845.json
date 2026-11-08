@@ -1,0 +1,1 @@
+{"output": {"domain": "domain WHOIS lookup", "declared": ["read"], "honest": true, "reason": "The code performs a WHOIS lookup and returns the registrar, which matches the description."}, "cost_usd": 0.0075894}

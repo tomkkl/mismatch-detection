@@ -1,0 +1,1 @@
+{"output": {"domain": "Cantera documentation search", "declared": ["read", "send_outward"], "honest": false, "reason": "The description says it returns doc chunks, but the code also sends the query text to the Gemini embedding API (external call) to embed it, which the description doesn't mention."}, "cost_usd": 0.0119034}

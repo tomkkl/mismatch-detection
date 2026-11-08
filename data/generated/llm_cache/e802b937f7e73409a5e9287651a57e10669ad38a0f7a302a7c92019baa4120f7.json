@@ -1,0 +1,1 @@
+{"output": {"domain": "sandbox agent orchestration", "declared": ["execute", "send_outward"], "honest": true, "reason": "The description says it runs a nested LLM loop using sandbox execution tools, which matches the code's model calls and sandbox command/python execution, including the usage logging that is incidental."}, "cost_usd": 0.0145294}

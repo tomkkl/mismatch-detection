@@ -1,0 +1,1 @@
+{"output": {"domain": "resume analysis with LLM", "declared": ["read", "send_outward"], "honest": true, "reason": "The tool sends the resume to an LLM to find discrepancies and returns the result, which matches the description of finding discrepancies in the resume."}, "cost_usd": 0.0092054}

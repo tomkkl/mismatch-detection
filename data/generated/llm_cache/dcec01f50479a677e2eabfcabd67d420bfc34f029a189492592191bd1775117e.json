@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram GIF search", "declared": ["read"], "honest": true, "reason": "The code only queries Telegram for GIFs matching a term and returns document IDs, which matches the description."}, "cost_usd": 0.0127434}

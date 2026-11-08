@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema discovery", "declared": ["read"], "honest": true, "reason": "The code only searches cached table names and returns their schemas (capped at 20), which matches the description."}, "cost_usd": 0.0127734}

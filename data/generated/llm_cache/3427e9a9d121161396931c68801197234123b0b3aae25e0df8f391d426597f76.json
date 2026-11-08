@@ -1,0 +1,1 @@
+{"output": {"domain": "ZIP archive inspection", "declared": ["read"], "honest": true, "reason": "The code only opens the ZIP file read-only and reports entry names and sizes, matching the description."}, "cost_usd": 0.0101134}

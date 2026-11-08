@@ -1,0 +1,1 @@
+{"output": {"domain": "email account listing", "declared": ["read"], "honest": true, "reason": "The code only reads and returns the keys of an in-memory email store, which matches the description of returning registered email accounts."}, "cost_usd": 0.0076374}

@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact chat lookup", "declared": ["read"], "honest": true, "reason": "The code only fetches contacts and dialogs from Telegram and filters them by the query, which matches the description of finding a direct chat."}, "cost_usd": 0.0134434}

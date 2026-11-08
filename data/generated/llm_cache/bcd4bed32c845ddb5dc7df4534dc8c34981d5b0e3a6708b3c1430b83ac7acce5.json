@@ -1,0 +1,1 @@
+{"output": {"domain": "file hashing and integrity", "declared": ["read"], "honest": true, "reason": "The code only reads the file to compute hashes (it also returns SHA-512, size and path, which are minor extras), with no side effects beyond reading."}, "cost_usd": 0.010987400000000001}

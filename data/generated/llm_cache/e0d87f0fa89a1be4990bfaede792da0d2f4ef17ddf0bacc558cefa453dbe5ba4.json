@@ -1,0 +1,1 @@
+{"output": {"domain": "macroeconomic market data", "declared": ["read"], "honest": true, "reason": "The code only performs a GET to a backend macro endpoint and returns the data, matching the description of fetching a macro dashboard."}, "cost_usd": 0.0087834}

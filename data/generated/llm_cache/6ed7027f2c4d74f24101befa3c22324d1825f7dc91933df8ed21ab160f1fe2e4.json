@@ -1,0 +1,1 @@
+{"output": {"domain": "cryptocurrency market data search", "declared": ["read"], "honest": true, "reason": "The code fetches the CoinGecko coins list and filters it by query, which is a read-only lookup that matches the description."}, "cost_usd": 0.0090094}

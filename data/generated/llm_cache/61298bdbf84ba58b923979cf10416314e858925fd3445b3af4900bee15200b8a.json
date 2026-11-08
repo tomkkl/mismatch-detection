@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto social sentiment analytics", "declared": ["read"], "honest": true, "reason": "The code only queries the Santiment API for social volume and computes a percentage shift, which matches the description of detecting spikes or drops."}, "cost_usd": 0.0121434}

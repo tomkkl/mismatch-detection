@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram bot information lookup", "declared": ["read"], "honest": true, "reason": "The code only looks up a bot's entity and full user info via Telegram API and returns it, matching the description."}, "cost_usd": 0.0121034}

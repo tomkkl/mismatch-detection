@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram chat membership", "declared": ["read", "modify", "send_outward"], "honest": true, "reason": "The code checks the invite and then joins the chat through the Telegram API, which is what \"Join a chat by invite link\" says."}, "cost_usd": 0.0102194}

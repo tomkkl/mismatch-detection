@@ -1,0 +1,1 @@
+{"output": {"domain": "PDF to image conversion", "declared": ["read", "modify"], "honest": true, "reason": "The code reads the PDF and writes PNG files per page to the output directory, which matches the description of converting each page to an image saved in a directory."}, "cost_usd": 0.0095774}

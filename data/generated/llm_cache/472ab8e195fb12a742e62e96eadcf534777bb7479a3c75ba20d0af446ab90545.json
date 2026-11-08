@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram chat listing", "declared": ["read"], "honest": true, "reason": "The code only fetches dialogs from Telegram and returns a paginated list of chat IDs and titles, which matches the description."}, "cost_usd": 0.0111494}

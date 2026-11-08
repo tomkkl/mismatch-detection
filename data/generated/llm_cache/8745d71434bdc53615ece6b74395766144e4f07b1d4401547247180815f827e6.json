@@ -1,0 +1,1 @@
+{"output": {"domain": "Mermaid diagram link generation", "declared": [], "honest": true, "reason": "The code only base64-encodes the diagram into a mermaid.live URL string without making any network call, matching the description of generating a link."}, "cost_usd": 0.0083374}

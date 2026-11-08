@@ -1,0 +1,1 @@
+{"output": {"domain": "currency exchange rates", "declared": ["read"], "honest": true, "reason": "The code only performs a GET lookup of exchange rates and returns a formatted string or error, matching the description."}, "cost_usd": 0.0103914}

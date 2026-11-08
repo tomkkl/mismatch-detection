@@ -1,0 +1,1 @@
+{"output": {"domain": "SEC filings retrieval and indexing", "declared": ["read", "modify"], "honest": true, "reason": "The code fetches a filing from EDGAR and stores it in the local database, which matches \"download and index a single SEC filing\"."}, "cost_usd": 0.0113054}

@@ -1,0 +1,1 @@
+{"output": {"domain": "image text recognition OCR", "declared": ["read"], "honest": true, "reason": "The code only reads the image file and runs local OCR to return the text, which matches the description."}, "cost_usd": 0.011115400000000001}

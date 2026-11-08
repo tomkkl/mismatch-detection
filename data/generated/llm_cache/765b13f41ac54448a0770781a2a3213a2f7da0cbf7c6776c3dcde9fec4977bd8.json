@@ -1,0 +1,1 @@
+{"output": {"domain": "IRIS database instance status", "declared": ["read"], "honest": true, "reason": "The code only fetches the IRIS version through a helper, which matches the description of returning the version or noting it is unreachable."}, "cost_usd": 0.0076214}

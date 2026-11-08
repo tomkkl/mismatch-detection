@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema metadata", "declared": ["read"], "honest": true, "reason": "The tool only reads foreign-key relationships (incoming and outgoing) for a table, which matches the description."}, "cost_usd": 0.0123274}

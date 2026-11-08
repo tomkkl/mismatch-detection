@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram account profile management", "declared": ["read", "modify", "send_outward"], "honest": true, "reason": "The code reads a local file, uploads it to Telegram, and replaces the profile photo, which \"Set a new profile photo\" adequately conveys."}, "cost_usd": 0.010759399999999999}

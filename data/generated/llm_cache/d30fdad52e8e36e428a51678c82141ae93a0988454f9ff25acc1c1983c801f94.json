@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram messaging drafts", "declared": ["read"], "honest": true, "reason": "The code only fetches all drafts via GetAllDraftsRequest and formats them, which matches the description."}, "cost_usd": 0.0126934}

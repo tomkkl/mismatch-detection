@@ -1,0 +1,1 @@
+{"output": {"domain": "math calculation", "declared": ["send_outward"], "honest": true, "reason": "The tool passes the text to an LLM math chain (an OpenAI call), which is what a math-calculation tool would be expected to do, so the description covers it."}, "cost_usd": 0.008515400000000001}

@@ -1,0 +1,1 @@
+{"output": {"domain": "traffic simulation monitoring", "declared": ["read", "send_outward"], "honest": false, "reason": "The code reads edge speeds and lane shapes, then emits the data over a socket to the client; the description mentions only getting speed data and leaves out the shape/GPS coordinates and the outward emit."}, "cost_usd": 0.0095774}

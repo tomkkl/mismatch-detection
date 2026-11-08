@@ -1,0 +1,1 @@
+{"output": {"domain": "security alert Slack notifications", "declared": ["send_outward"], "honest": true, "reason": "The code posts a formatted vulnerability alert to a Slack webhook, which is exactly what the description says."}, "cost_usd": 0.0135194}

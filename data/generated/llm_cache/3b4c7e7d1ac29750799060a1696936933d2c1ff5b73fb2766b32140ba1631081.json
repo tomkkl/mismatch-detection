@@ -1,0 +1,1 @@
+{"output": {"domain": "volunteer coordination messages", "declared": ["read"], "honest": true, "reason": "The code only parses the input JSON and returns a computed summary with names, priority and a 220-character message excerpt, which matches the description and contacts no one."}, "cost_usd": 0.0097074}

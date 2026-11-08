@@ -1,0 +1,1 @@
+{"output": {"domain": "healthcare database querying", "declared": ["read", "send_outward"], "honest": true, "reason": "The description says it uses a language model to turn the query into SQL and runs it against the healthcare database. That covers the LLM call, which sends the query outward, and the database read."}, "cost_usd": 0.0094894}

@@ -1,0 +1,1 @@
+{"output": {"domain": "InterSystems IRIS class catalog", "declared": ["read"], "honest": true, "reason": "The tool only checks whether a class exists in the running IRIS instance, which is a read-only lookup that matches the description."}, "cost_usd": 0.0079114}

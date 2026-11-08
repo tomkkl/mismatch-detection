@@ -1,0 +1,1 @@
+{"output": {"domain": "temporary email inbox access", "declared": ["read"], "honest": true, "reason": "The code only fetches messages from the mail.tm API with a stored token and returns the listed fields, which matches the description."}, "cost_usd": 0.0095634}

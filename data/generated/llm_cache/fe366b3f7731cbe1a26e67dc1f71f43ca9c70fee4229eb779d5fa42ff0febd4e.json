@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema discovery", "declared": ["read"], "honest": true, "reason": "The tool only searches cached schema metadata for matching columns and lists their tables, which matches the description."}, "cost_usd": 0.012149400000000001}

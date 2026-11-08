@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram account management", "declared": ["read"], "honest": true, "reason": "The code only fetches the blocked-users list from Telegram and formats it, which matches the description."}, "cost_usd": 0.0120094}

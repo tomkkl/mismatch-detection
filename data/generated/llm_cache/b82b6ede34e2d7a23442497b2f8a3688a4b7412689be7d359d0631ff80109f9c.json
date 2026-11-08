@@ -1,0 +1,1 @@
+{"output": {"domain": "vehicle navigation point-of-interest search", "declared": ["read"], "honest": true, "reason": "The code reads stored route points and queries a places search helper for points of interest, which matches the description."}, "cost_usd": 0.0093514}

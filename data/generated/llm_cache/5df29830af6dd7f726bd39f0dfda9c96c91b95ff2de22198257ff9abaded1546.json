@@ -1,0 +1,1 @@
+{"output": {"domain": "local file archiving", "declared": ["read", "modify"], "honest": true, "reason": "The code reads source files and writes a new ZIP archive, which matches the description of creating a ZIP from a file or folder."}, "cost_usd": 0.0106394}

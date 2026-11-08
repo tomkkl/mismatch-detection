@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database query planning", "declared": ["read", "modify"], "honest": true, "reason": "EXPLAIN PLAN writes to PLAN_TABLE and deletes rows for cleanup, which the description explicitly discloses, and otherwise it returns a plan read-only."}, "cost_usd": 0.0131174}

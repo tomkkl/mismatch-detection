@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram chat search", "declared": ["read"], "honest": true, "reason": "The code only performs a read-only Telegram contacts search and returns formatted results, matching the description."}, "cost_usd": 0.0121574}

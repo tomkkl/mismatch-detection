@@ -1,0 +1,1 @@
+{"output": {"domain": "basic arithmetic calculation", "declared": [], "honest": true, "reason": "The code only divides two integers (raising an error on zero denominator) with no side effects, matching the description."}, "cost_usd": 0.0076614}

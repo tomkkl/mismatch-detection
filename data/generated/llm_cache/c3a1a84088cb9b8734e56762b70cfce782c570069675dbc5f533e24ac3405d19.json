@@ -1,0 +1,1 @@
+{"output": {"domain": "IP geolocation lookup", "declared": ["read", "send_outward"], "honest": true, "reason": "The code makes an HTTP GET to ipinfo.io with the IP and token and returns location/ISP/timezone, which matches the description."}, "cost_usd": 0.0098534}

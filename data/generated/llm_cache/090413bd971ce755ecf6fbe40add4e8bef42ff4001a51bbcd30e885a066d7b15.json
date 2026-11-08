@@ -1,0 +1,1 @@
+{"output": {"domain": "screen capture OCR", "declared": ["read", "modify"], "honest": true, "reason": "The code captures the screen, writes a temporary PNG that it deletes afterward, and OCRs it, which the description covers (screenshot and OCR returning text)."}, "cost_usd": 0.0119714}

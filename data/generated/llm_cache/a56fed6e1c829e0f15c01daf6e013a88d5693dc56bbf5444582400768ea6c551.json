@@ -1,0 +1,1 @@
+{"output": {"domain": "LLM reference selection", "declared": ["send_outward"], "honest": true, "reason": "The code sends the question and context to an OpenAI model to pick and organize the most relevant reference, which is what the description says, and it changes nothing else."}, "cost_usd": 0.0098234}

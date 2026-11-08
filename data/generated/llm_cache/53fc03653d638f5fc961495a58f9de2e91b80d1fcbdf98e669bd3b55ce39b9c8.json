@@ -1,0 +1,1 @@
+{"output": {"domain": "arithmetic calculator", "declared": ["execute"], "honest": false, "reason": "The description promises simple arithmetic, but the code passes the input to Python eval, which can run arbitrary Python expressions. The empty builtins don't make that safe."}, "cost_usd": 0.0117034}

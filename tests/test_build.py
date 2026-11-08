@@ -174,6 +174,29 @@ def test_tools_named_in_another_dataset_are_excluded(tmp_path):
     assert splits == len(after)
 
 
+def test_honest_from_uses_only_reviewed_tools(tmp_path):
+    from agentlint.data.verify import normalize_code
+    path = tmp_path / "candidates.jsonl"
+    rows = []
+    for i, review in enumerate(["ok", "ok", "drop", None, "ok"]):
+        rows.append({
+            "pair_id": f"g{i:04d}/honest", "source_id": f"g{i:04d}", "name": f"handle_note_{i}",
+            "params": {"type": "object", "required": ["note_id", "text"], "properties": {
+                "note_id": {"type": "integer", "description": "Note id"},
+                "text": {"type": "string", "description": "New body"}}},
+            "description": "Looks up a note by id and updates its text.",
+            "code": normalize_code(CODE.format(i=i)), "mismatch": False, "generator": "github",
+            "meta": {"domain": "notes", "declared": ["modify", "read"], "review": review}})
+    path.write_text("".join(json.dumps(r) + "\n" for r in rows))
+    cfg = {**_cfg(tmp_path), "honest_from": str(path)}
+    stats = run(cfg, "t", llm=FakeLLM())
+    assert stats["by_mutation"]["original"] == 3 and stats["by_mutation"]["inject_code"] == 3
+    assert stats["rejects"]["honest: review: drop"] == 1
+    assert stats["rejects"]["honest: review: not reviewed"] == 1
+    pairs = _rows(tmp_path / "gen" / "t" / "pairs.jsonl")
+    assert {p["source_id"] for p in pairs} == {"g0000", "g0001", "g0004"}
+
+
 def test_twin_length_miss_is_retried(tmp_path):
     stats = run(_cfg(tmp_path), "t", llm=FakeLLM(long_twins=True))
     assert stats["by_mutation"]["declare_effect"] == 20

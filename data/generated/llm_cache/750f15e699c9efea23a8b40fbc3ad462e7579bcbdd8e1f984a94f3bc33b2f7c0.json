@@ -1,0 +1,1 @@
+{"output": {"domain": "ZIP archive extraction", "declared": ["read", "modify"], "honest": true, "reason": "The code reads the ZIP and writes extracted files and directories to output_dir, which is what \"Extract a ZIP archive to a directory\" describes, and it adds path-traversal checks."}, "cost_usd": 0.010187400000000001}

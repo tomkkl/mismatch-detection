@@ -78,17 +78,21 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
     def reject(stage: str, pair_id: str, reason: str):
         rejects.append({"stage": stage, "pair_id": pair_id, "reason": reason})
 
-    # 1. honest tools
-    plans = plan_calls(cfg["n_honest"], cfg["tools_per_call"], cfg["domains"],
-                       cfg["p_second_effect"], seed)
-    print(f"generate: {len(plans)} calls for {cfg['n_honest']} honest tools", flush=True)
+    # 1. honest tools: generated, or (rung 3) real tools collected and reviewed by a person
     honest: list[ToolPair] = []
-    for plan, tools, err in _parallel(lambda p: generate_batch(llm, p, gen["effort"]), plans,
-                                      workers, "generate"):
-        if err:
-            reject("generate", plan.call_id, err)
-            continue
-        honest += tools
+    if cfg.get("honest_from"):
+        honest = _load_reviewed(cfg["honest_from"], reject)
+        print(f"honest_from: {len(honest)} reviewed tools", flush=True)
+    else:
+        plans = plan_calls(cfg["n_honest"], cfg["tools_per_call"], cfg["domains"],
+                           cfg["p_second_effect"], seed)
+        print(f"generate: {len(plans)} calls for {cfg['n_honest']} honest tools", flush=True)
+        for plan, tools, err in _parallel(lambda p: generate_batch(llm, p, gen["effort"]),
+                                          plans, workers, "generate"):
+            if err:
+                reject("generate", plan.call_id, err)
+                continue
+            honest += tools
 
     kept, names = [], set()
     for t in sorted(honest, key=lambda t: t.source_id):
@@ -247,6 +251,22 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
     stats = _stats(pairs, rejects, llm)
     (out / "stats.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")
     return stats
+
+
+def _load_reviewed(path: str, reject: Callable) -> list[ToolPair]:
+    """Collected tools (data/collect.py) a person marked `meta.review: ok`."""
+    tools = []
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            t = ToolPair.from_dict(json.loads(line))
+            review = t.meta.get("review")
+            if review != "ok":
+                reject("honest", t.pair_id, f"review: {review or 'not reviewed'}")
+                continue
+            tools.append(t)
+    return tools
 
 
 def _exclude_known_names(pairs: list[ToolPair], sources: list[str],

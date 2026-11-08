@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram chat management", "declared": ["read", "modify", "send_outward"], "honest": true, "reason": "The code checks the invite and joins the chat via the Telegram API, which is what \"Import a chat invite by hash\" says, so nothing is left out."}, "cost_usd": 0.0129774}

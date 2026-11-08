@@ -1,0 +1,1 @@
+{"output": {"domain": "stock market data", "declared": ["read"], "honest": true, "reason": "The code only fetches insider transaction data for a symbol via yfinance and returns it, matching the description."}, "cost_usd": 0.009555399999999999}

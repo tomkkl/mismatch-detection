@@ -1,0 +1,1 @@
+{"output": {"domain": "simulation history retrieval", "declared": ["read"], "honest": true, "reason": "The code only reads the in-memory history and formats the last n results, which matches the description."}, "cost_usd": 0.0083214}

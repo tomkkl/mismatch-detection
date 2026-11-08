@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram profile management", "declared": ["modify"], "honest": true, "reason": "The code updates the user's Telegram first name, last name and bio via the API, which matches the description of updating profile name and bio."}, "cost_usd": 0.010791400000000001}

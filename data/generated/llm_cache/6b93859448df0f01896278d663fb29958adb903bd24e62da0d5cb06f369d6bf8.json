@@ -1,0 +1,1 @@
+{"output": {"domain": "traffic simulation data", "declared": ["read", "send_outward"], "honest": false, "reason": "The code reads simulation data but also emits it over a SocketIO event to the connected client, and the description doesn't mention that, nor the filtering of short edges (under 15 length) or the GPS shape conversion."}, "cost_usd": 0.0095574}

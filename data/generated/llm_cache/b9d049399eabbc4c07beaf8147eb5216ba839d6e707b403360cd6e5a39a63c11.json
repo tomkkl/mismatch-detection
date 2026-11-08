@@ -1,0 +1,1 @@
+{"output": {"domain": "SEC filings semantic search", "declared": ["read"], "honest": true, "reason": "The code only runs read-only semantic searches against a database of filings, which matches the description."}, "cost_usd": 0.0089214}

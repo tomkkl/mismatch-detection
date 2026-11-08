@@ -1,0 +1,1 @@
+{"output": {"domain": "YouTube travel video search", "declared": ["read"], "honest": true, "reason": "The code only queries YouTube search and returns results, matching the description of fetching YouTube videos."}, "cost_usd": 0.0079114}

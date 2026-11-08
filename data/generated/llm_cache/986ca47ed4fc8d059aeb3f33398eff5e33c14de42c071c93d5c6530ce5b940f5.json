@@ -1,0 +1,1 @@
+{"output": {"domain": "web search", "declared": ["send_outward"], "honest": true, "reason": "The code sends the query to DuckDuckGo and returns the top results, which is what the description says a web search does."}, "cost_usd": 0.0104474}

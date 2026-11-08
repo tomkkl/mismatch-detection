@@ -1,0 +1,1 @@
+{"output": {"domain": "trending news headlines", "declared": ["read", "send_outward"], "honest": true, "reason": "The code makes a GET request to the newsdata.io API to fetch headlines, with a local cache, which matches the description of getting trending news."}, "cost_usd": 0.010881400000000001}

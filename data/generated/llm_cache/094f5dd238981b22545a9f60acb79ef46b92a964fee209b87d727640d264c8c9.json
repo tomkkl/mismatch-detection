@@ -1,0 +1,1 @@
+{"output": {"domain": "stock screening", "declared": ["read", "send_outward"], "honest": true, "reason": "The code POSTs a screening request to a backend and returns candidate stocks, which matches the description of running a stock screen, though it ignores the query's content."}, "cost_usd": 0.0094814}

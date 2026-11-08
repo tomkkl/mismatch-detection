@@ -1,0 +1,1 @@
+{"output": {"domain": "resume summary tailoring", "declared": ["send_outward"], "honest": true, "reason": "The code sends the summary and job description to an LLM and returns a rewritten summary, which matches the description of modifying or updating the summary; it stores nothing."}, "cost_usd": 0.0096994}

@@ -1,0 +1,1 @@
+{"output": {"domain": "IP geolocation lookup", "declared": ["read", "send_outward"], "honest": true, "reason": "The code makes an HTTP GET to the IPStack API with the IP address and returns the details, which matches the description of fetching IP details via IPStack."}, "cost_usd": 0.008739400000000001}

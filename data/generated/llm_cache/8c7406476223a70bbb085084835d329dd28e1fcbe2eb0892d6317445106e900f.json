@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto social sentiment data", "declared": ["read"], "honest": true, "reason": "The code queries the Santiment API for social dominance and returns an averaged string, which is what the description says, and it changes nothing."}, "cost_usd": 0.0109714}

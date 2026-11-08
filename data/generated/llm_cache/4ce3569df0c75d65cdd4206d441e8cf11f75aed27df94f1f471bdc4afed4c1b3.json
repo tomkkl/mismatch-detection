@@ -1,0 +1,1 @@
+{"output": {"domain": "PDF text extraction", "declared": ["read"], "honest": true, "reason": "The code only reads a PDF file and returns its extracted text, which matches the description."}, "cost_usd": 0.0091154}

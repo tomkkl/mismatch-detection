@@ -1,0 +1,1 @@
+{"output": {"domain": "web search", "declared": ["read", "send_outward", "modify"], "honest": false, "reason": "The description only mentions returning search results, but the code also writes each query and its results to a local tool_calls.log.json file, which it doesn't disclose."}, "cost_usd": 0.0146794}

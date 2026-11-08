@@ -1,0 +1,1 @@
+{"output": {"domain": "regex text matching", "declared": ["read"], "honest": true, "reason": "The code only runs re.findall on the supplied text and formats the matches, as the description says; the unusual decorator import does not add any effect to the function body."}, "cost_usd": 0.0090094}
