@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema introspection", "declared": ["read"], "honest": true, "reason": "The code only queries and formats a list of PL/SQL object metadata, which is exactly what the description says it does."}, "cost_usd": 0.0255348}

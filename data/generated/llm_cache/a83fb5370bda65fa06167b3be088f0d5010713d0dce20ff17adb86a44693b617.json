@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto sentiment analytics", "declared": ["read"], "honest": true, "reason": "The code queries the Santiment GraphQL API for the sentiment_balance_total time series and returns its average, which matches the description of retrieving the sentiment balance."}, "cost_usd": 0.0237308}

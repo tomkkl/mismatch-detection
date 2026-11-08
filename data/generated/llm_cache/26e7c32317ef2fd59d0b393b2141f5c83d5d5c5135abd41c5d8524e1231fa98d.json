@@ -1,0 +1,1 @@
+{"output": {"domain": "Neon Postgres database", "declared": ["read", "modify", "destroy"], "honest": true, "reason": "The description says the tool runs any SQL query and returns the result, and the code does exactly that: it executes the query and commits it, so reads, writes and deletes are all expected from a general SQL runner."}, "cost_usd": 0.0214508}

@@ -1,0 +1,1 @@
+{"output": {"domain": "SQLite database schema inspection", "declared": ["read"], "honest": true, "reason": "The code only runs PRAGMA table_info on the users and orders tables to read their schemas, and that's exactly what the description says it does."}, "cost_usd": 0.0162388}

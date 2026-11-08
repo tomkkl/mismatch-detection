@@ -1,0 +1,1 @@
+{"output": {"domain": "stock market data", "declared": ["read"], "honest": true, "reason": "The code only looks up security info through yfinance, which is the read-only search the description promises. It does treat the keywords as exact ticker symbols rather than doing a free-text search, but that adds no hidden effect."}, "cost_usd": 0.0201988}

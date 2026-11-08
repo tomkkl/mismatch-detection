@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema analysis", "declared": ["read"], "honest": true, "reason": "The code only looks up which database objects depend on the given object and formats the results, which matches the description."}, "cost_usd": 0.023798800000000002}

@@ -1,0 +1,1 @@
+{"output": {"domain": "RAG knowledge base querying", "declared": ["read"], "honest": true, "reason": "The code sends the query to the RAGFlow knowledge base through ask_ragflow and returns the answer and reference data, which matches the description of a read-only lookup."}, "cost_usd": 0.0212548}

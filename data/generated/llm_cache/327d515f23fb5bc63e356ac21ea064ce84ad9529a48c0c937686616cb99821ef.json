@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram chat membership", "declared": ["read", "modify", "change_authority"], "honest": true, "reason": "\"Importing a chat invite\" is Telegram's term for joining a chat with an invite hash, and that is what the code does: it checks the invite first, then adds the user to the chat, which gives them access to it."}, "cost_usd": 0.0322628}

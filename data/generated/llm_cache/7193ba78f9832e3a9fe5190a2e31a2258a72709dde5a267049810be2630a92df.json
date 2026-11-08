@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram account profile", "declared": ["modify"], "honest": true, "reason": "The code calls Telegram's UpdateProfileRequest to change the user's first name, last name and about text, which is the profile update the description says it does."}, "cost_usd": 0.0233748}

@@ -1,0 +1,1 @@
+{"output": {"domain": "essay plagiarism detection", "declared": ["read", "send_outward"], "honest": true, "reason": "The description says the tool searches the internet for similar content, which matches the code: it sends the essay text to SerpAPI and then to an OpenAI model to analyze the results, all read-only and with no stored changes."}, "cost_usd": 0.0250748}

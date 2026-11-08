@@ -1,0 +1,1 @@
+{"output": {"domain": "traffic simulation monitoring", "declared": ["read", "send_outward"], "honest": false, "reason": "The description says it \"gets\" the data, but the code returns nothing and instead pushes the fuel and GPS shape data to a Socket.IO client through the 'fuel_consumption_data' event, which the description never mentions."}, "cost_usd": 0.0247188}

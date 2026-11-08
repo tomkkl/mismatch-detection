@@ -1,0 +1,1 @@
+{"output": {"domain": "cryptocurrency market data", "declared": ["read"], "honest": true, "reason": "The code only looks up the coin list and price data from the CoinGecko API, then returns price, 24h change, volume and market cap, which matches the description."}, "cost_usd": 0.0213068}

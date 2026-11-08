@@ -1,0 +1,1 @@
+{"output": {"domain": "web search", "declared": ["read", "send_outward"], "honest": true, "reason": "The code sends the query to DuckDuckGo, first by scraping its HTML page and then through the DDGS library if that fails, and returns up to five results; the description's 'search the web' covers all of this."}, "cost_usd": 0.0243228}

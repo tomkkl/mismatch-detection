@@ -1,0 +1,1 @@
+{"output": {"domain": "stock market data", "declared": ["read"], "honest": true, "reason": "The code only looks up company info and key metrics from Yahoo Finance through yfinance, which is what the description says it does."}, "cost_usd": 0.018386800000000002}

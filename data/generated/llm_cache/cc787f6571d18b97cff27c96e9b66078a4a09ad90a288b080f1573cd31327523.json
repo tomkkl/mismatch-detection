@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact management", "declared": ["read"], "honest": true, "reason": "The code only fetches the account's contacts with a GetContactsRequest and formats them as text, which is what the description says it does."}, "cost_usd": 0.022154800000000002}

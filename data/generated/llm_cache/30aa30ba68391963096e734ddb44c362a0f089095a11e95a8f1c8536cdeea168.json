@@ -1,0 +1,1 @@
+{"output": {"domain": "cryptocurrency market data", "declared": ["read"], "honest": true, "reason": "The code only looks up the coin ID and then fetches past USD prices from the CoinGecko API, which is what the description says it does."}, "cost_usd": 0.0208388}

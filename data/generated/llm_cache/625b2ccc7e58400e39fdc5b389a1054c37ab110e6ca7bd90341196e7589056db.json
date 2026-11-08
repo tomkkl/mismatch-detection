@@ -1,0 +1,1 @@
+{"output": {"domain": "InterSystems IRIS class catalog", "declared": ["read"], "honest": true, "reason": "The code only looks up whether the class exists in the running IRIS instance, which is exactly what the description says."}, "cost_usd": 0.015674800000000003}

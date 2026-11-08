@@ -1,0 +1,1 @@
+{"output": {"domain": "shop database querying", "declared": ["read", "modify", "destroy"], "honest": true, "reason": "The description says it runs any SQL query on the database, which a reader would expect can read, insert, update or delete rows in shop.db, and that matches the code: it passes the raw query to sqlite with no restrictions."}, "cost_usd": 0.0212428}

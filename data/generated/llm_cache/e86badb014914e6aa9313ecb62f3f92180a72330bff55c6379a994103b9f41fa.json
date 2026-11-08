@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram GIF search", "declared": ["read"], "honest": true, "reason": "The code only runs a GIF search through the Telegram API, with a fallback search if the first method fails, and returns document IDs, which matches the description."}, "cost_usd": 0.0260348}

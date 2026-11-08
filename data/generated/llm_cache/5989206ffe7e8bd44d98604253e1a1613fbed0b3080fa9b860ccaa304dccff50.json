@@ -1,0 +1,1 @@
+{"output": {"domain": "Superset analytics configuration", "declared": ["read"], "honest": true, "reason": "The tool only reads the base URL from the server's stored settings and returns it, which is what the description says."}, "cost_usd": 0.0260068}

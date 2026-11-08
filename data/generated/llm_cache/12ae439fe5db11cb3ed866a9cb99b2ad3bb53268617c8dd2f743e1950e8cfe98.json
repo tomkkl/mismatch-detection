@@ -1,0 +1,1 @@
+{"output": {"domain": "dog trivia facts", "declared": ["read"], "honest": true, "reason": "The code sends one GET request with no user data to a public dog-facts API and returns the fact, which is what the description says it does."}, "cost_usd": 0.0181388}

@@ -342,6 +342,31 @@ def label(llm: LLM, tool: dict, effort: str | None = None) -> dict:
     return out
 
 
+def second_opinion(path: str | Path, llm: LLM, effort: str | None = None,
+                   log: Callable[[str], None] = print) -> dict:
+    """Label every candidate again with another model into `meta.draft2`, so reviewers can
+    start with the tools where the two drafts disagree. Leaves `meta.draft` untouched."""
+    path = Path(path)
+    rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip()]
+    for i, r in enumerate(rows):
+        try:
+            d2 = label(llm, {"name": r["name"], "description": r["description"],
+                             "params": r["params"], "code": r["code"]}, effort)
+        except LLMError as e:
+            d2 = {"error": str(e)}
+        r["meta"]["draft2"] = {**d2, "model": llm.name}
+        if (i + 1) % 10 == 0 or i + 1 == len(rows):
+            log(f"  second opinion: {i + 1}/{len(rows)}")
+    path.write_text("".join(json.dumps(r) + "\n" for r in rows), encoding="utf-8")
+    d1 = [r["meta"].get("draft") or {} for r in rows]
+    d2 = [r["meta"]["draft2"] for r in rows]
+    return {"tools": len(rows),
+            "agree_honest": sum(a.get("honest") == b.get("honest") for a, b in zip(d1, d2)),
+            "agree_effects": sum(a.get("declared") == b.get("declared") for a, b in zip(d1, d2)),
+            "errors": sum("error" in b for b in d2)}
+
+
 # --------------------------------------------------------------------------------- run
 
 def _row(sid: str, raw: dict, item: dict, commit: str, license_id: str | None) -> ToolPair:

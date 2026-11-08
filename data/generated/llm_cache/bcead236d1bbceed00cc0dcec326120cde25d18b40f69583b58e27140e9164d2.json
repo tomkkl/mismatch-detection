@@ -1,0 +1,1 @@
+{"output": {"domain": "enterprise documentation search", "declared": ["read"], "honest": true, "reason": "The code runs a similarity search against a local Chroma vector store and returns the top matching documents with their source URLs, which is exactly what the description says."}, "cost_usd": 0.0204708}

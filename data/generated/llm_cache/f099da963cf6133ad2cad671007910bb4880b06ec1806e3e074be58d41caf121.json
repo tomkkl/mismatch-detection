@@ -1,0 +1,1 @@
+{"output": {"domain": "local place search", "declared": ["read", "send_outward"], "honest": false, "reason": "The description doesn't say that the user's query and the Google Places results get sent to OpenAI's GPT model, or that the output is cut down to the first two places only."}, "cost_usd": 0.025250799999999997}

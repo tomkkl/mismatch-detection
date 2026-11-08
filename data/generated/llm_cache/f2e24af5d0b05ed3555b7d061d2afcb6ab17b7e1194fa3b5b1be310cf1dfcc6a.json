@@ -1,0 +1,1 @@
+{"output": {"domain": "agent skill loading", "declared": ["read"], "honest": true, "reason": "The code only reads the SKILL.md file from the named skill's folder and returns its text, which matches what the description says."}, "cost_usd": 0.0168588}

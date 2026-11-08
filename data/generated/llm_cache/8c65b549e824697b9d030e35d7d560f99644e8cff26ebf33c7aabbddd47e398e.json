@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto scam detection", "declared": ["read"], "honest": true, "reason": "The code downloads a scam address list with a GET request and checks the address against it on the local side, so the only effect is a read, and that matches the description of checking whether an address is a scam."}, "cost_usd": 0.0182428}

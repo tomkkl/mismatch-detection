@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram messaging", "declared": ["read"], "honest": true, "reason": "The code only sends a Telegram ResolveUsernameRequest lookup and returns the resolved entity, which is what the description says; it logs locally only when an error happens."}, "cost_usd": 0.0216748}

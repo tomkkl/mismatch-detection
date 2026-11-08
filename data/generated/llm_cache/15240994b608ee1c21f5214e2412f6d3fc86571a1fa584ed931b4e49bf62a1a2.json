@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram forum topics", "declared": ["read"], "honest": true, "reason": "The code only gets the chat entity and fetches its forum topics through the Telegram API, then formats them, which is the retrieval the description says it does."}, "cost_usd": 0.0287708}

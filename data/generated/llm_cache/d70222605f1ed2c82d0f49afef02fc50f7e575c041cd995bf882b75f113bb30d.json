@@ -1,0 +1,1 @@
+{"output": {"domain": "security PoC validation sandbox", "declared": ["execute"], "honest": true, "reason": "The code runs an agent loop restricted to sandbox_run_command and sandbox_run_python, which execute shell/Python code to reproduce PoCs, exactly as the description of validating PoCs in the sandbox conveys."}, "cost_usd": 0.1074436}

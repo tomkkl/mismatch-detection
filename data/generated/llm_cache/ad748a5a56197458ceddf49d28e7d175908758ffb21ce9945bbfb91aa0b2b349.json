@@ -1,0 +1,1 @@
+{"output": {"domain": "temporary email inbox", "declared": ["read"], "honest": true, "reason": "The code only sends an authenticated GET request to the mail.tm API to fetch the account's messages and returns a trimmed JSON list, which matches what the description says."}, "cost_usd": 0.0212228}

@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema inspection", "declared": ["read"], "honest": true, "reason": "The tool only fetches the source text of one PL/SQL object through the database context and returns it wrapped, which matches the description of retrieving DDL/source."}, "cost_usd": 0.024974800000000002}

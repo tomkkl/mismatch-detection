@@ -1,0 +1,1 @@
+{"output": {"domain": "temporary email account management", "declared": ["read"], "honest": true, "reason": "The code only reads the keys of an in-memory email token store and returns them as JSON, which is what the description says."}, "cost_usd": 0.0152188}

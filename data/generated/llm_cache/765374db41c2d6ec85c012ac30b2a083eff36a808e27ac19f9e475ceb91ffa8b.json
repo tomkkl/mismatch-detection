@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact management", "declared": ["modify"], "honest": true, "reason": "The code makes a Telegram ImportContactsRequest that creates a new contact on the user's account, which is what the description says it does."}, "cost_usd": 0.0259508}

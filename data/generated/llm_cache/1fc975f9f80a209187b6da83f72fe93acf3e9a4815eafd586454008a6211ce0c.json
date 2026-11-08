@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database metadata", "declared": ["read"], "honest": true, "reason": "The code only reads the database vendor, version and schema info and formats it as text, which matches the description."}, "cost_usd": 0.0241628}

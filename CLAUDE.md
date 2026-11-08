@@ -179,6 +179,19 @@ Steps 2 and 3 can run at the same time with different people.
      characters (`g0068` = 583 interface tokens, over the 380 the chunker allows).
      **Decided 2026-11-07: keep all 210, no per-repo cap.** Reviewers must drop `g0068`
      (scoring would fail on it); `g0118` (336 tokens) fits but its rewrites may not.
+     **Review page (2026-11-07):** https://claude.ai/artifact/UejjPDZH9x9p92vbUC7xrP (private
+     until Tom shares it from the page's Share menu; reviewers need Contributor access to save).
+     Source `docs/review/index.html`; it loads `candidates.json` built by
+     `python scripts/rung3_review.py page <out.json>` and saves decisions to the page's shared
+     store (`reviews/<source_id>`: review ok/drop, declared, note, reviewer id, time). Filters:
+     unreviewed, drafts disagree, drafted mismatch, no effects. Keys: j / k next / previous,
+     o OK, d Drop. When the review is done, export the store (Claude: `ArtifactData list
+     reviews`) to a JSON file and run `python scripts/rung3_review.py apply <decisions.json>` to
+     write `tools.jsonl`. A second draft from a different model (Opus 5.5,
+     `agentlint data second-opinion configs/datagen_rung3.yaml`, into `meta.draft2`) shows
+     which tools the two drafts disagree on. Result: they agree on honest / not for 194/210
+     and on the exact effects for 163/210; 57 tools differ somehow. Opus drafts 17 originals
+     as already mismatches (23 by either model) and 15 with no effects.
    - **Agent Audit coverage set: built and audited 2026-11-07; bug set not scored by our
      model yet.** Config `configs/coverage.yaml`; design in section 5, "Evaluation".
      Cases: the 251 rung 1 `test` pairs (our model's predictions from 2026-11-03 reused) +
@@ -209,7 +222,12 @@ Steps 2 and 3 can run at the same time with different people.
      anything is committed.
      **Next:** score the bug set on CARC once
      (`sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/coverage-bugs/pairs.jsonl`),
-     then `agentlint coverage report configs/coverage.yaml`.
+     then `agentlint coverage report configs/coverage.yaml` and `python scripts/plot_results.py`.
+     **Write-up:** `docs/results-coverage.md` (chart `docs/figures/coverage.svg`). Also found:
+     weakened pairs get the same findings as their originals (12/12), so Agent Audit's output is
+     identical on all 66 same-code pairs; its bug-specific rules catch eval/exec 9/9, shell
+     9/9 and secrets 7/9 but SQL injection 1/9, SSRF 1/9, path traversal and deserialization
+     0/9 (caught only through the generic rules).
 4. **Evaluation code** in `src/agentlint/eval/`: metrics and breakdowns are in `metrics.py`;
    test-set scoring is in `score.py` (2026-11-01): `agentlint score <checkpoint> <pairs.jsonl>`
    reports at 0.5 and at the cut-off in `threshold.json`, plus a tool-bootstrap 95% interval
@@ -603,6 +621,9 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `scripts/carc/`: USC CARC setup (`setup.sh`, `env.sh`) and SLURM job scripts (`train.slurm`,
   `score.slurm`)
 - `docs/agentlint-preproposal.md`: current proposal
+- `docs/results-coverage.md`: Agent Audit coverage comparison, with chart
+- `docs/review/index.html`: rung 3 review page (published artifact); `scripts/rung3_review.py`
+  builds its data and writes the decisions back to `tools.jsonl`
 - `docs/results-binary.md`: binary model results write-up (training, val, test), with charts
 - `probes/aa_run/`: generated Agent Audit cases (keep the path neutral; see Gotchas)
 
@@ -682,7 +703,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-11-07 (latest):** Step 5 done: filled the word-list gaps (SQL tables, billing / access
+- **2026-11-07 (latest):** Published the rung 3 review page (shared decisions, filters for
+  disagreements) with an Opus second-opinion draft for every candidate (57 disagree with Sonnet). Wrote
+  `docs/results-coverage.md`: Agent Audit's findings are identical on all 66 same-code pairs.
+- **2026-11-07:** Step 5 done: filled the word-list gaps (SQL tables, billing / access
   endpoints, Stripe and IAM calls, helper names, command arguments; bare `close()` no longer
   destroy). Injected effect found on its lines 553/560 in `full` (was 409), 108/110 in rung 2
   (was 79); no rise in over-flagging. Rebuilds of `full` / rung 2 now need commit 8c61fe0.

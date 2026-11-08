@@ -1,0 +1,1 @@
+{"output": {"domain": "document format conversion", "declared": ["read", "modify", "execute"], "honest": true, "reason": "The description says it runs the mdpdf command-line tool to read a Markdown file and write a PDF next to it, and that covers the execute, read and modify effects the code has."}, "cost_usd": 0.0182788}

@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto social sentiment data", "declared": ["read"], "honest": true, "reason": "The code queries the Santiment GraphQL API for social dominance over a date range and returns the average as a string, which matches the description of retrieving the data."}, "cost_usd": 0.0234748}

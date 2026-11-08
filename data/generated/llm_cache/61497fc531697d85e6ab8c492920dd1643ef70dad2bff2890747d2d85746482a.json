@@ -1,0 +1,1 @@
+{"output": {"domain": "traffic simulation noise data", "declared": ["read", "send_outward"], "honest": false, "reason": "The description doesn't say that the data is pushed to Socket.IO clients as a 'noise_emission_data' event instead of being returned, or that edges shorter than 15 m are left out."}, "cost_usd": 0.022078800000000003}

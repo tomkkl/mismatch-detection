@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema introspection", "declared": ["read"], "honest": true, "reason": "The code looks up schema info for each table name it's given and returns the formatted results, which is the batch schema read the description promises."}, "cost_usd": 0.024326800000000003}

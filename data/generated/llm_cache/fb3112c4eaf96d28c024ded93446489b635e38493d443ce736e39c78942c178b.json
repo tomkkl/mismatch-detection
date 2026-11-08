@@ -1,0 +1,1 @@
+{"output": {"domain": "file integrity hashing", "declared": ["read"], "honest": true, "reason": "The code only reads the file to compute hashes and get its size, so its one effect is reading, which the description covers; it also returns a SHA-512 hash and the file size, but neither adds a new kind of effect."}, "cost_usd": 0.0232228}

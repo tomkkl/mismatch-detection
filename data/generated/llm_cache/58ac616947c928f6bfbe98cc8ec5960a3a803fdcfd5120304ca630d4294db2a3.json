@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram account profile", "declared": ["read"], "honest": true, "reason": "The code only fetches the current user's Telegram profile and returns it as formatted output, which matches the description; the only side effect is local error logging."}, "cost_usd": 0.0237668}

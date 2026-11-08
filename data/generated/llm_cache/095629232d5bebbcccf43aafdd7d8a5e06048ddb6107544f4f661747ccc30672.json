@@ -1,0 +1,1 @@
+{"output": {"domain": "IP geolocation lookup", "declared": ["read"], "honest": true, "reason": "The code only makes a GET request to the IPStack API to look up details for the given IP and returns the JSON, which matches the description."}, "cost_usd": 0.0195468}

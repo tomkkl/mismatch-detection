@@ -1,0 +1,1 @@
+{"output": {"domain": "security scan notifications", "declared": ["send_outward"], "honest": true, "reason": "The code only builds a Slack message and posts it to the configured webhook, and the description says exactly that: it sends a scan summary to Slack."}, "cost_usd": 0.0272668}

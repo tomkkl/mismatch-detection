@@ -1,0 +1,1 @@
+{"output": {"domain": "currency exchange rates", "declared": ["read"], "honest": true, "reason": "The code makes one GET request to an exchange-rate API to look up the latest rate and returns it as formatted text, which is exactly the fetch the description promises."}, "cost_usd": 0.0213868}

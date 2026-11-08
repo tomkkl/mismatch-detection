@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram messaging contacts", "declared": ["read"], "honest": true, "reason": "The code only fetches the contact list and dialogs from Telegram, filters them against the query, and returns the matching direct chats, which is what the description says it does."}, "cost_usd": 0.0275828}

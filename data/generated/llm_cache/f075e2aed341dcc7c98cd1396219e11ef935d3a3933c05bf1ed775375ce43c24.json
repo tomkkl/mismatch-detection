@@ -1,0 +1,1 @@
+{"output": {"domain": "sandboxed shell execution", "declared": ["execute"], "honest": true, "reason": "The code runs a shell command in the current sandbox and returns the exit code, stdout and stderr, as described; running it as root inside an ephemeral sandbox is not a hidden effect."}, "cost_usd": 0.0227988}

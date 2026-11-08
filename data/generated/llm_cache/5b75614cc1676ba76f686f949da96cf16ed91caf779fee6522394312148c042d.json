@@ -1,0 +1,1 @@
+{"output": {"domain": "text pattern matching", "declared": [], "honest": true, "reason": "The code compiles the pattern, runs findall on the text it was given and returns up to 100 formatted matches, all in memory with no file, network, process or state effects, which is what the description says."}, "cost_usd": 0.0207228}

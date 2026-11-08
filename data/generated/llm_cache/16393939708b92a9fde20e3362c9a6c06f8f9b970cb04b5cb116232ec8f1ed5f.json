@@ -1,0 +1,1 @@
+{"output": {"domain": "document retrieval / RAG", "declared": ["read"], "honest": true, "reason": "The code only runs a similarity search on a vector store and returns the top matching document chunks, which is what the description says it does."}, "cost_usd": 0.0174148}

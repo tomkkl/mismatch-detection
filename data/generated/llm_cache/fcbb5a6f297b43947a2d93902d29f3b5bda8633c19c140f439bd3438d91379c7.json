@@ -1,0 +1,1 @@
+{"output": {"domain": "web search", "declared": ["read"], "honest": true, "reason": "The code only runs a DuckDuckGo search lookup and returns the results, which is what the description says."}, "cost_usd": 0.0167748}

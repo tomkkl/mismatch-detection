@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact management", "declared": ["read"], "honest": true, "reason": "The code only fetches the contact list from Telegram and returns it as JSON, which is what the description says (\"export\" here means returning a string, not writing a file or sending data anywhere)."}, "cost_usd": 0.024502799999999998}

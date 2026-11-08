@@ -1,0 +1,1 @@
+{"output": {"domain": "cryptocurrency market data", "declared": ["read"], "honest": true, "reason": "The code only fetches the CoinGecko coin list and filters it locally by the query, which matches the described search."}, "cost_usd": 0.0179028}

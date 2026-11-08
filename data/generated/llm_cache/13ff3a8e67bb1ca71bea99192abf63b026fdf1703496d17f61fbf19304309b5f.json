@@ -1,0 +1,1 @@
+{"output": {"domain": "job listing web search", "declared": ["read", "send_outward"], "honest": true, "reason": "The code sends the query to the Olostep search API and returns the job links it gets back as compact JSON, which matches the description's \"search the web\"."}, "cost_usd": 0.0201428}

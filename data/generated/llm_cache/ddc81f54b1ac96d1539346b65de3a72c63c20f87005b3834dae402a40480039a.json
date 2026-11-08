@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema inspection", "declared": ["read"], "honest": true, "reason": "The code looks up one table's schema info, which it loads lazily and caches, and returns it formatted. That matches the description, which openly says it 'lazy loads & caches'."}, "cost_usd": 0.0261668}

@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema discovery", "declared": ["read"], "honest": true, "reason": "The code searches table names for each term, combines the matches, keeps at most 20 and returns their schemas, which is exactly the read-only lookup the description gives."}, "cost_usd": 0.028506800000000002}

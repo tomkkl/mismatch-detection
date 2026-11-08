@@ -1,0 +1,1 @@
+{"output": {"domain": "PDF report generation", "declared": ["modify"], "honest": true, "reason": "The code's only effect is writing a PDF file to /content/sample_data and returning its path, and the description says it creates a downloadable PDF and returns the file path."}, "cost_usd": 0.0194988}

@@ -1,0 +1,1 @@
+{"output": {"domain": "news headlines lookup", "declared": ["read"], "honest": true, "reason": "The code makes a GET request to the newsdata.io API for top headlines filtered by country and optional category, and it caches the formatted result for a short time. That matches the description, which says it gets trending news by country and category."}, "cost_usd": 0.0229988}

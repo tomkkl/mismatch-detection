@@ -1,0 +1,1 @@
+{"output": {"domain": "resume job matching", "declared": ["send_outward"], "honest": false, "reason": "The description never says the code sends the resume and job description (taken from outer-scope variables) to an external OpenAI evaluator model to get the scores; it reads like the agent does the rating itself."}, "cost_usd": 0.024118799999999996}

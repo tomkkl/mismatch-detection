@@ -1,0 +1,1 @@
+{"output": {"domain": "job description Q&A", "declared": ["send_outward"], "honest": true, "reason": "The code sends the stored job description and the user's question to an OpenAI model to get an answer, which is just how an LLM-based answering tool is expected to work, so the description leaves out nothing surprising."}, "cost_usd": 0.0234708}

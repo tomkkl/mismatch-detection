@@ -1,0 +1,414 @@
+<title>Rung 3 Tool Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a reviewer's bench. Queue on the left, the tool under review on the right,
+   the two draft verdicts side by side above the decision bar. */
+:root {
+  --bg: #f4f5f7; --surface: #ffffff; --sunk: #eceef2; --fg: #1a1e26; --muted: #5d6676;
+  --line: #d9dde4; --accent: #3a56d4; --accent-ink: #ffffff;
+  --ok: #1d7f55; --ok-bg: #e2f3ea; --drop: #b83c35; --drop-bg: #f8e3e1;
+  --warn: #9a6512; --warn-bg: #f7ecd6;
+  --f-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11141a; --surface: #181c24; --sunk: #0d1015; --fg: #e3e7ee; --muted: #98a2b3;
+  --line: #2a313d; --accent: #8ea4ff; --accent-ink: #0f1320;
+  --ok: #4cc38a; --ok-bg: #15301f; --drop: #f0796f; --drop-bg: #3a1a18;
+  --warn: #e3b453; --warn-bg: #352a12; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11141a; --surface: #181c24; --sunk: #0d1015; --fg: #e3e7ee; --muted: #98a2b3;
+  --line: #2a313d; --accent: #8ea4ff; --accent-ink: #0f1320;
+  --ok: #4cc38a; --ok-bg: #15301f; --drop: #f0796f; --drop-bg: #3a1a18;
+  --warn: #e3b453; --warn-bg: #352a12; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.5 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 16px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg); }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+a { color: var(--accent); }
+.app { max-width: 1440px; margin: 0 auto; display: grid; gap: 16px; }
+
+header.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
+h1 { font: 600 26px/1.1 var(--f-display); margin: 0; letter-spacing: .01em; text-wrap: balance; }
+.sub { color: var(--muted); margin: 4px 0 0; max-width: 70ch; }
+.tally { display: flex; gap: 8px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+.tally span { padding: 4px 10px; border-radius: 999px; background: var(--sunk); color: var(--muted); font-size: 13px; }
+.tally b { color: var(--fg); font-weight: 600; }
+.meter { height: 6px; border-radius: 3px; background: var(--sunk); overflow: hidden; display: flex; }
+.meter i { display: block; height: 100%; }
+.status-note { font-size: 13px; color: var(--warn); }
+
+.bench { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 860px) { .bench { grid-template-columns: minmax(0, 1fr); } .queue { max-height: 46vh; } }
+
+.queue { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column;
+  max-height: calc(100vh - 150px); position: sticky; top: max(16px, env(safe-area-inset-top, 0px)); min-width: 0; }
+.filters { padding: 12px; display: grid; gap: 8px; border-bottom: 1px solid var(--line); }
+.filters input { width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 3px 10px; font-size: 12.5px; color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.chip .n { font-variant-numeric: tabular-nums; opacity: .8; margin-left: 4px; }
+.list { overflow: auto; list-style: none; margin: 0; padding: 4px; }
+.list li button { width: 100%; text-align: left; border: 0; background: none; border-radius: 6px; padding: 7px 8px;
+  display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.list li button:hover { background: var(--sunk); }
+.list li button[aria-current="true"] { background: var(--sunk); box-shadow: inset 3px 0 0 var(--accent); }
+.list .sid { font: 12px var(--f-mono); color: var(--muted); }
+.list .nm { font: 13px var(--f-mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.list .flag { font-size: 11px; color: var(--warn); }
+.pill { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; }
+.pill.ok { color: var(--ok); background: var(--ok-bg); }
+.pill.drop { color: var(--drop); background: var(--drop-bg); }
+.pill.todo { color: var(--muted); background: var(--sunk); }
+.empty { padding: 16px; color: var(--muted); }
+
+.tool { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: grid; gap: 18px; min-width: 0; }
+.tool-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+.tool-head h2 { font: 500 20px/1.25 var(--f-mono); margin: 0; overflow-wrap: anywhere; }
+.src { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.src code { font-family: var(--f-mono); }
+.label { font: 600 11px var(--f-body); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 6px; }
+.desc { margin: 0; max-width: 75ch; white-space: pre-wrap; overflow-wrap: anywhere; }
+.params { width: 100%; border-collapse: collapse; font-size: 13px; }
+.params td { padding: 5px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+.params td:first-child { font-family: var(--f-mono); white-space: nowrap; }
+.params .ty { color: var(--muted); font-family: var(--f-mono); white-space: nowrap; }
+.params .none { color: var(--muted); font-style: italic; }
+.table-wrap { overflow-x: auto; }
+pre.code { margin: 0; background: var(--sunk); border: 1px solid var(--line); border-radius: 6px; padding: 12px 0;
+  font: 12.5px/1.55 var(--f-mono); overflow: auto; max-height: 520px; counter-reset: ln; }
+pre.code span.l { display: block; padding: 0 14px 0 0; white-space: pre; }
+pre.code span.l::before { counter-increment: ln; content: counter(ln); display: inline-block; width: 3.2em;
+  padding-right: 12px; text-align: right; color: var(--muted); opacity: .6; user-select: none; }
+pre.code span.l.dec { color: var(--accent); }
+
+.drafts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 640px) { .drafts { grid-template-columns: minmax(0, 1fr); } }
+.draft { border: 1px solid var(--line); border-radius: 6px; padding: 12px; display: grid; gap: 8px; min-width: 0; }
+.draft h3 { margin: 0; font: 600 13px var(--f-body); display: flex; justify-content: space-between; gap: 8px; }
+.draft h3 small { font-weight: 400; color: var(--muted); }
+.verdict { font-weight: 600; }
+.verdict.yes { color: var(--ok); } .verdict.no { color: var(--drop); }
+.draft p { margin: 0; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.fx { display: flex; flex-wrap: wrap; gap: 4px; }
+.fx span { font: 12px var(--f-mono); padding: 1px 7px; border-radius: 4px; background: var(--sunk); }
+.fx span.diff { background: var(--warn-bg); color: var(--warn); }
+.disagree { font-size: 13px; color: var(--warn); background: var(--warn-bg); padding: 8px 12px; border-radius: 6px; }
+
+.decide { border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 12px; }
+.effects { display: flex; flex-wrap: wrap; gap: 6px; }
+.effects label { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 6px;
+  padding: 4px 10px; font: 12.5px var(--f-mono); cursor: pointer; background: var(--bg); }
+.effects input { accent-color: var(--accent); margin: 0; }
+.effects label:has(input:checked) { border-color: var(--accent); }
+textarea { width: 100%; min-height: 56px; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; background: var(--bg); resize: vertical; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { border-radius: 6px; padding: 8px 16px; border: 1px solid var(--line); background: var(--bg); font-weight: 600; }
+.btn.ok { background: var(--ok); border-color: var(--ok); color: var(--surface); }
+.btn.drop { background: var(--surface); border-color: var(--drop); color: var(--drop); }
+.btn[disabled] { opacity: .5; cursor: not-allowed; }
+.kbd { font: 11px var(--f-mono); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; color: var(--muted); }
+.saved { font-size: 13px; color: var(--muted); }
+.saved.err { color: var(--drop); }
+.who { display: inline-flex; align-items: center; gap: 6px; }
+.who img { width: 18px; height: 18px; border-radius: 50%; }
+.guide { font-size: 13px; color: var(--muted); max-width: 75ch; margin: 0; }
+@media (prefers-reduced-motion: no-preference) { .list li button, .chip, .btn { transition: background .12s, border-color .12s; } }
+</style>
+
+<div class="app">
+  <header class="top">
+    <div>
+      <h1>Rung 3 Tool Review</h1>
+      <p class="sub">Real agent tools from licensed GitHub repos. Mark each <b>OK</b> if its original description already covers everything the code does, or <b>Drop</b> it. Fix the effects first if both drafts got them wrong.</p>
+    </div>
+    <div class="tally" id="tally" aria-live="polite"><span>Loading tools…</span></div>
+  </header>
+  <div class="meter" id="meter" aria-hidden="true"></div>
+  <p class="status-note" id="status" hidden></p>
+
+  <div class="bench">
+    <nav class="queue" aria-label="Tools to review">
+      <div class="filters">
+        <input id="q" type="search" placeholder="Search name, repo or description" aria-label="Search tools">
+        <div class="chips" id="chips" role="group" aria-label="Filter"></div>
+      </div>
+      <ul class="list" id="list"></ul>
+    </nav>
+    <main class="tool" id="tool" aria-live="polite">
+      <p class="empty">Loading the 210 candidates…</p>
+    </main>
+  </div>
+</div>
+
+<script>
+const EFFECTS = ["read", "modify", "destroy", "relocate", "send_outward", "execute", "spend", "change_authority"];
+const FILTERS = [
+  ["todo", "Unreviewed"], ["disagree", "Drafts disagree"], ["mismatch", "Drafted mismatch"],
+  ["noeffects", "No effects"], ["ok", "OK"], ["drop", "Dropped"], ["all", "All"],
+];
+const state = { tools: [], byId: {}, reviews: {}, filter: "todo", q: "", current: null,
+                db: null, user: null, me: null, canWrite: true, profiles: {}, loaded: false };
+const $ = (id) => document.getElementById(id);
+
+function sameSet(a, b) { a = [...(a || [])].sort(); b = [...(b || [])].sort(); return a.length === b.length && a.every((x, i) => x === b[i]); }
+function disagree(t) {
+  if (!t.d2 || t.d2.error) return false;
+  return t.d1.honest !== t.d2.honest || !sameSet(t.d1.declared, t.d2.declared);
+}
+function statusOf(t) { const r = state.reviews[t.id]; return r ? r.review : null; }
+function matches(t, f) {
+  const s = statusOf(t);
+  if (f === "todo") return !s;
+  if (f === "ok" || f === "drop") return s === f;
+  if (f === "disagree") return disagree(t);
+  if (f === "mismatch") return t.d1.honest === false || (t.d2 && t.d2.honest === false);
+  if (f === "noeffects") return !(t.d1.declared || []).length;
+  return true;
+}
+function visible() {
+  const q = state.q.trim().toLowerCase();
+  return state.tools.filter((t) => matches(t, state.filter) &&
+    (!q || (t.name + " " + t.repo + " " + t.desc + " " + t.id).toLowerCase().includes(q)));
+}
+
+function renderTally() {
+  const n = state.tools.length, ok = state.tools.filter((t) => statusOf(t) === "ok").length;
+  const drop = state.tools.filter((t) => statusOf(t) === "drop").length;
+  $("tally").innerHTML = "";
+  [["OK", ok], ["Dropped", drop], ["Left", n - ok - drop]].forEach(([k, v]) => {
+    const s = document.createElement("span"); s.innerHTML = `${k} <b>${v}</b>`; $("tally").append(s);
+  });
+  $("meter").innerHTML = n ? `<i style="width:${ok / n * 100}%;background:var(--ok)"></i><i style="width:${drop / n * 100}%;background:var(--drop)"></i>` : "";
+}
+function renderChips() {
+  $("chips").innerHTML = "";
+  FILTERS.forEach(([key, label]) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.setAttribute("aria-pressed", String(state.filter === key));
+    b.append(label);
+    const n = document.createElement("span"); n.className = "n";
+    n.textContent = state.tools.filter((t) => matches(t, key)).length; b.append(n);
+    b.onclick = () => { state.filter = key; render(); };
+    $("chips").append(b);
+  });
+}
+function renderList() {
+  const items = visible(), ul = $("list"); ul.innerHTML = "";
+  if (!items.length) { ul.innerHTML = `<li class="empty">${state.loaded ? "Nothing matches this filter." : "Loading…"}</li>`; return; }
+  items.forEach((t) => {
+    const li = document.createElement("li"), b = document.createElement("button");
+    b.type = "button"; b.setAttribute("aria-current", String(state.current === t.id));
+    const sid = document.createElement("span"); sid.className = "sid"; sid.textContent = t.id;
+    const mid = document.createElement("span"); mid.style.minWidth = "0";
+    const nm = document.createElement("div"); nm.className = "nm"; nm.textContent = t.name;
+    mid.append(nm);
+    if (disagree(t)) { const f = document.createElement("div"); f.className = "flag"; f.textContent = "drafts disagree"; mid.append(f); }
+    const s = statusOf(t), pill = document.createElement("span");
+    pill.className = "pill " + (s || "todo"); pill.textContent = s || "todo";
+    b.append(sid, mid, pill); b.onclick = () => select(t.id); li.append(b); ul.append(li);
+  });
+}
+
+function draftBox(title, model, d, other) {
+  const box = document.createElement("section"); box.className = "draft";
+  const h = document.createElement("h3"); h.textContent = title;
+  const sm = document.createElement("small"); sm.textContent = model; h.append(sm); box.append(h);
+  if (!d || d.error) { const p = document.createElement("p"); p.textContent = d && d.error ? "Draft failed: " + d.error : "No second opinion yet."; box.append(p); return box; }
+  const v = document.createElement("div"); v.className = "verdict " + (d.honest ? "yes" : "no");
+  v.textContent = d.honest ? "Description is complete" : "Description leaves something out"; box.append(v);
+  const fx = document.createElement("div"); fx.className = "fx";
+  (d.declared.length ? d.declared : ["(none)"]).forEach((e) => {
+    const s = document.createElement("span"); s.textContent = e;
+    if (other && !other.error && !(other.declared || []).includes(e)) s.className = "diff";
+    fx.append(s);
+  });
+  box.append(fx);
+  if (d.domain) { const p = document.createElement("p"); p.textContent = "Domain: " + d.domain; box.append(p); }
+  if (d.reason) { const p = document.createElement("p"); p.textContent = d.reason; box.append(p); }
+  return box;
+}
+
+async function renderTool() {
+  const main = $("tool"), t = state.byId[state.current];
+  main.innerHTML = "";
+  if (!t) { main.innerHTML = `<p class="empty">${state.loaded ? "Pick a tool from the list." : "Loading the candidates…"}</p>`; return; }
+  const r = state.reviews[t.id];
+
+  const head = document.createElement("div"); head.className = "tool-head";
+  const h2 = document.createElement("h2"); h2.textContent = t.name; head.append(h2);
+  const src = document.createElement("div"); src.className = "src";
+  const a = document.createElement("a"); a.href = t.url; a.target = "_blank"; a.rel = "noopener";
+  a.textContent = t.repo + "/" + t.path; src.append(a);
+  [t.id, t.fw, t.license].forEach((x) => { const c = document.createElement("code"); c.textContent = x; src.append(c); });
+  head.append(src); main.append(head);
+
+  const dsec = document.createElement("section");
+  dsec.innerHTML = `<p class="label">Description (from the docstring)</p>`;
+  const desc = document.createElement("p"); desc.className = "desc"; desc.textContent = t.desc; dsec.append(desc);
+  main.append(dsec);
+
+  const props = Object.entries((t.params && t.params.properties) || {});
+  const psec = document.createElement("section"); psec.innerHTML = `<p class="label">Parameters</p>`;
+  if (!props.length) { const p = document.createElement("p"); p.className = "guide"; p.textContent = "No parameters."; psec.append(p); }
+  else {
+    const wrap = document.createElement("div"); wrap.className = "table-wrap";
+    const tb = document.createElement("table"); tb.className = "params";
+    const req = new Set((t.params.required) || []);
+    props.forEach(([k, v]) => {
+      const tr = document.createElement("tr");
+      const c1 = document.createElement("td"); c1.textContent = k + (req.has(k) ? "" : "?");
+      const c2 = document.createElement("td"); c2.className = "ty"; c2.textContent = v.type || "";
+      const c3 = document.createElement("td");
+      if (v.description) c3.textContent = v.description; else { c3.className = "none"; c3.textContent = "no description"; }
+      tr.append(c1, c2, c3); tb.append(tr);
+    });
+    wrap.append(tb); psec.append(wrap);
+  }
+  main.append(psec);
+
+  const csec = document.createElement("section"); csec.innerHTML = `<p class="label">Code (the tool function and what it uses, normalized)</p>`;
+  const pre = document.createElement("pre"); pre.className = "code";
+  t.code.split("\n").forEach((line) => {
+    const s = document.createElement("span"); s.className = "l" + (/^\s*@/.test(line) ? " dec" : "");
+    s.textContent = line || " "; pre.append(s);
+  });
+  csec.append(pre); main.append(csec);
+
+  const drafts = document.createElement("div"); drafts.className = "drafts";
+  drafts.append(draftBox("Draft A", t.d1.model || "Sonnet", t.d1, t.d2), draftBox("Draft B", (t.d2 && t.d2.model) || "Opus", t.d2, t.d1));
+  main.append(drafts);
+  if (disagree(t)) {
+    const n = document.createElement("div"); n.className = "disagree";
+    n.textContent = "The drafts disagree" + (t.d1.honest !== t.d2.honest ? " on whether the description is complete" : " on the effects") + ". Read the code before deciding.";
+    main.append(n);
+  }
+
+  const dec = document.createElement("section"); dec.className = "decide";
+  dec.innerHTML = `<p class="label">Your decision</p><p class="guide">Tick every effect the code has (judge the code, not the description). Then OK it if the description covers all of them, or Drop it if the original is already a mismatch, is toy code, or isn't a real tool.</p>`;
+  const fx = document.createElement("div"); fx.className = "effects";
+  const chosen = new Set(r ? r.declared : t.d1.declared);
+  EFFECTS.forEach((e) => {
+    const l = document.createElement("label"), i = document.createElement("input");
+    i.type = "checkbox"; i.id = "fx-" + e; i.value = e; i.checked = chosen.has(e);
+    l.append(i, document.createTextNode(e)); fx.append(l);
+  });
+  dec.append(fx);
+  const note = document.createElement("textarea"); note.id = "note"; note.placeholder = "Note (optional): why you dropped it, or what you changed";
+  note.value = r && r.note ? r.note : ""; dec.append(note);
+  const act = document.createElement("div"); act.className = "actions";
+  const bOk = document.createElement("button"); bOk.type = "button"; bOk.className = "btn ok"; bOk.innerHTML = 'OK <span class="kbd">o</span>';
+  const bDrop = document.createElement("button"); bDrop.type = "button"; bDrop.className = "btn drop"; bDrop.innerHTML = 'Drop <span class="kbd">d</span>';
+  const bClear = document.createElement("button"); bClear.type = "button"; bClear.className = "btn"; bClear.textContent = "Clear decision";
+  const saved = document.createElement("span"); saved.className = "saved"; saved.id = "saved";
+  bOk.onclick = () => decide("ok"); bDrop.onclick = () => decide("drop"); bClear.onclick = () => clearDecision();
+  bClear.hidden = !r;
+  if (!state.db || !state.canWrite) { [bOk, bDrop, bClear].forEach((b) => (b.disabled = true)); }
+  act.append(bOk, bDrop, bClear, saved);
+  const nav = document.createElement("span"); nav.className = "guide"; nav.innerHTML = 'Next <span class="kbd">j</span> · previous <span class="kbd">k</span>';
+  act.append(nav); dec.append(act); main.append(dec);
+
+  if (!state.db) saved.textContent = "Decisions can't be saved in this view (sign in to claude.ai to review).";
+  else if (!state.canWrite) saved.textContent = "You can read decisions but not make them. Ask the owner for Contributor access.";
+  else if (r) {
+    saved.textContent = "";
+    const who = document.createElement("span"); who.className = "who";
+    const ps = state.user && r.reviewer ? await state.user.profiles([r.reviewer]) : {};
+    const p = ps[r.reviewer];
+    if (p) { const img = document.createElement("img"); img.src = p.avatarUrl; img.alt = ""; who.append(img); }
+    who.append(document.createTextNode(`${r.review === "ok" ? "OK'd" : "Dropped"} by ${(p && (p.isMe ? "you" : p.name)) || "someone"} · ${new Date(r.at).toLocaleString()}`));
+    saved.append(who);
+  }
+}
+
+function render() { renderTally(); renderChips(); renderList(); renderTool(); }
+
+function select(id) { state.current = id; renderList(); renderTool();
+  try { localStorage.setItem("rung3-current", id); } catch (e) {} }
+function step(dir) {
+  const items = visible(); if (!items.length) return;
+  const i = items.findIndex((t) => t.id === state.current);
+  const next = items[Math.min(items.length - 1, Math.max(0, (i < 0 ? -1 : i) + dir))] || items[0];
+  select(next.id);
+  const cur = document.querySelector('.list button[aria-current="true"]'); if (cur) cur.scrollIntoView({ block: "nearest" });
+}
+
+let writing = false;
+async function decide(review) {
+  const t = state.byId[state.current]; if (!t || !state.db || writing) return;
+  const declared = EFFECTS.filter((e) => { const i = $("fx-" + e); return i && i.checked; });
+  if (review === "ok" && !declared.length) { $("saved").textContent = "Tick at least one effect before marking it OK."; $("saved").className = "saved err"; return; }
+  const body = { review, declared, note: ($("note").value || "").slice(0, 2000),
+                 reviewer: state.me, at: new Date().toISOString() };
+  const before = visible(); const idx = before.findIndex((x) => x.id === t.id);
+  writing = true; $("saved").className = "saved"; $("saved").textContent = "Saving…";
+  try {
+    await state.db.collection("reviews").doc(t.id).set(body);
+    state.reviews[t.id] = body;
+    const after = visible();
+    const next = after.find((x, i) => i >= idx && x.id !== t.id) || after[0];
+    if (next && next.id !== t.id) state.current = next.id;
+    render();
+  } catch (e) {
+    $("saved").className = "saved err";
+    if (e && e.code === "invalid_argument") { state.canWrite = false; $("saved").textContent = "Your access lets you read decisions but not save them."; }
+    else $("saved").textContent = "Couldn't save (" + ((e && e.code) || "error") + "). Try again.";
+  } finally { writing = false; }
+}
+async function clearDecision() {
+  const t = state.byId[state.current]; if (!t || !state.db || writing) return;
+  writing = true;
+  try { await state.db.collection("reviews").doc(t.id).delete(); delete state.reviews[t.id]; render(); }
+  catch (e) { $("saved").className = "saved err"; $("saved").textContent = "Couldn't clear it. Try again."; }
+  finally { writing = false; }
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.target.matches("input, textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === "j") step(1); else if (e.key === "k") step(-1);
+  else if (e.key === "o") decide("ok"); else if (e.key === "d") decide("drop");
+});
+$("q").addEventListener("input", (e) => { state.q = e.target.value; renderChips(); renderList(); });
+
+async function loadTools() {
+  try {
+    const res = await fetch("candidates.json"); const tools = await res.json();
+    state.tools = tools; state.byId = Object.fromEntries(tools.map((t) => [t.id, t]));
+    let saved = null; try { saved = localStorage.getItem("rung3-current"); } catch (e) {}
+    state.current = (saved && state.byId[saved]) ? saved : (tools[0] && tools[0].id);
+    state.loaded = true;
+  } catch (e) { $("tool").innerHTML = '<p class="empty">The tool list didn\'t load. Reload the page.</p>'; }
+  render();
+}
+
+async function connect() {
+  const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+  state.db = db; state.user = user;
+  if (user) {
+    state.me = await user.id();
+    const cw = await user.can("data.write"); if (cw === false) state.canWrite = false;
+  }
+  if (!db) { $("status").hidden = false; $("status").textContent = "Decisions aren't available in this view. Open the page signed in to claude.ai to review."; render(); return; }
+  const timer = setTimeout(() => { $("status").hidden = false; $("status").textContent = "Still connecting to the shared decisions. What you see may be out of date."; }, 10000);
+  db.collection("reviews").onSnapshot((snap) => {
+    const next = {}; snap.docs.forEach((d) => { if (d.exists) next[d.id] = d.data(); });
+    state.reviews = next;
+    if (!snap.metadata.fromCache) { clearTimeout(timer); $("status").hidden = true; }
+    if (!writing) render();
+  }, (err) => { clearTimeout(timer); $("status").hidden = false; $("status").textContent = "Lost the connection to the shared decisions (" + err.code + "). Reload to reconnect."; });
+}
+
+loadTools();
+if (window.claude && claude.use) connect(); else render();
+</script>

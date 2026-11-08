@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram sticker management", "declared": ["read"], "honest": true, "reason": "The code only fetches the user's sticker sets from Telegram and returns their titles, which matches the description."}, "cost_usd": 0.0207268}

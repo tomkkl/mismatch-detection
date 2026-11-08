@@ -1,0 +1,1 @@
+{"output": {"domain": "IRIS database administration", "declared": ["read"], "honest": true, "reason": "The code only asks the IRIS instance for its version through a helper, which is the read-only lookup the description promises."}, "cost_usd": 0.0151228}

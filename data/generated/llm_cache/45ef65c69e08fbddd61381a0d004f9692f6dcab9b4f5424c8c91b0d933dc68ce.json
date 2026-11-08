@@ -1,0 +1,1 @@
+{"output": {"domain": "software release versioning", "declared": [], "honest": true, "reason": "The code only passes the label to a string-normalization helper and returns the result, which matches the description, and it has no side effects."}, "cost_usd": 0.0167788}

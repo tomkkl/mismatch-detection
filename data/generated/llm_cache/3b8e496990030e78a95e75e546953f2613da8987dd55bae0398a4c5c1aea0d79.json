@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto social sentiment data", "declared": ["read"], "honest": true, "reason": "The code sends a read-only GraphQL query to the Santiment API for daily social_volume_total values and adds them up, which matches the description's claim of retrieving total social volume."}, "cost_usd": 0.0237548}

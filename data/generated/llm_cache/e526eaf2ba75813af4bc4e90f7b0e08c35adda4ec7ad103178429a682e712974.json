@@ -1,0 +1,1 @@
+{"output": {"domain": "job listing web scraping", "declared": ["read", "send_outward"], "honest": true, "reason": "The code sends the URL to the Olostep scraping API and returns the page as markdown, cut to 8,000 characters. That matches the description, since scraping a URL already implies an outbound web request."}, "cost_usd": 0.0216468}

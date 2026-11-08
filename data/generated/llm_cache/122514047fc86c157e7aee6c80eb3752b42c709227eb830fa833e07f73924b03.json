@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema introspection", "declared": ["read"], "honest": true, "reason": "The code only looks up a table's index metadata (name, columns, uniqueness, tablespace, status) through the database context and formats it as text, which is what the description says it does."}, "cost_usd": 0.025902800000000004}

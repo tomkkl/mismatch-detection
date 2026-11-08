@@ -169,3 +169,16 @@ def test_collect_writes_reviewable_candidates(tmp_path):
     assert r["meta"]["domain"] == "weather data" and r["meta"]["draft"]["honest"]
     assert r["meta"]["review"] is None  # a person decides
     assert (tmp_path / "rung3" / "collect_skipped.txt").exists()
+
+
+def test_second_opinion_adds_draft2_and_counts_agreement(tmp_path):
+    from agentlint.data.collect import second_opinion
+    path = tmp_path / "candidates.jsonl"
+    rows = [{"name": n, "description": "d", "params": {}, "code": "x = 1",
+             "meta": {"draft": {"honest": True, "declared": ["read"]}}}
+            for n in ("archive_report", "current_weather")]
+    path.write_text("".join(json.dumps(r) + "\n" for r in rows))
+    stats = second_opinion(path, FakeLabelLLM(), log=lambda s: None)
+    out = [json.loads(l) for l in path.read_text().splitlines()]
+    assert all("draft2" in r["meta"] and r["meta"]["draft"]["declared"] == ["read"] for r in out)
+    assert stats["agree_honest"] == 1 and stats["agree_effects"] == 0

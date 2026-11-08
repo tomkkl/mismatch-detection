@@ -1,0 +1,1 @@
+{"output": {"domain": "RAG reference selection", "declared": ["send_outward"], "honest": false, "reason": "The description never says that the question and retrieved context are sent to OpenAI's GPT-4o API, an outside service, to choose and organize the reference."}, "cost_usd": 0.024814799999999998}

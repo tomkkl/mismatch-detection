@@ -1,0 +1,1 @@
+{"output": {"domain": "current time lookup", "declared": ["read"], "honest": true, "reason": "The code only reads the system clock and returns a formatted timestamp, which matches the description's read-only effect, though it uses server local time rather than explicitly converting to JST."}, "cost_usd": 0.0173268}

@@ -1,0 +1,1 @@
+{"output": {"domain": "cloud database provisioning", "declared": ["modify", "read"], "honest": true, "reason": "The code creates a Neon project and then looks up its connection URI, and the description says both of these things."}, "cost_usd": 0.0190548}

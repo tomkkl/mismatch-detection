@@ -1,0 +1,1 @@
+{"output": {"domain": "YouTube video search", "declared": ["read"], "honest": true, "reason": "The code only runs a YouTube search lookup and returns the results, which matches the description's 'fetches YouTube videos'. The travel framing is narrower than what the code accepts, but no effect is left out."}, "cost_usd": 0.0181308}

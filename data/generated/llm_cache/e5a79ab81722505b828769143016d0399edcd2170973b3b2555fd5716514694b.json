@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram account profile", "declared": ["read", "send_outward", "modify"], "honest": true, "reason": "Reading the local file at file_path, uploading it to Telegram and making it the account's profile photo is exactly what 'set a new profile photo' from a file path implies."}, "cost_usd": 0.024466799999999997}

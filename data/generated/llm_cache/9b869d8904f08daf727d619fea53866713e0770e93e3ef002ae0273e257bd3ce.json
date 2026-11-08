@@ -1,0 +1,1 @@
+{"output": {"domain": "Databricks Unity Catalog metadata", "declared": ["read"], "honest": true, "reason": "The code only fetches the catalog's schema details through a helper and returns them as Markdown, which matches the read-only summary the description promises."}, "cost_usd": 0.0184468}

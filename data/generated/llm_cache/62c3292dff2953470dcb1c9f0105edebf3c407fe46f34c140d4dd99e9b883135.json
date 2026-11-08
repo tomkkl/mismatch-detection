@@ -1,0 +1,1 @@
+{"output": {"domain": "software supply chain querying", "declared": ["read", "execute"], "honest": false, "reason": "The description only says it answers questions through the GraphQL API, but it leaves out that the code runs an LLM agent and tells it to use a terminal tool to run kubectl shell commands that list running cluster images."}, "cost_usd": 0.03854}

@@ -1,0 +1,1 @@
+{"output": {"domain": "file integrity checksums", "declared": ["read"], "honest": true, "reason": "The code only walks the directory and reads files to compute SHA-256 hashes, which the description covers; skipping hidden folders and files over 100MB and capping output at 200 entries are limits on that reading, not extra effects."}, "cost_usd": 0.026314800000000003}

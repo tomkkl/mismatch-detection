@@ -1,0 +1,1 @@
+{"output": {"domain": "PDF document security", "declared": ["read", "modify", "change_authority"], "honest": true, "reason": "The code reads the source PDF and writes a new password-encrypted copy (which controls who can open it) next to the original, which is exactly what the description says."}, "cost_usd": 0.024174799999999996}

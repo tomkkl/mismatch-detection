@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram contact management", "declared": ["read"], "honest": true, "reason": "The code only fetches up to 100 blocked users from Telegram and returns them as formatted JSON, which matches the description of getting a list of blocked users."}, "cost_usd": 0.0243868}

@@ -1,0 +1,1 @@
+{"output": {"domain": "software class catalog", "declared": ["read"], "honest": true, "reason": "The code only passes the class name to a catalog lookup and returns what it finds, which is the read-only lookup the description says it does."}, "cost_usd": 0.015454800000000001}

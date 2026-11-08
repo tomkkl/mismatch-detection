@@ -1,0 +1,1 @@
+{"output": {"domain": "financial symbol lookup", "declared": ["read"], "honest": true, "reason": "The code only sends a GET search request to the project's own backend and returns the matching symbols marked as tracked, which is exactly the lookup the description promises."}, "cost_usd": 0.0196668}

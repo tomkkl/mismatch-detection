@@ -1,0 +1,1 @@
+{"output": {"domain": "library documentation search", "declared": ["read", "send_outward"], "honest": true, "reason": "The code sends the query to the Serper Google search API, then fetches and returns the text of the result pages. That is the online doc search the description promises, though it doesn't name the third-party search service."}, "cost_usd": 0.0239668}

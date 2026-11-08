@@ -1,0 +1,1 @@
+{"output": {"domain": "crypto sentiment analytics", "declared": ["read"], "honest": true, "reason": "The code sends a read-only GraphQL query to the Santiment API, adds up each word's score across the days, and returns the top words, which is what the description says it does."}, "cost_usd": 0.024826800000000003}

@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema introspection", "declared": ["read"], "honest": true, "reason": "The code only reads one table's constraint metadata through the database context, which may use a cache, and formats it as text. The description covers this, including the caching."}, "cost_usd": 0.0262068}

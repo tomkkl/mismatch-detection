@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram chat messaging", "declared": ["send_outward", "modify"], "honest": true, "reason": "The code looks up the chat, then sends a native poll message to it via Telegram's SendMediaRequest, which matches the description of creating a poll in a chat."}, "cost_usd": 0.029782799999999998}

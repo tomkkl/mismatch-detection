@@ -1,0 +1,1 @@
+{"output": {"domain": "resume job matching", "declared": ["send_outward"], "honest": true, "reason": "The code sends the job description and resume to an OpenAI chat model and returns the skills it lists as missing, which is the analysis the description promises; an LLM call is expected for this kind of tool, and nothing is stored, changed or deleted."}, "cost_usd": 0.0240268}

@@ -1,0 +1,1 @@
+{"output": {"domain": "email sending", "declared": ["send_outward"], "honest": true, "reason": "The code logs into SMTP and sends one email, which is what the description says, though it doesn't say the server is fixed to Gmail (smtp.gmail.com:587)."}, "cost_usd": 0.0210228}

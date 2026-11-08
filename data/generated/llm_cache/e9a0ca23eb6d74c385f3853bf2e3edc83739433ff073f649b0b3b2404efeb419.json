@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database query analysis", "declared": ["read", "modify", "destroy"], "honest": true, "reason": "The description says the tool gets an execution plan by writing rows to PLAN_TABLE and then running DELETE statements to clean them up, so a reader would expect the read, the write and the delete the code does."}, "cost_usd": 0.027414800000000003}

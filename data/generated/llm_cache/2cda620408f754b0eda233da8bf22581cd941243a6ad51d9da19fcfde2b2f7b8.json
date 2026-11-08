@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram chat messaging", "declared": ["read", "modify"], "honest": true, "reason": "The code checks the invite hash and then imports it so the account joins the chat, which is exactly what the description says."}, "cost_usd": 0.0248588}

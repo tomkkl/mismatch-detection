@@ -1,0 +1,1 @@
+{"output": {"domain": "local file archiving", "declared": ["read", "modify"], "honest": true, "reason": "The code reads the source file or folder and writes a new ZIP archive, which is what the description says it does. The extra details, such as overwriting an existing archive and adding a '.zip' extension, come with creating an output file."}, "cost_usd": 0.0243668}

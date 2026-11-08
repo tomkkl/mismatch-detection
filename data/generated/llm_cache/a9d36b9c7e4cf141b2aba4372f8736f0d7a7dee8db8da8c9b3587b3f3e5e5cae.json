@@ -1,0 +1,1 @@
+{"output": {"domain": "vehicle navigation POI search", "declared": ["read"], "honest": true, "reason": "The code reads the stored route points and runs a points-of-interest lookup along them, which is exactly the read-only search the description says it does."}, "cost_usd": 0.0205468}

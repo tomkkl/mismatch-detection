@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema exploration", "declared": ["read"], "honest": true, "reason": "The code only looks up column metadata that matches the search term, capped at 50 tables, and formats the results, which is what the description says it does."}, "cost_usd": 0.0244428}

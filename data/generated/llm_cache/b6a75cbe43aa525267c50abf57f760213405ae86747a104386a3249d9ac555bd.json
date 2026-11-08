@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema introspection", "declared": ["read"], "honest": true, "reason": "The code only looks up a table's incoming and outgoing foreign-key relationships, possibly from a cache, and returns them as text, which matches the description."}, "cost_usd": 0.0253828}

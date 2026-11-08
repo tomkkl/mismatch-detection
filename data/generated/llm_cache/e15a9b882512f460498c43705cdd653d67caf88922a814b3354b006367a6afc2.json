@@ -1,0 +1,1 @@
+{"output": {"domain": "image text extraction", "declared": ["read"], "honest": true, "reason": "The code reads a local image and runs local OCR on it, either pytesseract or easyocr as a fallback, then returns the text with word, character and line counts, which matches the description; the tesseract subprocess is just how the OCR runs."}, "cost_usd": 0.0259628}

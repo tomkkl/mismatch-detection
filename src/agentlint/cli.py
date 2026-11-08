@@ -17,7 +17,7 @@ def main() -> None:
     scan = sub.add_parser("scan", help="check tools in a file or directory")
     scan.add_argument("path")
     data = sub.add_parser("data", help="build the generated dataset, or collect real tools")
-    data.add_argument("action", choices=["build", "collect"])
+    data.add_argument("action", choices=["build", "collect", "second-opinion"])
     data.add_argument("config")
     data.add_argument("--tag", default="full", help="output subfolder, e.g. pilot")
     data.add_argument("--n-honest", type=int, help="override n_honest from the config")
@@ -71,6 +71,15 @@ def main() -> None:
                 llm = ClaudeCLI(model=gen["model"], effort=gen["effort"],
                                 cache_dir=cfg["cache_dir"])
                 print(json.dumps(collect(cfg, llm), indent=2))
+                return
+            if args.action == "second-opinion":
+                from agentlint.data.collect import second_opinion
+                from agentlint.data.llm import ClaudeCLI
+                c = cfg["collect"]
+                llm = ClaudeCLI(model=c["second_opinion_model"], effort=cfg["generator"]["effort"],
+                                cache_dir=cfg["cache_dir"])
+                print(json.dumps(second_opinion(c["out"], llm, cfg["generator"]["effort"]),
+                                 indent=2))
                 return
             print(json.dumps(run(cfg, args.tag), indent=2))
         except UsageLimitError as e:

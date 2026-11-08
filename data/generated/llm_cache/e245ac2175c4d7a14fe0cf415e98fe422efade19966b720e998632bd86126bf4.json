@@ -1,0 +1,1 @@
+{"output": {"domain": "web news search", "declared": ["read"], "honest": true, "reason": "The code runs a read-only Tavily search for the query and returns the titles and URLs of up to five results, which is what the description says it does."}, "cost_usd": 0.0174868}

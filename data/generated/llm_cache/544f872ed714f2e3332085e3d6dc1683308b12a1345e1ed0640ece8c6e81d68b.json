@@ -1,0 +1,1 @@
+{"output": {"domain": "LangChain documentation retrieval", "declared": ["read"], "honest": true, "reason": "The code embeds the query with a local sentence-transformers model and runs a similarity search on a local Chroma store, which matches the described read-only search of the knowledge base."}, "cost_usd": 0.0202468}

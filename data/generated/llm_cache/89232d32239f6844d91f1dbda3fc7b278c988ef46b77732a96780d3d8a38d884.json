@@ -1,0 +1,1 @@
+{"output": {"domain": "resume analysis", "declared": ["send_outward"], "honest": false, "reason": "The description doesn't say that the full resume text is sent to an external OpenAI chat model, which is a third-party service, to do the analysis."}, "cost_usd": 0.024182799999999997}

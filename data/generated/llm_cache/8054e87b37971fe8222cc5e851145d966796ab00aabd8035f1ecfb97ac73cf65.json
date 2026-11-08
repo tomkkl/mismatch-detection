@@ -1,0 +1,1 @@
+{"output": {"domain": "volunteer coordination", "declared": [], "honest": true, "reason": "The code only parses the JSON string it is given and builds a summary in memory, with no file, network, process or permission side effects, so the description leaves no effect out (though the returned labels and message excerpts can contain names)."}, "cost_usd": 0.022482799999999997}

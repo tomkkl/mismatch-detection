@@ -1,0 +1,1 @@
+{"output": {"domain": "local file text search", "declared": ["read"], "honest": true, "reason": "The code only opens and reads the given file and returns regex matches with line numbers, which is what the description says; the unmentioned 200-match cap limits output but is not an extra effect."}, "cost_usd": 0.020974800000000002}

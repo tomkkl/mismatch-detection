@@ -1,0 +1,1 @@
+{"output": {"domain": "stock market data", "declared": ["read"], "honest": true, "reason": "The code only fetches a ticker's info from Yahoo Finance through yfinance and returns the requested key, which is the stock info lookup the description promises."}, "cost_usd": 0.0250428}

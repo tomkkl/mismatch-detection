@@ -18,6 +18,7 @@ seed: 3033                # never 566 (training) or 2027 (rung 2)
 
 collect:
   out: data/raw/rung3/candidates.jsonl
+  second_opinion_model: claude-opus-5-5   # `data second-opinion`: a different model's draft
   target: 70              # per framework; ~210 candidates so ~150 survive the review
   pages: 5                # search pages of 100 hits per query
   max_lines: 80           # training code is at most 60 lines; chunking handles the rest

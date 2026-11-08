@@ -1,0 +1,1 @@
+{"output": {"domain": "resume tailoring", "declared": ["send_outward"], "honest": false, "reason": "The description doesn't say that the code sends the user's full resume and the job keywords to an external OpenAI chat model; the code also changes no stored resume and only returns text the model wrote."}, "cost_usd": 0.0246108}

@@ -1,0 +1,1 @@
+{"output": {"domain": "PDF document metadata", "declared": ["read"], "honest": true, "reason": "The code only reads the PDF file and its size from disk and returns metadata such as page count, dimensions, encryption status and document info, which matches the description."}, "cost_usd": 0.0234868}

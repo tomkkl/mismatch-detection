@@ -1,0 +1,1 @@
+{"output": {"domain": "Telegram channel management", "declared": ["modify"], "honest": true, "reason": "The code sends a single Telegram API request that creates a new channel or supergroup, and the description says exactly that."}, "cost_usd": 0.023138799999999998}

@@ -1,9 +1,10 @@
-"""Charts for docs/results-binary.md: training curves, val vs test, errors by pair type.
+"""Charts for docs/results-binary.md and docs/results-coverage.md.
 
 Usage: python scripts/plot_results.py [--out docs/figures]   (needs the `plots` extra)
 
 Reads only committed files: checkpoints/{binary,binary_5ep,binary_frozen}/metrics.json,
-checkpoints/binary/val_predictions.jsonl and checkpoints/binary/eval/full-test/. Writes one SVG
+checkpoints/binary/val_predictions.jsonl, checkpoints/binary/eval/full-test/ and (if present)
+data/coverage/coverage.json. Writes one SVG
 per chart and prints the numbers the write-up quotes.
 """
 
@@ -202,6 +203,55 @@ def pr_curves(val_rows: list[dict], test_rows: list[dict], val_auc: float, test_
     save(fig, out, "pr_curves")
 
 
+COVERAGE_GROUPS = [  # (label, groups in data/coverage/coverage.json summed into one bar)
+    ("Injected mismatches", ["mismatch: inject"]),
+    ("Weakened mismatches", ["mismatch: weaken"]),
+    ("Honest twins\n(same code as injected)", ["honest: declare_effect"]),
+    ("Honest originals", ["honest: original"]),
+    ("Honest rewrites", ["honest: honest_rewrite"]),
+    ("Conventional bugs\n(7 types)", None),  # every "bug: ..." group
+]
+
+
+def coverage(table: dict, out: Path):
+    """Share of each group each tool flags: Agent Audit (any finding) vs our model at 0.5."""
+    rows = []
+    for label, keys in COVERAGE_GROUPS:
+        ks = keys or [k for k in table if k.startswith("bug: ")]
+        g = [table[k] for k in ks]
+        n = sum(x["n"] for x in g)
+        unscored = all(x["unscored_by_model"] == x["n"] for x in g)
+        rows.append((label, n, sum(x["agent_audit"] for x in g),
+                     None if unscored else sum(x["model"] for x in g)))
+    fig, ax = plt.subplots(figsize=(8, 4.2))
+    y = np.arange(len(rows))[::-1]
+    h = 0.36
+    for i, (name, color, idx) in enumerate([("Agent Audit (any finding)", SERIES[1], 2),
+                                            ("Our model (score ≥ 0.5)", SERIES[0], 3)]):
+        ys = y + (0.5 - i) * (h + 0.04)
+        for yy, r in zip(ys, rows):
+            k = r[idx]
+            if k is None:
+                ax.text(0.01, yy, "not scored yet", va="center", fontsize=8, color=INK_2,
+                        style="italic")
+                continue
+            ax.barh(yy, k / r[1], h, color=color, label=name if yy == ys[0] else None)
+            ax.text(k / r[1] + 0.01, yy, f"{k}/{r[1]}", va="center", fontsize=8, color=INK_2)
+    ax.set_yticks(y, [r[0] for r in rows])
+    ax.set_xlim(0, 1.12)
+    ax.set_xticks(np.linspace(0, 1, 6))
+    ax.xaxis.set_major_formatter(PercentFormatter(1, decimals=0))
+    ax.grid(axis="y", visible=False)
+    ax.axhline(y[1] - 0.5, color=GRID, linewidth=1)
+    ax.axhline(y[4] - 0.5, color=GRID, linewidth=1)
+    ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, fontsize=9, borderaxespad=0.3)
+    fig.suptitle("Share of each group flagged, rung 1 test + conventional bugs", x=0.01,
+                 ha="left", fontsize=11, color=INK)
+    save(fig, out, "coverage")
+    for r in rows:
+        print(f"coverage | {r[0].splitlines()[0]}: n {r[1]} | Agent Audit {r[2]} | model {r[3]}")
+
+
 def summary(name: str, rows: list[dict], m: dict, saved: float):
     print(f"== {name}: n {m['n']} | PR-AUC {m['pr_auc']:.3f}")
     for thr in (MAIN, saved):
@@ -231,6 +281,9 @@ def main():
     by_pair_type(val_rows, test_rows, out)
     score_strip(test_rows, out)
     pr_curves(val_rows, test_rows, val_main["pr_auc"], test["at_0.5"]["pr_auc"], out)
+    cov = Path("data/coverage/coverage.json")
+    if cov.exists():
+        coverage(json.loads(cov.read_text()), out)
 
     for c in RUNS:
         best = max(hist[c], key=lambda h: h["val_at_0.5"]["pr_auc"])

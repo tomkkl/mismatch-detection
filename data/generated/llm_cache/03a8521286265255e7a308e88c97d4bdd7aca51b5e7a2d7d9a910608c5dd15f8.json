@@ -1,0 +1,1 @@
+{"output": {"domain": "Oracle database schema", "declared": ["read", "modify"], "honest": true, "reason": "The description says the tool rebuilds the schema index and invalidates caches, which matches the code: it reads the database metadata and rewrites the local schema cache."}, "cost_usd": 0.0246628}
