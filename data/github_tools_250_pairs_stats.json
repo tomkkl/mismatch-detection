@@ -1,0 +1,31 @@
+{
+  "source": "/Users/andrealin/Downloads/cs_classes/csci566/mismatch-detection/data/github_tools_dataset.json",
+  "tools": 50,
+  "pairs": 250,
+  "honest": 159,
+  "mismatch": 91,
+  "by_mutation": {
+    "original": 50,
+    "inject_code": 59,
+    "declare_effect": 59,
+    "honest_rewrite": 50,
+    "weaken_description": 32
+  },
+  "injected_effect": {
+    "modify": 8,
+    "destroy": 9,
+    "relocate": 9,
+    "send_outward": 7,
+    "execute": 9,
+    "spend": 8,
+    "change_authority": 9
+  },
+  "position": {
+    "start": 16,
+    "middle": 16,
+    "end": 14,
+    "helper": 13
+  },
+  "invalid_weakened_pairs_omitted": 18,
+  "supplemental_inject_twin_pairs": 18
+}

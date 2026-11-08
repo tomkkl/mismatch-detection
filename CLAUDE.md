@@ -63,7 +63,28 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-11-07)
+## 2. Where we are and what's next (updated 2026-11-08)
+
+### Open pull requests: please review (2026-11-08)
+
+Tom's work from 2026-11-07 is described in this file but **is not on `main` yet**: it lives in
+six stacked PRs, each built on the one before. Review and merge them **in order**; after each
+merge, change the next PR's base to `main` on GitHub. Until they merge, the code, configs and
+data they mention exist only on those branches (`git fetch && git checkout <branch>`).
+
+| PR | Branch | What it adds | What to check |
+|---|---|---|---|
+| [#1](https://github.com/tomkkl/mismatch-detection/pull/1) | `rung2-opus` | Rung 2 test set (Opus, 503 pairs); `exclude_names_from` build option | The name-overlap rule; the hand check of 31 injections |
+| [#2](https://github.com/tomkkl/mismatch-detection/pull/2) | `rung3-github` | Rung 3 collector (`data/collect.py`), 210 licensed candidates, `honest_from` build option | The rung 3 format (section 5) vs Andrea's draft: **pick one** (section 2, step 3) |
+| [#3](https://github.com/tomkkl/mismatch-detection/pull/3) | `coverage-agent-audit` | Agent Audit coverage set (rung 1 test + 63 bug tools) and runner | The "any finding" catch rule; the 66/66 identical-findings result |
+| [#4](https://github.com/tomkkl/mismatch-detection/pull/4) | `wordlist-gaps` | Word-list fixes (step 5): injected effect found on its lines 553/560 | Rebuilds of `full` / rung 2 now need commit 8c61fe0 |
+| [#5](https://github.com/tomkkl/mismatch-detection/pull/5) | `review-and-coverage-doc` | Rung 3 review page, Opus second opinion, `docs/results-coverage.md` | The write-up's framing of Agent Audit |
+| [#6](https://github.com/tomkkl/mismatch-detection/pull/6) | `multilabel-scan-weaken` | Multi-label training / scoring, `agentlint scan`, `weaken-extra` training data | Multi-label selection metric; scan output; train-only extra data |
+
+**Waiting on people (not on code):** rung 2 and coverage-bug scoring on CARC; the next CARC
+training run (`configs/multilabel.yaml`, branch `multilabel-scan-weaken`); the rung 3 hand
+review on the shared page (https://claude.ai/artifact/UejjPDZH9x9p92vbUC7xrP, ask Tom for
+access); and the rung 3 decision above.
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -76,6 +97,9 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
   "Input"). Implemented in `src/agentlint/model/dataset.py` (`encode_pair`, `PairDataset`,
   `collate_chunks`) and `classifier.py` (`build_model`, `max_pool_by_pair`), with tests. On
   `full`: 61.0% of pairs fit in 1 chunk, 33.8% need 2, 5.2% need 3+.
+- Andrea's draft Rung 3 GitHub set built (2026-11-07, on `main`): 250 pairs from 50 source tools, with 159 honest
+  and 91 mismatch rows. It is structurally validated but not final, committed, manually
+  reviewed, or scored. Counts and limitations are in section 6.
 
 **Open issues (not blocking)**
 - Few weakened mismatches (129, ~5% of pairs): 288 tools had no effect that could be removed
@@ -96,6 +120,12 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
   rewritten-description style (rewrite and inject share it).
 - **Twins:** 8/55 flagged at 5 epochs (hand-checked 2026-10-29: labels right, model errors).
   Fixed by 10 epochs: 0/55 at 0.5, 2/55 at 0.0035 (scores 0.03 and 0.05).
+- **Andrea's rung 3 draft, provenance incomplete:** `data/github_tools_dataset.json` has the function and
+  docstring but not repository URL, commit SHA, file path, or license. Recover these before the
+  set is final; mark entries where recovery is impossible.
+- **Andrea's rung 3 draft, mutations are templated:** they were generated deterministically, not by
+  the LLM pipeline used for `full`. Repeated operations and description wording may be a
+  shortcut. Review template diversity and hand-check labels before the one-time score.
 
 ### What's next
 
@@ -228,6 +258,18 @@ Steps 2 and 3 can run at the same time with different people.
      identical on all 66 same-code pairs; its bug-specific rules catch eval/exec 9/9, shell
      9/9 and secrets 7/9 but SQL injection 1/9, SSRF 1/9, path traversal and deserialization
      0/9 (caught only through the generic rules).
+   - **Rung 3, second draft (Andrea, pushed to `main` 2026-11-07, not in the PRs):** built
+     from the 50 functions in `data/github_tools_dataset.json` (her first scraper output): 250
+     pairs, 159 honest / 91 mismatch. Mismatches come from deterministic code and description
+     templates, not the LLM pipeline; repo / commit / license are not recorded yet. Details in
+     section 6, "Rung 3 draft (Andrea)". Before scoring: recover provenance, review labels and
+     template diversity, commit the generator and artifact at stable paths, and confirm the set
+     was never used for training or threshold selection. Then score it once.
+   - **Team decision needed: two rung 3 approaches now exist.** (a) Tom's collector (PR #2):
+     210 licensed, provenance-tracked candidates from 62 repos, injected by the training
+     pipeline (Sonnet) after a hand review. (b) Andrea's draft: 50 tools (some unlicensed or
+     non-English), template injections, ready now. Pick one as rung 3 (or report (b) as a
+     separate "templated" check) before either is scored.
 4. **Evaluation code** in `src/agentlint/eval/`: metrics and breakdowns are in `metrics.py`;
    test-set scoring is in `score.py` (2026-11-01): `agentlint score <checkpoint> <pairs.jsonl>`
    reports at 0.5 and at the cut-off in `threshold.json`, plus a tool-bootstrap 95% interval
@@ -641,6 +683,51 @@ project's core argument for learning over rules.
 
 (Rung 4, real mismatches found in the wild, was dropped for time on 2026-10-05.)
 
+### Rung 3 draft (Andrea): templated injections on 50 GitHub tools
+
+Built 2026-11-07 from all 50 entries in `data/github_tools_dataset.json`. The draft has 250
+rows from 50 `source_id` groups:
+
+| Mutation | Rows | Label |
+|---|---:|---|
+| original | 50 | honest |
+| inject | 59 | mismatch |
+| twin | 59 | honest |
+| honest rewrite | 50 | honest |
+| weaken | 32 | mismatch |
+
+Total: 159 honest, 91 mismatch. The 59 injections cover all 7 non-read injection effects
+(7–9 each) and all 4 positions (13–16 each).
+
+Only 32 tools have a valid weakened-description row. For 18 tools, the name or parameters
+already reveal the only removable effect, so weakening only the prose would not create a true
+mismatch. We omitted those invalid rows. Nine additional inject/twin sets (18 rows) bring the
+total to 250 while preserving paired code labels. Therefore the per-tool row counts are 32
+tools with 5, 9 with 6, and 9 with 4. Keep `source_id` groups intact in any split or bootstrap.
+
+The supplemental inject/twin sets are:
+
+| Source tool | Added effect | Position |
+|---|---|---|
+| `get_registrar` | spend | start |
+| `rdap_lookup` | change authority | middle |
+| `equation_solver` | modify | start |
+| `fetch_weather` (source 013) | relocate | end |
+| `fetch_news` | execute | helper |
+| `add` | send outward | start |
+| `search_along_route` | change authority | middle |
+| `bash` | destroy | middle |
+| `get_weather` (source 025) | relocate | end |
+
+Unlike `full`, this draft uses deterministic code and description templates rather than an LLM
+injector. That is a deliberate, reproducible construction detail and a possible shortcut, not
+an interchangeable implementation of the training pipeline. Before scoring: recover GitHub
+URL / commit / path / license provenance where possible; flag functions missing surrounding
+imports or project context; inspect repeated templates and all labels; commit the generator and
+final pairs at stable paths; and freeze the artifact checksum. Do not train, tune a threshold,
+or revise policy from Rung 3 outcomes. Do not put its numbers in `docs/results-binary.md` until
+both the model and Agent Audit have been run on the finalized artifact.
+
 **Data hygiene** (the model will cheat otherwise): no comments on injected lines; vary
 injection position, domains, naming and length; keep a tool and its mutants in the same split;
 the AST check confirms the added operation is in the mismatch code, not in the honest code, and
@@ -775,6 +862,12 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   majority rate. Hand-checked the 31 injections the word list missed: no wrong labels, 3
   arguable effect classes. Scoring job on CARC in progress (Tom). Details in section 2,
   step 3.
+- **2026-11-07 (Andrea, on `main`):** Built and structurally validated a draft Rung 3 set from 50 GitHub tool
+  functions: 250 pairs, 159 honest / 91 mismatch. Eighteen invalid weakened-description rows
+  were omitted because the interface already declared the effect; 9 supplemental inject/twin
+  sets keep the total at 250. The draft uses deterministic templates, not the training LLM
+  injector. It still needs provenance recovery, a manual label/template review, stable committed
+  paths and a frozen checksum before the one-time model and Agent Audit evaluation.
 - **2026-11-03 (latest of that day):** Demoted the 0.0035 cut-off to a footnote (section 5, "Cut-off"):
   on `test` it matched 0.5 on F1 (0.93) and is fitted to one val pair. Results are 0.5 + PR-AUC
   + PR curve. Updated `docs/results-binary.md`; the pair-type chart now compares val and test at

@@ -28,10 +28,13 @@ verified facts about Agent Audit, and gotchas.
 
 ## Status
 
-- **Done:** Agent Audit probes, the data generation pipeline, and the training dataset `full`.
-- **Next:** measure input lengths, train the first (binary) model and a before-fine-tuning
-  baseline, build the other test sets, and write the evaluation code. The full list is under
-  "What's next" in `CLAUDE.md`.
+- **Done:** Agent Audit probes, the data generation pipeline, the training dataset `full`, the
+  first binary model, the held-out generated test, and a 250-pair draft of the real-GitHub
+  evaluation set.
+- **Next:** finish the different-LLM test set, review and commit the GitHub set with provenance,
+  score it once with the frozen evaluation protocol, and run Agent Audit on the same cases. The
+  GitHub set is not reported as a result yet. The full list is under "What's next" in
+  `CLAUDE.md`.
 - Model, training and evaluation code is in `src/agentlint/model/` and `src/agentlint/eval/`
   (`agentlint train <config>`, `agentlint score <checkpoint> <pairs.jsonl>`).
 
@@ -107,15 +110,54 @@ are cached and reused.
 
 ## Evaluation plan
 
-Test sets, each reported separately:
+Test sets are reported separately:
 
 1. held-out generated pairs (`data/splits/full/test.jsonl`)
 2. pairs from a different LLM (Claude Opus 5.5), same recipe
-3. real GitHub tool functions with an injected capability
+3. real GitHub tool functions with an injected capability (draft built; not scored yet)
 
 Plus an Agent Audit coverage set. Metrics: precision / recall / F1 on the mismatch class,
 PR-AUC, and **group accuracy** (every pair from one source tool right). We also report
 GraphCodeBERT before vs after fine-tuning. Tune on `val`; score each test set once.
+
+### Draft GitHub evaluation set (Rung 3)
+
+The draft uses all 50 functions in `data/github_tools_dataset.json` and contains 250 pairs:
+
+| Pair type | Count | Label |
+|---|---:|---|
+| original | 50 | honest |
+| `inject_code` | 59 | mismatch |
+| `declare_effect` (twin) | 59 | honest |
+| `honest_rewrite` | 50 | honest |
+| `weaken_description` | 32 | mismatch |
+| **Total** | **250** | **159 honest / 91 mismatch** |
+
+The 59 injections cover all 7 injected effect classes and all 4 positions. Injection counts by
+effect range from 7 to 9; position counts range from 13 to 16.
+
+The set does **not** force five rows for every source tool. Eighteen candidate weakened
+descriptions were invalid because the tool name or parameter names already declared the only
+effect that could be removed (for example, `add`, `get_weather`, or `send_sms`). Those rows
+were omitted. To reach the planned 250 rows without knowingly wrong labels, 9 of those tools
+received an additional injected-code / honest-twin pair instead. The resulting distribution is:
+
+- 32 source tools with 5 rows
+- 9 source tools with 6 rows
+- 9 source tools with 4 rows
+
+This draft differs from the training generator: its injected operations and description
+templates were produced deterministically rather than by an LLM. That makes the set
+reproducible, but repeated templates may create a shortcut. Treat template diversity and a
+manual label review as required checks before scoring. Do not train or tune on these rows, and
+keep every source tool and all of its variants together when computing group metrics.
+
+The source JSON contains extracted functions and docstrings but no repository URL, commit SHA,
+file path, or license. Some functions also rely on imports or surrounding project state that
+was not collected. Before this becomes the final Rung 3 artifact, add that provenance where it
+can be recovered, document unrecoverable entries, and store the validated pairs at a stable
+path in `data/`. Do not add GitHub-set numbers to `docs/results-binary.md` until the frozen
+model and Agent Audit have both been run on the finalized set.
 
 ## Layout
 
