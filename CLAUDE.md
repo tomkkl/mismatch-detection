@@ -80,9 +80,8 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 **Open issues (not blocking)**
 - Few weakened mismatches (129, ~5% of pairs): 288 tools had no effect that could be removed
   from the description.
-- The word-list effect checker (`effects.py`) misses SQL-table forms of effects (payment rows,
-  role tables, insert-then-delete) and even `stripe.PaymentIntent.create`. Labels are fine
-  (hand-checked), but fix it before using `localize.py` for line numbers in reports.
+- ~~The word-list effect checker misses SQL-table forms of effects~~ **Fixed 2026-11-07**
+  (step 5 below).
 - The description-only baseline is ~1 point above majority (74.2% vs 73.2%). Small; watch it.
 - **Chunk count goes with the label:** 48.9% of mismatches need 2+ chunks vs 35.4% of honest
   pairs. With max-pooling, more chunks also means more chances for a high score. Report val by
@@ -249,8 +248,31 @@ Steps 2 and 3 can run at the same time with different people.
    - **Saturated scores again:** 188/251 at or below 0.01, 60 at or above 0.99, 3 in between,
      so results at 0.5 barely depend on the exact cut-off.
    **Next:** rungs 2–3 when built, and Agent Audit on the coverage set.
-5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
-   at the right lines.
+5. ~~**Line numbers in reports**~~ **Done 2026-11-07:** the word list in `effects.py` now reads
+   SQL by its tables as well as its verb (`INSERT INTO x_archive SELECT` = relocate; rows
+   written to payment / payout / refund / credit tables = spend; rows written to or deleted
+   from role / permission / access / share / token tables, or `SET role = …` = change
+   authority; `WITH … DELETE … RETURNING` parsed), HTTP sends by endpoint and payload
+   (`/charges`, `/payouts`, `/credits`, an `amount` field = spend; `/access`, `/members` =
+   change authority), Stripe `PaymentIntent` / `Refund` / `Transfer` `.create`, IAM
+   `attach_*_policy`, `create_login_link`, `s3.copy_object`, helper names
+   (`_issue_supplier_refund`) and command arguments (`grant_access … --role`, `billctl
+   refund`). A bare `conn.close()` no longer counts as destroy (`close_account` still does),
+   and constructors (`TransferResult(...)`) are not verbs. Tests: `tests/test_effects.py`.
+
+   | Check | Before | After |
+   |---|---|---|
+   | `full`: injected effect seen on its injected lines | 409/560 | 553/560 |
+   | rung 2: same | 79/110 | 108/110 |
+   | `full` weakened pairs where `locate` finds lines | 85/129 | 107/129 |
+   | `full` honest originals with an undeclared destroy | 276/763 | 37/763 |
+   | `full` honest originals with an undeclared send outward / spend | 35 / 4 | 34 / 4 |
+
+   `locate` points only at injected lines for 550/560 `full` and 108/110 rung 2 injections.
+   **Rebuild note:** the build uses the same word list to pick injection targets, so with the
+   new list 247/763 `full` tools (28/139 rung 2) would get different targets. Team decision:
+   one word list everywhere; `full` and rung 2 were built with the old one (commit 8c61fe0),
+   so an exact rebuild of either needs that commit.
 
 **If time allows:** data-flow input via tree-sitter (ablation); more weakened mismatches; a
 narrow "returns undeclared sensitive data" class to replace general `read`.
@@ -502,6 +524,9 @@ What the dataset contains is in section 3. This lists **why each piece exists:**
   mismatches. Honest tools can still *declare* `read`. Known blind spot: a tool that returns
   more data to the agent than it says. The skip happens after the effect is picked, so other
   tools' targets (and cache keys) don't change, but ~1/8 of tools get no injected mutant.
+- **One word list everywhere** (2026-11-07): `effects.py` is used both to pick injection
+  targets and for checks / `localize.py`. Improving it changes rebuilds; `full` and rung 2
+  were built with the version at commit 8c61fe0. Rung 3 is built with the current one.
 - **Generator: Claude Sonnet 5.5** (`claude-sonnet-5-5`) via `claude -p --json-schema`, on plan
   usage. Switched from Opus on 2026-10-05 (similar quality, less than half the cost). Results
   are cached on disk, keyed by model.
@@ -657,7 +682,11 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-11-07 (latest):** Built the Agent Audit coverage set (rung 1 test + 63 bug tools) and
+- **2026-11-07 (latest):** Step 5 done: filled the word-list gaps (SQL tables, billing / access
+  endpoints, Stripe and IAM calls, helper names, command arguments; bare `close()` no longer
+  destroy). Injected effect found on its lines 553/560 in `full` (was 409), 108/110 in rung 2
+  (was 79); no rise in over-flagging. Rebuilds of `full` / rung 2 now need commit 8c61fe0.
+- **2026-11-07:** Built the Agent Audit coverage set (rung 1 test + 63 bug tools) and
   ran Agent Audit (any finding counts): bugs 60/63, injected mismatches 31/54, but also the
   honest twins 31/54 with identical findings on every inject / twin pair, and 40% of honest
   originals. Our model: 52/54 injections, 2/54 twins. Bug set still to score on CARC.

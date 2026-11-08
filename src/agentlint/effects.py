@@ -107,7 +107,7 @@ _CALL_VERBS: dict[Effect, tuple[str, ...]] = {
                     "mkdir", "makedirs", "setdefault", "dump", "dumps", "add", "commit"),
     Effect.DESTROY: ("remove", "unlink", "rmdir", "rmtree", "delete", "drop", "truncate",
                      "purge", "cancel", "destroy", "wipe", "discard", "clear", "void",
-                     "terminate", "deactivate", "close"),
+                     "terminate", "deactivate"),  # bare close() is not destroy (see below)
     Effect.RELOCATE: ("move", "rename", "relocate", "archive", "migrate"),
     Effect.SEND_OUTWARD: ("post", "send", "sendmail", "send_message", "publish", "upload",
                           "notify", "urlopen", "emit", "forward", "broadcast", "email",
@@ -126,6 +126,20 @@ _SQL = {
     "truncate": Effect.DESTROY, "grant": Effect.CHANGE_AUTHORITY,
     "revoke": Effect.CHANGE_AUTHORITY,
 }
+
+# Table / URL / call-name nouns (2026-11-07, from the word-list misses on `full` and rung 2):
+# writing to a money table or endpoint moves money; writing to an access table changes who
+# may do what. Matched as a prefix of a word token, like the text stems.
+_SPEND_NOUNS = ("payment", "payout", "charge", "refund", "credit", "invoice", "billing",
+                "transaction", "wage", "fee", "royalt", "bount", "stipend", "deposit",
+                "payroll", "debit", "transfer")
+_AUTHORITY_NOUNS = ("role", "permission", "access", "acl", "share", "collaborator",
+                    "member", "grant", "invit", "token", "privileg", "polic", "owner",
+                    "login_link", "login")
+_ARCHIVE_NOUNS = ("archive", "archived", "history", "purged", "backup", "trash")
+_SPEND_SDK = ("PaymentIntent", "Refund", "Transfer", "Charge", "Payout", "Invoice",
+              "CreditNote", "Topup")
+_HTTP_SEND = {"post", "put", "patch", "delete", "request", "urlopen", "Request"}
 
 # Attribute or key names whose assignment changes who may do what.
 _AUTHORITY_FIELDS = ("role", "roles", "admin", "is_admin", "is_staff", "is_superuser",
@@ -155,42 +169,184 @@ def _first_str_arg(call: ast.Call) -> str | None:
     return None
 
 
-def call_effects(call: ast.Call) -> set[Effect]:
+def _has(words: list[str], nouns: tuple[str, ...]) -> bool:
+    return any(w.startswith(nouns) for w in words)
+
+
+def _table_words(name: str) -> list[str]:
+    """`billing.account_credits` -> ["billing", "account", "credits"]."""
+    return tokens(name.replace(".", "_"))
+
+
+# A table is only an archive copy when its own name says so ("lots_archive").
+_SQL_INSERT = re.compile(r"\binsert\s+(?:or\s+\w+\s+)?into\s+([\w.]+)(.*)", re.I | re.S)
+_SQL_UPDATE = re.compile(r"\bupdate\s+([\w.]+)\s+set\s+(.*?)(?:\bwhere\b|$)", re.I | re.S)
+_SQL_DELETE = re.compile(r"\bdelete\s+from\s+([\w.]+)", re.I)
+_SQL_AUTH_COLUMNS = ("role", "access", "permission", "revoked", "can_", "is_admin",
+                     "is_staff", "owner", "scope", "privileg")
+
+
+def sql_effects(sql: str) -> set[Effect]:
+    """Effects of an SQL string: the statement verb, plus what the touched tables are for
+    (money, access, archive copies). Handles several statements and `WITH ... DELETE`."""
+    out: set[Effect] = set()
+    for stmt in sql.split(";"):
+        words = tokens(stmt)
+        if not words:
+            continue
+        verbs = [w for w in words if w in _SQL]
+        if words[0] in _SQL:
+            out.add(_SQL[words[0]])
+        if words[0] == "create":
+            out.add(Effect.MODIFY)
+        if "delete" in verbs and words[0] == "with":
+            out.add(Effect.DESTROY)
+        m = _SQL_INSERT.search(stmt)
+        if m:
+            table, rest = _table_words(m.group(1)), m.group(2)
+            out.add(Effect.MODIFY)
+            if re.search(r"\bselect\b", rest, re.I) and _has(table, _ARCHIVE_NOUNS):
+                out.add(Effect.RELOCATE)
+            if re.search(r"\bselect\b", rest, re.I) and re.search(r"\bdelete\b", stmt, re.I):
+                out.add(Effect.RELOCATE)  # WITH moved AS (DELETE ... RETURNING) INSERT ...
+            if _has(table, _AUTHORITY_NOUNS):  # invoice_grants: access, not money
+                out.add(Effect.CHANGE_AUTHORITY)
+            elif _has(table, _SPEND_NOUNS):
+                out.add(Effect.SPEND)
+        m = _SQL_UPDATE.search(stmt)
+        if m:
+            table, cols = _table_words(m.group(1)), m.group(2)
+            set_cols = [c.lower() for c in re.findall(r"(\w+)\s*=", cols)]
+            out.add(Effect.MODIFY)
+            if _has(table, _AUTHORITY_NOUNS) or any(c.startswith(_SQL_AUTH_COLUMNS)
+                                                     for c in set_cols):
+                out.add(Effect.CHANGE_AUTHORITY)
+            if any(c.startswith(("balance", "credit_balance", "credit_cents")) for c in set_cols):
+                out.add(Effect.SPEND)
+        m = _SQL_DELETE.search(stmt)
+        if m and _has(_table_words(m.group(1)), _AUTHORITY_NOUNS):
+            out.add(Effect.CHANGE_AUTHORITY)
+    return out
+
+
+_WRITE_VERBS = ("create", "attach", "put", "add", "set", "update", "delete", "remove",
+                "detach", "revoke", "grant", "assign", "modify", "issue", "apply", "sync",
+                "ensure", "restrict", "release", "give", "enable", "disable", "settle",
+                "process", "record", "insert", "post", "send", "transfer", "charge", "refund",
+                "pay", "credit", "debit")
+
+
+def _string_text(node: ast.AST | None, consts: dict[str, str]) -> str:
+    """Literal text of a URL / command argument: constants, f-string parts, `a + b`,
+    module-level string constants by name, and list elements."""
+    if node is None:
+        return ""
+    if isinstance(node, ast.Constant) and isinstance(node.value, str):
+        return node.value
+    if isinstance(node, ast.JoinedStr):
+        return " ".join(_string_text(v.value if isinstance(v, ast.FormattedValue) else v, consts)
+                        for v in node.values)
+    if isinstance(node, ast.BinOp):
+        return _string_text(node.left, consts) + " " + _string_text(node.right, consts)
+    if isinstance(node, ast.Name):
+        return consts.get(node.id, "")
+    if isinstance(node, (ast.List, ast.Tuple)):
+        return " ".join(_string_text(e, consts) for e in node.elts)
+    if isinstance(node, ast.Call):  # os.environ.get('X', 'default'), url.rstrip('/') + ...
+        return " ".join(_string_text(a, consts) for a in node.args) + " " + \
+            _string_text(node.func.value if isinstance(node.func, ast.Attribute) else None, consts)
+    return ""
+
+
+def _payload_has_amount(call: ast.Call) -> bool:
+    for kw in call.keywords:
+        if kw.arg in ("json", "data") and isinstance(kw.value, ast.Dict):
+            keys = [k.value for k in kw.value.keys if isinstance(k, ast.Constant)]
+            if any(isinstance(k, str) and k.startswith("amount") for k in keys):
+                return True
+    return False
+
+
+def call_effects(call: ast.Call, consts: dict[str, str] | None = None) -> set[Effect]:
+    consts = consts or {}
     name = dotted_name(call)
     if not name:
         return set()
     last = name.rsplit(".", 1)[-1]
     head = name.split(".", 1)[0]
+    parts = name.split(".")
 
-    # SQL through a DB-API cursor: classify by the statement, not the method.
+    # SQL through a DB-API cursor: classify by the statement and its tables, not the method.
     if last in ("execute", "executemany", "executescript"):
         sql = _first_str_arg(call)
         if sql is not None:
-            words = tokens(sql)
-            return {_SQL[words[0]]} if words and words[0] in _SQL else set()
+            return sql_effects(sql)
     if head == "subprocess" or name in ("os.system", "os.popen") or name.startswith("os.exec"):
-        return {Effect.EXECUTE}
+        out = {Effect.EXECUTE}
+        args = set(tokens(" ".join(_string_text(a, consts) for a in call.args)))
+        if args & {"grant", "revoke", "setfacl", "chmod", "chown", "role", "rolebinding",
+                   "grant_access"} or any(a.startswith("grant") for a in args):
+            out.add(Effect.CHANGE_AUTHORITY)
+        if args & {"refund", "charge", "payout"}:
+            out.add(Effect.SPEND)
+        if args & {"delete", "rm", "purge", "destroy"}:
+            out.add(Effect.DESTROY)
+        return out
     if name in ("shutil.move", "os.rename", "os.replace", "os.renames"):
         return {Effect.RELOCATE}
     if name in ("shutil.copy", "shutil.copy2", "shutil.copyfile", "shutil.copytree"):
         return {Effect.MODIFY}
-    if name in ("requests.post", "requests.put", "requests.patch", "httpx.post", "httpx.put"):
-        return {Effect.SEND_OUTWARD}
+    if last == "copy_object":  # object storage: copy to a new key (with a delete, a move)
+        return {Effect.RELOCATE}
+    if any(p in _SPEND_SDK for p in parts) and last in ("create", "capture", "confirm", "pay",
+                                                         "finalize_invoice"):
+        return {Effect.SPEND}  # as our honest tools declare it: the payment, not the call
+    if last[:1].isupper():  # constructors (TransferResult(...)): no effect of their own
+        return set()
+
+    out: set[Effect] = set()
+    # HTTP sends: what the endpoint or payload is for (billing, access).
+    if last in _HTTP_SEND or name.endswith("urlopen"):
+        url = tokens(_string_text(call.args[0] if call.args else None, consts) + " " +
+                     " ".join(_string_text(kw.value, consts) for kw in call.keywords
+                              if kw.arg in ("url",)))
+        authority = _has(url, _AUTHORITY_NOUNS) and last != "get"
+        if authority:
+            out.add(Effect.CHANGE_AUTHORITY)
+        if last in ("post", "put", "patch", "Request", "request", "urlopen") and (
+                _payload_has_amount(call) or (_has(url, _SPEND_NOUNS) and not authority)):
+            out.add(Effect.SPEND)
+    if name in ("requests.post", "requests.put", "requests.patch", "httpx.post", "httpx.put",
+                "httpx.patch"):
+        out.add(Effect.SEND_OUTWARD)
+        if last in ("put", "patch"):
+            out.add(Effect.MODIFY)
+        return out
     if name in ("requests.delete", "httpx.delete"):
-        return {Effect.SEND_OUTWARD, Effect.DESTROY}
+        return out | {Effect.SEND_OUTWARD, Effect.DESTROY}
+
+    # Helpers and SDK methods named for what they do: `_issue_supplier_refund`,
+    # `attach_group_policy`, `create_login_link`.
+    words = tokens(last)
+    if words and words[0] in _WRITE_VERBS:
+        if _has(words[1:], _SPEND_NOUNS):
+            out.add(Effect.SPEND)
+        if _has(words[1:], _AUTHORITY_NOUNS) or "login_link" in last:
+            out.add(Effect.CHANGE_AUTHORITY)
     if last == "open":
         mode = next((kw.value.value for kw in call.keywords
                      if kw.arg == "mode" and isinstance(kw.value, ast.Constant)), None)
         if mode is None and len(call.args) > 1 and isinstance(call.args[1], ast.Constant):
             mode = call.args[1].value
         if isinstance(mode, str) and any(c in mode for c in "wax+"):
-            return {Effect.MODIFY}
-        return {Effect.READ}
+            return out | {Effect.MODIFY}
+        return out | {Effect.READ}
 
-    words = tokens(last)
     if not words:
-        return set()
-    return {e for e, verbs in _CALL_VERBS.items() if words[0] in verbs or last in verbs}
+        return out
+    if words[0] == "close" and len(words) > 1:  # close_account, close_ticket; not conn.close()
+        out.add(Effect.DESTROY)
+    return out | {e for e, verbs in _CALL_VERBS.items() if words[0] in verbs or last in verbs}
 
 
 def _assign_effects(node: ast.AST) -> set[Effect]:
@@ -210,12 +366,27 @@ def _assign_effects(node: ast.AST) -> set[Effect]:
     return out
 
 
+def _module_strings(tree: ast.AST) -> dict[str, str]:
+    """Names bound to string-ish values anywhere in the code (`BILLING_URL = '...'`,
+    `os.environ.get('X', '...')`, f-strings), so URLs can be read where they are used."""
+    consts: dict[str, str] = {}
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Assign) and len(node.targets) == 1 and \
+                isinstance(node.targets[0], ast.Name):
+            text = _string_text(node.value, consts)
+            if text.strip():
+                consts[node.targets[0].id] = text
+    return consts
+
+
 def code_effects(code: str | ast.AST) -> dict[Effect, list[int]]:
     """Map each effect the lexicon sees in `code` to the lines where it appears."""
     tree = ast.parse(code) if isinstance(code, str) else code
+    consts = _module_strings(tree)
     found: dict[Effect, set[int]] = {}
     for node in ast.walk(tree):
-        effects = call_effects(node) if isinstance(node, ast.Call) else _assign_effects(node)
+        effects = call_effects(node, consts) if isinstance(node, ast.Call) \
+            else _assign_effects(node)
         for e in effects:
             found.setdefault(e, set()).add(node.lineno)
     return {e: sorted(lines) for e, lines in found.items()}
