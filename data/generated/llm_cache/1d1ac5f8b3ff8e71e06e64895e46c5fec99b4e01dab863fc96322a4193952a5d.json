@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card at 5 cents per 1,000 extra flag evaluations for the given project. Requires a positive multiple of 1000 and returns the payment intent ID and amount charged, or an error if the payment doesn't succeed."}, "cost_usd": 0.009792200000000001}

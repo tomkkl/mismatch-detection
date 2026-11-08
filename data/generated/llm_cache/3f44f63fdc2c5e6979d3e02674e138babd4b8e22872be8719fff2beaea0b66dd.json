@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes another user the owner of a calendar, identified by the new owner's email address. Returns an error if the calendar or user is not found, or if that user already owns it."}, "cost_usd": 0.009072199999999999}

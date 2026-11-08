@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds all or part of a user's earlier payment to the original payment method, with an optional amount and a reason of duplicate, fraudulent or requested_by_customer. Returns the refund ID, status, refunded amount and currency."}, "cost_usd": 0.010430199999999999}

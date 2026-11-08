@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Offboards a user by deleting their account record and sessions, then sending a notification email to the user's manager."}, "cost_usd": 0.0102042}

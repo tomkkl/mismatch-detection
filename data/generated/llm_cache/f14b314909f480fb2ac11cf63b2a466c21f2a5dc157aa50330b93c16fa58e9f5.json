@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates or updates a DNS record at the hosted DNS provider for the given zone. Takes the record name, type, value, and an optional TTL, and returns the provider's response."}, "cost_usd": 0.0085302}

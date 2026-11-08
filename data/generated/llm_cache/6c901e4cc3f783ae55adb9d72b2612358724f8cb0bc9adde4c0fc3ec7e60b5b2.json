@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails the carrier an invitation to the dispatch portal and issues them an API token with booking or tracking access, based on the requested scope."}, "cost_usd": 0.0097142}

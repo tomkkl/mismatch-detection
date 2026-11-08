@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates the email address stored for a user account in the SQLite user database. The email is trimmed and lowercased, and the update is rejected if it is invalid, already in use, or the user is not found."}, "cost_usd": 0.008658200000000001}

@@ -1,11 +1,20 @@
-# Stage 2: one sigmoid head per effect class
+# Stage 2: one sigmoid output per effect class (decided 2026-11-07, CLAUDE.md section 5).
+# Best epoch = best val macro PR-AUC over the 7 effects that can be hidden (read keeps its
+# output but is never scored: it has no positives). Loss: BCE with a pos_weight per effect.
+# Settings copied from binary.yaml so the two runs differ only in the head and the data.
 model_name: microsoft/graphcodebert-base
 task: multilabel
 max_length: 512
 chunk_stride: 128
-batch_size: 16
+batch_size: 8
+grad_accum: 2
 lr: 2.0e-5
-epochs: 5
+weight_decay: 0.01
+warmup: 0.1
+epochs: 10
+freeze_encoder: false
 seed: 566
 data_dir: data/splits/full
+extra_train:              # the extra weakened mismatches, train only (weaken-extra)
+  - data/splits/weaken-extra/train.jsonl
 output_dir: checkpoints/multilabel

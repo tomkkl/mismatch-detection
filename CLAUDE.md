@@ -292,8 +292,22 @@ Steps 2 and 3 can run at the same time with different people.
    one word list everywhere; `full` and rung 2 were built with the old one (commit 8c61fe0),
    so an exact rebuild of either needs that commit.
 
-**If time allows:** data-flow input via tree-sitter (ablation); more weakened mismatches; a
-narrow "returns undeclared sensitive data" class to replace general `read`.
+6. **`agentlint scan` (done 2026-11-07, `src/agentlint/scan.py`).** Point it at .py files or
+   folders: it finds decorated tools (`@tool`, `@<server>.tool()`, `@function_tool`; plain
+   functions are not tools) with the rung 3 extractor (`strict=False`: no description is
+   allowed, then the tool is checked against its name and params), scores each with a
+   checkpoint at 0.5 and prints verdict, score, file:line. For a flagged tool it lists likely
+   hidden effects with **line numbers in the scanned file**: with a binary checkpoint, effects
+   the word list sees in the tool's code that the interface never mentions (`read` left out);
+   with a multi-label checkpoint, effects the model scores ≥ 0.5. `--json` for machine output.
+   `agentlint scan path/ --checkpoint checkpoints/binary`. Weights are on CARC only; tested
+   here with a fake model and a tiny random checkpoint.
+7. **More weakened mismatches (2026-11-07):** 104 new weakened pairs (+ 279 originals),
+   train only, in `configs/multilabel.yaml`; details in section 3, "`weaken-extra`".
+   **Next CARC training job:** `configs/multilabel.yaml` (multi-label head + this data).
+
+**If time allows:** data-flow input via tree-sitter (ablation); a narrow "returns
+undeclared sensitive data" class to replace general `read`.
 
 ---
 
@@ -409,6 +423,27 @@ guessing, so the labels can't be read off the surface. (`stats.json`, `shortcut_
 | `generator` | which LLM made it |
 | `meta` | domain, declared effects, injection position, soft-check results |
 
+### Extra weakened mismatches for training: `weaken-extra` (2026-11-07)
+
+Weakened descriptions are the model's weak spot (test recall 7/12), and `full` has only 129.
+`configs/datagen_weaken.yaml` (Sonnet 5.5, seed 5055, `weaken_only`, ids `w0000-0`…) built
+300 new honest tools that all declare 2 effects (~35% declare 3), with one weakened copy each.
+No injections, twins or rewrites. Names shared with `full`, rung 2 or the rung 3 candidates
+were dropped (21 tools).
+- **383 pairs from 279 tools: 279 originals + 104 weakened mismatches.** 176 tools had no
+  effect that could be removed without the name or params still giving it away. Hidden
+  effect: modify 23, execute 19, change authority 15, destroy 14, send outward 13, relocate
+  12, spend 8. 199 LLM calls, $4.29 at list price.
+- **Train only** (`data/splits/weaken-extra/train.jsonl`, fractions 1/0/0); val and test are
+  untouched. Added through `extra_train:` (in `configs/multilabel.yaml`). With it, train has
+  207 weakened pairs instead of 103.
+- **Shortcut check:** on its own the set has a length leak (length-only 0.77 vs majority
+  0.73: these new tools' originals are short, 156 characters, and the weakened copies 183).
+  Combined with `full` train there is none: length-only 0.725 vs majority 0.733,
+  description-only 0.743 (0.740 without it); weakened and honest descriptions both average
+  183 characters. Never train on this set alone.
+- Spot check of 3 weakened pairs: each drops exactly the removed effect from the description.
+
 ### Quality checks done by hand
 
 - 33 injections that the word-list checker didn't recognize: none had the wrong effect.
@@ -453,6 +488,15 @@ tests, refactors inside one module, docs. When unsure whether something is archi
   between the two runs is whether the encoder is fine-tuned. A single linear layer would make
   the baseline weaker and flatter fine-tuning.
 - Start **binary** (mismatch yes/no), then **multi-label** (one sigmoid output per effect class).
+- **Multi-label (decided 2026-11-07, code ready, not trained yet):** 8 outputs, label = the
+  hidden effect(s). Loss: BCE with a `pos_weight` per effect (negatives / positives in train;
+  an output with no positives gets 1.0). `read` keeps its output but is never scored (no read
+  injections, so no positives). **Best epoch = best val macro PR-AUC over the 7 scored
+  effects.** Reported per effect (P / R / F1 / PR-AUC), macro, "top effect right" (of the
+  mismatches flagged, how often the highest effect is the hidden one), and a pair-level
+  "any effect" score (max over the 7) that compares directly with binary. Settings copied
+  from `binary.yaml`; `configs/multilabel.yaml` also adds the `weaken-extra` training set.
+  Run on CARC: `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/train.slurm configs/multilabel.yaml`.
 - Start **text-only**. Adding data flow (tree-sitter) is a later ablation.
 - **Input (decided 2026-10-26):** first segment = name + compact params + description
   (`format_interface`); second segment = code with all whitespace collapsed to single spaces
@@ -474,7 +518,8 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 - **Batching:** 8 pairs per step (each pair brings 1–3+ chunks), gradient accumulation 2
   (effective 16 pairs), fp16 on GPU. AdamW, lr 2e-5, weight decay 0.01, 10% linear warmup,
   grad clip 1.0, 10 epochs (raised from 5 on 2026-10-29: still improving at epoch 5), seed 566.
-- **Model selection:** keep the epoch with the best val PR-AUC. `train.py` never reads `test`.
+- **Model selection:** keep the epoch with the best val PR-AUC (multi-label: macro PR-AUC over
+  7 effects). `train.py` never reads `test`. `extra_train:` in a config adds training files.
 - **Cut-off (decided 2026-11-01, updated 2026-11-03):** results for `test` and rungs 2–3 are
   reported at a fixed **0.5**, plus PR-AUC and the PR curve (which cover every cut-off). The
   best-F1 cut-off on val is still saved (`threshold.json`) and `score.py` still computes it,
@@ -612,7 +657,9 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `scripts/token_lengths.py`: input lengths vs the 512-token limit (section 3)
 - `scripts/plot_results.py`: charts for the results write-up, into `docs/figures/` (`plots` extra)
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
-- `src/agentlint/model/`: input construction, model, training loop (`train.py`)
+- `src/agentlint/model/`: input construction, model, training loop (`train.py`, binary and
+  multi-label)
+- `src/agentlint/scan.py`: `agentlint scan`, check the tools in Python files
 - `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns, PR-AUC bootstrap
   interval); `score.py` (score a checkpoint on a test set, once)
 - `configs/datagen.yaml`: dataset settings (`datagen_rung2.yaml`: rung 2); `configs/binary.yaml`, `binary_frozen.yaml`
@@ -703,7 +750,11 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-11-07 (latest):** Published the rung 3 review page (shared decisions, filters for
+- **2026-11-07 (latest):** Multi-label training and scoring implemented (macro PR-AUC over 7
+  effects, per-effect pos_weight, `extra_train`); `agentlint scan` implemented (file line
+  numbers, table / JSON); built `weaken-extra` (104 weakened + 279 originals, train only, no
+  combined shortcut leak). Smoke-tested training, scoring and scan on a tiny random model.
+- **2026-11-07:** Published the rung 3 review page (shared decisions, filters for
   disagreements) with an Opus second-opinion draft for every candidate (57 disagree with Sonnet). Wrote
   `docs/results-coverage.md`: Agent Audit's findings are identical on all 66 same-code pairs.
 - **2026-11-07:** Step 5 done: filled the word-list gaps (SQL tables, billing / access

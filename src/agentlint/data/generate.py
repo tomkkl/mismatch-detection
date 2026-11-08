@@ -80,7 +80,10 @@ class CallPlan:
 
 
 def plan_calls(n_tools: int, per_call: int, domains: list[str], p_second: float,
-               seed: int) -> list[CallPlan]:
+               seed: int, p_third: float = 0.0, prefix: str = "c") -> list[CallPlan]:
+    """`p_third` (share of two-effect tools that get a third) and `prefix` (source-id prefix,
+    so a separate set can join training without id clashes) default to the values `full`
+    was built with; at those defaults the random draws are unchanged."""
     rng = random.Random(seed)
     order = list(domains)
     rng.shuffle(order)
@@ -93,9 +96,11 @@ def plan_calls(n_tools: int, per_call: int, domains: list[str], p_second: float,
             effects = [first]
             if rng.random() < p_second:
                 effects.append(rng.choice([e for e in EFFECTS if e != first]))
+                if p_third and rng.random() < p_third:
+                    effects.append(rng.choice([e for e in EFFECTS if e not in effects]))
             specs.append(ToolSpec(effects, rng.choice(list(LENGTHS)), rng.choice(DECORATORS),
                                   rng.choice(HABITS)))
-        plans.append(CallPlan(f"c{len(plans):04d}", order[len(plans) % len(order)], specs))
+        plans.append(CallPlan(f"{prefix}{len(plans):04d}", order[len(plans) % len(order)], specs))
         made += k
     return plans
 

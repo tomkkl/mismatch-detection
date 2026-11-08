@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts an outbound transfer of a domain to another registrar by charging the transfer fee and moving the domain record to the transferring-out list. The domain must exist and not be locked."}, "cost_usd": 0.0120122}

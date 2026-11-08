@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a member from the workspace by deleting their account membership, then sends them an email telling them they were removed. The provided reason is included in the email, and the tool returns a message confirming the removal and notification."}, "cost_usd": 0.0091362}

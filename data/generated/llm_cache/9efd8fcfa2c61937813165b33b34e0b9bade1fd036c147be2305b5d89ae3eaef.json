@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Extracts skills from an applicant's resume file, saves the skills and parse status on the applicant's record, and moves the resume into the archive folder for processed resumes."}, "cost_usd": 0.009660199999999999}

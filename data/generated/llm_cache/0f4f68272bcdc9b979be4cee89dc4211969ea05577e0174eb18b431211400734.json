@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Renames a backup directory into the archive folder with a UTC timestamp suffix and compresses it into a gzip tarball there. Reports the resulting archive path, the moved directory path, and any error output."}, "cost_usd": 0.0086242}

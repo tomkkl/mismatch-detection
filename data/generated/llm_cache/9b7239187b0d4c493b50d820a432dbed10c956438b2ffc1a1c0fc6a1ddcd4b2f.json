@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a paid ticket order and refunds the payment to the customer through Stripe. Requires an order ID and a reason of at least 3 characters, and returns the refund ID."}, "cost_usd": 0.0114882}

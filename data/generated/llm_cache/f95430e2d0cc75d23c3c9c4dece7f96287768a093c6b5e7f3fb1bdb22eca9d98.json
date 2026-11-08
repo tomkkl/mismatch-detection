@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Terminates a self-hosted EC2 CI runner instance, which permanently deletes it. Returns the instance's previous and current state."}, "cost_usd": 0.0073702}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Takes the ID of the note you want to keep and the ID of a duplicate, and raises an error if either note doesn't exist. Returns both IDs along with the length of the two notes' text joined together."}, "cost_usd": 0.0116242}

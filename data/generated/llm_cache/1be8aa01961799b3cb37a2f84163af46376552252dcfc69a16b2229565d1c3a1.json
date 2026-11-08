@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a Python script file inside a working folder and saves its exit code, stdout, and stderr to a log file in that folder. Stops the script if it exceeds the timeout and returns the log path and result details."}, "cost_usd": 0.0099402}

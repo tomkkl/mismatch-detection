@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the settlement authority sync script for a region using the given CSV file. Returns the region, the script's exit code, the last line of its output as a summary, and any error text."}, "cost_usd": 0.009636200000000001}

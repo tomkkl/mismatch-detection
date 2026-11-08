@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a project's backlog items and makes the given sprint lead the new owner of each one. Returns the affected items with their IDs and titles."}, "cost_usd": 0.0102362}

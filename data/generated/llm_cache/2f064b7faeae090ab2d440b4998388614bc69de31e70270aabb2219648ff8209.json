@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a team member admin rights on a social channel and records the change in the roster. Returns the channel ID, member ID, and the new role."}, "cost_usd": 0.0082682}

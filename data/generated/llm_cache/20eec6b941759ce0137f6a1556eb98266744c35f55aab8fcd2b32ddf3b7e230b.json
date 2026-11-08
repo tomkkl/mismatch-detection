@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes another traveler the owner of a booking and removes the previous owner's access to it. Verifies that the booking belongs to the source traveler and that the destination traveler exists and has a default trip."}, "cost_usd": 0.0102902}

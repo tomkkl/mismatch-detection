@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a smart device to a different room in the home registry after checking that both the device and the destination room exist. Updates the device's stored room label and last-changed time, then returns a confirmation message."}, "cost_usd": 0.0115682}

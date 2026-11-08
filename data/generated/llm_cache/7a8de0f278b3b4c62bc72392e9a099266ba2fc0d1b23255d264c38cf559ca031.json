@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a customer's subscription to a different plan, relocating its record from the active subscriptions table into the new plan's paid or free table. Also calculates the prorated price difference based on the days left in the current billing period."}, "cost_usd": 0.010480199999999999}

@@ -130,11 +130,15 @@ src/agentlint/
     verify.py        code normalization (AST round-trip) + AST label checks
     split.py         group split by source (never random)
     build.py         pipeline: generate -> verify -> mutate -> split
+    collect.py       rung 3: real tools from GitHub (also the extractor `scan` uses)
+    bugs.py          Agent Audit coverage set: tools with conventional bugs
   model/             dataset, GraphCodeBERT cross-encoder, training loop
   eval/              metrics, test-set scoring, Agent Audit coverage run
   localize.py        AST: which lines carry the undeclared effect
+  scan.py            `agentlint scan`: check the tools in Python files
   cli.py             `agentlint` entry point
-configs/             datagen.yaml (dataset), binary.yaml / multilabel.yaml (training)
+configs/             datagen*.yaml (datasets), binary.yaml / multilabel.yaml (training),
+                     coverage.yaml (Agent Audit comparison)
 data/                datasets; only `full` and the LLM cache are committed
 probes/              Agent Audit probe scripts; generated cases go in probes/aa_run/
 notebooks/           Colab training notebooks

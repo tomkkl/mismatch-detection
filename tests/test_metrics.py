@@ -66,3 +66,32 @@ def test_bootstrap_pr_auc_brackets_the_point_estimate():
     point = report(ROWS, 0.5)["pr_auc"]
     assert 0 <= lo <= point <= hi <= 1
     assert bootstrap_pr_auc(ROWS, n=500) == (lo, hi)  # seeded
+
+
+def test_multilabel_report_per_effect_macro_and_top_effect():
+    from agentlint.eval.metrics import SCORED_EFFECTS, multilabel_report
+    base = {e: 0.01 for e in SCORED_EFFECTS} | {"read": 0.9}  # read is never scored
+    def row(pid, undeclared, hot):
+        scores = dict(base) | {e: 0.95 for e in hot}
+        return {"pair_id": pid, "source_id": pid.split("/")[0], "label": bool(undeclared),
+                "undeclared": undeclared, "scores": scores,
+                "score": max(scores[e] for e in SCORED_EFFECTS), "n_chunks": 1,
+                "mutation": "inject_code" if undeclared else None, "position": None}
+    rows = [row("a/m", ["spend"], ["spend"]), row("b/m", ["destroy"], ["modify"]),
+            row("c/h", [], []), row("d/h", [], [])]
+    m = multilabel_report(rows, 0.5)
+    assert set(m["per_effect"]) == {"spend", "destroy"}  # effects with positives only
+    assert m["per_effect"]["spend"]["f1"] == 1.0 and m["per_effect"]["destroy"]["recall"] == 0
+    assert m["top_effect_right"] == 0.5  # both flagged at pair level, one names the right effect
+    assert m["pair"]["recall"] == 1.0 and m["pair"]["fp"] == 0
+
+
+def test_pos_weights_per_effect():
+    from agentlint.model.train import pos_weights
+    from agentlint.schema import Effect, ToolPair
+    mk = lambda i, und: ToolPair(pair_id=f"p{i}", source_id=f"s{i}", name="f", params={},
+                                 description="d", code="x", mismatch=bool(und), undeclared=und)
+    pairs = [mk(0, [Effect.SPEND]), mk(1, []), mk(2, []), mk(3, [])]
+    w = pos_weights(pairs, "multilabel").tolist()
+    assert w[list(Effect).index(Effect.SPEND)] == 3.0 and w[list(Effect).index(Effect.READ)] == 1.0
+    assert pos_weights(pairs, "binary").tolist() == [3.0]

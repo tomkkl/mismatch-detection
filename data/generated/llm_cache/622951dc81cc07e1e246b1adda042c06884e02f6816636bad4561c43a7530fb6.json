@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a draft invoice by deleting its record from the database, but only if its status is draft. Returns the draft ID, whether the PDF file was found, and how many records were deleted."}, "cost_usd": 0.0084442}

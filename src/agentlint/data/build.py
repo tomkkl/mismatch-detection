@@ -85,7 +85,8 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
         print(f"honest_from: {len(honest)} reviewed tools", flush=True)
     else:
         plans = plan_calls(cfg["n_honest"], cfg["tools_per_call"], cfg["domains"],
-                           cfg["p_second_effect"], seed)
+                           cfg["p_second_effect"], seed, cfg.get("p_third_effect", 0.0),
+                           cfg.get("id_prefix", "c"))
         print(f"generate: {len(plans)} calls for {cfg['n_honest']} honest tools", flush=True)
         for plan, tools, err in _parallel(lambda p: generate_batch(llm, p, gen["effort"]),
                                           plans, workers, "generate"):
@@ -111,7 +112,8 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
     # stays the same) but their jobs are dropped.
     skip = {Effect(e) for e in cfg.get("skip_inject_effects", [])}
     effect_counts, pos_counts, jobs = Counter(), Counter(), []
-    for t in honest:
+    # `weaken_only` (extra training data for the weak spot): originals + weakened pairs only.
+    for t in ([] if cfg.get("weaken_only") else honest):
         rng = random.Random(f"{seed}:{t.source_id}")
         present = set(code_effects(t.code))
         iface = interface_text(t)

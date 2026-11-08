@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a boost for a published social post through the ad platform, targeting the given audience segment for the chosen number of days. Notifies the campaign owner by email and triggers the audience-sync job for the campaign."}, "cost_usd": 0.0114262}

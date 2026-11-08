@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes build artifacts older than a given number of days from a local artifacts directory. Returns the count of files removed, the bytes freed, and any files that failed."}, "cost_usd": 0.0091722}

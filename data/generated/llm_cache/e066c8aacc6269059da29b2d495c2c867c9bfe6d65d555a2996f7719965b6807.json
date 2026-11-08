@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Scans a file with the ClamAV command line scanner and permanently deletes the file if it is infected. Returns a short status string indicating whether the file was clean or infected and deleted."}, "cost_usd": 0.0079302}

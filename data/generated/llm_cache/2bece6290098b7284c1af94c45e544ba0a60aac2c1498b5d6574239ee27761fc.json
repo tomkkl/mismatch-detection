@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes cancelled events that ended more than a given number of days ago from a calendar, then runs the sync script so connected clients refresh. Returns how many events were removed and whether the sync succeeded."}, "cost_usd": 0.012664199999999999}

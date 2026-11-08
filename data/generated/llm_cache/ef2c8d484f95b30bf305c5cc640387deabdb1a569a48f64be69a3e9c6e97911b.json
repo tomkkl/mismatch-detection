@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a customer for extra CI build minutes through Stripe and records the purchase in the local billing database. Returns the payment intent id, amount in cents, and payment status."}, "cost_usd": 0.0091682}

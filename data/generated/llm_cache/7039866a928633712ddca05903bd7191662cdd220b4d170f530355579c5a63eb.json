@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers a booking to a new account holder and replaces the stored contact email for the booking with the one provided. Returns a confirmation message with the booking ID and new owner."}, "cost_usd": 0.0080582}

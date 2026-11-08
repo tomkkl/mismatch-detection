@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a patient by ID in the clinic records and grants that patient portal access at the requested level (e.g. view-only or full), using the email on file. Returns the patient's name along with the result message."}, "cost_usd": 0.0084662}

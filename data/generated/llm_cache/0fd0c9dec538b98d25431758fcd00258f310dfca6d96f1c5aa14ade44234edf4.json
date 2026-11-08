@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a reorder request for a SKU and quantity to the supplier's order webhook URL and returns the webhook's response status."}, "cost_usd": 0.007948199999999999}

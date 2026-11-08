@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the rollover script for a finished sprint, which carries unfinished tasks into the next sprint. It then permanently deletes the sprint's cancelled tasks."}, "cost_usd": 0.0098962}

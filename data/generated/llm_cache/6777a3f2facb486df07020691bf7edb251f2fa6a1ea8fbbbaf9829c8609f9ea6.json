@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies all messages from a channel into the archive table and records another member as the owner of the archived history. Requires the new owner to be an active user and returns the number of messages archived."}, "cost_usd": 0.010288199999999999}

@@ -202,3 +202,23 @@ def test_twin_length_miss_is_retried(tmp_path):
     assert stats["by_mutation"]["declare_effect"] == 20
     assert stats["twin_retried"] == {True: 20}
     assert not any(k.startswith("twin") for k in stats["rejects"])
+
+
+def test_weaken_only_with_prefix_and_third_effect(tmp_path):
+    cfg = {**_cfg(tmp_path), "weaken_only": True, "id_prefix": "w", "p_second_effect": 1.0,
+           "p_third_effect": 1.0, "fractions": [1.0, 0.0, 0.0]}
+    stats = run(cfg, "t", llm=FakeLLM())
+    assert set(stats["by_mutation"]) == {"original", "weaken_description"}
+    pairs = _rows(tmp_path / "gen" / "t" / "pairs.jsonl")
+    assert all(p["source_id"].startswith("w") for p in pairs)
+    assert len(_rows(tmp_path / "splits" / "t" / "train.jsonl")) == len(pairs)
+
+
+def test_plan_calls_defaults_unchanged():
+    from agentlint.data.generate import plan_calls
+    a = plan_calls(12, 4, ["x", "y"], 0.6, 566)
+    b = plan_calls(12, 4, ["x", "y"], 0.6, 566, p_third=0.0, prefix="c")
+    assert [(p.call_id, [s.effects for s in p.specs]) for p in a] == \
+        [(p.call_id, [s.effects for s in p.specs]) for p in b]
+    c = plan_calls(12, 4, ["x", "y"], 1.0, 1, p_third=1.0, prefix="w")
+    assert all(len(s.effects) == 3 for p in c for s in p.specs) and c[0].call_id == "w0000"

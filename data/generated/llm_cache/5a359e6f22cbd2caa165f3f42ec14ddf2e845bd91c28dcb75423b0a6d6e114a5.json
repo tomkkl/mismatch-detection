@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes all workout plans that a given coach created for an athlete's account. Returns a dictionary with the counts of removed records, including the number of plans deleted."}, "cost_usd": 0.0084962}

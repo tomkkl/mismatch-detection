@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up all token balances for a wallet and finds every balance worth less than the given USD value, which must be between 0 and 100. Validates the destination address format and returns the list of matching balances."}, "cost_usd": 0.013318199999999999}

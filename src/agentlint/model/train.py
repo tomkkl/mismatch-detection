@@ -1,8 +1,10 @@
 """Fine-tune on a config from configs/*.yaml.
 
 Each pair's logit is the max over its chunks (`max_pool_by_pair`); the weighted BCE loss is on
-that pooled logit. `freeze_encoder: true` trains only the head: the "before fine-tuning"
-baseline. The epoch with the best val PR-AUC is kept. `test` is never read here.
+that pooled logit (per effect for `task: multilabel`, with a pos_weight per effect).
+`freeze_encoder: true` trains only the head: the "before fine-tuning"
+baseline. The epoch with the best val PR-AUC is kept (multi-label: macro PR-AUC over the 7
+scored effects). `extra_train` adds more training files. `test` is never read here.
 
 Writes to `output_dir`: best/ (model + tokenizer), metrics.json, val_predictions.jsonl,
 threshold.json (best-F1 threshold on val, for scoring test later), config.yaml.
@@ -18,10 +20,10 @@ import yaml
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer, get_linear_schedule_with_warmup
 
-from agentlint.eval.metrics import best_f1_threshold, report
+from agentlint.eval.metrics import SCORED_EFFECTS, best_f1_threshold, multilabel_report, report
 from agentlint.model.classifier import build_model, max_pool_by_pair
-from agentlint.model.dataset import PairDataset
-from agentlint.schema import ToolPair
+from agentlint.model.dataset import PairDataset, label_vector
+from agentlint.schema import EFFECTS, ToolPair
 
 
 def load_pairs(path: Path, limit: int | None = None) -> list[ToolPair]:
@@ -50,27 +52,65 @@ def pooled_logits(model, batch: dict, device: torch.device) -> torch.Tensor:
 
 @torch.no_grad()
 def predict(model, loader: DataLoader, pairs: dict[str, ToolPair], device: torch.device) -> list[dict]:
-    """One row per pair: score = sigmoid(pooled logit), plus the fields the breakdowns need."""
+    """One row per pair: score = sigmoid(pooled logit), plus the fields the breakdowns need.
+
+    Multi-label models (one output per effect) also get `scores` {effect: probability}; their
+    pair-level `score` is the max over the scored effects (SCORED_EFFECTS, `read` left out)."""
     model.eval()
     rows = []
     for batch in loader:
         with torch.autocast(device.type, dtype=torch.float16, enabled=device.type == "cuda"):
-            scores = torch.sigmoid(pooled_logits(model, batch, device)).squeeze(1).tolist()
+            probs = torch.sigmoid(pooled_logits(model, batch, device)).float().tolist()
         n_chunks = torch.bincount(batch["pair_index"], minlength=len(batch["pair_ids"])).tolist()
-        for pid, score, n in zip(batch["pair_ids"], scores, n_chunks):
+        for pid, prob, n in zip(batch["pair_ids"], probs, n_chunks):
             p = pairs[pid]
-            rows.append({
-                "pair_id": pid, "source_id": p.source_id, "score": score, "label": p.mismatch,
-                "n_chunks": n, "undeclared": [e.value for e in p.undeclared],
-                "mutation": p.mutation, "position": p.meta.get("position"),
-            })
+            row = {"pair_id": pid, "source_id": p.source_id, "label": p.mismatch, "n_chunks": n,
+                   "undeclared": [e.value for e in p.undeclared], "mutation": p.mutation,
+                   "position": p.meta.get("position")}
+            if len(prob) == 1:
+                row["score"] = prob[0]
+            else:
+                row["scores"] = {e.value: s for e, s in zip(EFFECTS, prob)}
+                row["score"] = max(row["scores"][e] for e in SCORED_EFFECTS)
+            rows.append(row)
     return rows
+
+
+def selection_metric(rows: list[dict], task: str) -> tuple[float, dict]:
+    """(value the best epoch maximizes, val report at 0.5). Binary: PR-AUC. Multi-label:
+    macro PR-AUC over the scored effects (decided 2026-11-07)."""
+    if task == "binary":
+        m = report(rows, 0.5)
+        return m["pr_auc"], m
+    m = multilabel_report(rows, 0.5)
+    return m["macro_pr_auc"], m
+
+
+def pos_weights(pairs: list[ToolPair], task: str) -> torch.Tensor:
+    """Negatives / positives in train, per output. An output with no positives (multi-label
+    `read`) gets 1.0."""
+    labels = torch.stack([label_vector(p, task) for p in pairs])
+    pos = labels.sum(0)
+    return torch.where(pos > 0, (len(pairs) - pos) / pos.clamp(min=1), torch.ones_like(pos))
+
+
+def load_train(cfg: dict, data_dir: Path) -> list[ToolPair]:
+    """train.jsonl plus any `extra_train` files (e.g. the weaken-extra set); source ids must
+    not clash, so group metrics and splits stay meaningful."""
+    pairs = load_pairs(data_dir / "train.jsonl", cfg.get("limit_train"))
+    for path in cfg.get("extra_train", []):
+        pairs += load_pairs(Path(path))
+    ids = [p.pair_id for p in pairs]
+    if len(ids) != len(set(ids)):
+        raise ValueError("duplicate pair ids across train and extra_train")
+    return pairs
 
 
 def train(config_path: str) -> dict:
     cfg = yaml.safe_load(open(config_path))
-    if cfg["task"] != "binary":
-        raise NotImplementedError("only task: binary is implemented so far")
+    task = cfg["task"]
+    if task not in ("binary", "multilabel"):
+        raise ValueError(f"unknown task {task!r}")
     seed = cfg["seed"]
     random.seed(seed)
     np.random.seed(seed)
@@ -82,7 +122,7 @@ def train(config_path: str) -> dict:
     device = pick_device()
 
     tokenizer = AutoTokenizer.from_pretrained(cfg["model_name"])
-    train_pairs = load_pairs(data_dir / "train.jsonl", cfg.get("limit_train"))
+    train_pairs = load_train(cfg, data_dir)
     val_pairs = load_pairs(data_dir / "val.jsonl", cfg.get("limit_val"))
     ds_args = dict(max_length=cfg["max_length"], stride=cfg["chunk_stride"], task=cfg["task"])
     train_ds = PairDataset(train_pairs, tokenizer, **ds_args)
@@ -97,8 +137,7 @@ def train(config_path: str) -> dict:
         freeze_encoder(model)
     model.to(device)
 
-    n_pos = sum(p.mismatch for p in train_pairs)
-    pos_weight = torch.tensor([(len(train_pairs) - n_pos) / n_pos], device=device)
+    pos_weight = pos_weights(train_pairs, task).to(device)
     loss_fn = torch.nn.BCEWithLogitsLoss(pos_weight=pos_weight)
     trainable = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.AdamW(trainable, lr=cfg["lr"], weight_decay=cfg.get("weight_decay", 0.0))
@@ -109,7 +148,7 @@ def train(config_path: str) -> dict:
     scaler = torch.amp.GradScaler(enabled=use_amp)
 
     print(f"device {device} | train {len(train_pairs)} pairs / {sum(len(i['chunks']) for i in train_ds.items)} "
-          f"chunks | val {len(val_pairs)} | pos_weight {pos_weight.item():.2f} | "
+          f"chunks | val {len(val_pairs)} | pos_weight {[round(w, 2) for w in pos_weight.tolist()]} | "
           f"trainable params {sum(p.numel() for p in trainable):,}")
 
     history, best = [], None
@@ -133,16 +172,22 @@ def train(config_path: str) -> dict:
 
         rows = predict(model, val_loader, val_by_id, device)
         labels, scores = [r["label"] for r in rows], [r["score"] for r in rows]
-        threshold = best_f1_threshold(labels, scores)
-        entry = {"epoch": epoch, "train_loss": total / n_batches,
+        threshold = best_f1_threshold(labels, scores)  # pair level, for both tasks
+        value, _ = selection_metric(rows, task)
+        entry = {"epoch": epoch, "train_loss": total / n_batches, "selection": value,
                  "val_at_0.5": report(rows, 0.5), "val_at_best_f1": report(rows, threshold)}
+        if task == "multilabel":
+            entry["val_multilabel_at_0.5"] = multilabel_report(rows, 0.5)
         history.append(entry)
         m, t = entry["val_at_0.5"], entry["val_at_best_f1"]
+        extra = (f" | macro PR-AUC {value:.3f} top effect right "
+                 f"{entry['val_multilabel_at_0.5']['top_effect_right'] or 0:.2f}"
+                 if task == "multilabel" else "")
         print(f"epoch {epoch} | loss {entry['train_loss']:.4f} | PR-AUC {m['pr_auc']:.3f} | "
               f"@0.5 P {m['precision']:.3f} R {m['recall']:.3f} F1 {m['f1']:.3f} | "
-              f"@{threshold:.2f} F1 {t['f1']:.3f} group acc {t['group_accuracy']:.3f}")
+              f"@{threshold:.2f} F1 {t['f1']:.3f} group acc {t['group_accuracy']:.3f}{extra}")
 
-        if best is None or m["pr_auc"] > best["val_at_0.5"]["pr_auc"]:
+        if best is None or value > best["selection"]:
             best = entry
             model.save_pretrained(out_dir / "best")
             tokenizer.save_pretrained(out_dir / "best")
@@ -152,5 +197,6 @@ def train(config_path: str) -> dict:
 
     result = {"best_epoch": best["epoch"], "best": best, "history": history}
     (out_dir / "metrics.json").write_text(json.dumps(result, indent=2))
-    print(f"best epoch {best['epoch']}: PR-AUC {best['val_at_0.5']['pr_auc']:.3f}, saved to {out_dir}")
+    print(f"best epoch {best['epoch']}: selection {best['selection']:.3f} "
+          f"(pair PR-AUC {best['val_at_0.5']['pr_auc']:.3f}), saved to {out_dir}")
     return result

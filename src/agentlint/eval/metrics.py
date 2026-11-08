@@ -99,6 +99,38 @@ def breakdown(rows: list[dict], key, threshold: float = 0.5) -> dict:
     return out
 
 
+# Multi-label (decided 2026-11-07): the 7 effects that can be hidden. `read` keeps its output
+# but is never scored: read injections were dropped, so it has no positives.
+SCORED_EFFECTS = ["modify", "destroy", "relocate", "send_outward", "execute", "spend",
+                  "change_authority"]
+
+
+def multilabel_report(rows: list[dict], threshold: float = 0.5) -> dict:
+    """Per-effect P / R / F1 / PR-AUC and their macro mean (the selection metric), plus the
+    pair-level report on `score` (= max over the scored effects), which compares directly with
+    the binary model. Rows carry `scores` {effect: probability} and `undeclared`."""
+    per_effect = {}
+    for e in SCORED_EFFECTS:
+        labels = [e in r["undeclared"] for r in rows]
+        if not any(labels):
+            continue
+        m = binary_metrics(labels, [r["scores"][e] for r in rows], threshold)
+        per_effect[e] = {k: m[k] for k in ("precision", "recall", "f1", "pr_auc", "tp", "fp",
+                                            "fn")} | {"n_pos": sum(labels)}
+    flagged = [r for r in rows if r["label"] and r["score"] >= threshold]
+    right = sum(max(SCORED_EFFECTS, key=lambda e: r["scores"][e]) in r["undeclared"]
+                for r in flagged)
+    return {
+        "macro_pr_auc": float(np.mean([v["pr_auc"] for v in per_effect.values()]))
+        if per_effect else float("nan"),
+        "macro_f1": float(np.mean([v["f1"] for v in per_effect.values()])) if per_effect else 0.0,
+        "per_effect": per_effect,
+        # Of the mismatches flagged at pair level, how often the top effect is the hidden one.
+        "top_effect_right": right / len(flagged) if flagged else None,
+        "pair": report(rows, threshold),
+    }
+
+
 def report(rows: list[dict], threshold: float) -> dict:
     """Everything section 5 asks for, at one threshold."""
     labels, scores = [r["label"] for r in rows], [r["score"] for r in rows]

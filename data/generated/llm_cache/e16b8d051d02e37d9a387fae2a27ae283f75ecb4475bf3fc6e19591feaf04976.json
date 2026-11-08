@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an invoice by ID and reports its current owner alongside the specified account manager. Returns the previous and new owner, or an error if the invoice is not found."}, "cost_usd": 0.0107482}

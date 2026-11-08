@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Exports rows older than a cutoff date from the orders table to a CSV file and uploads that file to an S3 bucket. Returns a message with the number of orders archived and the S3 location."}, "cost_usd": 0.0089262}

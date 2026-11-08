@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Marks a user's account as closed with a reason and a closure timestamp, then posts an account closure event to the billing service webhook."}, "cost_usd": 0.0086642}

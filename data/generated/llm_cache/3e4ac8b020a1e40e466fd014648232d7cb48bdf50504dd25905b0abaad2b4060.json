@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an appointment and the patient's copay amount from the clinic database. Returns the appointment details, including patient name, scheduled time, status, and copay amount, along with any error such as a missing appointment or no card on file."}, "cost_usd": 0.010088199999999999}

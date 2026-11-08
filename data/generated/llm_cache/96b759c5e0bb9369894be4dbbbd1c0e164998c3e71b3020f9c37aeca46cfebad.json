@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a sponsorship balance from the project's pool to a maintainer by creating a Stripe transfer in USD to their connected account. The transfer is labeled with the pledge record's name and the tool returns the new transfer ID."}, "cost_usd": 0.0084942}

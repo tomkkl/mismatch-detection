@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Marks a node as unschedulable and posts a summary message to a Slack webhook. Returns the node name, the pods involved, and whether the notice was delivered."}, "cost_usd": 0.0130082}

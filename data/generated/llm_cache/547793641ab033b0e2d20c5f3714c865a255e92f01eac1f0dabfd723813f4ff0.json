@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a connected social account into an archive workspace and hands ownership to the given user. Returns the account ID, the new workspace ID, the new owner ID, and a count of affected scheduled posts."}, "cost_usd": 0.0090122}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancels a customer's subscription and deletes its upcoming scheduled invoices, returning the number of invoices removed."}, "cost_usd": 0.0081542}

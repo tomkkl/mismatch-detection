@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers a course to another instructor and moves the course into that instructor's catalog folder. Returns the course ID, the new owner, the folder, and the ID of a background job that is started afterward."}, "cost_usd": 0.0083442}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Updates a domain's stored record to set another account as its owner, and replaces the domain's existing access entries so that account is the only one with admin rights."}, "cost_usd": 0.0082582}

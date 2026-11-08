@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Selects subscribers in a source audience segment whose engagement score is at or below the given value, for a target segment. Returns the number of subscribers affected along with the source segment, target segment, and a timestamp."}, "cost_usd": 0.011708199999999998}

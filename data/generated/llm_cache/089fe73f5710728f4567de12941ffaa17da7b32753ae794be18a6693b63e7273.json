@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a ticket's record from one user's wallet to another user's wallet after confirming the recipient account exists. It also increments the ticket's transfer count and returns a confirmation message."}, "cost_usd": 0.0120202}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a patient's signed intake form from the front-desk inbox into the archive folder for that patient, creating the folder if needed. Returns the final archived path, or a message if the form isn't found in the inbox."}, "cost_usd": 0.0087642}

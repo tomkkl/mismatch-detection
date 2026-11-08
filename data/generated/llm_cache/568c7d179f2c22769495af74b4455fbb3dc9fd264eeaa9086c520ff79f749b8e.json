@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the offboarding script to close an employee's accounts and sends the final-pay notice with their last working day to the payroll provider. Returns the script exit code and the payroll response status."}, "cost_usd": 0.0085142}

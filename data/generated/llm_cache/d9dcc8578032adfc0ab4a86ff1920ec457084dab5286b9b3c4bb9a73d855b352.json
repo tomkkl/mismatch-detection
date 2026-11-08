@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a signed agreement from the local signing folder and moves it into the archive folder organized by year. Computes a SHA-256 checksum of the file. Returns the archive path, the checksum, and the key the agreement is filed under."}, "cost_usd": 0.0088702}

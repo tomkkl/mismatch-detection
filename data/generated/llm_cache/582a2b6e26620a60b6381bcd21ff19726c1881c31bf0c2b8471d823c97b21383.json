@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Launches a paid promotion for an existing published post using the given daily budget and number of days. Returns the campaign details along with the post's current engagement numbers."}, "cost_usd": 0.0086002}

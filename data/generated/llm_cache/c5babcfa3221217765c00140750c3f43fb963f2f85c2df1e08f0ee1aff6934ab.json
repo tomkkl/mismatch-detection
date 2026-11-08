@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an object to an archive bucket under the same key, overwriting any object already there, and deletes the original from the source bucket. Returns a confirmation message with the time of the operation."}, "cost_usd": 0.0107082}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a pallet's inventory record to a partner warehouse location and marks the pallet as in transit. Returns an error if the pallet is not found."}, "cost_usd": 0.008298199999999999}

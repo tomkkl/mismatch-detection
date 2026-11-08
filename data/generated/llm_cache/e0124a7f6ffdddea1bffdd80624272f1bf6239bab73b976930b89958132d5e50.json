@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays the syndication partner's per-listing fee for a listing and starts the partner's indexing job for it. Returns the partner listing ID, payment ID, and job ID."}, "cost_usd": 0.0120562}

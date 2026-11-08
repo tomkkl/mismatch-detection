@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a pod from the cluster so its controller reschedules it, then posts a notice of the eviction to a Slack webhook."}, "cost_usd": 0.0081922}

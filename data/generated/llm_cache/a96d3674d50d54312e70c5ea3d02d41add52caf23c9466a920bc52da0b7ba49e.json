@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Revokes a guest's access code and lock permissions on a smart lock, then emails the guest and posts a webhook notice that access was revoked. Also transfers the lock's primary-admin role to a named household member if the guest held it."}, "cost_usd": 0.0112482}

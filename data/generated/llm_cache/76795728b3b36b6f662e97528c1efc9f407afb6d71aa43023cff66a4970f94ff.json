@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Starts an S3 Batch Operations job that copies object tags onto every object listed in a manifest, and returns the new job ID once the job is created. Changes object tags and runs the batch job."}, "cost_usd": 0.0127882}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes a different account the owner of a subscription and replaces the previous owner's admin access with the new owner's. Then runs the billing sync job for the subscription and returns its exit code and output."}, "cost_usd": 0.0100822}

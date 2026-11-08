@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Resolves a duplicate support ticket against a primary ticket by deleting the duplicate, then sets the primary ticket's assignee as the owner of the primary ticket. Returns a confirmation with the number of comments affected."}, "cost_usd": 0.0117802}

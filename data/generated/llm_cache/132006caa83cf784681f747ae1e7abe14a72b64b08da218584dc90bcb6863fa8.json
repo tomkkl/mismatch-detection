@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Applies a goodwill credit to the customer's balance for an order through the payment provider, and emails the customer a notice about the credit."}, "cost_usd": 0.0088262}

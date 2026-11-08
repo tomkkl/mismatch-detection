@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds an overdue invoice from the open invoices table to the collections table, tagged with the collection agency name. Returns the number of rows added."}, "cost_usd": 0.009546200000000001}

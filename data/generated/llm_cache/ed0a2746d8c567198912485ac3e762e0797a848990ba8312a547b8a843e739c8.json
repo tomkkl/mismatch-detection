@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies a completed appointment from the active appointments table into the archive table. Only appointments with a completed status are archived; otherwise a not-found message is returned."}, "cost_usd": 0.0075022}

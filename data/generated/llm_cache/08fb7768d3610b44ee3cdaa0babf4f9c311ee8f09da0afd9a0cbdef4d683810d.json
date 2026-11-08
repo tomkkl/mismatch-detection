@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Fetches the current balance of a wallet address from the node. Accepts an optional label and returns the address, label, balance in wei, and balance in ETH."}, "cost_usd": 0.010706}

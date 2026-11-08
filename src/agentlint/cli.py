@@ -14,8 +14,12 @@ def main() -> None:
     score.add_argument("--tag", help="results subfolder (default: <dir>-<file>, e.g. full-test)")
     score.add_argument("--force", action="store_true", help="overwrite an existing result")
     score.add_argument("--batch-size", type=int, help="override batch_size from the checkpoint config")
-    scan = sub.add_parser("scan", help="check tools in a file or directory")
-    scan.add_argument("path")
+    scan = sub.add_parser("scan", help="check the agent tools in files or folders")
+    scan.add_argument("paths", nargs="+", help=".py files or folders")
+    scan.add_argument("--checkpoint", default="checkpoints/binary",
+                      help="trained checkpoint (binary or multi-label)")
+    scan.add_argument("--threshold", type=float, default=0.5)
+    scan.add_argument("--json", action="store_true", help="machine-readable output")
     data = sub.add_parser("data", help="build the generated dataset, or collect real tools")
     data.add_argument("action", choices=["build", "collect", "second-opinion"])
     data.add_argument("config")
@@ -99,7 +103,9 @@ def main() -> None:
             print(e, file=sys.stderr)
             sys.exit(1)
     elif args.cmd == "scan":
-        raise NotImplementedError
+        from agentlint.scan import Model, format_table, scan as run_scan, to_json
+        results, notes = run_scan(args.paths, Model(args.checkpoint), args.threshold)
+        print(to_json(results, notes) if args.json else format_table(results, notes))
 
 
 def sys_prefix() -> str:

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Releases a domain to another registrar by deleting its DNS zone from our nameservers and unlocking the domain, after retrieving its EPP auth code from the registrar."}, "cost_usd": 0.0138402}

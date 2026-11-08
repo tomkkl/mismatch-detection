@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds the pending payout for a claim to the claimant through Stripe, and transfers the claim file ownership to the specified adjuster."}, "cost_usd": 0.0088682}

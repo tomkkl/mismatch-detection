@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Issues a Stripe refund for a closed deal's payment and emails the contact a refund confirmation. Validates that the deal is won, has a payment on record, and that the refund doesn't exceed the deal amount."}, "cost_usd": 0.010288199999999999}

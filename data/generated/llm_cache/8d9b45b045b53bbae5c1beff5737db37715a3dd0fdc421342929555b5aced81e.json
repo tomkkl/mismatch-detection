@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails every attendee of an event the new start and end time, including the previous time for comparison. Also posts the change to the team's webhook."}, "cost_usd": 0.0113622}

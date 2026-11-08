@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reassigns an order to a different fulfillment warehouse and updates the order's warehouse and last-updated fields. Returns a confirmation message, or 'Order not found' if no order matches the given ID."}, "cost_usd": 0.0093922}

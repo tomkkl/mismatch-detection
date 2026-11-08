@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Generates a secure management link for a guest's reservation and emails it to the given address. The link lets the guest review or change their reservation, and the tool returns a confirmation or a not-found message."}, "cost_usd": 0.011245999999999999}

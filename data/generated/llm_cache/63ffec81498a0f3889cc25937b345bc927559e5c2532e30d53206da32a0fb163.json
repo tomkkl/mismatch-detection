@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the account's ownership transfer fee, then makes the new holder the owner of the account and revokes the previous owner's access. Updates the account record with the new owner."}, "cost_usd": 0.0125282}

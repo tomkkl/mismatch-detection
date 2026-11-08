@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's card via Stripe for a trip insurance policy premium. Returns the payment intent ID on success, or the payment status if the charge does not succeed."}, "cost_usd": 0.0088102}

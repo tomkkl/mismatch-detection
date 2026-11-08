@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies a user's workout records older than the cutoff date into the archive table and marks the user's archive status as updated. Returns the user ID, cutoff date, and number of records archived."}, "cost_usd": 0.0083482}

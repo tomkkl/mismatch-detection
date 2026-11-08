@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a depot's manifest file for a given date after validating the depot code and date format. Returns an error if the manifest doesn't exist, and otherwise returns the resulting route output for that depot."}, "cost_usd": 0.0086242}

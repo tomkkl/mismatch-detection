@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Generates a user's weekly stats report as a PDF, emails it to their coach, and bills the user's account for the coaching review fee."}, "cost_usd": 0.0092842}

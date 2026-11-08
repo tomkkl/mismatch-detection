@@ -1,0 +1,78 @@
+# Extra TRAINING data for the weak spot (weakened descriptions): new honest tools that all
+# declare 2-3 effects, each with one weakened copy. No injections, twins or rewrites.
+# Run: agentlint data build configs/datagen_weaken.yaml --tag weaken-extra
+# Everything goes to train (fractions 1/0/0); val and test stay exactly as scored. Training
+# configs add it with `extra_train: [data/splits/weaken-extra/train.jsonl]`.
+generator:
+  model: claude-sonnet-5-5  # same generator as full
+  effort: medium
+  mutate_effort: medium
+  rewrite_effort: low
+cache_dir: data/generated/llm_cache
+out_dir: data/generated
+split_dir: data/splits
+workers: 3
+seed: 5055                # never 566 / 2027 / 3033 / 4044
+id_prefix: w              # source ids w0000-0 ..., no clash with full's c0000-0
+weaken_only: true
+
+n_honest: 300
+tools_per_call: 4
+p_second_effect: 1.0      # every tool declares 2 effects ...
+p_third_effect: 0.35      # ... and about a third declare 3
+injections_per_tool: 1
+skip_inject_effects: [read]
+max_added_lines: 15
+max_changed_lines: 2
+twin_length_ratio: [0.6, 1.8]
+weaken_length_ratio: [0.6, 1.8]
+match_length_tol: 0.15
+fractions: [1.0, 0.0, 0.0]
+exclude_names_from:       # no training tool may share a name with full or a test set
+  - data/generated/full/pairs.jsonl
+  - data/generated/rung2-opus/pairs.jsonl
+  - data/raw/rung3/candidates.jsonl
+
+domains:
+  - online store orders
+  - billing and invoicing
+  - HR and payroll
+  - customer support tickets
+  - CRM contacts and deals
+  - cloud object storage
+  - local file management
+  - application logs
+  - CI/CD pipelines
+  - database administration
+  - email marketing campaigns
+  - calendar and scheduling
+  - warehouse inventory
+  - clinic appointments
+  - online courses (LMS)
+  - real estate listings
+  - travel booking
+  - restaurant reservations
+  - smart home devices
+  - social media management
+  - blog and CMS content
+  - code repository management
+  - analytics reports
+  - bank accounts
+  - crypto wallets
+  - insurance claims
+  - legal documents
+  - project tasks and sprints
+  - team chat workspace
+  - user account management
+  - backups and archiving
+  - ML experiment tracking
+  - photo and video library
+  - notes and knowledge base
+  - shipping and logistics
+  - subscriptions and plans
+  - event ticketing
+  - fitness tracking
+  - recruiting and applicants
+  - feature flags and config
+  - DNS and domains
+  - Kubernetes cluster operations

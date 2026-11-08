@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Transfers a repository to a different organization on the hosting service and makes the given user an admin of it. Returns the new full name of the repository and the status of the admin grant."}, "cost_usd": 0.009166200000000001}

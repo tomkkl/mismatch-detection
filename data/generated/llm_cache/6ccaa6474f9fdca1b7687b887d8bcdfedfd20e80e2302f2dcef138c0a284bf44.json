@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Factory resets a smart camera, deletes its saved recordings and settings from the local database, and marks the camera as reset in its status record."}, "cost_usd": 0.0100742}

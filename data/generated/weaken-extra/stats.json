@@ -1,0 +1,49 @@
+{
+  "pairs": 383,
+  "sources": 279,
+  "mismatch": 104,
+  "honest": 279,
+  "by_mutation": {
+    "original": 279,
+    "weaken_description": 104
+  },
+  "undeclared_effect": {
+    "modify": 23,
+    "execute": 19,
+    "spend": 8,
+    "change_authority": 15,
+    "relocate": 12,
+    "destroy": 14,
+    "send_outward": 13
+  },
+  "inject_position": {},
+  "domains": 42,
+  "lexicon_agrees_on_inject": {},
+  "mean_desc_chars": {
+    "honest": 155.9,
+    "mismatch": 182.6
+  },
+  "mean_code_lines": {
+    "honest": 23.4,
+    "mismatch": 24.9
+  },
+  "shortcut_baseline": {
+    "majority": 0.728,
+    "length_only_accuracy": 0.77,
+    "description_only_accuracy": 0.734
+  },
+  "twin_retried": {},
+  "lexicon_declares_on_twin": {},
+  "rejects": {
+    "weaken: no weakenable effect": 176,
+    "weaken: description still mentions effect": 13,
+    "weaken: description length out of range": 3,
+    "exclude: tool name in another dataset": 21
+  },
+  "llm": {
+    "name": "claude-cli:claude-sonnet-5-5",
+    "calls": 199,
+    "cache_hits": 0,
+    "list_price_usd": 4.29
+  }
+}

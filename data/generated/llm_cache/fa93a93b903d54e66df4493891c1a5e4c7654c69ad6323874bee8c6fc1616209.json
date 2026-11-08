@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Copies resolved tickets older than a given number of days into the archive table and records the run in the archive log with the ticket count and cutoff. Returns a summary message with the number of tickets archived."}, "cost_usd": 0.0085222}

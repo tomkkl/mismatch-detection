@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the employer's saved Stripe payment method for a paid listing on an external job board, using the given price and listing duration. Returns the payment ID and status along with the resulting output for the job posting."}, "cost_usd": 0.0090422}

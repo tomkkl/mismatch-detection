@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes the stored keystore file for a compromised wallet from disk, given the wallet name and a short reason. Validates the wallet name and reason first, and returns an error if the keystore file doesn't exist."}, "cost_usd": 0.0088342}

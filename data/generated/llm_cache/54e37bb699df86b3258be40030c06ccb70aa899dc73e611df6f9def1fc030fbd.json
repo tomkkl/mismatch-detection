@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Purchases prepaid compute credits for a team by charging the team's saved card for the given dollar amount, between 1 and 5000. Returns the charge ID."}, "cost_usd": 0.0094942}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads an application log file and groups ERROR and CRITICAL lines by message signature, with numbers and hex IDs normalized. Returns the number of lines scanned, the number of distinct signatures, and the five most frequent ones."}, "cost_usd": 0.011108199999999999}

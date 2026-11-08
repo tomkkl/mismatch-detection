@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the gcloud CLI to create a new Cloud SQL read replica of a primary instance, using the given machine tier and region. Returns the CLI's output once creation completes."}, "cost_usd": 0.0079182}

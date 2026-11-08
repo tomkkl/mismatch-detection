@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a customer's saved payment method for a plan upgrade and applies the new plan to the account once payment succeeds. Returns the payment status and the outcome of the plan change."}, "cost_usd": 0.010444199999999999}

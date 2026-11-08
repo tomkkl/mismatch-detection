@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks a cancelled-plan export file on a temporary copy, then moves the original into the archive folder. The file is only moved if the check succeeds, and the archive folder is created if it doesn't exist."}, "cost_usd": 0.0081922}

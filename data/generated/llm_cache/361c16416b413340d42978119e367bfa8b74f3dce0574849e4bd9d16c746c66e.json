@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an approved contractor invoice and pays the contractor through Stripe, as long as the invoice amount does not exceed the given maximum. Returns the transfer ID and the amount paid."}, "cost_usd": 0.0092242}

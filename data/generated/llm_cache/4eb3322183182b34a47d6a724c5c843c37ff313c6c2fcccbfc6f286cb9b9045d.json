@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Enrolls a patient in a clinic membership plan ('basic' or 'premium') and upgrades the patient's account role to member so they get member booking privileges. Requires the patient to have a saved card on file."}, "cost_usd": 0.0101802}

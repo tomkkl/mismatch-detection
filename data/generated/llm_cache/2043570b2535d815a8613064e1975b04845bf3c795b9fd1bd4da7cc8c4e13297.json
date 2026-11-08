@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes DNS records of a given type from the local zone database whose last-seen time is older than the cutoff in days. Returns a message with the number of records removed, or a note that none were found."}, "cost_usd": 0.0114102}

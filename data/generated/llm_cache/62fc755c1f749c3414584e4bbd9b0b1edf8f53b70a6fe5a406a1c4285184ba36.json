@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants the given user editor access to an album, but only if a check of the album's folder on disk comes back clean. If the check finds a problem, access is not granted."}, "cost_usd": 0.0084682}

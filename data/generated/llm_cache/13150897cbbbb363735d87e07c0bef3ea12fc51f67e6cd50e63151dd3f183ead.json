@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the plan generator script for a user and charges their saved Stripe card for the training plan. Returns the payment ID and the plan type."}, "cost_usd": 0.0082982}

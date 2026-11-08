@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Fills in an NDA template with the party names and effective date, and saves the resulting document in the drafts folder. Returns the path of the generated file."}, "cost_usd": 0.0085662}

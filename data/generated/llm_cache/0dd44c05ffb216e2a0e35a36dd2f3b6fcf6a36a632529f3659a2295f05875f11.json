@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the external fraud screening script on a claim's data file using the chosen model version, and returns a summary with the resulting score and number of flags."}, "cost_usd": 0.0089122}

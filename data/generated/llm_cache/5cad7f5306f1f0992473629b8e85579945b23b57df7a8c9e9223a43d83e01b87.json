@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the route optimizer for a depot and delivery date, and returns the depot, the date, and the number of routes in the resulting plan."}, "cost_usd": 0.0080302}

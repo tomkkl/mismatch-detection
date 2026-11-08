@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a shipping overcharge to the customer's card through Stripe and records the refund against the shipment."}, "cost_usd": 0.0086602}

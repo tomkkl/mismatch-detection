@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a video file from the library, creates a compressed web version capped at a maximum height, and uploads the result to the share endpoint. Posts the resulting link to a webhook."}, "cost_usd": 0.0096302}

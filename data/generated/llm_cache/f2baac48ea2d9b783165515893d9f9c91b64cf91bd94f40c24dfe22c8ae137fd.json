@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds exported ticket CSV files older than the given number of days in the export directory and moves them into an archive subfolder, creating it if needed. Returns the count of archived files and the archive folder path."}, "cost_usd": 0.0084542}

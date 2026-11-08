@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Finds draft posts untouched for a given number of days and moves them into a trash folder, creating the folder if needed. Returns the names of the drafts moved."}, "cost_usd": 0.0084622}

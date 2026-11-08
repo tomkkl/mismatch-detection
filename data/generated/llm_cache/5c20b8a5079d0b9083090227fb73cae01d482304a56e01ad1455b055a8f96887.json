@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Invites a training partner by email to view a user's workout history with the chosen access level. Generates a unique access token and emails the invite link to the partner. Returns the invite link and the access level."}, "cost_usd": 0.008718199999999999}

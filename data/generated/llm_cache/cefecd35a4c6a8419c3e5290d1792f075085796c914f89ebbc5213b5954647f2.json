@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Validates the model name and version label, then uploads a trained checkpoint file to the remote model registry service. Returns the registry's response."}, "cost_usd": 0.0091862}

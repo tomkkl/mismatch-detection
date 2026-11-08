@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the flag sync script for an environment such as staging or production, and returns the config file path along with the total flag count and number of enabled flags."}, "cost_usd": 0.007778200000000001}

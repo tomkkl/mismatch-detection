@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a candidate and the assessment price, then charges the company's payment account for the assessment. Cancels the purchase if the candidate is rejected or withdrawn, or if the payment doesn't go through."}, "cost_usd": 0.0098082}

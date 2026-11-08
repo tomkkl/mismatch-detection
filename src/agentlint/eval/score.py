@@ -2,7 +2,8 @@
 
 Reads `<checkpoint>/best/` (model + tokenizer), `config.yaml` (input settings) and
 `threshold.json` (best-F1 cut-off on val). Reports at 0.5, the main cut-off, and at the saved
-cut-off (CLAUDE.md section 5), plus a tool-bootstrap 95% interval for PR-AUC.
+cut-off (CLAUDE.md section 5), plus a tool-bootstrap 95% interval for PR-AUC. A multi-label
+checkpoint is scored at pair level (max over effects) and also per effect.
 
 Writes to `<checkpoint>/eval/<tag>/`: predictions.jsonl, metrics.json. Refuses to overwrite an
 existing result: each test set is scored once, after tuning on val is done.
@@ -15,7 +16,7 @@ import yaml
 from torch.utils.data import DataLoader
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-from agentlint.eval.metrics import bootstrap_pr_auc, report
+from agentlint.eval.metrics import bootstrap_pr_auc, multilabel_report, report
 from agentlint.model.dataset import PairDataset
 from agentlint.model.train import load_pairs, pick_device, predict
 
@@ -40,8 +41,6 @@ def score(checkpoint: str, pairs_path: str, tag: str | None = None, force: bool 
                               "(pass --force only to redo a run that failed or was wrong)")
 
     cfg = yaml.safe_load(open(checkpoint / "config.yaml"))
-    if cfg["task"] != "binary":
-        raise NotImplementedError("only task: binary is implemented so far")
     saved = json.loads((checkpoint / "threshold.json").read_text())
     device = pick_device()
 
@@ -60,6 +59,8 @@ def score(checkpoint: str, pairs_path: str, tag: str | None = None, force: bool 
         "at_0.5": report(rows, MAIN_THRESHOLD),
         "at_saved_threshold": report(rows, saved["threshold"]),
     }
+    if cfg["task"] == "multilabel":  # per effect, macro over the 7 scored effects
+        result["multilabel_at_0.5"] = multilabel_report(rows, MAIN_THRESHOLD)
     out_dir.mkdir(parents=True, exist_ok=True)
     with open(out_dir / "predictions.jsonl", "w") as f:
         f.writelines(json.dumps(r) + "\n" for r in rows)
@@ -75,5 +76,10 @@ def score(checkpoint: str, pairs_path: str, tag: str | None = None, force: bool 
               + " ".join(f"{k} {'R' if v['recall'] is not None else 'FP'} "
                          f"{v['recall'] if v['recall'] is not None else v['fp_rate']:.2f}"
                          for k, v in mut.items()))
+    if "multilabel_at_0.5" in result:
+        ml = result["multilabel_at_0.5"]
+        print(f"multi-label @0.5: macro PR-AUC {ml['macro_pr_auc']:.3f} macro F1 "
+              f"{ml['macro_f1']:.3f} top effect right {ml['top_effect_right'] or 0:.2f} | "
+              + " ".join(f"{e} F1 {v['f1']:.2f}" for e, v in ml["per_effect"].items()))
     print(f"saved to {out_dir}")
     return result

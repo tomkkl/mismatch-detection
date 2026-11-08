@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Makes a note file read-only so it can no longer be edited, and runs the search reindex script on it. Returns the resulting file path and the reindex script's exit code."}, "cost_usd": 0.0083062}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the table assignment optimizer script for a given service date and shift, with an optional runtime limit. Returns a summary of how many assignments were applied and how many were skipped, or an error message if the optimizer fails or its output can't be parsed."}, "cost_usd": 0.012444}

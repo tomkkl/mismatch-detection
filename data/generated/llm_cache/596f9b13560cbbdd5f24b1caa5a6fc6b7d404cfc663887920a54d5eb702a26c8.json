@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a post's markdown file from the drafts folder into the archive folder, reading its front matter first to get the title. Returns the post title along with any output produced."}, "cost_usd": 0.0080102}

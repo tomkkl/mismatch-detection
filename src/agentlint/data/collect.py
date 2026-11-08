@@ -167,6 +167,11 @@ def _bound(stmt: ast.stmt) -> set[str]:
 def tool_module(tree: ast.Module, fn: ast.stmt, max_helpers: int = 6) -> str:
     """The tool function plus the module-level imports, constants and helpers it uses
     (transitively), in their original order."""
+    return ast.unparse(ast.Module(body=kept_statements(tree, fn, max_helpers), type_ignores=[]))
+
+
+def kept_statements(tree: ast.Module, fn: ast.stmt, max_helpers: int = 6) -> list[ast.stmt]:
+    """The module-level statements `tool_module` keeps for this tool, in file order."""
     keep, need, helpers = {id(fn)}, _names(fn), 0
     changed = True
     while changed:
@@ -185,12 +190,17 @@ def tool_module(tree: ast.Module, fn: ast.stmt, max_helpers: int = 6) -> str:
             if not isinstance(stmt, (ast.Import, ast.ImportFrom)):
                 need |= _names(stmt)
             changed = True
-    body = [s for s in tree.body if id(s) in keep]
-    return ast.unparse(ast.Module(body=body, type_ignores=[]))
+    return [s for s in tree.body if id(s) in keep]
 
 
-def extract_tools(source: str, max_lines: int = 80) -> tuple[list[dict], list[str]]:
-    """Decorated top-level tool functions with a docstring -> (raw tools, skip reasons)."""
+def extract_tools(source: str, max_lines: int = 80,
+                  strict: bool = True) -> tuple[list[dict], list[str]]:
+    """Decorated top-level tool functions with a docstring -> (raw tools, skip reasons).
+
+    `strict=False` (for `agentlint scan`) keeps every decorated tool that parses: no docstring
+    means an empty description, and the length, language, calls and size filters are off.
+    Each tool also gets `line` (where the function starts in the file) and `spans` (file line
+    ranges of the non-import code it was built from, so findings map back to the file)."""
     try:
         tree = ast.parse(source)
     except SyntaxError:
@@ -203,31 +213,36 @@ def extract_tools(source: str, max_lines: int = 80) -> tuple[list[dict], list[st
         if framework is None:
             continue
         doc = ast.get_docstring(fn)
-        if not doc:
+        if not doc and strict:
             skipped.append(f"{fn.name}: no docstring")
             continue
         args = fn.args
         description, doc_params = split_docstring(
-            doc, {a.arg for a in args.posonlyargs + args.args + args.kwonlyargs})
-        if len(description) < 20:
-            skipped.append(f"{fn.name}: description under 20 characters")
-            continue
-        if sum(c.isascii() for c in description) < 0.95 * len(description):
-            skipped.append(f"{fn.name}: description not in English")
-            continue
-        if not any(isinstance(n, ast.Call) for n in ast.walk(fn)):
-            skipped.append(f"{fn.name}: tool makes no calls")
-            continue
+            doc or "", {a.arg for a in args.posonlyargs + args.args + args.kwonlyargs})
+        if strict:
+            if len(description) < 20:
+                skipped.append(f"{fn.name}: description under 20 characters")
+                continue
+            if sum(c.isascii() for c in description) < 0.95 * len(description):
+                skipped.append(f"{fn.name}: description not in English")
+                continue
+            if not any(isinstance(n, ast.Call) for n in ast.walk(fn)):
+                skipped.append(f"{fn.name}: tool makes no calls")
+                continue
+        kept = kept_statements(tree, fn)
         try:
-            code = normalize_code(tool_module(tree, fn))
+            code = normalize_code(ast.unparse(ast.Module(body=kept, type_ignores=[])))
         except SyntaxError:
             skipped.append(f"{fn.name}: extracted code does not parse")
             continue
-        if code.count("\n") + 1 > max_lines:
+        if strict and code.count("\n") + 1 > max_lines:
             skipped.append(f"{fn.name}: over {max_lines} lines")
             continue
         tools.append({"name": fn.name, "params": _params(fn, doc_params),
-                      "description": description, "code": code, "framework": framework})
+                      "description": description, "code": code, "framework": framework,
+                      "line": fn.lineno,
+                      "spans": [[k.lineno, k.end_lineno] for k in kept
+                                if not isinstance(k, (ast.Import, ast.ImportFrom))]})
     return tools, skipped
 
 

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a local file to an S3 bucket under the given key, then deletes the local copy. Returns the URL of the uploaded object."}, "cost_usd": 0.0081822}

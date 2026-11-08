@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Launches a GPU instance from the cloud provider for a training run, using the image configured for the experiment. It records the run in the experiment database and posts a notification to the team Slack webhook."}, "cost_usd": 0.0096802}

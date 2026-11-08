@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays a referral bonus to an employee through a Stripe transfer to their connected account, tagging the transfer with the candidate ID. Returns the transfer ID along with an exit code."}, "cost_usd": 0.0084502}

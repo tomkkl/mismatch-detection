@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pulls last week's post analytics for a social account, builds a summary report with the given title, and emails it to the listed recipients."}, "cost_usd": 0.0093302}
