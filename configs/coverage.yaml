@@ -1,0 +1,28 @@
+# Agent Audit coverage set (CLAUDE.md section 5, "Evaluation").
+# 1. agentlint coverage bugs configs/coverage.yaml    -> conventional-bug tools (Sonnet)
+# 2. score the bug set on CARC, once:
+#    sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/coverage-bugs/pairs.jsonl
+# 3. agentlint coverage audit configs/coverage.yaml   -> Agent Audit on test + bugs
+# 4. agentlint coverage report configs/coverage.yaml  -> data/coverage/coverage.{json,md}
+generator:
+  model: claude-sonnet-5-5
+  effort: medium
+cache_dir: data/generated/llm_cache
+seed: 4044                # never 566 / 2027 / 3033
+domains_from: configs/datagen.yaml
+
+coverage_bugs:
+  per_type: 9             # 7 bug types -> ~63 tools
+  per_call: 3
+  out: data/generated/coverage-bugs/pairs.jsonl
+
+audit:
+  pairs:                  # rung 1 test (scored 2026-11-03) + the bug set
+    - data/splits/full/test.jsonl
+    - data/generated/coverage-bugs/pairs.jsonl
+  root: probes/aa_run/coverage   # neutral path; Agent Audit suppresses test-looking ones
+  out: data/coverage
+
+model_predictions:
+  - checkpoints/binary/eval/full-test/predictions.jsonl
+  - checkpoints/binary/eval/coverage-bugs-pairs/predictions.jsonl

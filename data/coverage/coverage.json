@@ -1,0 +1,209 @@
+{
+  "bug: eval_exec": {
+    "n": 9,
+    "agent_audit": 9,
+    "model": 0,
+    "either": 9,
+    "both": 0,
+    "agent_audit_rate": 1.0,
+    "model_rate": 0.0,
+    "either_rate": 1.0,
+    "top_rules": {
+      "AGENT-001": 9,
+      "AGENT-034": 9,
+      "AGENT-017": 9,
+      "AGENT-035": 8,
+      "AGENT-026": 4
+    },
+    "unscored_by_model": 9
+  },
+  "bug: hardcoded_secret": {
+    "n": 9,
+    "agent_audit": 9,
+    "model": 0,
+    "either": 9,
+    "both": 0,
+    "agent_audit_rate": 1.0,
+    "model_rate": 0.0,
+    "either_rate": 1.0,
+    "top_rules": {
+      "AGENT-022": 7,
+      "AGENT-004": 7,
+      "AGENT-026": 2,
+      "AGENT-111": 1,
+      "AGENT-034": 1
+    },
+    "unscored_by_model": 9
+  },
+  "bug: path_traversal": {
+    "n": 9,
+    "agent_audit": 8,
+    "model": 0,
+    "either": 8,
+    "both": 0,
+    "agent_audit_rate": 0.889,
+    "model_rate": 0.0,
+    "either_rate": 0.889,
+    "top_rules": {
+      "AGENT-026": 6,
+      "AGENT-034": 6,
+      "AGENT-022": 5
+    },
+    "unscored_by_model": 9
+  },
+  "bug: shell_injection": {
+    "n": 9,
+    "agent_audit": 9,
+    "model": 0,
+    "either": 9,
+    "both": 0,
+    "agent_audit_rate": 1.0,
+    "model_rate": 0.0,
+    "either_rate": 1.0,
+    "top_rules": {
+      "AGENT-034": 9,
+      "AGENT-022": 9,
+      "AGENT-035": 9,
+      "AGENT-001": 7,
+      "AGENT-026": 4
+    },
+    "unscored_by_model": 9
+  },
+  "bug: sql_injection": {
+    "n": 9,
+    "agent_audit": 9,
+    "model": 0,
+    "either": 9,
+    "both": 0,
+    "agent_audit_rate": 1.0,
+    "model_rate": 0.0,
+    "either_rate": 1.0,
+    "top_rules": {
+      "AGENT-034": 8,
+      "AGENT-041": 1
+    },
+    "unscored_by_model": 9
+  },
+  "bug: ssrf": {
+    "n": 9,
+    "agent_audit": 9,
+    "model": 0,
+    "either": 9,
+    "both": 0,
+    "agent_audit_rate": 1.0,
+    "model_rate": 0.0,
+    "either_rate": 1.0,
+    "top_rules": {
+      "AGENT-022": 9,
+      "AGENT-026": 9,
+      "AGENT-034": 3,
+      "AGENT-020": 1
+    },
+    "unscored_by_model": 9
+  },
+  "bug: unsafe_deserialization": {
+    "n": 9,
+    "agent_audit": 7,
+    "model": 0,
+    "either": 7,
+    "both": 0,
+    "agent_audit_rate": 0.778,
+    "model_rate": 0.0,
+    "either_rate": 0.778,
+    "top_rules": {
+      "AGENT-022": 5,
+      "AGENT-034": 5,
+      "AGENT-026": 4
+    },
+    "unscored_by_model": 9
+  },
+  "honest: declare_effect": {
+    "n": 54,
+    "agent_audit": 31,
+    "model": 2,
+    "either": 32,
+    "both": 1,
+    "agent_audit_rate": 0.574,
+    "model_rate": 0.037,
+    "either_rate": 0.593,
+    "top_rules": {
+      "AGENT-034": 17,
+      "AGENT-022": 9,
+      "AGENT-111": 9,
+      "AGENT-026": 8,
+      "AGENT-047": 2
+    },
+    "unscored_by_model": 0
+  },
+  "honest: honest_rewrite": {
+    "n": 54,
+    "agent_audit": 21,
+    "model": 0,
+    "either": 21,
+    "both": 0,
+    "agent_audit_rate": 0.389,
+    "model_rate": 0.0,
+    "either_rate": 0.389,
+    "top_rules": {
+      "AGENT-034": 9,
+      "AGENT-022": 9,
+      "AGENT-026": 6,
+      "AGENT-111": 3,
+      "AGENT-047": 2
+    },
+    "unscored_by_model": 0
+  },
+  "honest: original": {
+    "n": 77,
+    "agent_audit": 31,
+    "model": 0,
+    "either": 31,
+    "both": 0,
+    "agent_audit_rate": 0.403,
+    "model_rate": 0.0,
+    "either_rate": 0.403,
+    "top_rules": {
+      "AGENT-022": 16,
+      "AGENT-034": 14,
+      "AGENT-026": 8,
+      "AGENT-047": 4,
+      "AGENT-041": 3
+    },
+    "unscored_by_model": 0
+  },
+  "mismatch: inject": {
+    "n": 54,
+    "agent_audit": 31,
+    "model": 52,
+    "either": 53,
+    "both": 30,
+    "agent_audit_rate": 0.574,
+    "model_rate": 0.963,
+    "either_rate": 0.981,
+    "top_rules": {
+      "AGENT-034": 17,
+      "AGENT-022": 9,
+      "AGENT-111": 9,
+      "AGENT-026": 8,
+      "AGENT-047": 2
+    },
+    "unscored_by_model": 0
+  },
+  "mismatch: weaken": {
+    "n": 12,
+    "agent_audit": 7,
+    "model": 7,
+    "either": 9,
+    "both": 5,
+    "agent_audit_rate": 0.583,
+    "model_rate": 0.583,
+    "either_rate": 0.75,
+    "top_rules": {
+      "AGENT-022": 4,
+      "AGENT-034": 4,
+      "AGENT-026": 2,
+      "AGENT-111": 1
+    },
+    "unscored_by_model": 0
+  }
+}

@@ -21,7 +21,38 @@ def main() -> None:
     data.add_argument("config")
     data.add_argument("--tag", default="full", help="output subfolder, e.g. pilot")
     data.add_argument("--n-honest", type=int, help="override n_honest from the config")
+    cov = sub.add_parser("coverage", help="Agent Audit coverage set: bugs, audit, report")
+    cov.add_argument("action", choices=["bugs", "audit", "report"])
+    cov.add_argument("config", help="e.g. configs/coverage.yaml")
     args = parser.parse_args()
+
+    if args.cmd == "coverage":
+        import json
+        import shutil
+        from pathlib import Path
+
+        from agentlint.data.build import load_config
+        cfg = load_config(args.config)
+        if "domains_from" in cfg:
+            cfg["domains"] = load_config(cfg["domains_from"])["domains"]
+        if args.action == "bugs":
+            from agentlint.data.bugs import run as run_bugs
+            from agentlint.data.llm import ClaudeCLI
+            gen = cfg["generator"]
+            llm = ClaudeCLI(model=gen["model"], effort=gen["effort"], cache_dir=cfg["cache_dir"])
+            print(json.dumps(run_bugs(cfg, llm), indent=2))
+        elif args.action == "audit":
+            from agentlint.eval.agent_audit import run as run_audit
+            from agentlint.schema import ToolPair
+            a = cfg["audit"]
+            pairs = [ToolPair.from_dict(json.loads(line)) for path in a["pairs"]
+                     for line in open(path, encoding="utf-8") if line.strip()]
+            exe = shutil.which("agent-audit") or str(Path(sys_prefix()) / "Scripts" / "agent-audit")
+            print(json.dumps(run_audit(pairs, Path(a["root"]), Path(a["out"]), exe), indent=2))
+        else:
+            from agentlint.eval.coverage import markdown, run as run_report
+            print(markdown(run_report(cfg)))
+        return
 
     if args.cmd == "data":
         import json
@@ -60,6 +91,11 @@ def main() -> None:
             sys.exit(1)
     elif args.cmd == "scan":
         raise NotImplementedError
+
+
+def sys_prefix() -> str:
+    import sys
+    return sys.prefix
 
 
 if __name__ == "__main__":

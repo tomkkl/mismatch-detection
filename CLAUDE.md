@@ -180,7 +180,37 @@ Steps 2 and 3 can run at the same time with different people.
      characters (`g0068` = 583 interface tokens, over the 380 the chunker allows).
      **Decided 2026-11-07: keep all 210, no per-repo cap.** Reviewers must drop `g0068`
      (scoring would fail on it); `g0118` (336 tokens) fits but its rewrites may not.
-   - Agent Audit coverage set: our mismatches + some conventional bugs (eval, `shell=True`).
+   - **Agent Audit coverage set: built and audited 2026-11-07; bug set not scored by our
+     model yet.** Config `configs/coverage.yaml`; design in section 5, "Evaluation".
+     Cases: the 251 rung 1 `test` pairs (our model's predictions from 2026-11-03 reused) +
+     63 conventional-bug tools (`data/generated/coverage-bugs/pairs.jsonl`, Sonnet, 9 each of
+     eval/exec, shell injection, SQL injection, unsafe deserialization, hardcoded secret,
+     path traversal, SSRF; each bug confirmed by an AST check; accurate descriptions).
+     Agent Audit "catches" a case with any non-suppressed finding. Results so far
+     (`data/coverage/coverage.md`):
+
+     | Group | n | Agent Audit | Model @0.5 |
+     |---|---|---|---|
+     | mismatch: inject | 54 | 31 (57%) | 52 (96%) |
+     | mismatch: weaken | 12 | 7 (58%) | 7 (58%) |
+     | honest: twin (same code as inject) | 54 | 31 (57%) | 2 (4%) |
+     | honest: original / rewrite | 77 / 54 | 31 (40%) / 21 (39%) | 0 / 0 |
+     | bugs (7 types) | 63 | 60 (95%; 78–100% per type) | not scored yet |
+
+     **Key finding:** on all 54 inject / twin pairs (same code, description differs only in
+     declaring the effect) Agent Audit's findings are identical. Its "catches" on mismatches
+     come from the code alone (mostly generic rules: AGENT-034 no input validation, AGENT-022
+     no error handling, AGENT-026 LangChain input not sanitized), so it raises the same alarm
+     on the honest twin: it does not detect mismatches. Without those 3 generic rules it
+     flags 16/54 injections and 14/77 honest originals.
+     Fake provider-format secrets in 4 bug tools were renamed in the pairs and the LLM cache
+     (`sk_live_` → `sk_demo_`, `ya29.` → `ya00.`, SendGrid `SG.` → `SG_demo_`): GitHub push
+     protection blocked them. AGENT-004 (secrets) still fires on 7/9 hardcoded-secret tools.
+     **Bug generation must keep secrets out of real provider formats** (or rename them) before
+     anything is committed.
+     **Next:** score the bug set on CARC once
+     (`sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/coverage-bugs/pairs.jsonl`),
+     then `agentlint coverage report configs/coverage.yaml`.
 4. **Evaluation code** in `src/agentlint/eval/`: metrics and breakdowns are in `metrics.py`;
    test-set scoring is in `score.py` (2026-11-01): `agentlint score <checkpoint> <pairs.jsonl>`
    reports at 0.5 and at the cut-off in `threshold.json`, plus a tool-bootstrap 95% interval
@@ -433,6 +463,13 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 - **Agent Audit** (the professor's tool) is the only baseline. Frame it as coverage: run both on
   the same set (our mismatches + some conventional bugs like eval / shell injection) and report
   what each catches and the union.
+- **Coverage set (decided 2026-11-07):** all 251 rung 1 `test` pairs (so honest pairs show
+  false alarms too) + ~60 LLM-written conventional-bug tools, 7 types, AST-checked
+  (`data/bugs.py`). Agent Audit counts as catching a case with **any** non-suppressed finding,
+  any severity or tier; per-rule counts are reported so generic rules can be told apart. Our
+  model flags at 0.5. Code: `eval/agent_audit.py` (cases under neutral paths, description
+  put back as the docstring), `eval/coverage.py` (table per group), `agentlint coverage
+  {bugs,audit,report}`.
 
 ### Dataset (decided 2026-09-29, updated since)
 
@@ -620,7 +657,11 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-11-07 (latest):** Decided the rung 3 format (section 5, "Rung 3"): ToolPair rows with
+- **2026-11-07 (latest):** Built the Agent Audit coverage set (rung 1 test + 63 bug tools) and
+  ran Agent Audit (any finding counts): bugs 60/63, injected mismatches 31/54, but also the
+  honest twins 31/54 with identical findings on every inject / twin pair, and 40% of honest
+  originals. Our model: 52/54 injections, 2/54 twins. Bug set still to score on CARC.
+- **2026-11-07:** Decided the rung 3 format (section 5, "Rung 3"): ToolPair rows with
   source fields, LLM-drafted labels confirmed by a person, function + what it uses, ~150
   tools from `@tool` / MCP / OpenAI Agents. Wrote `data/collect.py` (`agentlint data collect`)
   and `honest_from:` in `build.py`, with tests; config `configs/datagen_rung3.yaml`.

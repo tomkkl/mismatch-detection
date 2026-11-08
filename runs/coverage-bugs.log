@@ -1,0 +1,21 @@
+eval_exec: 9 tools
+shell_injection: 9 tools
+sql_injection: 9 tools
+unsafe_deserialization: 9 tools
+hardcoded_secret: 9 tools
+path_traversal: 9 tools
+ssrf: 9 tools
+{
+  "tools": 63,
+  "by_bug_type": {
+    "eval_exec": 9,
+    "shell_injection": 9,
+    "sql_injection": 9,
+    "unsafe_deserialization": 9,
+    "hardcoded_secret": 9,
+    "path_traversal": 9,
+    "ssrf": 9
+  },
+  "rejects": 13,
+  "out": "data\\generated\\coverage-bugs\\pairs.jsonl"
+}

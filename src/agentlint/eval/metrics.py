@@ -51,6 +51,8 @@ def bootstrap_pr_auc(rows: list[dict], n: int = 2000, seed: int = 0) -> tuple[fl
         labels = [r["label"] for r in sample]
         if any(labels) and not all(labels):
             values.append(average_precision_score(labels, [r["score"] for r in sample]))
+    if not values:  # one-class set (e.g. the coverage bug set): PR-AUC is undefined
+        return float("nan"), float("nan")
     lo, hi = np.percentile(values, [2.5, 97.5])
     return float(lo), float(hi)
 

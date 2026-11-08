@@ -1,0 +1,13 @@
+{"pair_id": "b-shell_injection-01-0", "reason": "duplicate tool name"}
+{"pair_id": "b-shell_injection-01-1", "reason": "duplicate tool name"}
+{"pair_id": "b-shell_injection-01-2", "reason": "duplicate tool name"}
+{"pair_id": "b-path_traversal-02-2", "reason": "bug not found by AST check"}
+{"pair_id": "b-ssrf-00-2", "reason": "bug not found by AST check"}
+{"pair_id": "b-ssrf-01-2", "reason": "bug not found by AST check"}
+{"pair_id": "b-ssrf-02-2", "reason": "bug not found by AST check"}
+{"pair_id": "b-ssrf-03-0", "reason": "bug not found by AST check"}
+{"pair_id": "b-ssrf-03-2", "reason": "bug not found by AST check"}
+{"pair_id": "b-ssrf-04-0", "reason": "duplicate tool name"}
+{"pair_id": "b-ssrf-04-1", "reason": "duplicate tool name"}
+{"pair_id": "b-ssrf-04-2", "reason": "bug not found by AST check"}
+{"pair_id": "b-ssrf-05-2", "reason": "bug not found by AST check"}
