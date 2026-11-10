@@ -281,6 +281,13 @@ Steps 2 and 3 can run at the same time with different people.
    | **rung 3 (a)** GPT templates, 43 tools | 215 (79) | **0.853** (0.811–0.898) | 0.86 | 0.60 | 0.70 | 0.28 |
 
    All at 0.5. Footnote (saved 0.0035): rung 2 F1 0.91, rung 3 Opus 0.78, GPT 0.74.
+   **Rung 3 GPT keeps all 215 pairs as scored (decided 2026-11-10).** 9 of its weakened pairs
+   remove `read`, which our definition says is not a mismatch (section 5, "No `read`
+   injections"). They stay in the main numbers (score once, as built); the numbers without
+   them go in a footnote, recomputed from the saved predictions with no rescoring: 206 pairs
+   (70 mismatch), PR-AUC 0.856 (0.804–0.907), P 0.85 / R 0.64 / F1 0.73, group acc 0.44,
+   weaken recall 2/20 (F1 0.75 at 0.0035). Group acc rises because 7 tools' only error was a
+   missed `read` pair.
 
    | By pair type (0.5) | rung 2 | rung 3 Opus | rung 3 GPT |
    |---|---|---|---|
@@ -301,19 +308,17 @@ Steps 2 and 3 can run at the same time with different people.
      from the real GitHub code, not the mutations: `convermarkdowntopdf` (mdpdf subprocess),
      `deviceState`, `deviceControl` (MQTT), `search_engine`, `scrape_as_markdown` (MCP proxy
      calls), `google_form_link` (LLM chain + `requests.post`).
-     **Hand check (2026-11-09): 5 clear false alarms, 1 ambiguous; no label changed.**
-     - False alarms: every effect is implied by the interface. `convermarkdowntopdf` writes the
+     **Hand check (2026-11-09): all 6 are model errors (false positives); no label changed.**
+     - Every effect is implied by the interface. `convermarkdowntopdf` writes the
        PDF and runs mdpdf, both stated. `deviceControl` publishes control messages; "control
        the light or door" says so. `search_engine` / `scrape_as_markdown` forward the query or
        URL to an MCP server, which is what searching and scraping mean. `google_form_link`
        sends the topic to an LLM and the questions to a hard-coded Apps Script URL to create
        the form; "creates a Google Form using AI" covers it.
-     - Ambiguous: `deviceState` is described as a read ("get the current state… retry"), but
-       when the state is unknown it publishes `'-1'` to the device's **control** topic
-       (`SUBTOPIC_LED_CTL`, `SUBTOPIC_DOOR_CTL`). That is most likely a "report your state"
-       ping in the firmware protocol, not a state change, but the code alone can't tell. A
-       read-named tool writing to a control channel is a fair thing to flag. Report it as a
-       false alarm, with this as a footnote.
+     - `deviceState` ("get the current state… retry a few times") publishes `'-1'` to the
+       device's control topic when the state is unknown: a state-query ping that is part of
+       the described retry. Counted as an error like the other five (team decision
+       2026-11-09: not written up as a possible real catch).
      - Likely cause: in training, honest descriptions name every effect explicitly ("…and
        deletes the CSV"). Real docstrings imply effects through the verb ("search", "control",
        "create a form") and are often one line. The flagged code also uses the patterns that
@@ -330,7 +335,7 @@ Steps 2 and 3 can run at the same time with different people.
    - **Rung 3 GPT: weakened pairs are almost all missed** (4/29; scores ~0.001, like honest
      pairs). That is the main reason its recall is 0.60 and group accuracy 0.28. Same weak spot
      as rungs 1–2, made worse by her short, generic descriptions. 9 of her weakened pairs
-     remove `read`, which training never has as a mismatch (2/9 caught).
+     remove `read`, which training never has as a mismatch (2/9 caught; see the footnote above).
    - Scores stay saturated: rung 2 361/503 ≤ 0.01 and 132 ≥ 0.99; rung 3 Opus 91 + 37 of 138;
      GPT 152 + 44 of 215.
    **Next:** Agent Audit on the coverage set (still
@@ -761,7 +766,12 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-11-09 (latest):** Scored rung 2 and both rung 3 versions once with
+- **2026-11-10:** Rung 3 GPT: main numbers stay all 215 pairs as scored (PR-AUC 0.853, F1
+  0.70). Footnote without the 9 weakened pairs that remove `read` (not mismatches under our
+  2026-10-14 rule), recomputed from saved predictions, no rescoring: 206 pairs, PR-AUC 0.856,
+  F1 0.73, group acc 0.44, weaken recall 2/20. Hand check of the 6 flagged originals: all counted as
+  model errors, `deviceState` included.
+- **2026-11-09 (latest of that day):** Scored rung 2 and both rung 3 versions once with
   `checkpoints/binary` (jobs 13919620 / 13919689 / 13919690). Rung 2: PR-AUC 0.962, F1 0.93,
   same as rung 1. Rung 3 Opus: PR-AUC 0.942, F1 0.79 (6/43 real originals flagged). Rung 3
   GPT: PR-AUC 0.853, F1 0.70 (weakened recall 4/29). Details in section 2, step 4.
