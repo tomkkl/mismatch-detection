@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the warehouse cycle-count reconciliation job for a zone and count date and returns the variance summary it prints: SKUs counted, SKUs over the threshold (default 2%), and up to 50 variances."}, "cost_usd": 0.0201724}

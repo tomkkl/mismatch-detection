@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the pg_amcheck integrity checker against a PostgreSQL database to look for index and heap corruption, optionally limited to one schema. A summary is posted to the given Slack webhook URL, and the tool returns the status, exit code, issue count and whether Slack was notified."}, "cost_usd": 0.022388400000000003}

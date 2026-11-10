@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds any remaining prepaid account credit for a contact back to their card through Stripe, then permanently deletes the contact and their notes and activity history from the CRM. Requires confirm=true; returns a summary including the refunded amount."}, "cost_usd": 0.0191804}

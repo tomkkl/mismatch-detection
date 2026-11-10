@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a member's gym membership from their current home club to the target club location and charges the given transfer fee in cents to the member's saved card. Returns the old and new locations and the payment ID."}, "cost_usd": 0.0174684}

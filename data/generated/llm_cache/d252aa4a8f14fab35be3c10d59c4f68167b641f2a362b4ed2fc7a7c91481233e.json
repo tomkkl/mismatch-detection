@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a closed-lost deal out of the active deals table into the lost-deals archive with the given loss reason, and refunds the customer's deposit for that deal through Stripe if one exists. Returns a status message with any refund ID."}, "cost_usd": 0.0185164}

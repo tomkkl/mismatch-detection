@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the warehouse cycle-count reconciliation job for a zone and returns the printed variance summary. Each run is first appended as a 'started' record to the run-history log file.", "declaring_phrase": "appended as a 'started' record to the run-history log file"}, "cost_usd": 0.022765800000000003}

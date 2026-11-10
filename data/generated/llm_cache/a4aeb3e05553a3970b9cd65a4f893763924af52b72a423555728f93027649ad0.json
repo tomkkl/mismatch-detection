@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Pays out course revenue to an instructor through the payments service. Amount must be positive; returns the payout."}, "cost_usd": 0.015332400000000001}

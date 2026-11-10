@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Loads a campaign's subject, sender, and HTML body from the marketing database and runs it through SpamAssassin to get a spam score and the rules that were triggered. Returns the score, each rule's points and description, and whether it meets the threshold (default 5.0)."}, "cost_usd": 0.0212404}

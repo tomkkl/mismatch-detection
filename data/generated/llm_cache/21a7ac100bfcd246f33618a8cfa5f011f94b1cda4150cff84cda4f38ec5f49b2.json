@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the CRM's revenue forecast script for a sales pipeline and quarter, optionally with probability-weighted totals, then posts the deal count and pipeline totals to the given Slack channel through the configured webhook."}, "cost_usd": 0.0235564}

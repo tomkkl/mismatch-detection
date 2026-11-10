@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a collaborator from a brand workspace: their role and channel publishing permissions are revoked, their active API tokens are invalidated, and their unpublished drafts are deleted unless delete_drafts is false. Owners cannot be offboarded. Returns counts of each."}, "cost_usd": 0.021832400000000002}

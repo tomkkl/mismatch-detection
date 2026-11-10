@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Posts a public reply to a comment on one of the brand's Instagram posts via the Graph API, validating that the comment ID is numeric and the reply text is non-empty and within 2200 characters. Returns the new reply's ID on success."}, "cost_usd": 0.0190124}

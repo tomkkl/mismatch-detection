@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a virus scan over a channel's uploaded attachments folder and identifies any files flagged as infected. Returns the list of infected files and the signatures that were detected."}, "cost_usd": 0.0197844}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Publishes a text post (up to 3000 characters), with an optional link preview, to a LinkedIn company page that the connected account manages, visible either publicly or to logged-in members only. The post goes live on LinkedIn right away, and the tool returns its URN and URL."}, "cost_usd": 0.0239124}

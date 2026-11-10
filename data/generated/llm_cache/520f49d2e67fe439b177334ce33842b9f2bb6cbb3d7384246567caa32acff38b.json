@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Removes a zone from the authoritative name server and permanently deletes the zone's file and journal from disk. The zone stops being served right away and cannot be restored unless you have a backup."}, "cost_usd": 0.0210284}

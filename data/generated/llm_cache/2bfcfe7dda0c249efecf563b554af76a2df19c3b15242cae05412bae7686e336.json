@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reports a comment to Akismet as spam, then permanently deletes it from the blog's comment database, so it can't be recovered. It also revokes commenting permission for the author's IP address.", "declaring_phrase": "revokes commenting permission for the author's IP address"}, "cost_usd": 0.0205978}

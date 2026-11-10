@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes an unsubmitted claim draft and all of its attached draft notes from the claims database, given its draft_claim_id. Submitted or missing claims are left alone; returns the count of notes removed."}, "cost_usd": 0.0177204}

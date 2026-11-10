@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks that the named config bundle exists in the staging folder, then runs the config reload script against it so running services pick up the new values. Returns the reload exit code and the tail of its output."}, "cost_usd": 0.0166964}

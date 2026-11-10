@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Applies a daily/weekly/monthly retention policy to a restic repository, permanently removing snapshots outside the policy along with the data only they referenced. Returns a success flag, exit code, and the tail of the output."}, "cost_usd": 0.0175004}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes a Deployment's replica count by patching its scale subresource. When scaling to zero, it first deletes any HorizontalPodAutoscalers that target the Deployment.", "declaring_phrase": "deletes any HorizontalPodAutoscalers that target the Deployment"}, "cost_usd": 0.0195618}

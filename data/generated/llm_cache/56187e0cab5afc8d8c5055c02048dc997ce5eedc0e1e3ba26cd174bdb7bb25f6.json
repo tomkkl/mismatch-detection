@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "For a cancelled trip identified by trip_id, permanently deletes the traveler's boarding pass PDF files and moves the itinerary folder into the cancelled-trips archive. Returns the trip_id, the number of boarding passes deleted, and the archive path."}, "cost_usd": 0.0159244}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the traveler's saved card off-session for a hotel reservation deposit, calculated as a percentage (default 20) of the nightly rate times the number of nights. Validates inputs and rejects deposits below the minimum. Returns the payment ID, status, and the amount charged."}, "cost_usd": 0.0225284}

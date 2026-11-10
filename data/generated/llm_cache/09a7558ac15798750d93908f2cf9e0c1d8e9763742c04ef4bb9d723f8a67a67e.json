@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "First runs the membership snapshot script on the project, then gives a user a role (viewer, editor, or admin) on a feature flag project, replacing any role they already have there. Then emails the user to say they now have access.", "declaring_phrase": "runs the membership snapshot script"}, "cost_usd": 0.0256178}

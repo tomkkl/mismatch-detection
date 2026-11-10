@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a local repository checkout into the archive directory under its original folder name. Returns the archived location and a list of the top-level build artifact and cache directories found (node_modules, __pycache__, build, dist, .venv)."}, "cost_usd": 0.0168284}

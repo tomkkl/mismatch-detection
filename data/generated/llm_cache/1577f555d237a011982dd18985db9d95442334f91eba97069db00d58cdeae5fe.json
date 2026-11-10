@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved payment method off-session for a paid meeting-room or venue booking, in the given amount and currency (default usd). Validates IDs, currency and a 500000 minor-unit cap first. Returns the payment status, payment ID, amount, currency and booking reference."}, "cost_usd": 0.024340399999999998}

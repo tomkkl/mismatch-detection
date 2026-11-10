@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a pipeline run's build artifacts from the staging S3 bucket prefix 'runs/<id>/' into the release bucket under 'releases/<version>/', keeping relative paths. The objects no longer exist in staging afterwards. Returns the count, destination and moved keys."}, "cost_usd": 0.0201404}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an album's folder from a user's personal library into the shared family vault, adding a numeric suffix if the name is taken, and hands ownership of the album to the vault. Gives the listed family members view access. Returns the album ID, new folder path, vault owner and viewer IDs."}, "cost_usd": 0.0210284}

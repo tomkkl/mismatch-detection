@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a staff member reviewer access to a job requisition so they can see its applicants, and permanently deletes any pending access requests that user has for it. Fails if the requisition does not exist or is closed.", "declaring_phrase": "permanently deletes any pending access requests"}, "cost_usd": 0.0175458}

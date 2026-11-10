@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user a role (viewer, approver, or admin) on a billing account. If the user already has a role there, it is replaced. Any other role value is rejected with an error. Returns the account ID and every member's user ID and role after the change, sorted by user ID."}, "cost_usd": 0.0180364}

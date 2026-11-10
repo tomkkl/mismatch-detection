@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a withdrawn listing and, optionally, its buyer inquiries. Photos are first moved to a pending-deletion folder, then deleted; they stay there if the listing isn't withdrawn. Can't be undone.", "declaring_phrase": "Photos are first moved to a pending-deletion folder"}, "cost_usd": 0.022925800000000003}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a warehouse worker access to a storage zone at the given role level (picker, putaway, or supervisor), replacing any role they previously held in that zone. Fails for an invalid role or unknown zone; returns the previous role and grant time."}, "cost_usd": 0.0190284}

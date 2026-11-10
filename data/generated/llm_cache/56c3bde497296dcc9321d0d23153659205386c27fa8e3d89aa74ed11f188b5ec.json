@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes audit log rows older than the given days (minimum 30) from the SQLite audit database, then runs the external sqlite3 command to VACUUM the file. Returns deleted row count, cutoff, and vacuum status.", "declaring_phrase": "runs the external sqlite3 command to VACUUM the file"}, "cost_usd": 0.0195138}

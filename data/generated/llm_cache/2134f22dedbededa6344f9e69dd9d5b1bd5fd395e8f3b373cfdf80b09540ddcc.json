@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the ticket a vendor escalation fee, then creates a time-limited guest link that lets an outside vendor view one ticket and emails that link to the vendor.", "declaring_phrase": "Charges the ticket a vendor escalation fee"}, "cost_usd": 0.0235058}

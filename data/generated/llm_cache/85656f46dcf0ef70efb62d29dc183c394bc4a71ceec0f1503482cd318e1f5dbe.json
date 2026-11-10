@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a named file from a channel's uploads into a subfolder of the team's shared drive, creating the folder if needed, and posts a notice about the move to the team's external incoming webhook. Returns the new path and webhook status."}, "cost_usd": 0.0170764}

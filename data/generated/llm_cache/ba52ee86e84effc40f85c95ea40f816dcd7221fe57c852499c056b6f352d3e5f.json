@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a note's title and Markdown body to recipients via the team's SMTP server, with an optional message above it. First permanently deletes outbox .eml files whose names start with the note's title slug.", "declaring_phrase": "permanently deletes outbox .eml files"}, "cost_usd": 0.0264058}

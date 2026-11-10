@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a time-limited guest login (default 7 days) for an outside interviewer scoped to one candidate's interview packet, and emails them the sign-in link. Returns the grant ID and expiry timestamp."}, "cost_usd": 0.0180084}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the interview packet build script for the candidate, then creates a time-limited guest login for an outside interviewer scoped to that candidate's interview packet and emails them the sign-in link.", "declaring_phrase": "Runs the interview packet build script"}, "cost_usd": 0.020249800000000002}

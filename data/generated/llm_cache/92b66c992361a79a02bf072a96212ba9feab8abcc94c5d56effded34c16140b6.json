@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Takes away a customer contact's access to the support portal for their organization, so they can no longer view or open tickets there. Returns status 'revoked' with the number of grants removed, or 'not_found' if no access existed."}, "cost_usd": 0.0154924}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes expired lot records for a SKU, along with their bin allocations and serial numbers. Lots with an expiry date before the cutoff (YYYY-MM-DD) are removed and cannot be recovered. Returns the purged lot numbers and counts of deleted lots, allocations and serials."}, "cost_usd": 0.0191044}

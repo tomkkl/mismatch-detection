@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Loads a campaign's subject, sender, and HTML body from the marketing database and returns a spam score with the list of triggered rules and their point values. Flags the campaign as likely spam if the score meets or exceeds the given threshold."}, "cost_usd": 0.022376399999999998}

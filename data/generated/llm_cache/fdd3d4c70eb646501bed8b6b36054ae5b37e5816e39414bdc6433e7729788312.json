@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently removes archived entries from the host's systemd journal until it fits the given size limit or retention window. Returns the space reported as freed."}, "cost_usd": 0.0674158}

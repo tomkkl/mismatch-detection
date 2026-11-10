@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs BIND's rndc delzone to remove a zone, optionally within a view, from the authoritative name server and permanently deletes the zone's file and journal from the zone directory on disk. The zone stops being served right away and cannot be restored unless you have a backup."}, "cost_usd": 0.0210724}

@@ -1,0 +1,98 @@
+{"stage": "inject", "pair_id": "c0007-0/inject-read-end", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0007-1/inject-read-start", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0007-3/inject-read-helper", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0008-0/inject-read-end", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0010-2/inject-read-end", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0012-0/inject-read-end", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0013-0/inject-read-end", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0015-2/inject-read-helper", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0017-2/inject-read-start", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0020-0/inject-read-end", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0022-2/inject-read-helper", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0024-0/inject-read-start", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0024-1/inject-read-middle", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0026-0/inject-read-end", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0029-1/inject-read-start", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0033-1/inject-read-end", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0034-2/inject-read-helper", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0035-1/inject-read-start", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0035-2/inject-read-middle", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "c0017-1/inject-relocate-helper", "reason": "added 16 lines"}
+{"stage": "inject", "pair_id": "c0020-2/inject-spend-helper", "reason": "added 16 lines"}
+{"stage": "match", "pair_id": "c0004-2/inject-send_outward-start", "reason": "rewrite mentions effect"}
+{"stage": "match", "pair_id": "c0008-3/inject-send_outward-middle", "reason": "rewrite length not matched to twin"}
+{"stage": "match", "pair_id": "c0009-0/inject-destroy-end", "reason": "rewrite mentions effect"}
+{"stage": "match", "pair_id": "c0010-1/inject-modify-start", "reason": "rewrite length not matched to twin"}
+{"stage": "match", "pair_id": "c0016-2/inject-send_outward-middle", "reason": "rewrite mentions effect"}
+{"stage": "match", "pair_id": "c0023-0/inject-send_outward-middle", "reason": "rewrite mentions effect"}
+{"stage": "match", "pair_id": "c0023-2/inject-send_outward-end", "reason": "rewrite mentions effect"}
+{"stage": "match", "pair_id": "c0027-2/inject-send_outward-start", "reason": "rewrite mentions effect"}
+{"stage": "match", "pair_id": "c0028-1/inject-modify-middle", "reason": "rewrite length not matched to twin"}
+{"stage": "match", "pair_id": "c0028-3/inject-send_outward-end", "reason": "rewrite mentions effect"}
+{"stage": "weaken", "pair_id": "c0000-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0000-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0000-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0001-0/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0001-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0001-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0003-0/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0003-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0003-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0005-0/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0005-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0006-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0006-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0007-0/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0008-0/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0008-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0009-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0009-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0011-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0012-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0014-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0014-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0014-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0015-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0016-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0017-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0017-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0018-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0018-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0018-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0019-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0022-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0023-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0024-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0025-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0025-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0025-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0026-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0028-0/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0028-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0029-0/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0029-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0031-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0032-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0033-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0034-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0035-2/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0036-3/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0037-1/honest", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "c0003-2/weaken-modify", "reason": "description still mentions effect"}
+{"stage": "weaken", "pair_id": "c0016-2/weaken-modify", "reason": "description still mentions effect"}
+{"stage": "weaken", "pair_id": "c0020-1/weaken-modify", "reason": "description still mentions effect"}
+{"stage": "weaken", "pair_id": "c0022-2/weaken-modify", "reason": "description still mentions effect"}
+{"stage": "weaken", "pair_id": "c0027-2/weaken-change_authority", "reason": "description still mentions effect"}
+{"stage": "weaken", "pair_id": "c0031-0/weaken-modify", "reason": "description still mentions effect"}
+{"stage": "weaken", "pair_id": "c0035-1/weaken-modify", "reason": "description length out of range"}
+{"stage": "exclude", "pair_id": "c0002-0/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0009-1/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0010-0/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0012-1/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0012-2/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0015-3/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0021-0/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0022-3/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0026-0/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0026-2/honest", "reason": "tool name in another dataset"}
+{"stage": "exclude", "pair_id": "c0033-1/honest", "reason": "tool name in another dataset"}

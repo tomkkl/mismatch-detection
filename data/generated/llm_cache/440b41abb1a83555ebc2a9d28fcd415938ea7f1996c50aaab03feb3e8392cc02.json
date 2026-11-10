@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a plan's lapsed-subscription CSV export files from the active exports folder into the dated archive folder for the given billing cycle, creating the folder if needed. Returns the archive location and the number of files moved."}, "cost_usd": 0.0185284}

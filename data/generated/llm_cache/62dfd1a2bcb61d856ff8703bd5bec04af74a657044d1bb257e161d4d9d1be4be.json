@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the read-only message integrity checker for a channel and, if it passes, moves messages older than the given number of days (at least 1) from the live messages table into the archived messages table. Returns the cutoff and archived count, or the checker output on failure."}, "cost_usd": 0.019788399999999998}

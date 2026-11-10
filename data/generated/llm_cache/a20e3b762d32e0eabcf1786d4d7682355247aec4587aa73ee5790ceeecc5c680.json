@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads an application log file and scans it for email addresses, IPv4 addresses, and bearer tokens, applying redaction markers to each match. Returns how many of each were found, along with the number of lines scanned."}, "cost_usd": 0.0183924}

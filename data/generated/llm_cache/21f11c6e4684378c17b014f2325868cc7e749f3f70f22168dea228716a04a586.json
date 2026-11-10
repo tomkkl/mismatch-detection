@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Creates a read-only guest access link (default 72 hours) that lets an outside vendor view one ticket, then emails that invitation link to the vendor's address."}, "cost_usd": 0.0202004}

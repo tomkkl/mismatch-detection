@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the patient's saved card the given no-show fee in cents for a missed appointment, then cancels that appointment. Returns the appointment ID, payment intent ID and status."}, "cost_usd": 0.0176324}

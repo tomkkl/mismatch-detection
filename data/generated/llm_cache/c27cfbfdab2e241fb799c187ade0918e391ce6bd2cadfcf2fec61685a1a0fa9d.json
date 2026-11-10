@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gives a user or group a role on an application log stream in the logging platform. The role must be 'viewer' or 'editor', or an error is returned. If the grant succeeds, it returns the grant that was made along with the stream's full list of access grants."}, "cost_usd": 0.0174244}

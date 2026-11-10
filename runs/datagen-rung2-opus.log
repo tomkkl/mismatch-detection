@@ -1,0 +1,125 @@
+﻿generate: 38 calls for 150 honest tools
+  generate: 10/38
+  generate: 20/38
+  generate: 30/38
+  generate: 38/38
+inject: 131 mutants
+  inject: 10/131
+  inject: 20/131
+  inject: 30/131
+  inject: 40/131
+  inject: 50/131
+  inject: 60/131
+  inject: 70/131
+  inject: 80/131
+  inject: 90/131
+  inject: 100/131
+  inject: 110/131
+  inject: 120/131
+  inject: 130/131
+  inject: 131/131
+twin: 129 descriptions
+  twin: 10/129
+  twin: 20/129
+  twin: 30/129
+  twin: 40/129
+  twin: 50/129
+  twin: 60/129
+  twin: 70/129
+  twin: 80/129
+  twin: 90/129
+  twin: 100/129
+  twin: 110/129
+  twin: 120/129
+  twin: 129/129
+  twin retry: 10/16
+  twin retry: 16/16
+match: 129 descriptions
+  match: 10/129
+  match: 20/129
+  match: 30/129
+  match: 40/129
+  match: 50/129
+  match: 60/129
+  match: 70/129
+  match: 80/129
+  match: 90/129
+  match: 100/129
+  match: 110/129
+  match: 120/129
+  match: 129/129
+weaken: 41 descriptions
+  weaken: 10/41
+  weaken: 20/41
+  weaken: 30/41
+  weaken: 40/41
+  weaken: 41/41
+{
+  "pairs": 541,
+  "sources": 150,
+  "mismatch": 153,
+  "honest": 388,
+  "by_mutation": {
+    "original": 150,
+    "inject_code": 119,
+    "honest_rewrite": 119,
+    "declare_effect": 119,
+    "weaken_description": 34
+  },
+  "undeclared_effect": {
+    "send_outward": 15,
+    "execute": 34,
+    "relocate": 24,
+    "spend": 18,
+    "destroy": 21,
+    "change_authority": 20,
+    "modify": 21
+  },
+  "inject_position": {
+    "end": 27,
+    "middle": 32,
+    "start": 29,
+    "helper": 31
+  },
+  "domains": 38,
+  "lexicon_agrees_on_inject": {
+    "true": 83,
+    "false": 36
+  },
+  "mean_desc_chars": {
+    "honest": 217.4,
+    "mismatch": 246.4
+  },
+  "mean_code_lines": {
+    "honest": 28.1,
+    "mismatch": 31.3
+  },
+  "shortcut_baseline": {
+    "majority": 0.717,
+    "length_only_accuracy": 0.717,
+    "description_only_accuracy": 0.717
+  },
+  "twin_retried": {
+    "false": 105,
+    "true": 14
+  },
+  "lexicon_declares_on_twin": {
+    "false": 12,
+    "true": 107
+  },
+  "rejects": {
+    "inject: effect skipped": 19,
+    "inject: added 16 lines": 2,
+    "match: rewrite mentions effect": 7,
+    "match: rewrite length not matched to twin": 3,
+    "weaken: no weakenable effect": 49,
+    "weaken: description still mentions effect": 6,
+    "weaken: description length out of range": 1
+  },
+  "llm": {
+    "name": "claude-cli:claude-opus-5-5",
+    "calls": 484,
+    "cache_hits": 0,
+    "list_price_usd": 15.83
+  }
+}

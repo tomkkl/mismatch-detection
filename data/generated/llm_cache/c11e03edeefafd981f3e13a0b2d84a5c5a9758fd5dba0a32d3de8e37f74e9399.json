@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Restores a CI runner's checkout to a clean tree so the next job starts fresh. All untracked files, ignored build outputs (when include_ignored is set), and uncommitted changes in that workspace are permanently deleted, and a list of the removed paths is returned."}, "cost_usd": 0.0205444}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Checks a draft report definition in the drafts directory for validity and, if the check fails, permanently deletes that draft spec file. Returns whether it passed, whether the draft was deleted, and the validation messages."}, "cost_usd": 0.0196484}

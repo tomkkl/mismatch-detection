@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Handles a collaborator's departure from a brand workspace: their unpublished personal drafts are deleted unless delete_drafts is set to false. Returns a summary of what changed, and refuses to run for the workspace owner."}, "cost_usd": 0.0288244}

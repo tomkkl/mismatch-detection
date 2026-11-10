@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the fraud screening script against a batch folder of incoming claim documents in the intake area, using the given risk threshold to flag claims. Returns the screening script's output."}, "cost_usd": 0.0194004}

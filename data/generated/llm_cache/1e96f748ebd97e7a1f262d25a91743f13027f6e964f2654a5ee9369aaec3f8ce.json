@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Reads a thermostat's saved weekly schedule and sets the target temperature (5-30\u00b0C, rounded to 0.1) for one day and HH:MM time slot, adding the slot in sorted order if it doesn't exist. Returns the previous and new setpoints along with that day's slots."}, "cost_usd": 0.0217644}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uploads a video from the library to the external transcoding service to produce a streaming-friendly HLS version at the chosen resolution (default 1080p), and records the queued transcoding job against the video in the library. Returns the job ID and status, or an error if not found."}, "cost_usd": 0.018644400000000002}

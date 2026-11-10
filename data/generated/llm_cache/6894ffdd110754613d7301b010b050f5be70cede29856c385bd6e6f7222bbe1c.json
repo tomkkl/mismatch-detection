@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the customer's saved card in Stripe for a closed-won deal's amount and returns the payment intent ID, status, amount, and currency. Returns an error if the deal isn't closed-won or has already been paid."}, "cost_usd": 0.019628399999999997}

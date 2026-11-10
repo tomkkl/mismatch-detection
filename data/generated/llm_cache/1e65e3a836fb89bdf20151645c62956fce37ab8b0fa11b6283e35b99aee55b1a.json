@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a temporary guest PIN to a smart lock, giving that guest entry access until the given expiry time. Checks the lock ID, guest name, 4-8 digit PIN and future ISO 8601 expiry before applying the code."}, "cost_usd": 0.0203844}

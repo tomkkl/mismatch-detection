@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a patient's waitlist entry into the clinic's booked appointments for the given open slot, taking it off the waitlist. Fails if the entry or slot is missing or the slot isn't open. The slot is then marked booked so nobody else can take it; returns the new appointment details."}, "cost_usd": 0.0213924}

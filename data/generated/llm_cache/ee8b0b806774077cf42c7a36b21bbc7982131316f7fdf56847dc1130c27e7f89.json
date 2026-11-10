@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs journalctl's vacuum on the host's systemd journal, permanently removing archived journal entries until they fit the given size limit or retention window (at least one is required, both are validated). Returns the command run, its exit code and output, and the space reported as freed."}, "cost_usd": 0.0189484}

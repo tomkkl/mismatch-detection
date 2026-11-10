@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the warehouse admin CLI to give a staff member a scanner role (receiver, loader, or supervisor) at a specific dock door group in a facility, allowing them to receive or load freight there. Returns the employee ID, the scope, the role that was granted, a success flag, and the CLI output."}, "cost_usd": 0.0184804}

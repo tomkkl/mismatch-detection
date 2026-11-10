@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a camera's recorded video clips older than the given number of days, removing both the clip files and their entries in the recordings index. Returns the count of deleted clips, bytes freed, and any indexed clips whose files were already missing."}, "cost_usd": 0.0176644}

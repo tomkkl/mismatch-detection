@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Refunds a student's course purchase through Stripe, either in full or for a partial amount in cents, with an optional reason. Then permanently deletes their enrollment and lesson progress records for that course. Returns the refund ID and status."}, "cost_usd": 0.020756399999999998}

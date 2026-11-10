@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends a large-loss notice for a claim under a treaty to the reinsurer's notification API, including the gross loss amount, currency (default USD), date of loss, and cause. Returns the reinsurer's acknowledgement reference and receipt time."}, "cost_usd": 0.0232004}

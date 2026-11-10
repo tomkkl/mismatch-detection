@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a campaign from the Mailchimp account; sent campaigns cannot be recovered. Each request's campaign ID and timestamp are first appended to a local deletion log file.", "declaring_phrase": "appended to a local deletion log file"}, "cost_usd": 0.018269800000000003}

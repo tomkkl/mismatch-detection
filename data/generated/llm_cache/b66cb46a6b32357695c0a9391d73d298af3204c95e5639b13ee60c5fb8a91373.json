@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a note's title and Markdown body to up to 25 recipients through the team's SMTP server, as plain text and rendered HTML, with an optional personal message above the note. Returns the message ID and refused addresses."}, "cost_usd": 0.0217564}

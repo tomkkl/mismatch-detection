@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a listing's optimized photos, resized to the given maximum width, from the upload staging folder into the listing's published photo folder. Returns the list of published photo filenames and how many there are."}, "cost_usd": 0.0207444}

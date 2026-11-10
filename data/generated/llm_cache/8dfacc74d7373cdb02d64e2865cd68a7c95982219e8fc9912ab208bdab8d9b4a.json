@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a firm user a role on a legal matter (viewer, editor, or responsible attorney) so they can work with its documents, recording who approved it. If the user already has a role on the matter, it is replaced, and the previous role is returned."}, "cost_usd": 0.0224764}

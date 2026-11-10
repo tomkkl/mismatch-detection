@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves a paid invoice's PDF, named by its invoice number, out of the outstanding invoices folder and into the archive folder for its billing year. The file keeps its name and is no longer in the outstanding folder once it has moved."}, "cost_usd": 0.022520000000000002}

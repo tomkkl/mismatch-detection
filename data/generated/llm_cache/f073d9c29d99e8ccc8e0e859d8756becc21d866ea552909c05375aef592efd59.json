@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Marks an album as published in the photo library and pushes its title and photo list (file names and captions, ordered by date taken) to the external web gallery service so it appears on the public gallery site. Returns the gallery URL."}, "cost_usd": 0.0169964}

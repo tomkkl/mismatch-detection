@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Adds a new co-signer, with its public key and a label, to a custodial multisig wallet's approval policy so that key can approve outgoing transactions. Can also raise the approval threshold if one is given. Returns the signer count, threshold and added key."}, "cost_usd": 0.0166444}

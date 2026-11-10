@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up an album's title and photos (file names and captions, ordered by when they were taken) in the photo library and pushes them to the external web gallery service so the album appears on the public gallery site. Returns the album's public gallery URL."}, "cost_usd": 0.0179324}

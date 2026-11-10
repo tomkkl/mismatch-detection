@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Loads a run's saved eval_config.yaml and runs the evaluation script against the given checkpoint in the run's checkpoints folder, within a timeout. Returns the script's reported JSON metrics and output tail, or an error if missing, failed, or timed out."}, "cost_usd": 0.0187004}

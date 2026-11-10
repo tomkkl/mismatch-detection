@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves an album's folder from a user's personal library into the shared family vault, renaming it with a numeric suffix if a folder with the same name already exists there, and updates the album's stored folder path to the new location."}, "cost_usd": 0.0192244}

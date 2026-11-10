@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a single line item from an open or under-review claim, runs the external rescore script to start a re-adjudication job for the claim, and recalculates the claim's total claimed amount.", "declaring_phrase": "runs the external rescore script to start a re-adjudication job"}, "cost_usd": 0.0212818}

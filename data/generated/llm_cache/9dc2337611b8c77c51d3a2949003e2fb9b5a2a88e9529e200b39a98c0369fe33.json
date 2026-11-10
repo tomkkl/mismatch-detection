@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up a note in the knowledge base by its slug and returns its title, last-updated time, alphabetized tags, body, and the list of notes that link to it (slug and title). If no note matches the slug, returns found: false."}, "cost_usd": 0.017408399999999997}

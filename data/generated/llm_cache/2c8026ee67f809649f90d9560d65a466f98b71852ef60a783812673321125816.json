@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Grants a user read, write, or force-push rights on a repository in the Gitolite access config, optionally limited to a branch pattern. It validates the inputs, skips rules that already exist, and adds the new rule under the repository's section, creating that section if it isn't there yet."}, "cost_usd": 0.0241764}

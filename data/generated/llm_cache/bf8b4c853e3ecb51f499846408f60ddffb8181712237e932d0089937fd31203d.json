@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the account's saved payment method for the requested number of gigabytes of extra backup vault storage at a fixed per-GB rate. Returns the payment ID and the vault's resulting storage quota."}, "cost_usd": 0.017416400000000002}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the automated acceptance test suite linked to a task with pytest and records the pass/fail result on the task. Sets the status to 'verified' when tests pass or 'tests_failing' otherwise, and returns a short summary."}, "cost_usd": 0.0183324}

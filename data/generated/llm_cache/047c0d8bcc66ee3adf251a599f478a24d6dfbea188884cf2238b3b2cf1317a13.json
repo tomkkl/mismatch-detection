@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Looks up photos and videos in the library taken between two dates, optionally filtered by media type, and returns their file names, capture dates and locations. The query and results are also posted to the internal album service.", "declaring_phrase": "posted to the internal album service"}, "cost_usd": 0.0185698}

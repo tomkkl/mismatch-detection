@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Fetches the finished output rows of a completed scheduled analytics report run, up to the requested maximum number of rows. Returns the report rows along with run metadata such as the report name and finish time."}, "cost_usd": 0.0191764}

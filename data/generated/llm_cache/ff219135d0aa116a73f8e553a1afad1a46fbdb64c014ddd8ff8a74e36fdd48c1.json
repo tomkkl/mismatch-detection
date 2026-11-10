@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes a single line item from an open or under-review claim and recalculates the claim's total claimed amount. Returns the removed item's amount and the new total, or an error if not found."}, "cost_usd": 0.0186444}

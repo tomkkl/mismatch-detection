@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Binds an existing Role in a namespace to a User, Group, or ServiceAccount by creating a RoleBinding named after the role and subject, giving that subject the role's permissions in the namespace. Returns the binding name, namespace, role, and subject."}, "cost_usd": 0.0183644}

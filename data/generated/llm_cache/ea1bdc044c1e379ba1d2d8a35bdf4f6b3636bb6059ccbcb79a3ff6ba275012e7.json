@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Changes the replica count of a Deployment by patching its scale subresource. Rejects negative counts; returns previous and new replicas."}, "cost_usd": 0.0155364}

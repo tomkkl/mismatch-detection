@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Permanently deletes a temporary seat hold and its seat records so the seats go back on sale. If the hold has a JSON document, it is moved into the released holds folder.", "declaring_phrase": "moved into the released holds folder"}, "cost_usd": 0.0183738}
