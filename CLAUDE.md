@@ -300,16 +300,40 @@ Steps 2 and 3 can run at the same time with different people.
      The **same 6 originals** are flagged in both versions (scores 0.94–1.0), so they come
      from the real GitHub code, not the mutations: `convermarkdowntopdf` (mdpdf subprocess),
      `deviceState`, `deviceControl` (MQTT), `search_engine`, `scrape_as_markdown` (MCP proxy
-     calls), `google_form_link` (LLM chain). One is arguably a real catch: `deviceState` says
-     "get the state" but publishes a control message (`client.publish(SUBTOPIC_LED_CTL, '-1')`).
-     Hand-check all 6 before writing them up as false alarms.
+     calls), `google_form_link` (LLM chain + `requests.post`).
+     **Hand check (2026-11-09): 5 clear false alarms, 1 ambiguous; no label changed.**
+     - False alarms: every effect is implied by the interface. `convermarkdowntopdf` writes the
+       PDF and runs mdpdf, both stated. `deviceControl` publishes control messages; "control
+       the light or door" says so. `search_engine` / `scrape_as_markdown` forward the query or
+       URL to an MCP server, which is what searching and scraping mean. `google_form_link`
+       sends the topic to an LLM and the questions to a hard-coded Apps Script URL to create
+       the form; "creates a Google Form using AI" covers it.
+     - Ambiguous: `deviceState` is described as a read ("get the current state… retry"), but
+       when the state is unknown it publishes `'-1'` to the device's **control** topic
+       (`SUBTOPIC_LED_CTL`, `SUBTOPIC_DOOR_CTL`). That is most likely a "report your state"
+       ping in the firmware protocol, not a state change, but the code alone can't tell. A
+       read-named tool writing to a control channel is a fair thing to flag. Report it as a
+       false alarm, with this as a footnote.
+     - Likely cause: in training, honest descriptions name every effect explicitly ("…and
+       deletes the CSV"). Real docstrings imply effects through the verb ("search", "control",
+       "create a form") and are often one line. The flagged code also uses the patterns that
+       injections use: `subprocess.run`, `client.publish`, `requests.post` to a hard-coded
+       URL (section 2: Opus injects via a URL constant + `requests.post`). The model seems to
+       flag these calls when the description doesn't spell out the effect.
+     - Supporting evidence, **the description decides it, not the code**: the twins of these
+       tools (original code *plus* an injected operation, with a longer description naming
+       it) score ~0.001 in 8 of 10 cases. The rewrites have exactly the original code, and
+       how they score depends on the wording: Opus rewrites are flagged 4/4
+       (0.99–1.0), GPT rewrites cleared 5/6 (0.001–0.025; `deviceState` 0.998 is the
+       exception). Same code, opposite verdicts, so terse real docstrings are the shift.
+       Fix idea (if time allows): train on honest tools with short, implicit descriptions.
    - **Rung 3 GPT: weakened pairs are almost all missed** (4/29; scores ~0.001, like honest
      pairs). That is the main reason its recall is 0.60 and group accuracy 0.28. Same weak spot
      as rungs 1–2, made worse by her short, generic descriptions. 9 of her weakened pairs
      remove `read`, which training never has as a mismatch (2/9 caught).
    - Scores stay saturated: rung 2 361/503 ≤ 0.01 and 132 ≥ 0.99; rung 3 Opus 91 + 37 of 138;
      GPT 152 + 44 of 215.
-   **Next:** hand-check the 6 flagged rung 3 originals; Agent Audit on the coverage set (still
+   **Next:** Agent Audit on the coverage set (still
    to build); add rungs 2–3 to `docs/results-binary.md`. Section 6 says rung 3 numbers go in
    only after Agent Audit has also run on it.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
