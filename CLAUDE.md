@@ -192,13 +192,31 @@ Steps 2 and 3 can run at the same time with different people.
      split. 4 stub tools with no calls (`equation_solver`, `add`, `todowrite`, a
      `get_weather`) fail `verify_honest` and are dropped (`rejects.jsonl`). Score the whole
      `data/generated/github-opus/pairs.jsonl` once, when the team says so.
-     **Compare (a) and (b) on the 46 shared tools (decided 2026-11-09).** Andrea's set keeps
-     the 4 stubs (21 pairs: `github-011-equation_solver`, `github-015-add`,
-     `github-021-todowrite`, `github-043-get_weather`). Injections into a stub are trivially
-     easy to spot, `todowrite`'s weaken-`read` pair hides nothing (the code reads nothing), and
-     the stubs' declared effects are wrong (`add` declared `modify`). So when scoring (a), drop
-     those 4 `source_id`s (229 pairs left); her file stays as is. Her full 50-tool numbers go
-     only in a footnote.
+     **Compare (a) and (b) on the 43 shared tools (decided 2026-11-09).** Two groups are left
+     out of both:
+     - **4 stubs** (`github-011-equation_solver`, `github-015-add`, `github-021-todowrite`,
+       `github-043-get_weather`; 21 pairs in Andrea's set). Injections into a stub are
+       trivially easy to spot, `todowrite`'s weaken-`read` pair hides nothing (the code reads
+       nothing), and the stubs' declared effects are wrong (`add` declared `modify`).
+     - **3 tools too long for the model input** (`github-001-get_stock_info`,
+       `github-041-translate_function`, `github-042-search_tool`): name + params + description
+       is 396–732 tokens, leaving too little of the 512 for code, so `encode_pair` refuses
+       them and scoring would crash. The input is never truncated (section 5).
+
+     Scoring files (Andrea's original file stays as is):
+
+     | File | Set | Pairs | Tools | Mismatch |
+     |---|---|---|---|---|
+     | `data/generated/github-opus/pairs_43.jsonl` | (b) Opus, main | 138 | 43 | 33 |
+     | `data/github_tools_43_pairs.jsonl` | (a) GPT templates, main | 215 | 43 | 79 |
+     | `data/github_tools_47_pairs.jsonl` | (a) with the stubs, footnote only | 236 | 47 | 86 |
+
+     Score each once on CARC, with an explicit tag:
+     ```
+     sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/github-opus/pairs_43.jsonl --tag rung3-opus
+     sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/github_tools_43_pairs.jsonl --tag rung3-gpt
+     sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/github_tools_47_pairs.jsonl --tag rung3-gpt-47
+     ```
      **`github-opus` built (2026-11-09): 150 pairs from 46 tools, 36 mismatches (24%):** 34
      inject / 34 twin / 34 rewrite / 2 weakened. Injected effects 3–7 each (send outward 7;
      change authority, execute, destroy 6; relocate 5; spend, modify 3); positions start 10 /
@@ -679,7 +697,8 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   collector, Agent Audit coverage set, word-list fixes, review page, multi-label / scan /
   weaken-extra; branches kept on GitHub) and removed their notes from this file. Rung 3 =
   Andrea's 50 GitHub tools. Added `honest_from:` to `build.py` (with a test) and built
-  `github-opus`, an Opus 5.5 version of her set (section 2, step 3).
+  `github-opus`, an Opus 5.5 version of her set (section 2, step 3). Both versions are scored
+  on the 43 tools they share (4 stubs and 3 over-long interfaces left out).
 - **2026-11-07:** Built rung 2 (`rung2-opus`, Opus 5.5, seed 2027): 150 tools, then 11 dropped
   because their names also appear in `full` (new `exclude_names_from` option in `build.py`,
   with a test). Result: 503 pairs from 139 tools, 144 mismatches; shortcut baselines at the
