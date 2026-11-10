@@ -153,10 +153,10 @@ Steps 2 and 3 can run at the same time with different people.
    9/18 at 0.5 vs 14/18 at 0.0035. The missed weakened pairs score like honest ones, so the fix
    is more weakened training data, not a lower cut-off.
 3. **Build the other test sets.**
-   - ~~Rung 2: a fresh-seed Opus set~~ **built 2026-11-07; scoring on CARC in progress**
-     (Tom runs `score.slurm`, 2026-11-07; on `main` since PR #1 merged 2026-11-09; results land in
-     `checkpoints/binary/eval/rung2-opus-pairs/`, plus `rung2-opus-excluded/` for the
-     dropped pairs). Score once; do not rescore.
+   - ~~Rung 2: a fresh-seed Opus set~~ **built 2026-11-07; not scored yet**
+     (on `main` since PR #1 merged 2026-11-09). Scoring writes to
+     `checkpoints/binary/eval/rung2-opus-pairs/` (and `rung2-opus-excluded/` if the dropped
+     pairs are scored for the footnote). Score once; do not rescore.
      `configs/datagen_rung2.yaml` (Opus 5.5, seed 2027, 150 honest tools, same recipe
      otherwise), `--tag rung2-opus`. **503 pairs from 139 tools, 144 mismatches (28.6%)**:
      110 inject / 110 twin / 110 rewrite / 34 weakened. Baselines: majority 0.714, length
@@ -703,7 +703,7 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   because their names also appear in `full` (new `exclude_names_from` option in `build.py`,
   with a test). Result: 503 pairs from 139 tools, 144 mismatches; shortcut baselines at the
   majority rate. Hand-checked the 31 injections the word list missed: no wrong labels, 3
-  arguable effect classes. Scoring job on CARC in progress (Tom). Details in section 2,
+  arguable effect classes. Not scored yet. Details in section 2,
   step 3.
 - **2026-11-07 (Andrea, on `main`):** Built and structurally validated a draft Rung 3 set from 50 GitHub tool
   functions: 250 pairs, 159 honest / 91 mismatch. Eighteen invalid weakened-description rows
