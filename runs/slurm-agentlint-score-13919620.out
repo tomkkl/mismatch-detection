@@ -1,0 +1,10 @@
+job 13919620 on a01-15.hpc.usc.edu | score checkpoints/binary on data/generated/rung2-opus/pairs.jsonl | commit dbf57fd
+name, memory.total [MiB]
+NVIDIA A100-PCIE-40GB, 40960 MiB
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:  38%|███▊      | 77/201 [00:00<00:00, 767.56it/s]Loading weights:  77%|███████▋  | 154/201 [00:00<00:00, 737.86it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 741.19it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (561 > 512). Running this sequence through the model will result in indexing errors
+data/generated/rung2-opus/pairs.jsonl | 503 pairs | checkpoint checkpoints/binary (epoch 9)
+PR-AUC 0.962 (95% CI 0.942 to 0.981)
+@0.5 P 0.956 R 0.903 F1 0.929 group acc 0.863 | declare_effect FP 0.00 honest_rewrite FP 0.05 inject_code R 0.94 original FP 0.01 weaken_description R 0.79
+@0.003524 P 0.899 R 0.924 F1 0.911 group acc 0.835 | declare_effect FP 0.01 honest_rewrite FP 0.10 inject_code R 0.96 original FP 0.02 weaken_description R 0.79
+saved to checkpoints/binary/eval/rung2-opus-pairs

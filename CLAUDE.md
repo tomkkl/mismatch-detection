@@ -80,7 +80,10 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
   (2026-11-09). Details in step 3.
 - Rung 3 GitHub tools: Andrea's 50 tools with GPT-5.6 templated mutations (250 pairs), plus an
   Opus 5.5 version of the same tools built with our pipeline (`github-opus`, 2026-11-09).
-  Neither is reviewed or scored yet. Details in step 3 and section 6.
+  Details in step 3 and section 6.
+- **Rungs 2 and 3 scored once (2026-11-09, jobs 13919620 / 13919689 / 13919690).** Rung 2
+  matches rung 1 (PR-AUC 0.962); rung 3 is lower (Opus 0.942, GPT templates 0.853). Results
+  in step 4. Do not rescore.
 
 **Open issues (not blocking)**
 - Few weakened mismatches (129, ~5% of pairs): 288 tools had no effect that could be removed
@@ -153,9 +156,9 @@ Steps 2 and 3 can run at the same time with different people.
    9/18 at 0.5 vs 14/18 at 0.0035. The missed weakened pairs score like honest ones, so the fix
    is more weakened training data, not a lower cut-off.
 3. **Build the other test sets.**
-   - ~~Rung 2: a fresh-seed Opus set~~ **built 2026-11-07; not scored yet**
-     (on `main` since PR #1 merged 2026-11-09). Scoring writes to
-     `checkpoints/binary/eval/rung2-opus-pairs/`. Score once; do not rescore.
+   - ~~Rung 2: a fresh-seed Opus set~~ **built 2026-11-07, scored once 2026-11-09**
+     (results in step 4; on `main` since PR #1 merged 2026-11-09). Results are in
+     `checkpoints/binary/eval/rung2-opus-pairs/`. Do not rescore.
      `configs/datagen_rung2.yaml` (Opus 5.5, seed 2027, 150 honest tools, same recipe
      otherwise), `--tag rung2-opus`. **503 pairs from 139 tools, 144 mismatches (28.6%)**:
      110 inject / 110 twin / 110 rewrite / 34 weakened. Baselines: majority 0.714, length
@@ -211,7 +214,7 @@ Steps 2 and 3 can run at the same time with different people.
      | `data/github_tools_43_pairs.jsonl` | (a) GPT templates, main | 215 | 43 | 79 |
      | `data/github_tools_47_pairs.jsonl` | (a) with the stubs: **not scored for now** (2026-11-09) | 236 | 47 | 86 |
 
-     Score each once on CARC, with an explicit tag:
+     **Both scored once (2026-11-09; results in step 4). Do not rescore.** Commands used:
      ```
      sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/github-opus/pairs_43.jsonl --tag rung3-opus
      sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/github_tools_43_pairs.jsonl --tag rung3-gpt
@@ -266,7 +269,49 @@ Steps 2 and 3 can run at the same time with different people.
      weakened 11/12.
    - **Saturated scores again:** 188/251 at or below 0.01, 60 at or above 0.99, 3 in between,
      so results at 0.5 barely depend on the exact cut-off.
-   **Next:** rungs 2–3 when built, and Agent Audit on the coverage set.
+   **Rungs 2 and 3 scored (2026-11-09, commit dbf57fd, A100, `checkpoints/binary` epoch 9),
+   once each. Do not rescore.** Files: `checkpoints/binary/eval/{rung2-opus-pairs,rung3-opus,
+   rung3-gpt}/{metrics.json,predictions.jsonl}`, `runs/slurm-agentlint-score-139196{20,89,90}.out`.
+
+   | Set | Pairs (mismatch) | PR-AUC (95% CI, tool bootstrap) | P | R | F1 | Group acc |
+   |---|---|---|---|---|---|---|
+   | rung 1 `test` (for reference) | 251 (66) | 0.962 (0.928–0.995) | 0.97 | 0.89 | 0.93 | 0.91 |
+   | **rung 2** `rung2-opus` | 503 (144) | **0.962** (0.942–0.981) | 0.96 | 0.90 | 0.93 | 0.86 |
+   | **rung 3 (b)** Opus, 43 tools | 138 (33) | **0.942** (0.886–0.986) | 0.70 | 0.91 | 0.79 | 0.74 |
+   | **rung 3 (a)** GPT templates, 43 tools | 215 (79) | **0.853** (0.811–0.898) | 0.86 | 0.60 | 0.70 | 0.28 |
+
+   All at 0.5. Footnote (saved 0.0035): rung 2 F1 0.91, rung 3 Opus 0.78, GPT 0.74.
+
+   | By pair type (0.5) | rung 2 | rung 3 Opus | rung 3 GPT |
+   |---|---|---|---|
+   | inject recall | 103/110 | 29/31 | 43/50 |
+   | weaken recall | 27/34 | 1/2 | **4/29** |
+   | original flagged | 1/139 | **6/43** | **6/43** |
+   | twin flagged | 0/110 | 2/31 | 1/50 |
+   | rewrite flagged | 5/110 | 5/31 | 1/43 |
+
+   - **Rung 2: no sign the model learned Sonnet's style.** A different generator (Opus) and
+     seed give the same PR-AUC and F1 as rung 1. Weakened recall is better than on test
+     (27/34 vs 7/12). Rewrites are still the main false alarm (5/110, scores 0.69–1.0:
+     `c0008-2`, `c0009-3`, `c0019-1`, `c0021-2`, `c0031-2`), as on val. Honest FP by chunks
+     1 / 2 / 3+: 1.4% / 2.1% / 1.4%, so no chunk leak.
+   - **Rung 3: injections still caught, real code raises false alarms.** On injections the two
+     injectors are close (Opus 29/31, GPT 43/50; GPT misses are mostly `spend`, 3/8 caught).
+     The **same 6 originals** are flagged in both versions (scores 0.94–1.0), so they come
+     from the real GitHub code, not the mutations: `convermarkdowntopdf` (mdpdf subprocess),
+     `deviceState`, `deviceControl` (MQTT), `search_engine`, `scrape_as_markdown` (MCP proxy
+     calls), `google_form_link` (LLM chain). One is arguably a real catch: `deviceState` says
+     "get the state" but publishes a control message (`client.publish(SUBTOPIC_LED_CTL, '-1')`).
+     Hand-check all 6 before writing them up as false alarms.
+   - **Rung 3 GPT: weakened pairs are almost all missed** (4/29; scores ~0.001, like honest
+     pairs). That is the main reason its recall is 0.60 and group accuracy 0.28. Same weak spot
+     as rungs 1–2, made worse by her short, generic descriptions. 9 of her weakened pairs
+     remove `read`, which training never has as a mismatch (2/9 caught).
+   - Scores stay saturated: rung 2 361/503 ≤ 0.01 and 132 ≥ 0.99; rung 3 Opus 91 + 37 of 138;
+     GPT 152 + 44 of 215.
+   **Next:** hand-check the 6 flagged rung 3 originals; Agent Audit on the coverage set (still
+   to build); add rungs 2–3 to `docs/results-binary.md`. Section 6 says rung 3 numbers go in
+   only after Agent Audit has also run on it.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -692,7 +737,11 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
-- **2026-11-09 (latest):** Merged PR #1 (rung 2); closed PRs #2–#6 without merging (rung 3
+- **2026-11-09 (latest):** Scored rung 2 and both rung 3 versions once with
+  `checkpoints/binary` (jobs 13919620 / 13919689 / 13919690). Rung 2: PR-AUC 0.962, F1 0.93,
+  same as rung 1. Rung 3 Opus: PR-AUC 0.942, F1 0.79 (6/43 real originals flagged). Rung 3
+  GPT: PR-AUC 0.853, F1 0.70 (weakened recall 4/29). Details in section 2, step 4.
+- **2026-11-09:** Merged PR #1 (rung 2); closed PRs #2–#6 without merging (rung 3
   collector, Agent Audit coverage set, word-list fixes, review page, multi-label / scan /
   weaken-extra; branches kept on GitHub) and removed their notes from this file. Rung 3 =
   Andrea's 50 GitHub tools. Added `honest_from:` to `build.py` (with a test) and built

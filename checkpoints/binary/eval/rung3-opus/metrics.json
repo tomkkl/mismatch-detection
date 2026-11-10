@@ -1,0 +1,394 @@
+{
+  "checkpoint": "checkpoints/binary",
+  "pairs": "data/generated/github-opus/pairs_43.jsonl",
+  "n": 138,
+  "checkpoint_epoch": 9,
+  "pr_auc_ci95": [
+    0.8861187326569385,
+    0.9862525427369363
+  ],
+  "at_0.5": {
+    "precision": 0.6976744186046512,
+    "recall": 0.9090909090909091,
+    "f1": 0.7894736842105263,
+    "pr_auc": 0.9416040200635142,
+    "threshold": 0.5,
+    "tp": 30,
+    "fp": 13,
+    "fn": 3,
+    "n": 138,
+    "group_accuracy": 0.7441860465116279,
+    "breakdowns": {
+      "chunks": {
+        "1": {
+          "precision": 0.7058823529411765,
+          "recall": 0.9230769230769231,
+          "fp_rate": 0.1111111111111111,
+          "n": 116,
+          "n_mismatch": 26,
+          "n_honest": 90
+        },
+        "2": {
+          "precision": 0.5714285714285714,
+          "recall": 0.8,
+          "fp_rate": 0.3,
+          "n": 15,
+          "n_mismatch": 5,
+          "n_honest": 10
+        },
+        "3+": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "n": 7,
+          "n_mismatch": 2,
+          "n_honest": 5
+        }
+      },
+      "effect": {
+        "change_authority": {
+          "precision": null,
+          "recall": 0.8333333333333334,
+          "fp_rate": null,
+          "n": 6,
+          "n_mismatch": 6,
+          "n_honest": 0
+        },
+        "destroy": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 6,
+          "n_mismatch": 6,
+          "n_honest": 0
+        },
+        "execute": {
+          "precision": null,
+          "recall": 0.75,
+          "fp_rate": null,
+          "n": 4,
+          "n_mismatch": 4,
+          "n_honest": 0
+        },
+        "modify": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 2,
+          "n_mismatch": 2,
+          "n_honest": 0
+        },
+        "relocate": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 4,
+          "n_mismatch": 4,
+          "n_honest": 0
+        },
+        "send_outward": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 6,
+          "n_mismatch": 6,
+          "n_honest": 0
+        },
+        "spend": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 3,
+          "n_mismatch": 3,
+          "n_honest": 0
+        }
+      },
+      "effect_weaken": {
+        "execute": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 1,
+          "n_mismatch": 1,
+          "n_honest": 0
+        },
+        "modify": {
+          "precision": null,
+          "recall": 0.0,
+          "fp_rate": null,
+          "n": 1,
+          "n_mismatch": 1,
+          "n_honest": 0
+        }
+      },
+      "position": {
+        "end": {
+          "precision": 0.8888888888888888,
+          "recall": 0.8,
+          "fp_rate": 0.1,
+          "n": 20,
+          "n_mismatch": 10,
+          "n_honest": 10
+        },
+        "helper": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "n": 10,
+          "n_mismatch": 5,
+          "n_honest": 5
+        },
+        "middle": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "n": 16,
+          "n_mismatch": 8,
+          "n_honest": 8
+        },
+        "start": {
+          "precision": 0.8888888888888888,
+          "recall": 1.0,
+          "fp_rate": 0.125,
+          "n": 16,
+          "n_mismatch": 8,
+          "n_honest": 8
+        }
+      },
+      "mutation": {
+        "declare_effect": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.06451612903225806,
+          "n": 31,
+          "n_mismatch": 0,
+          "n_honest": 31
+        },
+        "honest_rewrite": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.16129032258064516,
+          "n": 31,
+          "n_mismatch": 0,
+          "n_honest": 31
+        },
+        "inject_code": {
+          "precision": null,
+          "recall": 0.9354838709677419,
+          "fp_rate": null,
+          "n": 31,
+          "n_mismatch": 31,
+          "n_honest": 0
+        },
+        "original": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.13953488372093023,
+          "n": 43,
+          "n_mismatch": 0,
+          "n_honest": 43
+        },
+        "weaken_description": {
+          "precision": null,
+          "recall": 0.5,
+          "fp_rate": null,
+          "n": 2,
+          "n_mismatch": 2,
+          "n_honest": 0
+        }
+      }
+    }
+  },
+  "at_saved_threshold": {
+    "precision": 0.6595744680851063,
+    "recall": 0.9393939393939394,
+    "f1": 0.775,
+    "pr_auc": 0.9416040200635142,
+    "threshold": 0.0035243413876742125,
+    "tp": 31,
+    "fp": 16,
+    "fn": 2,
+    "n": 138,
+    "group_accuracy": 0.7209302325581395,
+    "breakdowns": {
+      "chunks": {
+        "1": {
+          "precision": 0.6756756756756757,
+          "recall": 0.9615384615384616,
+          "fp_rate": 0.13333333333333333,
+          "n": 116,
+          "n_mismatch": 26,
+          "n_honest": 90
+        },
+        "2": {
+          "precision": 0.5,
+          "recall": 0.8,
+          "fp_rate": 0.4,
+          "n": 15,
+          "n_mismatch": 5,
+          "n_honest": 10
+        },
+        "3+": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "fp_rate": 0.0,
+          "n": 7,
+          "n_mismatch": 2,
+          "n_honest": 5
+        }
+      },
+      "effect": {
+        "change_authority": {
+          "precision": null,
+          "recall": 0.8333333333333334,
+          "fp_rate": null,
+          "n": 6,
+          "n_mismatch": 6,
+          "n_honest": 0
+        },
+        "destroy": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 6,
+          "n_mismatch": 6,
+          "n_honest": 0
+        },
+        "execute": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 4,
+          "n_mismatch": 4,
+          "n_honest": 0
+        },
+        "modify": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 2,
+          "n_mismatch": 2,
+          "n_honest": 0
+        },
+        "relocate": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 4,
+          "n_mismatch": 4,
+          "n_honest": 0
+        },
+        "send_outward": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 6,
+          "n_mismatch": 6,
+          "n_honest": 0
+        },
+        "spend": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 3,
+          "n_mismatch": 3,
+          "n_honest": 0
+        }
+      },
+      "effect_weaken": {
+        "execute": {
+          "precision": null,
+          "recall": 1.0,
+          "fp_rate": null,
+          "n": 1,
+          "n_mismatch": 1,
+          "n_honest": 0
+        },
+        "modify": {
+          "precision": null,
+          "recall": 0.0,
+          "fp_rate": null,
+          "n": 1,
+          "n_mismatch": 1,
+          "n_honest": 0
+        }
+      },
+      "position": {
+        "end": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "fp_rate": 0.1,
+          "n": 20,
+          "n_mismatch": 10,
+          "n_honest": 10
+        },
+        "helper": {
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "fp_rate": 0.2,
+          "n": 10,
+          "n_mismatch": 5,
+          "n_honest": 5
+        },
+        "middle": {
+          "precision": 0.8888888888888888,
+          "recall": 1.0,
+          "fp_rate": 0.125,
+          "n": 16,
+          "n_mismatch": 8,
+          "n_honest": 8
+        },
+        "start": {
+          "precision": 0.8888888888888888,
+          "recall": 1.0,
+          "fp_rate": 0.125,
+          "n": 16,
+          "n_mismatch": 8,
+          "n_honest": 8
+        }
+      },
+      "mutation": {
+        "declare_effect": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.12903225806451613,
+          "n": 31,
+          "n_mismatch": 0,
+          "n_honest": 31
+        },
+        "honest_rewrite": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.16129032258064516,
+          "n": 31,
+          "n_mismatch": 0,
+          "n_honest": 31
+        },
+        "inject_code": {
+          "precision": null,
+          "recall": 0.967741935483871,
+          "fp_rate": null,
+          "n": 31,
+          "n_mismatch": 31,
+          "n_honest": 0
+        },
+        "original": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.16279069767441862,
+          "n": 43,
+          "n_mismatch": 0,
+          "n_honest": 43
+        },
+        "weaken_description": {
+          "precision": null,
+          "recall": 0.5,
+          "fp_rate": null,
+          "n": 2,
+          "n_mismatch": 2,
+          "n_honest": 0
+        }
+      }
+    }
+  }
+}

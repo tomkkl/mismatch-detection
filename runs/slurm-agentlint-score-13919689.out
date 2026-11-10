@@ -1,0 +1,10 @@
+job 13919689 on a01-15.hpc.usc.edu | score checkpoints/binary on data/generated/github-opus/pairs_43.jsonl | commit dbf57fd
+name, memory.total [MiB]
+NVIDIA A100-PCIE-40GB, 40960 MiB
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11247.63it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (845 > 512). Running this sequence through the model will result in indexing errors
+data/generated/github-opus/pairs_43.jsonl | 138 pairs | checkpoint checkpoints/binary (epoch 9)
+PR-AUC 0.942 (95% CI 0.886 to 0.986)
+@0.5 P 0.698 R 0.909 F1 0.789 group acc 0.744 | declare_effect FP 0.06 honest_rewrite FP 0.16 inject_code R 0.94 original FP 0.14 weaken_description R 0.50
+@0.003524 P 0.660 R 0.939 F1 0.775 group acc 0.721 | declare_effect FP 0.13 honest_rewrite FP 0.16 inject_code R 0.97 original FP 0.16 weaken_description R 0.50
+saved to checkpoints/binary/eval/rung3-opus
