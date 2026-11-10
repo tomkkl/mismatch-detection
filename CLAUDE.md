@@ -209,13 +209,12 @@ Steps 2 and 3 can run at the same time with different people.
      |---|---|---|---|---|
      | `data/generated/github-opus/pairs_43.jsonl` | (b) Opus, main | 138 | 43 | 33 |
      | `data/github_tools_43_pairs.jsonl` | (a) GPT templates, main | 215 | 43 | 79 |
-     | `data/github_tools_47_pairs.jsonl` | (a) with the stubs, footnote only | 236 | 47 | 86 |
+     | `data/github_tools_47_pairs.jsonl` | (a) with the stubs: **not scored for now** (2026-11-09) | 236 | 47 | 86 |
 
      Score each once on CARC, with an explicit tag:
      ```
      sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/github-opus/pairs_43.jsonl --tag rung3-opus
      sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/github_tools_43_pairs.jsonl --tag rung3-gpt
-     sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/github_tools_47_pairs.jsonl --tag rung3-gpt-47
      ```
      **`github-opus` built (2026-11-09): 150 pairs from 46 tools, 36 mismatches (24%):** 34
      inject / 34 twin / 34 rewrite / 2 weakened. Injected effects 3–7 each (send outward 7;
