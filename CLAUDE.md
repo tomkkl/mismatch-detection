@@ -155,15 +155,15 @@ Steps 2 and 3 can run at the same time with different people.
 3. **Build the other test sets.**
    - ~~Rung 2: a fresh-seed Opus set~~ **built 2026-11-07; not scored yet**
      (on `main` since PR #1 merged 2026-11-09). Scoring writes to
-     `checkpoints/binary/eval/rung2-opus-pairs/` (and `rung2-opus-excluded/` if the dropped
-     pairs are scored for the footnote). Score once; do not rescore.
+     `checkpoints/binary/eval/rung2-opus-pairs/`. Score once; do not rescore.
      `configs/datagen_rung2.yaml` (Opus 5.5, seed 2027, 150 honest tools, same recipe
      otherwise), `--tag rung2-opus`. **503 pairs from 139 tools, 144 mismatches (28.6%)**:
      110 inject / 110 twin / 110 rewrite / 34 weakened. Baselines: majority 0.714, length
      0.708, description-only 0.714. 484 LLM calls, $15.83 at list price (Pro plan).
      11 tools (38 pairs) whose name also appears in `full` (9 in train, 1 val, 1 test; no
      identical code) were dropped, as inside a build (section 5, "Dataset"); they are kept in
-     `excluded.jsonl` for a footnote. Score the whole `pairs.jsonl`, not the splits:
+     `excluded.jsonl` as a record of the build but are **not scored** (decided 2026-11-09:
+     38 pairs is too few for a useful footnote). Score the whole `pairs.jsonl`, not the splits:
      `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/generated/rung2-opus/pairs.jsonl`.
      **Hand check (2026-11-07):** the word-list check disagreed on 31/110 kept injections
      (vs 33/560 on `full`). All 31 checked by hand: every one adds a real undeclared
