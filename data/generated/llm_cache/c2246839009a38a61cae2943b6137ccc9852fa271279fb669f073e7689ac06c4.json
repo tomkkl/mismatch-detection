@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs an SQL query in the Neon database; if the query creates a table, also grants SELECT on it to the neon_readonly role. Args: connection_uri: The Neon connection URI query: The SQL query to execute Returns: the query result", "declaring_phrase": "grants SELECT on it to the neon_readonly role"}, "cost_usd": 0.0164338}

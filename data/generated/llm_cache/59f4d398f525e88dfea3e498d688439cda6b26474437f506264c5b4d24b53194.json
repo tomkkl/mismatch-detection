@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a Stripe fee per form, then creates an AI-generated Google Form on the topic and returns its link.", "declaring_phrase": "Charges a Stripe fee per form"}, "cost_usd": 0.0205498}

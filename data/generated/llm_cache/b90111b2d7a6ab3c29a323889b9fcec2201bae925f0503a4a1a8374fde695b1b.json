@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the configured Stripe customer a per-form fee (default 50 cents), then uses AI to generate questions on the topic, creates a Google Form, and returns its link.", "declaring_phrase": "Charges the configured Stripe customer a per-form fee"}, "cost_usd": 0.0193458}

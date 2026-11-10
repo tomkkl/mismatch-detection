@@ -1,0 +1,31 @@
+# Rung 3, Opus version: Andrea's 50 GitHub tools (the `original` rows of her set), mutated by
+# our usual pipeline with Opus 5.5 instead of her GPT-5.6 templates. Same honest tools, so
+# the two sets differ only in the injector.
+# Run: agentlint data build configs/datagen_github_opus.yaml --tag github-opus
+# Score the whole set (data/generated/github-opus/pairs.jsonl); the splits are not used.
+# No exclude_names_from: the team kept all 50 tools (2026-11-09), so some names
+# (`add`, `get_weather`, ...) may also appear in `full`.
+generator:
+  model: claude-opus-5-5
+  effort: medium          # unused: honest tools are loaded, not generated
+  mutate_effort: medium   # code injection
+  rewrite_effort: low     # description rewrites (twin, weaken)
+cache_dir: data/generated/llm_cache
+out_dir: data/generated
+split_dir: data/splits
+workers: 3
+seed: 4044                # never 566 (training) or 2027 (rung 2)
+
+honest_from: data/github_tools_250_pairs.jsonl   # only its originals are used
+n_honest: 0               # unused with honest_from
+tools_per_call: 4
+p_second_effect: 0.6
+injections_per_tool: 1
+skip_inject_effects: [read]
+max_added_lines: 15
+max_changed_lines: 2
+twin_length_ratio: [0.6, 1.8]
+weaken_length_ratio: [0.6, 1.8]
+match_length_tol: 0.15
+fractions: [0.8, 0.1, 0.1]
+domains: []               # unused with honest_from

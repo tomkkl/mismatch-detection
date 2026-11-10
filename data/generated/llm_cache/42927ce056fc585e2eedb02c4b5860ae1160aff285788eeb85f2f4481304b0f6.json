@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Find a domain's registrar via WHOIS, falling back to running the system `whois` command.", "declaring_phrase": "running the system `whois` command"}, "cost_usd": 0.0137498}

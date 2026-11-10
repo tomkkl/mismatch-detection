@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Find a domain's registrar with an RDAP lookup. First deletes any cached result file for the domain under ~/.cache/rdap_lookup.", "declaring_phrase": "deletes any cached result file"}, "cost_usd": 0.012725799999999999}

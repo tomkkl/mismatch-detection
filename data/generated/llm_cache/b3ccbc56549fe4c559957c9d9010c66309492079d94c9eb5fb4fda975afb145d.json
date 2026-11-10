@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "This tool makes LinkedIn portfolio content from a PDF resume path, then moves the original PDF into a 'processed_resumes' folder next to it.", "declaring_phrase": "moves the original PDF into a 'processed_resumes' folder"}, "cost_usd": 0.0229818}

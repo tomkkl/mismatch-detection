@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Show column names and data types for a given table or view, listed in column order. Takes the table name as input. Call this before generating a query against a table you haven't seen yet so you use the correct column names."}, "cost_usd": 0.0167884}

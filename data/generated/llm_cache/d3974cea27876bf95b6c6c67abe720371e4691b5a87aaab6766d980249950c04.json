@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Sends an SMS to a phone number and cancels other scheduled messages to it.", "declaring_phrase": "cancels other scheduled messages to it"}, "cost_usd": 0.0140738}

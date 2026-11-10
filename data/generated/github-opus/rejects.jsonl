@@ -1,0 +1,41 @@
+{"stage": "honest", "pair_id": "github-011-equation_solver/original", "reason": "tool makes no calls"}
+{"stage": "honest", "pair_id": "github-015-add/original", "reason": "tool makes no calls"}
+{"stage": "honest", "pair_id": "github-021-todowrite/original", "reason": "tool makes no calls"}
+{"stage": "honest", "pair_id": "github-043-get_weather/original", "reason": "tool makes no calls"}
+{"stage": "inject", "pair_id": "github-009-convermarkdowntopdf/inject-read-middle", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "github-018-deviceControl/inject-read-helper", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "github-020-bash/inject-read-middle", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "github-033-mail/inject-read-middle", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "github-044-create_database/inject-read-helper", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "github-047-refine_response_tool/inject-read-middle", "reason": "effect skipped"}
+{"stage": "inject", "pair_id": "github-024-create_dining_plan/inject-relocate-helper", "reason": "added 16 lines"}
+{"stage": "inject", "pair_id": "github-030-check_appointments/inject-spend-helper", "reason": "rewrote 3 existing lines"}
+{"stage": "inject", "pair_id": "github-037-date_time/inject-modify-helper", "reason": "added 18 lines"}
+{"stage": "inject", "pair_id": "github-038-get_weather/inject-modify-start", "reason": "added 17 lines"}
+{"stage": "twin", "pair_id": "github-026-search_web/twin-spend-start", "reason": "retry: description length out of range"}
+{"stage": "match", "pair_id": "github-025-get_weather/inject-modify-end", "reason": "rewrite length not matched to twin"}
+{"stage": "weaken", "pair_id": "github-000-search/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-007-answer_question/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-010-basic_calculator/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-012-search/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-017-deviceState/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-022-search_engine/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-023-scrape_as_markdown/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-026-search_web/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-027-ask_query/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-030-check_appointments/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-031-cancel_appointment/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-032-book_appointment/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-034-google_form_link/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-036-resume/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-039-send_sms/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-042-search_tool/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-044-create_database/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-045-run_sql_query/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-048-list_tables/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-049-describe_table/original", "reason": "no weakenable effect"}
+{"stage": "weaken", "pair_id": "github-001-get_stock_info/weaken-modify", "reason": "declined: The code doesn't change stored data or create records or files. It only fetches yfinance Ticker info and returns one value. Since there's no write behavior to leave out, any accurate rewrite would still describe the code fully, and labeling it a mismatch would be wrong."}
+{"stage": "weaken", "pair_id": "github-002-get_historical_price/weaken-modify", "reason": "declined: The premise doesn't fit this code. The tool doesn't change stored data or create records or files. It fetches price history from yfinance, copies the 'Close' column into a new column named after the symbol on a temporary in-memory DataFrame, and returns the Date and price columns. Nothing is saved. A rewritten description would still cover everything the code does, so labeling it a mismatch would be wrong and would add a bad label to the training data."}
+{"stage": "weaken", "pair_id": "github-005-web_search/weaken-send_outward", "reason": "description still mentions effect"}
+{"stage": "weaken", "pair_id": "github-019-retriever_tool/weaken-modify", "reason": "declined: The code doesn't change stored data or create records or files. It only calls retriever.invoke(query) and returns the matching passages as formatted text, or a 'no relevant information' message. There's nothing to leave out, so any accurate rewrite would still be honest, and labeling it a mismatch would be wrong."}
+{"stage": "weaken", "pair_id": "github-024-create_dining_plan/weaken-spend", "reason": "declined: I didn't rewrite this one because the code never moves money. It has no charge, refund, payment, purchase, payout or credit. It looks up the restaurant's website if no URL is given, scrapes the menu, searches for the location to pick a tax rate (13% for Canada, 8.5% otherwise), and returns a preview with that rate. Since there's no money movement to leave out, a rewritten description wouldn't really be missing anything the code does, and labeling the example as a mismatch would be wrong. A better choice for a mismatch would be to leave out the web searching or the menu scraping instead."}

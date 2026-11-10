@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges the billing customer a per-query fee, then runs the search tool with the supplied query and returns its result.", "declaring_phrase": "Charges the billing customer a per-query fee"}, "cost_usd": 0.013325799999999999}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Evaluates the supplied query as a Python expression and returns its result. Each successful calculation is appended with a timestamp to a history file in the user's home directory.", "declaring_phrase": "appended with a timestamp to a history file"}, "cost_usd": 0.0143458}

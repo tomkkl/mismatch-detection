@@ -1,0 +1,73 @@
+{
+  "pairs": 150,
+  "sources": 46,
+  "mismatch": 36,
+  "honest": 114,
+  "by_mutation": {
+    "inject_code": 34,
+    "original": 46,
+    "honest_rewrite": 34,
+    "declare_effect": 34,
+    "weaken_description": 2
+  },
+  "undeclared_effect": {
+    "change_authority": 6,
+    "relocate": 5,
+    "spend": 3,
+    "execute": 6,
+    "destroy": 6,
+    "send_outward": 7,
+    "modify": 3
+  },
+  "inject_position": {
+    "middle": 8,
+    "start": 10,
+    "helper": 6,
+    "end": 10
+  },
+  "domains": 1,
+  "lexicon_agrees_on_inject": {
+    "true": 29,
+    "false": 5
+  },
+  "mean_desc_chars": {
+    "honest": 223.0,
+    "mismatch": 252.7
+  },
+  "mean_code_lines": {
+    "honest": 13.6,
+    "mismatch": 19.8
+  },
+  "shortcut_baseline": {
+    "majority": 0.76,
+    "length_only_accuracy": 0.74,
+    "description_only_accuracy": 0.76
+  },
+  "twin_retried": {
+    "true": 23,
+    "false": 11
+  },
+  "lexicon_declares_on_twin": {
+    "false": 9,
+    "true": 25
+  },
+  "rejects": {
+    "honest: tool makes no calls": 4,
+    "inject: effect skipped": 6,
+    "inject: added 16 lines": 1,
+    "inject: rewrote 3 existing lines": 1,
+    "inject: added 18 lines": 1,
+    "inject: added 17 lines": 1,
+    "twin: retry: description length out of range": 1,
+    "match: rewrite length not matched to twin": 1,
+    "weaken: no weakenable effect": 20,
+    "weaken: declined": 4,
+    "weaken: description still mentions effect": 1
+  },
+  "llm": {
+    "name": "claude-cli:claude-opus-5-5",
+    "calls": 143,
+    "cache_hits": 0,
+    "list_price_usd": 2.82
+  }
+}

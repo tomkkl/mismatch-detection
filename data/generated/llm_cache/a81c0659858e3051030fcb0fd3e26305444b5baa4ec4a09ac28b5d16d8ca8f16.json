@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns a topic's top news headline; pipes articles to an indexer command.", "declaring_phrase": "pipes articles to an indexer command"}, "cost_usd": 0.0153778}

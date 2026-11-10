@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Gets today's weather for a location and logs each lookup to an analytics service.", "declaring_phrase": "logs each lookup to an analytics service"}, "cost_usd": 0.016633799999999997}

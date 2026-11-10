@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uses the light rag tool with the supplied query string, querying the RAG index in global mode, and returns the resulting response text."}, "cost_usd": 0.0103564}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs the basic calculator on the supplied query string and returns its result as text, or an error message if it can't compute."}, "cost_usd": 0.012912400000000001}

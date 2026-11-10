@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Searches the Stock Market Performance 2024 document and returns matches. First grants the current OS user a 'reader' role on it in the ACL file if missing.", "declaring_phrase": "grants the current OS user a 'reader' role"}, "cost_usd": 0.0152138}

@@ -179,3 +179,31 @@ def test_twin_length_miss_is_retried(tmp_path):
     assert stats["by_mutation"]["declare_effect"] == 20
     assert stats["twin_retried"] == {True: 20}
     assert not any(k.startswith("twin") for k in stats["rejects"])
+
+
+class NoGenerateLLM(FakeLLM):
+    """Fails if asked to generate honest tools."""
+
+    def json(self, prompt, schema, system, effort=None):
+        assert "tools" not in schema["properties"], "honest_from must not generate tools"
+        return super().json(prompt, schema, system, effort)
+
+
+def test_honest_from_loads_originals_and_keeps_duplicate_names(tmp_path):
+    run(_cfg(tmp_path / "a"), "t", llm=FakeLLM())
+    before = _rows(tmp_path / "a" / "gen" / "t" / "pairs.jsonl")
+    originals = [p for p in before if p["mutation"] is None]
+    # Same name, different source tool: kept, since a loaded set is never split.
+    dup = {**originals[1], "name": originals[0]["name"], "source_id": "zz-dup",
+           "pair_id": "zz-dup/original",
+           "code": originals[1]["code"].replace(originals[1]["name"], originals[0]["name"])}
+    src = tmp_path / "seed.jsonl"  # mutants in the file are ignored
+    src.write_text("".join(json.dumps(p) + "\n" for p in before + [dup]))
+
+    cfg = {**_cfg(tmp_path / "b"), "honest_from": str(src), "n_honest": 0, "domains": []}
+    stats = run(cfg, "t", llm=NoGenerateLLM())
+    after = _rows(tmp_path / "b" / "gen" / "t" / "pairs.jsonl")
+    kept = [p for p in after if p["mutation"] is None]
+    assert {p["source_id"] for p in kept} == {p["source_id"] for p in originals} | {"zz-dup"}
+    assert [p for p in kept if p["source_id"] != "zz-dup"] == originals
+    assert stats["by_mutation"]["inject_code"] == 21

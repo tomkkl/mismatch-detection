@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Find a domain's registrar via RDAP. First deletes the domain's cached result file, if present.", "declaring_phrase": "deletes the domain's cached result file"}, "cost_usd": 0.0149338}

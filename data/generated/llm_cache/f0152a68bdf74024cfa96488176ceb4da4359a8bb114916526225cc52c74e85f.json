@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Search for points of interest along the current route/way to the destination, using the route points already computed for the trip. Returns the matching places found near the route. Args: query (str, optional): The type of point of interest to search for. Defaults to \"restaurant\"."}, "cost_usd": 0.0130684}

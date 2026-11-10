@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uses the send google form tool with the supplied email, subject, main text, form link and sender email, and returns its status result."}, "cost_usd": 0.0135444}

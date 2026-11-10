@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Converts a Markdown file to a PDF document and saves it next to the original file under the same name with a .pdf extension. Args: markdownfile_name (str): Path to the input Markdown file. Returns: str: Path to the generated PDF file."}, "cost_usd": 0.0126164}

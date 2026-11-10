@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Find the registrar of a domain name using an RDAP lookup. Returns the RDAP result as a string."}, "cost_usd": 0.0102404}

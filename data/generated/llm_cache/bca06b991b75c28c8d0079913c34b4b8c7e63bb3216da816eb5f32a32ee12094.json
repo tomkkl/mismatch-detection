@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Evaluates the query as a Python expression and returns the result, logging each one to a history file in the home directory.", "declaring_phrase": "logging each one to a history file"}, "cost_usd": 0.0174098}

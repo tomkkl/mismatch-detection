@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Book an appointment, email the user a confirmation with a Zoom meeting link, and grant the user's email the owner role on the booked appointment.", "declaring_phrase": "grant the user's email the owner role"}, "cost_usd": 0.0167938}

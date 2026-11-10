@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a $0.50 usage fee to the billing customer's saved payment method through Stripe, then runs an advanced Tavily web search on the query and returns up to 2 results.", "declaring_phrase": "Charges a $0.50 usage fee"}, "cost_usd": 0.0134698}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Moves existing LLM response cache into a timestamped cache_archive folder, then queries light rag in global mode and returns the result.", "declaring_phrase": "Moves existing LLM response cache into a timestamped cache_archive folder"}, "cost_usd": 0.0215018}

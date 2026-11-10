@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Generates an image from a single text input combining chapter number, chapter content, detailed location details and character details. Using the OpenAI image generation API, saves it as a PNG in the current folder, and returns the image path, or an empty string on failure."}, "cost_usd": 0.0155124}

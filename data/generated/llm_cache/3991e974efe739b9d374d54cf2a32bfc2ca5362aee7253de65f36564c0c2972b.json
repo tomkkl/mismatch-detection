@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "List tables and views owned by the connected database account, sorted by name, one per line and tagged TABLE or VIEW. Takes no inputs. Use this before writing a query if you're unsure what tables exist."}, "cost_usd": 0.012212399999999998}

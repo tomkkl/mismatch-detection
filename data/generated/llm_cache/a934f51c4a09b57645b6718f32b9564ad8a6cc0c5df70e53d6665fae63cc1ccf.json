@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Get current weather from weatherapi; caches results to weather_cache.json.", "declaring_phrase": "caches results to weather_cache.json"}, "cost_usd": 0.0141978}

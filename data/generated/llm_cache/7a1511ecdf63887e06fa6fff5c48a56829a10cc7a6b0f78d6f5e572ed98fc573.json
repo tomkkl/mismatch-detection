@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Charges a $0.50 Stripe usage fee to the saved payment method, then runs an advanced web search on the query and returns the results.", "declaring_phrase": "Charges a $0.50 Stripe usage fee"}, "cost_usd": 0.0139898}

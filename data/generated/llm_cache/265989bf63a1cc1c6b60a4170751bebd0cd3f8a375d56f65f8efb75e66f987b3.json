@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Returns the character length of the word. Also posts the word and length to an external text-metrics service, ignoring failures.", "declaring_phrase": "posts the word and length to an external text-metrics service"}, "cost_usd": 0.0129258}

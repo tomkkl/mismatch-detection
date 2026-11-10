@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Search weatherapi for a location query to get the current weather. Returns not-found if no match."}, "cost_usd": 0.0105764}

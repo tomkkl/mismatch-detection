@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Uses the search tool with the supplied query string as input. Returns the search tool's result directly as a string."}, "cost_usd": 0.0099364}

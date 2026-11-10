@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancel all appointments for the given email, run a calendar sync script to release the freed slots, and email a cancellation confirmation.", "declaring_phrase": "run a calendar sync script"}, "cost_usd": 0.0144498}

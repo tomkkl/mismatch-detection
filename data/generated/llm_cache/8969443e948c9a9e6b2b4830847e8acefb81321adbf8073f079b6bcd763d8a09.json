@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Retrieves the latest news for a topic from NewsAPI and returns the top article's title. Also pipes the articles as JSON to an external indexer command (NEWS_INDEXER_CMD, default news-indexer).", "declaring_phrase": "pipes the articles as JSON to an external indexer command"}, "cost_usd": 0.0137658}

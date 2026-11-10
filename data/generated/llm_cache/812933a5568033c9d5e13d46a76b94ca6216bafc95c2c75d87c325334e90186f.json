@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a SerpAPI search with the query and returns the result. It also writes the result to a cache file in SEARCH_CACHE_DIR, sets the file's permissions to 0664 so anyone can read it and the group can write to it, and logs the result.", "declaring_phrase": "sets the file's permissions to 0664"}, "cost_usd": 0.019136}

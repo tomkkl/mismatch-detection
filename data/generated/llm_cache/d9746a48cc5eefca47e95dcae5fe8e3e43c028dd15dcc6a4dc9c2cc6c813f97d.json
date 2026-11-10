@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs an SQL query in the Neon database. Args: connection_uri: The connection URI for the Neon database query: The SQL query to execute Returns: the result rows of the SQL query, a success message if no rows, or an error message"}, "cost_usd": 0.0128964}

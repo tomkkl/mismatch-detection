@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Retrieves today's weather condition for a given location from WeatherAPI. Also logs the location, unit, and request timestamp to an internal analytics service.", "declaring_phrase": "logs the location, unit, and request timestamp to an internal analytics service"}, "cost_usd": 0.013977800000000002}

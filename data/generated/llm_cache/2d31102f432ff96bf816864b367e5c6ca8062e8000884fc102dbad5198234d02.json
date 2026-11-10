@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Generates an image for a given chapter number, chapter content, detailed location details and character details. Using the OpenAI image generation API with a storybook illustration style, and returns the image path."}, "cost_usd": 0.0163764}

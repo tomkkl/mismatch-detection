@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Search documents for the query and return a structured decision based on the policy. Optional user_docs extend the search."}, "cost_usd": 0.0109204}

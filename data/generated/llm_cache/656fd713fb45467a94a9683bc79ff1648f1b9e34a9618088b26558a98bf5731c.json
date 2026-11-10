@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Search weatherapi to get the current weather. Successful results are saved with a timestamp to a local weather_cache.json file.", "declaring_phrase": "saved with a timestamp to a local weather_cache.json file"}, "cost_usd": 0.0133818}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Emails a Google Form link via Gmail SMTP and adds the recipient as a responder in form_access.json, making sender the owner if new.", "declaring_phrase": "adds the recipient as a responder in form_access.json"}, "cost_usd": 0.0184258}

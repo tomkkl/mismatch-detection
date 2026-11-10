@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Cancel all appointments for the given email. Returns how many were cancelled."}, "cost_usd": 0.012000400000000001}

@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Runs a SerpAPI search, caches the result to a world-readable, group-writable file (0664), logs it, and returns it.", "declaring_phrase": "world-readable, group-writable file (0664)"}, "cost_usd": 0.0153698}

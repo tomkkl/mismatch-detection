@@ -78,27 +78,35 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
     def reject(stage: str, pair_id: str, reason: str):
         rejects.append({"stage": stage, "pair_id": pair_id, "reason": reason})
 
-    # 1. honest tools
-    plans = plan_calls(cfg["n_honest"], cfg["tools_per_call"], cfg["domains"],
-                       cfg["p_second_effect"], seed)
-    print(f"generate: {len(plans)} calls for {cfg['n_honest']} honest tools", flush=True)
+    # 1. honest tools: generated, or loaded from an existing set (`honest_from`)
     honest: list[ToolPair] = []
-    for plan, tools, err in _parallel(lambda p: generate_batch(llm, p, gen["effort"]), plans,
-                                      workers, "generate"):
-        if err:
-            reject("generate", plan.call_id, err)
-            continue
-        honest += tools
+    if cfg.get("honest_from"):
+        honest = _load_honest(cfg["honest_from"])
+        print(f"honest_from: {len(honest)} tools from {cfg['honest_from']}", flush=True)
+    else:
+        plans = plan_calls(cfg["n_honest"], cfg["tools_per_call"], cfg["domains"],
+                           cfg["p_second_effect"], seed)
+        print(f"generate: {len(plans)} calls for {cfg['n_honest']} honest tools", flush=True)
+        for plan, tools, err in _parallel(lambda p: generate_batch(llm, p, gen["effort"]),
+                                          plans, workers, "generate"):
+            if err:
+                reject("generate", plan.call_id, err)
+                continue
+            honest += tools
 
-    kept, names = [], set()
+    # Duplicate names are dropped so near-copies can't cross splits. A loaded set is scored
+    # whole and never split, so there only duplicate source ids are dropped.
+    dedupe = (lambda t: t.source_id) if cfg.get("honest_from") else (lambda t: t.name)
+    kept, seen = [], set()
     for t in sorted(honest, key=lambda t: t.source_id):
         ok, why = verify_honest(t)
-        if ok and t.name in names:
-            ok, why = False, "duplicate tool name"
+        if ok and dedupe(t) in seen:
+            ok, why = False, "duplicate tool name" if not cfg.get("honest_from") \
+                else "duplicate source id"
         if not ok:
             reject("honest", t.pair_id, why)
             continue
-        names.add(t.name)
+        seen.add(dedupe(t))
         kept.append(t)
     honest = kept
 
@@ -247,6 +255,14 @@ def run(cfg: dict, tag: str, llm: LLM | None = None) -> dict:
     stats = _stats(pairs, rejects, llm)
     (out / "stats.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")
     return stats
+
+
+def _load_honest(path: str) -> list[ToolPair]:
+    """Honest tools from an existing pairs.jsonl: its originals (`mutation` null). The other
+    rows in the file are ignored; this build makes its own mutants."""
+    with open(path, encoding="utf-8") as f:
+        rows = [json.loads(line) for line in f if line.strip()]
+    return [ToolPair.from_dict(r) for r in rows if r.get("mutation") is None]
 
 
 def _exclude_known_names(pairs: list[ToolPair], sources: list[str],

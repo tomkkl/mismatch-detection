@@ -1,0 +1,1 @@
+{"output": {"declined": false, "reason": "", "description": "Deletes the existing user index directory, then searches documents (plus any provided user_docs) and returns a structured decision based on the policy.", "declaring_phrase": "Deletes the existing user index directory"}, "cost_usd": 0.0130898}
