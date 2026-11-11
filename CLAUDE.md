@@ -338,9 +338,10 @@ Steps 2 and 3 can run at the same time with different people.
      remove `read`, which training never has as a mismatch (2/9 caught; see the footnote above).
    - Scores stay saturated: rung 2 361/503 ≤ 0.01 and 132 ≥ 0.99; rung 3 Opus 91 + 37 of 138;
      GPT 152 + 44 of 215.
-   **Next:** Agent Audit on the coverage set (still
-   to build); add rungs 2–3 to `docs/results-binary.md`. Section 6 says rung 3 numbers go in
-   only after Agent Audit has also run on it.
+   **Rungs 2–3 are in `docs/results-binary.md` (2026-11-10)**, sections 7–8, with two new
+   charts (`docs/figures/rungs_headline.svg`, `rungs_by_pair_type.svg`). Rung 3 is marked
+   **provisional** there (model only) until Agent Audit has run on it.
+   **Next:** build the Agent Audit coverage set; run Agent Audit on rung 3.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -656,8 +657,8 @@ an interchangeable implementation of the training pipeline. Before scoring: reco
 URL / commit / path / license provenance where possible; flag functions missing surrounding
 imports or project context; inspect repeated templates and all labels; commit the generator and
 final pairs at stable paths; and freeze the artifact checksum. Do not train, tune a threshold,
-or revise policy from Rung 3 outcomes. Do not put its numbers in `docs/results-binary.md` until
-both the model and Agent Audit have been run on the finalized artifact.
+or revise policy from Rung 3 outcomes. Its model numbers are in `docs/results-binary.md`, marked
+provisional (decided 2026-11-10); they become final once Agent Audit has also run on it.
 
 **Data hygiene** (the model will cheat otherwise): no comments on injected lines; vary
 injection position, domains, naming and length; keep a tool and its mutants in the same split;
@@ -673,7 +674,8 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `src/agentlint/data/`: dataset pipeline (`build.py` runs generate → verify → inject + twin →
   match → weaken → split; `honest_from:` builds from existing tools)
 - `scripts/token_lengths.py`: input lengths vs the 512-token limit (section 3)
-- `scripts/plot_results.py`: charts for the results write-up, into `docs/figures/` (`plots` extra)
+- `scripts/plot_results.py`: charts for the results write-up, into `docs/figures/` (`plots` extra),
+  including rungs 1–3 side by side; it also prints every number the write-up quotes
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
 - `src/agentlint/model/`: input construction, model, training loop (`train.py`)
 - `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns, PR-AUC bootstrap
@@ -766,6 +768,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-10 (later):** Added rungs 2 and 3 to `docs/results-binary.md` (sections 7–8) with
+  two charts from `scripts/plot_results.py` (`rungs_headline.svg`, `rungs_by_pair_type.svg`);
+  numbers recomputed from the saved predictions match step 4. Rung 3 is marked provisional
+  until Agent Audit runs on it (rule in section 6 relaxed from "not in the write-up").
 - **2026-11-10:** Rung 3 GPT: main numbers stay all 215 pairs as scored (PR-AUC 0.853, F1
   0.70). Footnote without the 9 weakened pairs that remove `read` (not mismatches under our
   2026-10-14 rule), recomputed from saved predictions, no rescoring: 206 pairs, PR-AUC 0.856,

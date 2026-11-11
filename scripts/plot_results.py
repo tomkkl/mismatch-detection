@@ -1,10 +1,12 @@
-"""Charts for docs/results-binary.md: training curves, val vs test, errors by pair type.
+"""Charts for docs/results-binary.md: training curves, val vs test, errors by pair type,
+and rungs 1-3 of the test ladder side by side.
 
 Usage: python scripts/plot_results.py [--out docs/figures]   (needs the `plots` extra)
 
 Reads only committed files: checkpoints/{binary,binary_5ep,binary_frozen}/metrics.json,
-checkpoints/binary/val_predictions.jsonl and checkpoints/binary/eval/full-test/. Writes one SVG
-per chart and prints the numbers the write-up quotes.
+checkpoints/binary/val_predictions.jsonl and checkpoints/binary/eval/{full-test,
+rung2-opus-pairs,rung3-opus,rung3-gpt}/. Nothing is rescored. Writes one SVG per chart and
+prints the numbers the write-up quotes.
 """
 
 import argparse
@@ -19,7 +21,7 @@ import numpy as np
 from matplotlib.ticker import NullFormatter, PercentFormatter
 from sklearn.metrics import precision_recall_curve
 
-from agentlint.eval.metrics import report
+from agentlint.eval.metrics import bootstrap_pr_auc, report
 
 CKPT = Path("checkpoints")
 RUNS = {  # checkpoint dir -> legend label
@@ -28,6 +30,12 @@ RUNS = {  # checkpoint dir -> legend label
     "binary_frozen": "frozen encoder + head",
 }
 MAIN = 0.5
+LADDER = [  # eval dir under checkpoints/binary/eval -> label (rung 1 first)
+    ("full-test", "rung 1 test"),
+    ("rung2-opus-pairs", "rung 2 Opus"),
+    ("rung3-opus", "rung 3 Opus"),
+    ("rung3-gpt", "rung 3 GPT"),
+]
 MUTATIONS = [  # (mutation key, label, mismatch?)
     ("inject_code", "inject", True),
     ("weaken_description", "weaken", True),
@@ -37,7 +45,7 @@ MUTATIONS = [  # (mutation key, label, mismatch?)
 ]
 
 # Reference palette (dataviz skill), categorical slots in fixed order, plus ink and grid.
-SERIES = ["#2a78d6", "#eb6834", "#1baf7a"]
+SERIES = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"]
 INK, INK_2, GRID = "#0b0b0b", "#52514e", "#e4e3de"
 
 plt.rcParams.update({
@@ -185,6 +193,53 @@ def score_strip(rows: list[dict], out: Path):
     save(fig, out, "test_scores")
 
 
+def rungs_headline(ms: list[dict], out: Path):
+    keys = [("pr_auc", "PR-AUC"), ("precision", "precision"), ("recall", "recall"),
+            ("f1", "F1"), ("group_accuracy", "group acc")]
+    x = np.arange(len(keys))
+    w = 0.2
+    fig, ax = plt.subplots(figsize=(8, 3.6))
+    for i, ((_, label), m, color) in enumerate(zip(LADDER, ms, SERIES)):
+        ys = [m[k] for k, _ in keys]
+        bars = ax.bar(x + (i - 1.5) * (w + 0.01), ys, w, color=color, label=label)
+        ax.bar_label(bars, labels=[f"{y:.2f}" for y in ys], padding=2, fontsize=7, color=INK_2)
+    ax.set_xticks(x, [k[1] for k in keys])
+    ax.set_ylim(0, 1.1)
+    ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+    ax.grid(axis="x", visible=False)
+    ax.set_title("Test ladder, fine-tuned 10 epochs (epoch 9), cut-off 0.5", loc="left",
+                 fontsize=11, color=INK)
+    ax.legend(loc="upper center", ncols=4, bbox_to_anchor=(0.5, -0.1), fontsize=8)
+    save(fig, out, "rungs_headline")
+
+
+def rungs_by_pair_type(rows_by_rung: list[list[dict]], out: Path):
+    fig, axes = plt.subplots(1, 2, figsize=(9, 3.6), width_ratios=[2, 3])
+    for ax, want_mismatch, title in [(axes[0], True, "Mismatches caught (recall)"),
+                                     (axes[1], False, "Honest pairs flagged (FP rate)")]:
+        muts = [m for m in MUTATIONS if m[2] == want_mismatch]
+        x = np.arange(len(muts))
+        w = 0.2
+        for i, ((_, label), rows, color) in enumerate(zip(LADDER, rows_by_rung, SERIES)):
+            cs = [counts(rows, m, MAIN) for m, _, _ in muts]
+            ys = [k / n for k, n in cs]
+            bars = ax.bar(x + (i - 1.5) * (w + 0.01), ys, w, color=color, label=label)
+            ax.bar_label(bars, labels=[f"{k}/{n}" for k, n in cs], padding=2, fontsize=6,
+                         color=INK_2, rotation=90)
+        ax.set_xticks(x, [m[1] for m in muts])
+        ax.set_ylim(0, 1.3 if want_mismatch else 0.25)
+        ax.set_yticks(np.linspace(0, 1, 6) if want_mismatch else np.linspace(0, 0.2, 5))
+        ax.yaxis.set_major_formatter(PercentFormatter(1, decimals=0))
+        ax.grid(axis="x", visible=False)
+        ax.set_title(title, loc="left", fontsize=11, color=INK)
+    fig.legend(*axes[0].get_legend_handles_labels(), loc="lower center", ncols=4, fontsize=8)
+    fig.suptitle("By pair type across the test ladder, cut-off 0.5", x=0.01, ha="left",
+                 fontsize=11, color=INK)
+    fig.tight_layout(rect=(0, 0.06, 1, 1))
+    fig.savefig(out / "rungs_by_pair_type.svg", metadata={"Date": None})
+    plt.close(fig)
+
+
 def pr_curves(val_rows: list[dict], test_rows: list[dict], val_auc: float, test_auc: float,
               out: Path):
     fig, ax = plt.subplots(figsize=(4.8, 4.2))
@@ -241,6 +296,22 @@ def main():
               "by epoch " + " ".join(f"{h['val_at_0.5']['pr_auc']:.3f}" for h in hist[c]))
     summary("val", val_rows, val_main, saved)
     summary("test", test_rows, test["at_0.5"], saved)
+
+    ev = CKPT / "binary" / "eval"
+    rung_rows = [load_rows(ev / d / "predictions.jsonl") for d, _ in LADDER]
+    rung_ms = [json.loads((ev / d / "metrics.json").read_text()) for d, _ in LADDER]
+    rungs_headline([m["at_0.5"] for m in rung_ms], out)
+    rungs_by_pair_type(rung_rows, out)
+    for (d, label), rows, m in zip(LADDER, rung_rows, rung_ms):
+        lo, hi = m["pr_auc_ci95"]
+        summary(f"{label} ({d}), CI {lo:.3f}-{hi:.3f}", rows, m["at_0.5"], saved)
+    # Footnote: rung 3 GPT without the weakened pairs that remove `read` (not a mismatch under
+    # our definition, CLAUDE.md section 5). Recomputed from saved predictions, no rescoring.
+    gpt = [r for r in rung_rows[-1]
+           if not (r["mutation"] == "weaken_description" and r["undeclared"] == ["read"])]
+    lo, hi = bootstrap_pr_auc(gpt)
+    summary(f"rung 3 GPT without weaken-read ({len(rung_rows[-1]) - len(gpt)} dropped), "
+            f"CI {lo:.3f}-{hi:.3f}", gpt, report(gpt, MAIN), saved)
     print(f"wrote {len(list(out.glob('*.svg')))} charts to {out}")
 
 
