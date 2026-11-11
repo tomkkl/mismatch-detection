@@ -177,8 +177,14 @@ Steps 2 and 3 can run at the same time with different people.
      archive tables (`INSERT INTO x_archive SELECT …`, 8 of the 31), payment / payout / credit
      rows, `stripe.PaymentIntent.create` / `stripe.Transfer.create`, `requests.post` to
      billing endpoints, and permission rows. Opus uses SQL-table forms more than Sonnet.
-   - **Agent Audit coverage set:** our mismatches + some conventional bugs (eval, `shell=True`).
-     Not built yet.
+   - **Agent Audit coverage set: built 2026-11-10** (`scripts/build_coverage_set.py`,
+     `data/coverage/`): 128 pairs from 50 tools = 25 hand-written tools with a conventional
+     bug (5 each: eval/exec, `shell=True`, unsafe pickle/yaml, string-built SQL, hard-coded
+     secret; honest descriptions, so `mismatch: false`, `meta.conventional_bug: true`) + 25
+     rung 1 test tools with all their pairs (34 mismatches; 12 weakened). Rung 1 rows reuse
+     saved scores; score the bug tools once:
+     `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/coverage/conventional_bugs.jsonl --tag coverage-bugs`.
+     Design: `docs/agent-audit-comparison.md` section 4.
    - **Rung 3, second draft (Andrea, pushed to `main` 2026-11-07, not in the PRs):** built
      from the 50 functions in `data/github_tools_dataset.json` (her first scraper output): 250
      pairs, 159 honest / 91 mismatch. Mismatches come from deterministic code and description
@@ -341,7 +347,8 @@ Steps 2 and 3 can run at the same time with different people.
    **Rungs 2–3 are in `docs/results-binary.md` (2026-11-10)**, sections 7–8, with two new
    charts (`docs/figures/rungs_headline.svg`, `rungs_by_pair_type.svg`). Rung 3 is marked
    **provisional** there (model only) until Agent Audit has run on it.
-   **Next:** build the Agent Audit coverage set; run Agent Audit on rung 3.
+   **Next:** run Agent Audit on all four test sets plus the coverage set. Design note (draft,
+   2026-11-10, open decisions in its section 9): `docs/agent-audit-comparison.md`.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -674,6 +681,7 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `src/agentlint/data/`: dataset pipeline (`build.py` runs generate → verify → inject + twin →
   match → weaken → split; `honest_from:` builds from existing tools)
 - `scripts/token_lengths.py`: input lengths vs the 512-token limit (section 3)
+- `scripts/build_coverage_set.py`: builds the Agent Audit coverage set into `data/coverage/`
 - `scripts/plot_results.py`: charts for the results write-up, into `docs/figures/` (`plots` extra),
   including rungs 1–3 side by side; it also prints every number the write-up quotes
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
@@ -688,6 +696,7 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
   `score.slurm`)
 - `docs/agentlint-preproposal.md`: current proposal
 - `docs/results-binary.md`: binary model results write-up (training, val, test), with charts
+- `docs/agent-audit-comparison.md`: design note for running Agent Audit on every test set
 - `scripts/githubtools.py` (Andrea): GitHub search for `@tool` functions →
   `data/github_tools_dataset.json`; her mutated set is `data/github_tools_250_pairs.jsonl`
 - `probes/aa_run/`: generated Agent Audit cases (keep the path neutral; see Gotchas)
@@ -768,6 +777,15 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-10 (coverage set):** Built the Agent Audit coverage set (128 pairs, 50 tools):
+  25 hand-written conventional-bug tools + 25 rung 1 test tools with all their pairs. Checks
+  pass (parse, params, AST bug pattern per kind). Not scored yet; needs one CARC run for the
+  25 bug tools.
+- **2026-11-10 (latest):** Drafted `docs/agent-audit-comparison.md`, the plan for running
+  Agent Audit on rungs 1–3 and the coverage set: wrap each pair as a `@tool` file, several
+  verdict rules fixed in advance, a code-identity check and a coverage table. A 12-pair probe
+  showed AA findings follow the code, not the label (AGENT-022 on 5/12, honest and mismatch
+  alike). Open decisions for the team are in its section 9.
 - **2026-11-10 (later):** Added rungs 2 and 3 to `docs/results-binary.md` (sections 7–8) with
   two charts from `scripts/plot_results.py` (`rungs_headline.svg`, `rungs_by_pair_type.svg`);
   numbers recomputed from the saved predictions match step 4. Rung 3 is marked provisional
