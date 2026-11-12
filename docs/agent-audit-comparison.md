@@ -1,8 +1,7 @@
 # Design note: Agent Audit vs our model on every test set
 
-Status: **draft for team review** (2026-11-10). Nothing here is built or run yet, except a
-12-pair probe (section 3). Decisions marked "open" need a team answer before implementation
-(CLAUDE.md section 4).
+Status: **decisions settled 2026-11-11** (section 9); implementation in progress. Drafted
+2026-11-10, with a 12-pair probe (section 3).
 
 ## 1. Question
 
@@ -131,18 +130,19 @@ them:
 | Verdict rule | Pair is flagged if its file has... |
 |---|---|
 | **Main** | any non-suppressed finding at tier BLOCK or WARN |
-| **Capability rules only** | a finding from a fixed list of rules about dangerous operations or permissions (draft list below; open) |
+| **Capability rules only** | a finding from a fixed list of rules about dangerous operations or permissions (list below, fixed 2026-11-11) |
 | **Any finding** | any finding, including INFO tier |
 | **Ordinal score** | score = highest severity found: none 0, info 1, low 2, medium 3, high 4, critical 5. Used for PR-AUC and a PR curve only |
 
-Draft capability list (open, to settle before running): AGENT-001 (command injection),
+Capability list (**fixed 2026-11-11**, before any run): AGENT-001 (command injection),
 AGENT-002 (excessive permissions), AGENT-014 (overly permissive tool access), AGENT-017 and
 AGENT-035 (unsandboxed / unrestricted code execution), AGENT-037 (side-effect operation
 without human approval), AGENT-041 (SQL injection), AGENT-047 (subprocess without sandbox),
 AGENT-053 (self-modification). Generic hygiene rules such as AGENT-022 (error handling) and
 AGENT-034 (input validation) are left out. Some rules (e.g. AGENT-047) are implemented in
 Python rather than YAML, so the list is checked against the code, not only
-`rules/builtin/*.yaml`.
+`rules/builtin/*.yaml`. Checked 2026-11-11 against the installed 0.19.2: all nine exist;
+AGENT-047 has no YAML entry and is emitted by `scanners/privilege_scanner.py`.
 
 **Metrics,** the same as for our model (CLAUDE.md section 5), per set and per verdict rule:
 
@@ -166,7 +166,7 @@ recall number.
 | Conventional bugs (coverage set) | | | | | |
 | Honest pairs flagged | | | | | |
 
-## 7. Implementation (proposed; needs team approval)
+## 7. Implementation (approved 2026-11-11)
 
 - New module `src/agentlint/eval/agent_audit.py` with three steps: write the wrapped files,
   run `agent-audit scan` once per set, turn findings into verdicts and metrics.
@@ -187,20 +187,19 @@ recall number.
 - Once AA has run on rung 3, the rung 3 numbers in `docs/results-binary.md` stop being
   provisional.
 
-## 9. Open decisions
+## 9. Decisions (all settled 2026-11-11)
 
-1. **Capability rule list:** accept the draft in section 6, or change it.
+1. ~~Capability rule list~~ **decided 2026-11-11:** the draft list in section 6, unchanged.
 2. ~~Coverage set~~ **decided and built 2026-11-10** (section 4): 25 hand-written bug tools
    plus 25 rung 1 tools with all their pairs.
-3. **Rung 3 context:** scan only the wrapped function (same as rungs 1–2), or also the original
-   GitHub repos where provenance is recovered? Proposal: wrapped function only for the main
-   numbers; whole repos are out of scope given incomplete provenance.
-4. **Where results go:** a new section in `docs/results-binary.md`, or a separate
-   `docs/results-agent-audit.md`.
+3. ~~Rung 3 context~~ **decided 2026-11-11:** scan only the wrapped function, same as rungs
+   1–2. Whole repos are out of scope (provenance is incomplete).
+4. ~~Where results go~~ **decided 2026-11-11:** a separate `docs/results-agent-audit.md`,
+   linked from `docs/results-binary.md`.
 
 ## 10. Order of work
 
-1. Team settles section 9.
+1. ~~Team settles section 9~~ (done 2026-11-11).
 2. Write `agent_audit.py` and its tests; dry run on 12 pairs.
 3. ~~Build the coverage set~~ (done 2026-11-10); score its 25 bug tools once with our model on
    CARC.

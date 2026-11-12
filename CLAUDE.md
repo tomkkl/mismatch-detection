@@ -63,23 +63,23 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-11-10)
+## 2. Where we are and what's next (updated 2026-11-11)
 
-**Resume here (2026-11-10, end of session).**
+**Resume here (2026-11-11).**
 Current focus: **Agent Audit vs our model** on every test set
 (`docs/agent-audit-comparison.md`). State:
 - Done: rungs 1–3 are in `docs/results-binary.md` (rung 3 marked provisional until Agent Audit
   runs on it); the design note is written; the coverage set is built and checked
-  (`data/coverage/`, 128 pairs; build checks, model-input check and `pytest` pass).
+  (`data/coverage/`, 128 pairs). **The note's open decisions were settled 2026-11-11**
+  (section 9 there): the draft capability rule list as is (all nine IDs checked against AA
+  0.19.2), rung 3 scanned as wrapped functions only, results in a separate
+  `docs/results-agent-audit.md`, and the new `eval/agent_audit.py` module approved.
 - **Next, in order:**
-  1. Team answers the open decisions in the note's section 9: the capability rule list,
-     rung 3 scanned as wrapped functions only (proposed), and where AA results get written up.
-     Optional: one teammate skims the 25 bug tools in `data/coverage/conventional_bugs.jsonl`.
-  2. Score the 25 bug tools once with our model on CARC:
+  1. Score the 25 bug tools once with our model on CARC (can run in parallel with step 2):
      `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/coverage/conventional_bugs.jsonl --tag coverage-bugs`
-  3. Write `src/agentlint/eval/agent_audit.py` + `agentlint aa-score` with tests (note
-     section 7; new module, so the team approves first). Dry run on ~12 pairs.
-  4. Run Agent Audit once on each of the five sets; write up; drop "provisional" from rung 3.
+  2. Write `src/agentlint/eval/agent_audit.py` + `agentlint aa-score` with tests (note
+     section 7). Dry run on ~12 pairs.
+  3. Run Agent Audit once on each of the five sets; write up; drop "provisional" from rung 3.
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -793,6 +793,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-11:** Settled the Agent Audit note's open decisions: draft capability rule list
+  kept (all nine IDs exist in 0.19.2; AGENT-047 lives only in `privilege_scanner.py`), rung 3
+  scanned as wrapped functions only, results go in `docs/results-agent-audit.md`,
+  `eval/agent_audit.py` approved.
 - **2026-11-10 (end of session):** Pushed the Agent Audit design note and the coverage set.
   Coverage-set checks and `pytest` (27 passed) run. Next steps are at the top of section 2
   ("Resume here").
