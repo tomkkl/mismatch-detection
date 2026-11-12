@@ -65,7 +65,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ## 2. Where we are and what's next (updated 2026-11-11)
 
-**Resume here (2026-11-11).**
+**Resume here (2026-11-11, end of session).**
 Current focus: **Agent Audit vs our model** on every test set
 (`docs/agent-audit-comparison.md`). State:
 - Done: rungs 1–3 are in `docs/results-binary.md` (rung 3 marked provisional until Agent Audit
@@ -85,6 +85,9 @@ Current focus: **Agent Audit vs our model** on every test set
      The coverage set needs step 1 first (`--model-preds` = the `full-test` and
      `coverage-bugs` predictions). Then write up `docs/results-agent-audit.md`; drop
      "provisional" from rung 3.
+  - **Waiting on (2026-11-11):** (a) someone runs the step 1 CARC job; (b) the go-ahead for
+    the real step 3 runs (once per set, results committed under `runs/agent_audit/<tag>/`).
+    The four rung sets can run as soon as (b) is given; the coverage set also needs (a).
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -798,6 +801,8 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-11 (end of session):** Pushed the decisions and `aa-score`. Next steps are at the
+  top of section 2 ("Resume here"): the CARC job for the 25 bug tools, then the real AA runs.
 - **2026-11-11 (later):** Wrote `src/agentlint/eval/agent_audit.py` and `agentlint aa-score`
   (wrap → one scan → four verdict rules → `metrics.report`, code-identity check, coverage table
   vs our model), 12 tests (39 total pass). Exact verdict-rule readings written into the note's
