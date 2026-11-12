@@ -144,6 +144,17 @@ Python rather than YAML, so the list is checked against the code, not only
 `rules/builtin/*.yaml`. Checked 2026-11-11 against the installed 0.19.2: all nine exist;
 AGENT-047 has no YAML entry and is emitted by `scanners/privilege_scanner.py`.
 
+**Exact readings, as implemented (`eval/agent_audit.py`, `verdict_scores`; fixed 2026-11-11
+before the dry run).** A finding is *suppressed* if `suppressed` is true or its tier is
+SUPPRESSED. Main = a non-suppressed finding at tier BLOCK or WARN. Capability = a
+non-suppressed finding (any tier) from the list. Any finding = any finding at all, suppressed
+included (that is why the scan uses `--min-tier suppressed`). Ordinal = highest severity among
+non-suppressed findings.
+
+**Wrapping detail:** AA treats any decorator whose name contains `tool` as a tool decorator
+(`python_scanner.py:1122`), so `@mcp.tool()` and `@function_tool` are kept as is and `@tool`
+is only added when a function has none.
+
 **Metrics,** the same as for our model (CLAUDE.md section 5), per set and per verdict rule:
 
 - precision / recall / F1 on the mismatch class, PR-AUC (ordinal score) with the tool

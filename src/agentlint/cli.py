@@ -14,6 +14,13 @@ def main() -> None:
     score.add_argument("--tag", help="results subfolder (default: <dir>-<file>, e.g. full-test)")
     score.add_argument("--force", action="store_true", help="overwrite an existing result")
     score.add_argument("--batch-size", type=int, help="override batch_size from the checkpoint config")
+    aa = sub.add_parser("aa-score", help="run Agent Audit on a test set and score it (once)")
+    aa.add_argument("pairs", help="e.g. data/splits/full/test.jsonl")
+    aa.add_argument("--tag", required=True, help="results subfolder under runs/agent_audit/")
+    aa.add_argument("--model-preds", nargs="+",
+                    help="our model's predictions.jsonl for the same pairs (chunk counts, coverage table)")
+    aa.add_argument("--limit", type=int, help="only the first N pairs (dry runs)")
+    aa.add_argument("--force", action="store_true", help="overwrite an existing result")
     scan = sub.add_parser("scan", help="check tools in a file or directory")
     scan.add_argument("path")
     data = sub.add_parser("data", help="build the generated dataset")
@@ -47,6 +54,15 @@ def main() -> None:
         from agentlint.eval.score import score as run_score
         try:
             run_score(args.checkpoint, args.pairs, args.tag, args.force, args.batch_size)
+        except FileExistsError as e:
+            print(e, file=sys.stderr)
+            sys.exit(1)
+    elif args.cmd == "aa-score":
+        import sys
+
+        from agentlint.eval.agent_audit import aa_score
+        try:
+            aa_score(args.pairs, args.tag, args.model_preds, args.force, args.limit)
         except FileExistsError as e:
             print(e, file=sys.stderr)
             sys.exit(1)

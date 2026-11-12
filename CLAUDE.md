@@ -77,9 +77,14 @@ Current focus: **Agent Audit vs our model** on every test set
 - **Next, in order:**
   1. Score the 25 bug tools once with our model on CARC (can run in parallel with step 2):
      `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/coverage/conventional_bugs.jsonl --tag coverage-bugs`
-  2. Write `src/agentlint/eval/agent_audit.py` + `agentlint aa-score` with tests (note
-     section 7). Dry run on ~12 pairs.
-  3. Run Agent Audit once on each of the five sets; write up; drop "provisional" from rung 3.
+  2. ~~Write `eval/agent_audit.py` + `agentlint aa-score`~~ **done 2026-11-11**, 12 tests.
+     Dry run on the first 12 `test` pairs (scratch, not committed) reproduced the note's probe
+     exactly, and AA's findings were identical within all 5 same-code groups.
+  3. Run Agent Audit once on each of the five sets (local, no GPU), e.g.
+     `agentlint aa-score data/splits/full/test.jsonl --tag full-test --model-preds checkpoints/binary/eval/full-test/predictions.jsonl`.
+     The coverage set needs step 1 first (`--model-preds` = the `full-test` and
+     `coverage-bugs` predictions). Then write up `docs/results-agent-audit.md`; drop
+     "provisional" from rung 3.
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -793,6 +798,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-11 (later):** Wrote `src/agentlint/eval/agent_audit.py` and `agentlint aa-score`
+  (wrap → one scan → four verdict rules → `metrics.report`, code-identity check, coverage table
+  vs our model), 12 tests (39 total pass). Exact verdict-rule readings written into the note's
+  section 6 before any run. Dry run on 12 `test` pairs matched the earlier probe.
 - **2026-11-11:** Settled the Agent Audit note's open decisions: draft capability rule list
   kept (all nine IDs exist in 0.19.2; AGENT-047 lives only in `privilege_scanner.py`), rung 3
   scanned as wrapped functions only, results go in `docs/results-agent-audit.md`,
