@@ -1,0 +1,765 @@
+{
+  "pairs": "data/generated/github-opus/pairs_43.jsonl",
+  "tag": "rung3-opus",
+  "n": 138,
+  "aa_version": "0.19.2",
+  "scan_summary": {
+    "total": 113,
+    "actionable": 113,
+    "suppressed": 0,
+    "by_severity": {
+      "critical": 43,
+      "medium": 35,
+      "high": 35
+    },
+    "by_category": {
+      "command_injection": 7,
+      "goal_hijack": 4,
+      "unexpected_code_execution": 5,
+      "cascading_failures": 31,
+      "tool_misuse": 64,
+      "credential_exposure": 2
+    },
+    "by_tier": {
+      "BLOCK": 74,
+      "WARN": 33,
+      "INFO": 6,
+      "SUPPRESSED": 0
+    },
+    "risk_score": 9.8,
+    "risk_label": "HIGH"
+  },
+  "scanned_files": 139,
+  "failures": {},
+  "control_rules": [
+    "AGENT-001",
+    "AGENT-001",
+    "AGENT-017",
+    "AGENT-022",
+    "AGENT-026",
+    "AGENT-034",
+    "AGENT-035",
+    "AGENT-035"
+  ],
+  "capability_rules": [
+    "AGENT-001",
+    "AGENT-002",
+    "AGENT-014",
+    "AGENT-017",
+    "AGENT-035",
+    "AGENT-037",
+    "AGENT-041",
+    "AGENT-047",
+    "AGENT-053"
+  ],
+  "model_predictions": [
+    "checkpoints/binary/eval/rung3-opus/predictions.jsonl"
+  ],
+  "pairs_with_rule": {
+    "AGENT-001": 5,
+    "AGENT-010": 4,
+    "AGENT-017": 4,
+    "AGENT-022": 30,
+    "AGENT-026": 13,
+    "AGENT-034": 34,
+    "AGENT-035": 5,
+    "AGENT-041": 6,
+    "AGENT-047": 2,
+    "AGENT-111": 2
+  },
+  "code_identity": {
+    "n_groups": 63,
+    "n_pairs": 127,
+    "mixed_labels": 33,
+    "findings_differ": 0,
+    "verdict_differs_main": 0,
+    "verdict_differs_capability": 0,
+    "verdict_differs_any": 0,
+    "verdict_differs_ordinal": 0
+  },
+  "verdicts": {
+    "main": {
+      "precision": 0.28846153846153844,
+      "recall": 0.45454545454545453,
+      "f1": 0.3529411764705882,
+      "pr_auc": 0.2615536637275767,
+      "threshold": 0.5,
+      "tp": 15,
+      "fp": 37,
+      "fn": 18,
+      "n": 138,
+      "group_accuracy": 0.18604651162790697,
+      "breakdowns": {
+        "chunks": {
+          "1": {
+            "precision": 0.2727272727272727,
+            "recall": 0.46153846153846156,
+            "fp_rate": 0.35555555555555557,
+            "n": 116,
+            "n_mismatch": 26,
+            "n_honest": 90
+          },
+          "2": {
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "fp_rate": 0.4,
+            "n": 15,
+            "n_mismatch": 5,
+            "n_honest": 10
+          },
+          "3+": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "fp_rate": 0.2,
+            "n": 7,
+            "n_mismatch": 2,
+            "n_honest": 5
+          }
+        },
+        "effect": {
+          "change_authority": {
+            "precision": null,
+            "recall": 0.6666666666666666,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "destroy": {
+            "precision": null,
+            "recall": 0.3333333333333333,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "execute": {
+            "precision": null,
+            "recall": 0.75,
+            "fp_rate": null,
+            "n": 4,
+            "n_mismatch": 4,
+            "n_honest": 0
+          },
+          "modify": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 2,
+            "n_mismatch": 2,
+            "n_honest": 0
+          },
+          "relocate": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 4,
+            "n_mismatch": 4,
+            "n_honest": 0
+          },
+          "send_outward": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "spend": {
+            "precision": null,
+            "recall": 0.6666666666666666,
+            "fp_rate": null,
+            "n": 3,
+            "n_mismatch": 3,
+            "n_honest": 0
+          }
+        },
+        "effect_weaken": {
+          "execute": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 1,
+            "n_mismatch": 1,
+            "n_honest": 0
+          },
+          "modify": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 1,
+            "n_mismatch": 1,
+            "n_honest": 0
+          }
+        },
+        "position": {
+          "end": {
+            "precision": 0.5,
+            "recall": 0.3,
+            "fp_rate": 0.3,
+            "n": 20,
+            "n_mismatch": 10,
+            "n_honest": 10
+          },
+          "helper": {
+            "precision": 0.5,
+            "recall": 0.6,
+            "fp_rate": 0.6,
+            "n": 10,
+            "n_mismatch": 5,
+            "n_honest": 5
+          },
+          "middle": {
+            "precision": 0.5,
+            "recall": 0.375,
+            "fp_rate": 0.375,
+            "n": 16,
+            "n_mismatch": 8,
+            "n_honest": 8
+          },
+          "start": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "fp_rate": 0.5,
+            "n": 16,
+            "n_mismatch": 8,
+            "n_honest": 8
+          }
+        },
+        "mutation": {
+          "declare_effect": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.41935483870967744,
+            "n": 31,
+            "n_mismatch": 0,
+            "n_honest": 31
+          },
+          "honest_rewrite": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.3225806451612903,
+            "n": 31,
+            "n_mismatch": 0,
+            "n_honest": 31
+          },
+          "inject_code": {
+            "precision": null,
+            "recall": 0.41935483870967744,
+            "fp_rate": null,
+            "n": 31,
+            "n_mismatch": 31,
+            "n_honest": 0
+          },
+          "original": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.32558139534883723,
+            "n": 43,
+            "n_mismatch": 0,
+            "n_honest": 43
+          },
+          "weaken_description": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 2,
+            "n_mismatch": 2,
+            "n_honest": 0
+          }
+        }
+      },
+      "coverage_vs_model_at_0.5": {
+        "mismatches": {
+          "n": 33,
+          "ours_only": 16,
+          "aa_only": 1,
+          "both": 14,
+          "neither": 2,
+          "union": 31
+        },
+        "conventional_bugs": {
+          "n": 0,
+          "ours_only": 0,
+          "aa_only": 0,
+          "both": 0,
+          "neither": 0,
+          "union": 0
+        },
+        "honest_flagged": {
+          "n": 105,
+          "ours_only": 10,
+          "aa_only": 34,
+          "both": 3,
+          "neither": 58,
+          "union": 47
+        }
+      }
+    },
+    "capability": {
+      "precision": 0.3076923076923077,
+      "recall": 0.12121212121212122,
+      "f1": 0.17391304347826086,
+      "pr_auc": 0.24744096483226918,
+      "threshold": 0.5,
+      "tp": 4,
+      "fp": 9,
+      "fn": 29,
+      "n": 138,
+      "group_accuracy": 0.23255813953488372,
+      "breakdowns": {
+        "chunks": {
+          "1": {
+            "precision": 0.3076923076923077,
+            "recall": 0.15384615384615385,
+            "fp_rate": 0.1,
+            "n": 116,
+            "n_mismatch": 26,
+            "n_honest": 90
+          },
+          "2": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "fp_rate": 0.0,
+            "n": 15,
+            "n_mismatch": 5,
+            "n_honest": 10
+          },
+          "3+": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "fp_rate": 0.0,
+            "n": 7,
+            "n_mismatch": 2,
+            "n_honest": 5
+          }
+        },
+        "effect": {
+          "change_authority": {
+            "precision": null,
+            "recall": 0.16666666666666666,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "destroy": {
+            "precision": null,
+            "recall": 0.16666666666666666,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "execute": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 4,
+            "n_mismatch": 4,
+            "n_honest": 0
+          },
+          "modify": {
+            "precision": null,
+            "recall": 0.5,
+            "fp_rate": null,
+            "n": 2,
+            "n_mismatch": 2,
+            "n_honest": 0
+          },
+          "relocate": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 4,
+            "n_mismatch": 4,
+            "n_honest": 0
+          },
+          "send_outward": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "spend": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 3,
+            "n_mismatch": 3,
+            "n_honest": 0
+          }
+        },
+        "effect_weaken": {
+          "execute": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 1,
+            "n_mismatch": 1,
+            "n_honest": 0
+          },
+          "modify": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 1,
+            "n_mismatch": 1,
+            "n_honest": 0
+          }
+        },
+        "position": {
+          "end": {
+            "precision": 0.5,
+            "recall": 0.2,
+            "fp_rate": 0.2,
+            "n": 20,
+            "n_mismatch": 10,
+            "n_honest": 10
+          },
+          "helper": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "fp_rate": 0.0,
+            "n": 10,
+            "n_mismatch": 5,
+            "n_honest": 5
+          },
+          "middle": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "fp_rate": 0.0,
+            "n": 16,
+            "n_mismatch": 8,
+            "n_honest": 8
+          },
+          "start": {
+            "precision": 0.5,
+            "recall": 0.125,
+            "fp_rate": 0.125,
+            "n": 16,
+            "n_mismatch": 8,
+            "n_honest": 8
+          }
+        },
+        "mutation": {
+          "declare_effect": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.0967741935483871,
+            "n": 31,
+            "n_mismatch": 0,
+            "n_honest": 31
+          },
+          "honest_rewrite": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.06451612903225806,
+            "n": 31,
+            "n_mismatch": 0,
+            "n_honest": 31
+          },
+          "inject_code": {
+            "precision": null,
+            "recall": 0.0967741935483871,
+            "fp_rate": null,
+            "n": 31,
+            "n_mismatch": 31,
+            "n_honest": 0
+          },
+          "original": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.09302325581395349,
+            "n": 43,
+            "n_mismatch": 0,
+            "n_honest": 43
+          },
+          "weaken_description": {
+            "precision": null,
+            "recall": 0.5,
+            "fp_rate": null,
+            "n": 2,
+            "n_mismatch": 2,
+            "n_honest": 0
+          }
+        }
+      },
+      "coverage_vs_model_at_0.5": {
+        "mismatches": {
+          "n": 33,
+          "ours_only": 26,
+          "aa_only": 0,
+          "both": 4,
+          "neither": 3,
+          "union": 30
+        },
+        "conventional_bugs": {
+          "n": 0,
+          "ours_only": 0,
+          "aa_only": 0,
+          "both": 0,
+          "neither": 0,
+          "union": 0
+        },
+        "honest_flagged": {
+          "n": 105,
+          "ours_only": 12,
+          "aa_only": 8,
+          "both": 1,
+          "neither": 84,
+          "union": 21
+        }
+      }
+    },
+    "any": {
+      "precision": 0.28846153846153844,
+      "recall": 0.45454545454545453,
+      "f1": 0.3529411764705882,
+      "pr_auc": 0.2615536637275767,
+      "threshold": 0.5,
+      "tp": 15,
+      "fp": 37,
+      "fn": 18,
+      "n": 138,
+      "group_accuracy": 0.18604651162790697,
+      "breakdowns": {
+        "chunks": {
+          "1": {
+            "precision": 0.2727272727272727,
+            "recall": 0.46153846153846156,
+            "fp_rate": 0.35555555555555557,
+            "n": 116,
+            "n_mismatch": 26,
+            "n_honest": 90
+          },
+          "2": {
+            "precision": 0.3333333333333333,
+            "recall": 0.4,
+            "fp_rate": 0.4,
+            "n": 15,
+            "n_mismatch": 5,
+            "n_honest": 10
+          },
+          "3+": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "fp_rate": 0.2,
+            "n": 7,
+            "n_mismatch": 2,
+            "n_honest": 5
+          }
+        },
+        "effect": {
+          "change_authority": {
+            "precision": null,
+            "recall": 0.6666666666666666,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "destroy": {
+            "precision": null,
+            "recall": 0.3333333333333333,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "execute": {
+            "precision": null,
+            "recall": 0.75,
+            "fp_rate": null,
+            "n": 4,
+            "n_mismatch": 4,
+            "n_honest": 0
+          },
+          "modify": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 2,
+            "n_mismatch": 2,
+            "n_honest": 0
+          },
+          "relocate": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 4,
+            "n_mismatch": 4,
+            "n_honest": 0
+          },
+          "send_outward": {
+            "precision": null,
+            "recall": 0.0,
+            "fp_rate": null,
+            "n": 6,
+            "n_mismatch": 6,
+            "n_honest": 0
+          },
+          "spend": {
+            "precision": null,
+            "recall": 0.6666666666666666,
+            "fp_rate": null,
+            "n": 3,
+            "n_mismatch": 3,
+            "n_honest": 0
+          }
+        },
+        "effect_weaken": {
+          "execute": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 1,
+            "n_mismatch": 1,
+            "n_honest": 0
+          },
+          "modify": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 1,
+            "n_mismatch": 1,
+            "n_honest": 0
+          }
+        },
+        "position": {
+          "end": {
+            "precision": 0.5,
+            "recall": 0.3,
+            "fp_rate": 0.3,
+            "n": 20,
+            "n_mismatch": 10,
+            "n_honest": 10
+          },
+          "helper": {
+            "precision": 0.5,
+            "recall": 0.6,
+            "fp_rate": 0.6,
+            "n": 10,
+            "n_mismatch": 5,
+            "n_honest": 5
+          },
+          "middle": {
+            "precision": 0.5,
+            "recall": 0.375,
+            "fp_rate": 0.375,
+            "n": 16,
+            "n_mismatch": 8,
+            "n_honest": 8
+          },
+          "start": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "fp_rate": 0.5,
+            "n": 16,
+            "n_mismatch": 8,
+            "n_honest": 8
+          }
+        },
+        "mutation": {
+          "declare_effect": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.41935483870967744,
+            "n": 31,
+            "n_mismatch": 0,
+            "n_honest": 31
+          },
+          "honest_rewrite": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.3225806451612903,
+            "n": 31,
+            "n_mismatch": 0,
+            "n_honest": 31
+          },
+          "inject_code": {
+            "precision": null,
+            "recall": 0.41935483870967744,
+            "fp_rate": null,
+            "n": 31,
+            "n_mismatch": 31,
+            "n_honest": 0
+          },
+          "original": {
+            "precision": null,
+            "recall": null,
+            "fp_rate": 0.32558139534883723,
+            "n": 43,
+            "n_mismatch": 0,
+            "n_honest": 43
+          },
+          "weaken_description": {
+            "precision": null,
+            "recall": 1.0,
+            "fp_rate": null,
+            "n": 2,
+            "n_mismatch": 2,
+            "n_honest": 0
+          }
+        }
+      },
+      "coverage_vs_model_at_0.5": {
+        "mismatches": {
+          "n": 33,
+          "ours_only": 16,
+          "aa_only": 1,
+          "both": 14,
+          "neither": 2,
+          "union": 31
+        },
+        "conventional_bugs": {
+          "n": 0,
+          "ours_only": 0,
+          "aa_only": 0,
+          "both": 0,
+          "neither": 0,
+          "union": 0
+        },
+        "honest_flagged": {
+          "n": 105,
+          "ours_only": 10,
+          "aa_only": 34,
+          "both": 3,
+          "neither": 58,
+          "union": 47
+        }
+      }
+    },
+    "ordinal": {
+      "pr_auc": 0.26951219642295154,
+      "pr_auc_ci95": [
+        0.23898089862051647,
+        0.3138315432389122
+      ],
+      "pr_curve": {
+        "precision": [
+          0.2391304347826087,
+          0.28846153846153844,
+          0.34210526315789475,
+          0.28,
+          1.0
+        ],
+        "recall": [
+          1.0,
+          0.45454545454545453,
+          0.3939393939393939,
+          0.21212121212121213,
+          0.0
+        ],
+        "thresholds": [
+          0,
+          3,
+          4,
+          5
+        ]
+      }
+    }
+  }
+}

@@ -63,9 +63,9 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-11-11)
+## 2. Where we are and what's next (updated 2026-11-12)
 
-**Resume here (2026-11-11, end of session).**
+**Resume here (2026-11-12).**
 Current focus: **Agent Audit vs our model** on every test set
 (`docs/agent-audit-comparison.md`). State:
 - Done: rungs 1–3 are in `docs/results-binary.md` (rung 3 marked provisional until Agent Audit
@@ -80,14 +80,35 @@ Current focus: **Agent Audit vs our model** on every test set
   2. ~~Write `eval/agent_audit.py` + `agentlint aa-score`~~ **done 2026-11-11**, 12 tests.
      Dry run on the first 12 `test` pairs (scratch, not committed) reproduced the note's probe
      exactly, and AA's findings were identical within all 5 same-code groups.
-  3. Run Agent Audit once on each of the five sets (local, no GPU), e.g.
-     `agentlint aa-score data/splits/full/test.jsonl --tag full-test --model-preds checkpoints/binary/eval/full-test/predictions.jsonl`.
-     The coverage set needs step 1 first (`--model-preds` = the `full-test` and
-     `coverage-bugs` predictions). Then write up `docs/results-agent-audit.md`; drop
+  3. Run Agent Audit once on each of the five sets (local, no GPU).
+     **Four rung sets done 2026-11-12, once each. Do not rerun.** Results in
+     `runs/agent_audit/{full-test,rung2-opus,rung3-opus,rung3-gpt}/`. Positive control fired
+     every time (AGENT-001/017/035), 0 scan failures. At the main verdict:
+
+     | Set | P | R | F1 | Group acc | PR-AUC (ordinal; 95% CI) | Mismatch rate |
+     |---|---|---|---|---|---|---|
+     | rung 1 `test` | 0.30 | 0.62 | 0.40 | 0.16 | 0.275 (0.252–0.299) | 0.263 |
+     | rung 2 | 0.33 | 0.61 | 0.43 | 0.09 | 0.319 (0.298–0.340) | 0.286 |
+     | rung 3 (b) Opus | 0.29 | 0.45 | 0.35 | 0.19 | 0.270 (0.239–0.314) | 0.239 |
+     | rung 3 (a) GPT | 0.41 | 0.54 | 0.47 | 0.00 | 0.401 (0.382–0.418) | 0.367 |
+
+     - **Code-identity check: 0 differences in all 496 same-code groups** (111 / 229 / 63 /
+       93). AA's findings follow the code only, so it flags a mismatch exactly when it flags
+       the honest twin or original with the same code. PR-AUC sits at the mismatch rate
+       (chance level).
+     - Its ~0.6 recall comes from generic rules (AGENT-022 error handling, AGENT-034 input
+       validation, AGENT-026), which fire on honest pairs just as often (rung 1: 97 honest
+       flagged). Capability-rules-only recall: 0.06 / 0.18 / 0.12 / 0.28.
+     - Coverage vs our model at 0.5 (mismatches caught: ours only / AA only / both / neither):
+       rung 1 22 / 4 / 37 / 3; rung 2 51 / 9 / 79 / 5; rung 3 Opus 16 / 1 / 14 / 2; GPT 13 / 9
+       / 34 / 23. AA's "AA only" catches come with ~2 honest false alarms per mismatch.
+
+     Still to do: the coverage set (needs step 1: `--model-preds` = the `full-test` and
+     `coverage-bugs` predictions), then write up `docs/results-agent-audit.md` and drop
      "provisional" from rung 3.
-  - **Waiting on (2026-11-11):** (a) someone runs the step 1 CARC job; (b) the go-ahead for
-    the real step 3 runs (once per set, results committed under `runs/agent_audit/<tag>/`).
-    The four rung sets can run as soon as (b) is given; the coverage set also needs (a).
+  - **Waiting on (2026-11-12):** someone runs the step 1 CARC job; then
+    `agentlint aa-score data/coverage/pairs.jsonl --tag coverage --model-preds checkpoints/binary/eval/full-test/predictions.jsonl checkpoints/binary/eval/coverage-bugs/predictions.jsonl`.
+    The write-up for the four rung sets can start now.
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -758,6 +779,10 @@ cancel an order and write a refund row) gave indistinguishable output. A hostile
 
 ## 9. Gotchas
 
+- **macOS: don't keep the repo in iCloud-synced `Documents` / `Desktop`.** With "Optimize Mac
+  Storage" on (and especially when iCloud is full), macOS evicts files to the cloud, including
+  `.git/index` and pack files; git then fails with `unable to map index file: Operation timed
+  out` (check with `ls -lO`: `dataless`). Clone to a non-synced path such as `~/code/`.
 - **macOS: `No module named 'agentlint'`** even though `pip list` shows it. macOS sets the
   `hidden` flag on the editable-install `.pth` file, and Python 3.13 skips hidden `.pth` files.
   Fix: `chflags nohidden .venv/lib/python3.13/site-packages/*.pth` (check with `ls -lO`).
@@ -801,6 +826,11 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-12:** Ran Agent Audit 0.19.2 once on the four rung sets (`runs/agent_audit/`).
+  Main-verdict F1 0.35–0.47, PR-AUC at chance, 0 verdict differences within 496 same-code
+  groups: AA cannot see the mismatch. Coverage set waits on the CARC `coverage-bugs` job.
+  `tests/test_build.py::test_tools_named_in_another_dataset_are_excluded` is flaky (fails ~2
+  in 7 runs, row order); not fixed yet.
 - **2026-11-11 (end of session):** Pushed the decisions and `aa-score`. Next steps are at the
   top of section 2 ("Resume here"): the CARC job for the 25 bug tools, then the real AA runs.
 - **2026-11-11 (later):** Wrote `src/agentlint/eval/agent_audit.py` and `agentlint aa-score`
