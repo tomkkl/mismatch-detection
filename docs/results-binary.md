@@ -3,8 +3,8 @@
 Written 2026-11-03; rungs 2 and 3 added 2026-11-10. Model: `checkpoints/binary` (GraphCodeBERT
 cross-encoder, fine-tuned for 10 epochs, best epoch 9). Test sets, each **scored once**: rung 1,
 `data/splits/full/test.jsonl` (CARC job 13657576); rung 2, a fresh Opus-generated set (job
-13919620); rung 3, real GitHub tools in two versions (jobs 13919689 / 13919690). **Rung 3 is
-provisional:** these are model numbers only, and Agent Audit has not yet run on the same set.
+13919620); rung 3, real GitHub tools in two versions (jobs 13919689 / 13919690). Agent Audit has run on
+the same sets (2026-11-12); the comparison is in `docs/results-agent-audit.md`.
 Charts are made by `scripts/plot_results.py` from the committed files in
 `checkpoints/`; rerun it to regenerate `docs/figures/`.
 
@@ -23,7 +23,7 @@ Charts are made by `scripts/plot_results.py` from the committed files in
   model errors (section 6).
 - **Rung 2 (a different generator, Opus 5.5) matches rung 1:** PR-AUC 0.962, F1 0.93. No sign
   the model learned the training generator's style (section 7).
-- **Rung 3 (real GitHub tools, provisional) is lower:** PR-AUC 0.942 / F1 0.79 when Opus
+- **Rung 3 (real GitHub tools) is lower:** PR-AUC 0.942 / F1 0.79 when Opus
   injects into the real tools, 0.853 / F1 0.70 with templated GPT mutations. Injections are
   still caught (29/31 and 43/50). The new problems are 6 of 43 real, honest originals flagged
   (terse real docstrings) and weakened descriptions, almost all missed (4/29) (section 8).
@@ -215,12 +215,11 @@ A hand check of the 31 injections the word-list check didn't confirm found no wr
 - **Chunks:** honest pairs flagged 1.4% / 2.1% / 1.4% for 1 / 2 / 3+ chunks, so no chunk leak.
 - Scores stay saturated: 361 of 503 at or below 0.01, 132 at or above 0.99.
 
-## 8. Rung 3: real GitHub tools (provisional, scored once)
+## 8. Rung 3: real GitHub tools (scored once)
 
-> **Provisional.** These are the model's numbers only. Agent Audit has not yet been run on the
-> same set, and the GitHub provenance (repository, commit, license) of the 50 source functions
-> is still being recovered. The numbers may be reorganized once both are done; they will not be
-> rescored.
+> Agent Audit ran on the same 43-tool files on 2026-11-12 (`docs/results-agent-audit.md`), so
+> these numbers are final. The GitHub provenance (repository, commit, license) of the 50 source
+> functions is still being recovered; that may change how the set is described, not the scores.
 
 **The set.** 50 real `@tool` functions from GitHub (Andrea's scrape,
 `data/github_tools_dataset.json`), mutated two ways, so the two versions differ only in the
@@ -309,8 +308,8 @@ So terse real docstrings, not real code, are the shift the model doesn't handle.
 - **Twins with a trailing declared operation** can still fool the model (rung 1). Worth a check
   across train: are twins with the declared effect at the end rarer than mutants with code at
   the end?
-- **Next:** build the Agent Audit coverage set and run Agent Audit on rung 3, which makes the
-  rung 3 numbers final.
+- **Agent Audit** ran on all four sets (2026-11-12) and is at chance on every one: it gives
+  identical verdicts to pairs with identical code. See `docs/results-agent-audit.md`.
 
 ## Files
 

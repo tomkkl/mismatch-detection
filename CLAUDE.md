@@ -68,8 +68,8 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 **Resume here (2026-11-12).**
 Current focus: **Agent Audit vs our model** on every test set
 (`docs/agent-audit-comparison.md`). State:
-- Done: rungs 1–3 are in `docs/results-binary.md` (rung 3 marked provisional until Agent Audit
-  runs on it); the design note is written; the coverage set is built and checked
+- Done: rungs 1–3 are in `docs/results-binary.md` (rung 3 final since AA ran on it,
+  2026-11-12); the design note is written; the coverage set is built and checked
   (`data/coverage/`, 128 pairs). **The note's open decisions were settled 2026-11-11**
   (section 9 there): the draft capability rule list as is (all nine IDs checked against AA
   0.19.2), rung 3 scanned as wrapped functions only, results in a separate
@@ -103,12 +103,14 @@ Current focus: **Agent Audit vs our model** on every test set
        rung 1 22 / 4 / 37 / 3; rung 2 51 / 9 / 79 / 5; rung 3 Opus 16 / 1 / 14 / 2; GPT 13 / 9
        / 34 / 23. AA's "AA only" catches come with ~2 honest false alarms per mismatch.
 
-     Still to do: the coverage set (needs step 1: `--model-preds` = the `full-test` and
-     `coverage-bugs` predictions), then write up `docs/results-agent-audit.md` and drop
-     "provisional" from rung 3.
-  - **Waiting on (2026-11-12):** someone runs the step 1 CARC job; then
-    `agentlint aa-score data/coverage/pairs.jsonl --tag coverage --model-preds checkpoints/binary/eval/full-test/predictions.jsonl checkpoints/binary/eval/coverage-bugs/predictions.jsonl`.
-    The write-up for the four rung sets can start now.
+     **Write-up drafted 2026-11-12:** `docs/results-agent-audit.md` (rung sets done; section 7,
+     the coverage set, still to fill). Paired check from saved predictions: injection vs its
+     twin, ours scores the mismatch higher 245/245, AA ties 245/245; weakened vs same-code
+     honest, ours 121 higher / 1 tie / 19 lower (17 of the 19 on rung 3 GPT), AA ties 141/141.
+     "Provisional" dropped from rung 3 in `docs/results-binary.md`.
+  - **Waiting on (2026-11-12):** CARC job **14066569** (step 1, submitted 2026-11-12). When it
+    lands and is pushed: `agentlint aa-score data/coverage/pairs.jsonl --tag coverage --model-preds checkpoints/binary/eval/full-test/predictions.jsonl checkpoints/binary/eval/coverage-bugs/predictions.jsonl`,
+    then fill section 7 of `docs/results-agent-audit.md`.
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -390,8 +392,8 @@ Steps 2 and 3 can run at the same time with different people.
    - Scores stay saturated: rung 2 361/503 ≤ 0.01 and 132 ≥ 0.99; rung 3 Opus 91 + 37 of 138;
      GPT 152 + 44 of 215.
    **Rungs 2–3 are in `docs/results-binary.md` (2026-11-10)**, sections 7–8, with two new
-   charts (`docs/figures/rungs_headline.svg`, `rungs_by_pair_type.svg`). Rung 3 is marked
-   **provisional** there (model only) until Agent Audit has run on it.
+   charts (`docs/figures/rungs_headline.svg`, `rungs_by_pair_type.svg`). Rung 3 was marked
+   provisional there until Agent Audit ran on it (done 2026-11-12; now final).
    **Next:** run Agent Audit on all four test sets plus the coverage set. Design note (draft,
    2026-11-10, open decisions in its section 9): `docs/agent-audit-comparison.md`.
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
@@ -709,8 +711,8 @@ an interchangeable implementation of the training pipeline. Before scoring: reco
 URL / commit / path / license provenance where possible; flag functions missing surrounding
 imports or project context; inspect repeated templates and all labels; commit the generator and
 final pairs at stable paths; and freeze the artifact checksum. Do not train, tune a threshold,
-or revise policy from Rung 3 outcomes. Its model numbers are in `docs/results-binary.md`, marked
-provisional (decided 2026-11-10); they become final once Agent Audit has also run on it.
+or revise policy from Rung 3 outcomes. Its model numbers are in `docs/results-binary.md`; they were
+provisional (decided 2026-11-10) until Agent Audit ran on it, and are final since 2026-11-12.
 
 **Data hygiene** (the model will cheat otherwise): no comments on injected lines; vary
 injection position, domains, naming and length; keep a tool and its mutants in the same split;
@@ -826,6 +828,8 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-12 (later):** Drafted `docs/results-agent-audit.md` (rung sets; coverage set
+  pending CARC job 14066569) and dropped "provisional" from rung 3 in `docs/results-binary.md`.
 - **2026-11-12:** Ran Agent Audit 0.19.2 once on the four rung sets (`runs/agent_audit/`).
   Main-verdict F1 0.35–0.47, PR-AUC at chance, 0 verdict differences within 496 same-code
   groups: AA cannot see the mismatch. Coverage set waits on the CARC `coverage-bugs` job.
