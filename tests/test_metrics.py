@@ -1,3 +1,4 @@
+import numpy as np
 import pytest
 
 from agentlint.eval.metrics import (best_f1_threshold, binary_metrics, bootstrap_pr_auc, breakdown,
@@ -66,3 +67,12 @@ def test_bootstrap_pr_auc_brackets_the_point_estimate():
     point = report(ROWS, 0.5)["pr_auc"]
     assert 0 <= lo <= point <= hi <= 1
     assert bootstrap_pr_auc(ROWS, n=500) == (lo, hi)  # seeded
+
+
+def test_all_honest_set_reports_nan_pr_auc_instead_of_crashing():
+    # e.g. the conventional-bug tools of the Agent Audit coverage set: all mismatch=false
+    rows = [_row("a", False, 0.02), _row("b", False, 0.97, 2), _row("c", False, 0.001)]
+    lo, hi = bootstrap_pr_auc(rows, n=50)
+    assert np.isnan(lo) and np.isnan(hi)
+    m = report(rows, 0.5)
+    assert np.isnan(m["pr_auc"]) and m["fp"] == 1 and m["tp"] == 0

@@ -52,6 +52,9 @@ def score(checkpoint: str, pairs_path: str, tag: str | None = None, force: bool 
                      task=cfg["task"])
     loader = DataLoader(ds, batch_size=batch_size or cfg["batch_size"], collate_fn=ds.collate)
     rows = predict(model, loader, {p.pair_id: p for p in pairs}, device)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    with open(out_dir / "predictions.jsonl", "w") as f:  # saved first: a metrics bug can't lose a run
+        f.writelines(json.dumps(r) + "\n" for r in rows)
 
     ci = bootstrap_pr_auc(rows)
     result = {
@@ -60,9 +63,6 @@ def score(checkpoint: str, pairs_path: str, tag: str | None = None, force: bool 
         "at_0.5": report(rows, MAIN_THRESHOLD),
         "at_saved_threshold": report(rows, saved["threshold"]),
     }
-    out_dir.mkdir(parents=True, exist_ok=True)
-    with open(out_dir / "predictions.jsonl", "w") as f:
-        f.writelines(json.dumps(r) + "\n" for r in rows)
     (out_dir / "metrics.json").write_text(json.dumps(result, indent=2))
 
     print(f"{pairs_path} | {len(rows)} pairs | checkpoint {checkpoint} (epoch {saved['epoch']})")
