@@ -65,6 +65,56 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ## 2. Where we are and what's next (updated 2026-11-18)
 
+**Overall verdict (2026-11-18, all runs in).** Our model detects capability mismatches
+reliably. It holds up when the generator changes, and does somewhat worse on real GitHub code.
+Agent Audit can't detect mismatches at all, because its rules never use the description. The
+two tools catch different problems, so they complement each other rather than compete.
+
+| Set | What it tests | Ours PR-AUC | Ours F1 | Ours group acc | AA F1 (main) | AA PR-AUC (chance) |
+|---|---|---|---|---|---|---|
+| val | tuning set | 0.981 | 0.91 | 0.84 | — | — |
+| rung 1 `test` | held-out tools, same generator | 0.962 | 0.93 | 0.91 | 0.40 | 0.275 (0.263) |
+| rung 2 | different generator (Opus) | 0.962 | 0.93 | 0.86 | 0.43 | 0.319 (0.286) |
+| rung 3 Opus | real GitHub code, our injector | 0.942 | 0.79 | 0.74 | 0.35 | 0.270 (0.239) |
+| rung 3 GPT | real GitHub code, templates | 0.853 | 0.70 | 0.28 | 0.47 | 0.401 (0.367) |
+| frozen encoder | before fine-tuning, val | 0.489 | 0.51 | 0.33 | — | — |
+
+Ours at cut-off 0.5. "Chance" = share of mismatches in the set.
+
+- **Fine-tuning is what makes it work:** val PR-AUC 0.49 with a frozen encoder vs 0.98
+  fine-tuned.
+- **It compares the description with the code, not surface cues:** in all 245 inject/twin
+  pairs (identical code, only the description differs) it scores the mismatch higher. Length-
+  and description-only baselines sit at the majority rate.
+- **It didn't memorize Sonnet's style:** rung 2 (different generator and seed) matches rung 1.
+- **Real code costs some precision:** the same 6 honest GitHub tools are flagged in both
+  rung 3 versions, all model errors. Real docstrings imply effects through the verb ("search",
+  "control"); training descriptions spell them out, so the model flags `requests.post` /
+  `subprocess.run` that the description doesn't name.
+- **Agent Audit cannot see a mismatch:** 0 differences in all 543 same-code groups (496 rungs +
+  47 coverage); PR-AUC at chance. Its ~0.6 recall comes from generic rules (input validation,
+  error handling) that flag honest code as often: on every set its recall on injections equals
+  its false-alarm rate on their twins. Rung 3 GPT is slightly above chance only because the
+  templates add code AA treats as dangerous.
+- **Coverage set (the two tools side by side):**
+
+  | | Agent Audit | Our model |
+  |---|---|---|
+  | Conventional bugs (25) | 13/25 by bug-specific rules (eval / shell 10/10, SQL 1/5, secrets 2/5, pickle / yaml 0/5) | 0/25 (correct: honest descriptions) |
+  | Mismatches (34) | 0/34 by those rules | 27/34 |
+  | Honest pairs flagged (69) | 42/69 at main verdict (generic rules) | 0/69 |
+
+- **Weak spots to state in the write-up:** (1) weakened mismatches: recall 7/12 rung 1, 27/34
+  rung 2, 4/29 rung 3 GPT. Missed ones score like honest pairs, so the fix is more weakened
+  training data, not a lower cut-off. (2) Some honest rewrites are flagged for their wording
+  (5/110 rung 2). (3) Short real-world docstrings cause false alarms (fix idea: train on short,
+  implicit honest descriptions). (4) Rung 3 is small (43 tools), with wide intervals. (5) The
+  model says whether, not where; line numbers need the word-list gaps fixed.
+- **One-sentence conclusion:** a fine-tuned code model can learn to check that a tool's code
+  matches its declared interface (PR-AUC 0.96 on held-out and different-generator tools,
+  0.85–0.94 on real GitHub code). Agent Audit's rule-based approach can't, because its rules
+  never use the description. The two tools are complementary, not competitors.
+
 **Resume here (2026-11-18).** The Agent Audit comparison is complete on all five sets.
 Current focus: **Agent Audit vs our model** on every test set
 (`docs/agent-audit-comparison.md`). State:
@@ -835,6 +885,8 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-11-18 (later):** Added the overall verdict across all runs to the top of section 2.
 
 - **2026-11-18:** Our model scored the 25 coverage bug tools (CARC job 14323275): 0/25 flagged.
   Ran Agent Audit once on the coverage set: bug-specific rules catch 13/25 bugs (eval / shell
