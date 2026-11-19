@@ -1,6 +1,6 @@
 # Agent Audit vs our detector on the test ladder
 
-Written 2026-11-12. **Draft: the coverage set (section 7) is still to run.** Agent Audit (AA)
+Written 2026-11-12; coverage set (section 7) added 2026-11-18. Agent Audit (AA)
 0.19.2, run once per set with `agentlint aa-score` (design: `docs/agent-audit-comparison.md`).
 Our model's numbers are the saved ones from `docs/results-binary.md` (`checkpoints/binary`,
 cut-off 0.5); nothing was rescored for this write-up.
@@ -21,7 +21,10 @@ cut-off 0.5); nothing was rescored for this write-up.
 - **At its main verdict, AA's F1 is 0.35–0.47 with group accuracy 0.00–0.19.** Our model has
   F1 0.70–0.93 and group accuracy 0.28–0.91.
 - **This is a statement about scope, not quality.** AA is built to find dangerous code
-  (injection, unsafe execution, secrets). The coverage set (section 7) tests it on that.
+  (injection, unsafe execution, secrets). On the coverage set (section 7) its bug-specific
+  rules catch 13 of 25 conventional bugs (all 10 eval / shell, 1/5 SQL, 2/5 secrets, 0/5
+  unsafe pickle / yaml), and our model catches none, as it should: they are not mismatches.
+  The two tools cover disjoint problems.
 
 ## 1. Setup
 
@@ -30,7 +33,7 @@ cut-off 0.5); nothing was rescored for this write-up.
 | Tool | Agent Audit 0.19.2 (`baseline` extra), static, rule-based, local (no GPU) |
 | Input | each pair written as one Python file: the code with the description as its docstring and a `@tool` decorator if it had none, under a neutral path (AA suppresses test-looking paths) |
 | Runs | one `agent-audit scan` per set, once (2026-11-12). A known-vulnerable control file is added to every scan; it fired every time (AGENT-001 / 017 / 035), and no file failed |
-| Sets | rung 1 `test` (251 pairs), rung 2 Opus (503), rung 3 Opus on 43 GitHub tools (138), rung 3 GPT templates on the same 43 tools (215). Same files our model scored |
+| Sets | rung 1 `test` (251 pairs), rung 2 Opus (503), rung 3 Opus on 43 GitHub tools (138), rung 3 GPT templates on the same 43 tools (215); coverage set (128, run 2026-11-18). Same files our model scored |
 | Our model | `checkpoints/binary`, at 0.5, saved predictions |
 
 ## 2. Verdict rules (fixed before any run)
@@ -146,16 +149,51 @@ Adding AA to our model catches 23 more mismatches across the four sets (4 + 9 + 
 adds 365 honest false alarms (96 + 176 + 34 + 59). Given section 4, these extra catches are
 coincidence: AA flags the honest twin of each of them too.
 
-## 7. Coverage set: conventional bugs (pending)
+## 7. Coverage set: conventional bugs
 
 128 pairs from 50 tools: 25 hand-written tools with a conventional bug (eval / exec,
-`shell=True`, unsafe pickle / yaml, string-built SQL, hard-coded secret; honest descriptions)
-plus 25 rung 1 tools with all their pairs. This is where AA should do well and our model
-should not (the bugs are not mismatches). Our model's scores for the 25 bug tools come from
-CARC job 14066569 (`checkpoints/binary/eval/coverage-bugs/`); AA runs once after that.
+`shell=True`, unsafe pickle / yaml, string-built SQL, hard-coded secret; 5 of each, honest
+descriptions) plus 25 rung 1 tools with all their pairs (103 pairs, 34 mismatches). This is
+where AA should do well and our model should not: the bugs are not mismatches. Our model
+scored the 25 bug tools once (CARC job 14323275, commit aa448cf; the first try, job 14066569,
+crashed on the all-honest set and saved nothing); the rung 1 rows reuse their saved scores.
+AA ran once (2026-11-18): 0 failures, control fired, 0 differences in the 47 same-code groups.
 
-*To fill in:* AA and our model on the 25 bug tools, per bug kind; the coverage table with the
-conventional-bug row.
+**Our model flags none of the 25 bug tools** (highest score 0.0025). That is the right answer
+under our definition, and it means our model gives no protection against these bugs.
+
+**AA on the 25 bug tools, by kind.** "Bug rule" = a finding whose rule names the bug itself:
+AGENT-001 / 017 / 035 for eval and shell, AGENT-041 for SQL injection, AGENT-004 for
+hard-coded credentials. None of these rules fire on any of the 103 rung 1 pairs.
+
+| Bug kind | Tools | AA main verdict | AA bug rule | Ours at 0.5 |
+|---|---|---|---|---|
+| eval / exec | 5 | 5 | **5** (AGENT-001, 017, 035) | 0 |
+| `shell=True` / `os.system` | 5 | 5 | **5** (AGENT-035; AGENT-001 on 4) | 0 |
+| unsafe pickle / yaml | 5 | 4 | **0** (no rule fires) | 0 |
+| string-built SQL | 5 | 4 | **1** (AGENT-041) | 0 |
+| hard-coded secret | 5 | 3 | **2** (AGENT-004) | 0 |
+| **Total** | 25 | 21 | **13** | 0 |
+
+- AA's main verdict flags 21/25, but 8 of those come only from the generic rules (AGENT-034
+  input validation, AGENT-022 error handling), which also flag 42 of the 69 honest rung 1
+  pairs in this set (61%). Counting only bug rules, AA catches 13/25: all code and shell
+  execution, but 1/5 SQL, 2/5 secrets and no unsafe deserialization.
+- On the capability-rules verdict (section 2), AA catches 11/25 bug tools (eval and shell,
+  plus 1 SQL) and flags none of the 103 rung 1 pairs, mismatches included (0/34).
+
+**Coverage table** (AA main verdict, our 0.5 cut-off):
+
+| Coverage set | Pairs | Ours only | AA only | Both | Neither | Union |
+|---|---|---|---|---|---|---|
+| Mismatches | 34 | 9 | 4 | 18 | 3 | 31 |
+| Conventional bugs | 25 | 0 | 21 | 0 | 4 | 21 |
+| Honest pairs flagged | 69 | 0 | 42 | 0 | 27 | 42 |
+
+With AA's capability-rules verdict instead, the rows are: mismatches 27 / 0 / 0 / 7 (ours
+only / AA only / both / neither); bugs 0 / 11 / 0 / 14; honest flagged 0 / 0 / 0. So the two
+tools catch **disjoint** things: no pair is caught by both through a rule that targets it.
+Our model alone catches 27/34 mismatches with 0/69 false alarms here.
 
 ## 8. Takeaways
 
@@ -164,14 +202,17 @@ conventional-bug row.
   same-code check shows why: it never looks at the description.
 - AA's flags on our sets are mostly generic hygiene findings that fire on about half of all
   honest tools, so they can't serve as a mismatch signal.
-- With the coverage set, the expected picture is complementary coverage: AA on conventional
-  bugs, our model on mismatches.
+- The coverage set confirms complementary coverage: AA catches conventional bugs (best on
+  code and shell execution, weak on SQL, secrets and deserialization), our model catches
+  mismatches, and no pair is caught by both through a rule meant for it. Running both is the
+  sensible setup.
 - The rung 3 model numbers in `docs/results-binary.md` are now final (AA has run on rung 3).
 
 ## Files
 
-- AA results: `runs/agent_audit/{full-test,rung2-opus,rung3-opus,rung3-gpt}/`
+- AA results: `runs/agent_audit/{full-test,rung2-opus,rung3-opus,rung3-gpt,coverage}/`
   (`findings.json`, `metrics.json`, `predictions_{main,capability,any,ordinal}.jsonl`).
-- Our model: `checkpoints/binary/eval/{full-test,rung2-opus-pairs,rung3-opus,rung3-gpt}/`.
+- Our model: `checkpoints/binary/eval/{full-test,rung2-opus-pairs,rung3-opus,rung3-gpt,coverage-bugs}/`
+  (job log `runs/slurm-agentlint-score-14323275.out`).
 - Code: `src/agentlint/eval/agent_audit.py`, `agentlint aa-score`.
 - Design and fixed rules: `docs/agent-audit-comparison.md`. Earlier probes: CLAUDE.md section 8.

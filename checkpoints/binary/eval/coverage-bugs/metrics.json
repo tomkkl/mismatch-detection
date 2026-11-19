@@ -1,0 +1,84 @@
+{
+  "checkpoint": "checkpoints/binary",
+  "pairs": "data/coverage/conventional_bugs.jsonl",
+  "n": 25,
+  "checkpoint_epoch": 9,
+  "pr_auc_ci95": [
+    NaN,
+    NaN
+  ],
+  "at_0.5": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "pr_auc": NaN,
+    "threshold": 0.5,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "n": 25,
+    "group_accuracy": 1.0,
+    "breakdowns": {
+      "chunks": {
+        "1": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.0,
+          "n": 25,
+          "n_mismatch": 0,
+          "n_honest": 25
+        }
+      },
+      "effect": {},
+      "effect_weaken": {},
+      "position": {},
+      "mutation": {
+        "original": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.0,
+          "n": 25,
+          "n_mismatch": 0,
+          "n_honest": 25
+        }
+      }
+    }
+  },
+  "at_saved_threshold": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "pr_auc": NaN,
+    "threshold": 0.0035243413876742125,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "n": 25,
+    "group_accuracy": 1.0,
+    "breakdowns": {
+      "chunks": {
+        "1": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.0,
+          "n": 25,
+          "n_mismatch": 0,
+          "n_honest": 25
+        }
+      },
+      "effect": {},
+      "effect_weaken": {},
+      "position": {},
+      "mutation": {
+        "original": {
+          "precision": null,
+          "recall": null,
+          "fp_rate": 0.0,
+          "n": 25,
+          "n_mismatch": 0,
+          "n_honest": 25
+        }
+      }
+    }
+  }
+}

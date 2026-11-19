@@ -1,0 +1,9 @@
+job 14323275 on b09-12.hpc.usc.edu | score checkpoints/binary on data/coverage/conventional_bugs.jsonl | commit aa448cf
+name, memory.total [MiB]
+NVIDIA A100 80GB PCIe, 81920 MiB
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:  48%|████▊     | 97/201 [00:00<00:00, 942.64it/s]Loading weights:  96%|█████████▌| 192/201 [00:00<00:00, 792.95it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 848.14it/s]
+data/coverage/conventional_bugs.jsonl | 25 pairs | checkpoint checkpoints/binary (epoch 9)
+PR-AUC nan (95% CI nan to nan)
+@0.5 P 0.000 R 0.000 F1 0.000 group acc 1.000 | original FP 0.00
+@0.003524 P 0.000 R 0.000 F1 0.000 group acc 1.000 | original FP 0.00
+saved to checkpoints/binary/eval/coverage-bugs

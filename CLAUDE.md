@@ -63,9 +63,9 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-11-12)
+## 2. Where we are and what's next (updated 2026-11-18)
 
-**Resume here (2026-11-12).**
+**Resume here (2026-11-18).** The Agent Audit comparison is complete on all five sets.
 Current focus: **Agent Audit vs our model** on every test set
 (`docs/agent-audit-comparison.md`). State:
 - Done: rungs 1–3 are in `docs/results-binary.md` (rung 3 final since AA ran on it,
@@ -75,8 +75,10 @@ Current focus: **Agent Audit vs our model** on every test set
   0.19.2), rung 3 scanned as wrapped functions only, results in a separate
   `docs/results-agent-audit.md`, and the new `eval/agent_audit.py` module approved.
 - **Next, in order:**
-  1. Score the 25 bug tools once with our model on CARC (can run in parallel with step 2):
-     `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/coverage/conventional_bugs.jsonl --tag coverage-bugs`
+  1. ~~Score the 25 bug tools once with our model on CARC~~ **done 2026-11-18** (job
+     14323275, commit aa448cf; job 14066569 had crashed on the all-honest set, fixed in
+     aa448cf). Files: `checkpoints/binary/eval/coverage-bugs/`,
+     `runs/slurm-agentlint-score-14323275.out`. 0/25 flagged (max score 0.0025). Do not rescore.
   2. ~~Write `eval/agent_audit.py` + `agentlint aa-score`~~ **done 2026-11-11**, 12 tests.
      Dry run on the first 12 `test` pairs (scratch, not committed) reproduced the note's probe
      exactly, and AA's findings were identical within all 5 same-code groups.
@@ -108,9 +110,15 @@ Current focus: **Agent Audit vs our model** on every test set
      twin, ours scores the mismatch higher 245/245, AA ties 245/245; weakened vs same-code
      honest, ours 121 higher / 1 tie / 19 lower (17 of the 19 on rung 3 GPT), AA ties 141/141.
      "Provisional" dropped from rung 3 in `docs/results-binary.md`.
-  - **Waiting on (2026-11-12):** CARC job **14066569** (step 1, submitted 2026-11-12). When it
-    lands and is pushed: `agentlint aa-score data/coverage/pairs.jsonl --tag coverage --model-preds checkpoints/binary/eval/full-test/predictions.jsonl checkpoints/binary/eval/coverage-bugs/predictions.jsonl`,
-    then fill section 7 of `docs/results-agent-audit.md`.
+     **Coverage set done 2026-11-18, once. Do not rerun.** `runs/agent_audit/coverage/`; 0
+     failures, control fired, 0 differences in 47 same-code groups. On the 25 bug tools: AA
+     main verdict 21/25, but bug-specific rules only 13/25 (eval 5/5, shell 5/5, SQL 1/5 via
+     AGENT-041, secrets 2/5 via AGENT-004, pickle/yaml 0/5); the rest is generic AGENT-034 /
+     022, which also flag 42/69 honest rung 1 pairs. Our model: 0/25 bugs (right: not
+     mismatches), 27/34 mismatches, 0/69 honest flagged. Capability verdict: AA 11/25 bugs and
+     0/103 rung 1 pairs, so the two tools catch disjoint things. Section 7 of
+     `docs/results-agent-audit.md` filled; the write-up is no longer a draft.
+  - **Next:** open (step 5 below, or "If time allows").
 
 **Done**
 - Agent Audit probes: it misses capability mismatches entirely (see section 8).
@@ -827,6 +835,12 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-11-18:** Our model scored the 25 coverage bug tools (CARC job 14323275): 0/25 flagged.
+  Ran Agent Audit once on the coverage set: bug-specific rules catch 13/25 bugs (eval / shell
+  10/10, SQL 1/5, secrets 2/5, pickle / yaml 0/5) and never fire on rung 1 pairs; our model
+  catches 27/34 mismatches with 0 false alarms. Filled section 7 of
+  `docs/results-agent-audit.md`. The Agent Audit comparison is complete.
 
 - **2026-11-12 (later):** Drafted `docs/results-agent-audit.md` (rung sets; coverage set
   pending CARC job 14066569) and dropped "provisional" from rung 3 in `docs/results-binary.md`.
