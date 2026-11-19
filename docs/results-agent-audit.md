@@ -164,7 +164,9 @@ under our definition, and it means our model gives no protection against these b
 
 **AA on the 25 bug tools, by kind.** "Bug rule" = a finding whose rule names the bug itself:
 AGENT-001 / 017 / 035 for eval and shell, AGENT-041 for SQL injection, AGENT-004 for
-hard-coded credentials. None of these rules fire on any of the 103 rung 1 pairs.
+hard-coded credentials. On the 103 rung 1 pairs they fire on one tool only: `c0094-2`
+hard-codes a placeholder Stripe key, so AGENT-004 flags all 4 of its pairs (same code). That
+is a real secret finding, unrelated to the tool's injected mismatch.
 
 | Bug kind | Tools | AA main verdict | AA bug rule | Ours at 0.5 |
 |---|---|---|---|---|
@@ -192,7 +194,8 @@ hard-coded credentials. None of these rules fire on any of the 103 rung 1 pairs.
 
 With AA's capability-rules verdict instead, the rows are: mismatches 27 / 0 / 0 / 7 (ours
 only / AA only / both / neither); bugs 0 / 11 / 0 / 14; honest flagged 0 / 0 / 0. So the two
-tools catch **disjoint** things: no pair is caught by both through a rule that targets it.
+tools catch **disjoint** things: the only overlap is `c0094-2`'s injected pair, which our
+model flags for the mismatch (0.999) and AA flags for the hard-coded key in all 4 pairs.
 Our model alone catches 27/34 mismatches with 0/69 false alarms here.
 
 ## 8. Takeaways
@@ -204,7 +207,7 @@ Our model alone catches 27/34 mismatches with 0/69 false alarms here.
   honest tools, so they can't serve as a mismatch signal.
 - The coverage set confirms complementary coverage: AA catches conventional bugs (best on
   code and shell execution, weak on SQL, secrets and deserialization), our model catches
-  mismatches, and no pair is caught by both through a rule meant for it. Running both is the
+  mismatches; they overlap only by coincidence (one tool with a hard-coded key). Running both is the
   sensible setup.
 - The rung 3 model numbers in `docs/results-binary.md` are now final (AA has run on rung 3).
 

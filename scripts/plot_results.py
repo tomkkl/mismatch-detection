@@ -1,5 +1,6 @@
-"""Charts for docs/results-binary.md: training curves, val vs test, errors by pair type,
-and rungs 1-3 of the test ladder side by side.
+"""Charts for docs/results-binary.md and docs/results-final.md: training curves, val vs
+test, errors by pair type, rungs 1-3 of the test ladder side by side, and Agent Audit vs our
+model (runs/agent_audit/).
 
 Usage: python scripts/plot_results.py [--out docs/figures]   (needs the `plots` extra)
 
@@ -240,6 +241,71 @@ def rungs_by_pair_type(rows_by_rung: list[list[dict]], out: Path):
     plt.close(fig)
 
 
+AA = Path("runs/agent_audit")
+AA_TAGS = ["full-test", "rung2-opus", "rung3-opus", "rung3-gpt"]  # same order as LADDER
+# AA rules that name the conventional bug itself (docs/results-agent-audit.md section 7).
+BUG_RULES = {"AGENT-001", "AGENT-017", "AGENT-035", "AGENT-041", "AGENT-004"}
+BUG_KINDS = [("eval_exec", "eval / exec"), ("shell_injection", "shell"),
+             ("unsafe_deserialize", "pickle / yaml"), ("sql_injection", "SQL"),
+             ("hardcoded_secret", "secret")]
+
+
+def aa_vs_ours(ours: list[float], aa: list[float], chance: list[float], out: Path):
+    x = np.arange(len(LADDER))
+    w = 0.36
+    fig, ax = plt.subplots(figsize=(7, 3.4))
+    for i, (label, ys, color) in enumerate([("our model", ours, SERIES[0]),
+                                            ("Agent Audit (ordinal)", aa, SERIES[1])]):
+        bars = ax.bar(x + (i - 0.5) * (w + 0.02), ys, w, color=color, label=label)
+        ax.bar_label(bars, labels=[f"{y:.2f}" for y in ys], padding=2, fontsize=8, color=INK_2)
+    for xi, c in zip(x, chance):
+        ax.plot([xi - w - 0.03, xi + w + 0.03], [c, c], color=INK, linewidth=1.2,
+                linestyle="--")
+    ax.plot([], [], color=INK, linewidth=1.2, linestyle="--", label="chance (mismatch share)")
+    ax.set_xticks(x, [label for _, label in LADDER])
+    ax.set_ylim(0, 1.1)
+    ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+    ax.set_ylabel("PR-AUC")
+    ax.grid(axis="x", visible=False)
+    ax.set_title("PR-AUC on the test ladder: our model vs Agent Audit", loc="left", fontsize=11,
+                 color=INK)
+    ax.legend(loc="upper center", ncols=3, bbox_to_anchor=(0.5, -0.1), fontsize=8)
+    save(fig, out, "aa_vs_ours_pr_auc")
+
+
+def coverage_chart(aa_main: list[dict], out: Path):
+    """Coverage set: per bug kind, plus the rung 1 part (mismatches, honest pairs)."""
+    bugs = [r for r in aa_main if r.get("conventional_bug")]
+    rest = [r for r in aa_main if not r.get("conventional_bug")]
+    groups = [(lab, [r for r in bugs if r["bug_kind"] == k], True) for k, lab in BUG_KINDS]
+    groups += [("mismatches", [r for r in rest if r["label"]], True),
+               ("honest\n(flagged)", [r for r in rest if not r["label"]], False)]
+    series = [("our model (0.5)", lambda r: r["model_score"] >= MAIN, SERIES[0]),
+              ("AA, rule aimed at it", lambda r: bool(BUG_RULES & set(r["rules"])), SERIES[1]),
+              ("AA, main verdict", lambda r: r["score"] >= 1, SERIES[3])]
+    x = np.arange(len(groups))
+    w = 0.26
+    fig, ax = plt.subplots(figsize=(8.5, 3.6))
+    for i, (label, hit, color) in enumerate(series):
+        cs = [(sum(hit(r) for r in rs), len(rs)) for _, rs, _ in groups]
+        bars = ax.bar(x + (i - 1) * (w + 0.01), [k / n for k, n in cs], w, color=color,
+                      label=label)
+        ax.bar_label(bars, labels=[f"{k}/{n}" for k, n in cs], padding=2, fontsize=7,
+                     color=INK_2)
+    ax.axvline(len(BUG_KINDS) - 0.5, color=INK_2, linewidth=1)
+    ax.annotate("25 conventional-bug tools (honest descriptions)", (-0.4, 1.17), fontsize=8,
+                color=INK_2)
+    ax.annotate("103 rung 1 pairs", (len(BUG_KINDS) - 0.35, 1.17), fontsize=8, color=INK_2)
+    ax.set_xticks(x, [g[0] for g in groups])
+    ax.set_ylim(0, 1.25)
+    ax.set_yticks(np.linspace(0, 1, 5))
+    ax.yaxis.set_major_formatter(PercentFormatter(1, decimals=0))
+    ax.grid(axis="x", visible=False)
+    ax.set_title("Coverage set: who catches what", loc="left", fontsize=11, color=INK)
+    ax.legend(loc="upper center", ncols=3, bbox_to_anchor=(0.5, -0.12), fontsize=8)
+    save(fig, out, "coverage_set")
+
+
 def pr_curves(val_rows: list[dict], test_rows: list[dict], val_auc: float, test_auc: float,
               out: Path):
     fig, ax = plt.subplots(figsize=(4.8, 4.2))
@@ -312,6 +378,16 @@ def main():
     lo, hi = bootstrap_pr_auc(gpt)
     summary(f"rung 3 GPT without weaken-read ({len(rung_rows[-1]) - len(gpt)} dropped), "
             f"CI {lo:.3f}-{hi:.3f}", gpt, report(gpt, MAIN), saved)
+
+    # Agent Audit vs our model (docs/results-agent-audit.md), from saved results only.
+    aa_ms = [json.loads((AA / t / "metrics.json").read_text())["verdicts"] for t in AA_TAGS]
+    chance = [sum(bool(r["label"]) for r in rows) / len(rows) for rows in rung_rows]
+    aa_vs_ours([m["at_0.5"]["pr_auc"] for m in rung_ms],
+               [m["ordinal"]["pr_auc"] for m in aa_ms], chance, out)
+    for (_, label), m, a, c in zip(LADDER, rung_ms, aa_ms, chance):
+        print(f"{label}: ours PR-AUC {m['at_0.5']['pr_auc']:.3f} | AA ordinal "
+              f"{a['ordinal']['pr_auc']:.3f} main F1 {a['main']['f1']:.3f} | chance {c:.3f}")
+    coverage_chart(load_rows(AA / "coverage" / "predictions_main.jsonl"), out)
     print(f"wrote {len(list(out.glob('*.svg')))} charts to {out}")
 
 

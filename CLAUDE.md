@@ -65,7 +65,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ## 2. Where we are and what's next (updated 2026-11-18)
 
-**Overall verdict (2026-11-18, all runs in).** Our model detects capability mismatches
+**Overall verdict (2026-11-18, all runs in).** Full write-up: `docs/results-final.md`. Our model detects capability mismatches
 reliably. It holds up when the generator changes, and does somewhat worse on real GitHub code.
 Agent Audit can't detect mismatches at all, because its rules never use the description. The
 two tools catch different problems, so they complement each other rather than compete.
@@ -101,7 +101,7 @@ Ours at cut-off 0.5. "Chance" = share of mismatches in the set.
   | | Agent Audit | Our model |
   |---|---|---|
   | Conventional bugs (25) | 13/25 by bug-specific rules (eval / shell 10/10, SQL 1/5, secrets 2/5, pickle / yaml 0/5) | 0/25 (correct: honest descriptions) |
-  | Mismatches (34) | 0/34 by those rules | 27/34 |
+  | Mismatches (34) | 1/34 by those rules (`c0094-2`: a hard-coded key, flagged on all 4 of its pairs) | 27/34 |
   | Honest pairs flagged (69) | 42/69 at main verdict (generic rules) | 0/69 |
 
 - **Weak spots to state in the write-up:** (1) weakened mismatches: recall 7/12 rung 1, 27/34
@@ -802,6 +802,8 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `docs/agentlint-preproposal.md`: current proposal
 - `docs/results-binary.md`: binary model results write-up (training, val, test), with charts
 - `docs/agent-audit-comparison.md`: design note for running Agent Audit on every test set
+- `docs/results-agent-audit.md`: Agent Audit vs our model on every test set
+- `docs/results-final.md`: **final results and takeaways**, all numbers and charts in one place
 - `scripts/githubtools.py` (Andrea): GitHub search for `@tool` functions →
   `data/github_tools_dataset.json`; her mutated set is `data/github_tools_250_pairs.jsonl`
 - `probes/aa_run/`: generated Agent Audit cases (keep the path neutral; see Gotchas)
@@ -886,11 +888,16 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-18 (latest):** Wrote `docs/results-final.md` (final numbers, charts, takeaways,
+  limitations). Two new charts from `scripts/plot_results.py`: `aa_vs_ours_pr_auc.svg`,
+  `coverage_set.svg`. Corrected the coverage-set note: AGENT-004 does fire on one rung 1 tool
+  (`c0094-2`, a hard-coded placeholder Stripe key, all 4 pairs).
 - **2026-11-18 (later):** Added the overall verdict across all runs to the top of section 2.
 
 - **2026-11-18:** Our model scored the 25 coverage bug tools (CARC job 14323275): 0/25 flagged.
   Ran Agent Audit once on the coverage set: bug-specific rules catch 13/25 bugs (eval / shell
-  10/10, SQL 1/5, secrets 2/5, pickle / yaml 0/5) and never fire on rung 1 pairs; our model
+  10/10, SQL 1/5, secrets 2/5, pickle / yaml 0/5); on rung 1 pairs only AGENT-004 fires, on
+  one tool's hard-coded key (`c0094-2`, all 4 pairs); our model
   catches 27/34 mismatches with 0 false alarms. Filled section 7 of
   `docs/results-agent-audit.md`. The Agent Audit comparison is complete.
 
