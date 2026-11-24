@@ -888,6 +888,10 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-23:** `docs/results-final.md` and `README.md` listed `read` as an effect class
+  without saying it is never a mismatch. Both now list only the 7 mismatch classes. Wording
+  only; no numbers changed. The pre-proposal keeps its original 8 classes (historical
+  document, left as is).
 - **2026-11-18 (latest):** Wrote `docs/results-final.md` (final numbers, charts, takeaways,
   limitations). Two new charts from `scripts/plot_results.py`: `aa_vs_ours_pr_auc.svg`,
   `coverage_set.svg`. Corrected the coverage-set note: AGENT-004 does fire on one rung 1 tool
