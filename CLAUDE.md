@@ -241,7 +241,8 @@ Steps 2 and 3 can run at the same time with different people.
    Fine-tuned, by pair type: inject recall 53/55, weaken recall 10/18; flagged honest pairs:
    original 1/76, twin 8/55, rewrite 9/55. Within a tool it ranks every injected mutant above
    its twin, rewrite and original (55/55); weakened pairs 14/18 (15/18 against the same-code
-   original and rewrite). Most errors are scores that don't carry across tools. Honest FP rate by chunks 1 / 2 / 3+: 9% / 12% / 0% (fine-tuned), 15% / 52% / 50%
+   original and rewrite). Most errors are scores that don't carry across tools. Honest FP
+   rate by chunks 1 / 2 / 3+: 9% / 12% / 0% (fine-tuned), 15% / 52% / 50%
    (frozen, so the chunk leak is real for the frozen model but small after fine-tuning).
    Files: `checkpoints/{binary_5ep,binary_frozen}/` and `runs/slurm-agentlint-135355{09,10}.out`
    (committed; the `model.safetensors` weights are git-ignored, too big for GitHub). Running the scripts: `bash scripts/carc/setup.sh` once, then
@@ -777,7 +778,8 @@ injector. That is a deliberate, reproducible construction detail and a possible 
 an interchangeable implementation of the training pipeline. It was scored once on 2026-11-09,
 on the 43 tools it shares with `github-opus` (`data/github_tools_43_pairs.jsonl`; section 2,
 step 3). Still open: GitHub URL / commit / path / license provenance. Do not train, tune a
-threshold, or revise policy from Rung 3 outcomes. Its model numbers are in `docs/results-binary.md`; they were
+threshold, or revise policy from Rung 3 outcomes. Its model numbers are in
+`docs/results-binary.md`; they were
 provisional (decided 2026-11-10) until Agent Audit ran on it, and are final since 2026-11-12.
 
 **Data hygiene** (the model will cheat otherwise): no comments on injected lines; vary
@@ -800,8 +802,9 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
 - `src/agentlint/model/`: input construction, model, training loop (`train.py`)
 - `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns, PR-AUC bootstrap
-  interval); `score.py` (score a checkpoint on a test set, once); `agent_audit.py` (`agentlint aa-score`: run
-  Agent Audit on a set once, verdict rules, code-identity check, coverage table)
+  interval); `score.py` (score a checkpoint on a test set, once); `agent_audit.py`
+  (`agentlint aa-score`: run Agent Audit on a set once, verdict rules, code-identity check,
+  coverage table)
 - `configs/datagen.yaml`: dataset settings (`datagen_rung2.yaml`: rung 2;
   `datagen_github_opus.yaml`: rung 3 Opus version); `configs/binary.yaml`, `binary_frozen.yaml`
   (before-fine-tuning baseline), `multilabel.yaml`: training
@@ -937,7 +940,8 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   (0.298–0.340 vs 0.286) as well as rung 3 GPT. Now "at or barely above chance (within
   0.04)", with the reason (injected code, shared with the twin, draws more generic findings).
 
-- **2026-11-23 (read classes):** `docs/results-final.md` and `README.md` listed `read` as an effect class
+- **2026-11-23 (read classes):** `docs/results-final.md` and `README.md` listed `read` as an
+  effect class
   without saying it is never a mismatch. Both now list only the 7 mismatch classes. Wording
   only; no numbers changed. The pre-proposal keeps its original 8 classes (historical
   document, left as is).
