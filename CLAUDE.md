@@ -92,10 +92,12 @@ Ours at cut-off 0.5. "Chance" = share of mismatches in the set.
   "control"); training descriptions spell them out, so the model flags `requests.post` /
   `subprocess.run` that the description doesn't name.
 - **Agent Audit cannot see a mismatch:** 0 differences in all 543 same-code groups (496 rungs +
-  47 coverage); PR-AUC at chance. Its ~0.6 recall comes from generic rules (input validation,
+  47 coverage); PR-AUC at or barely above chance (within 0.04). Its ~0.6 recall comes from generic rules (input validation,
   error handling) that flag honest code as often: on every set its recall on injections equals
-  its false-alarm rate on their twins. Rung 3 GPT is slightly above chance only because the
-  templates add code AA treats as dangerous.
+  its false-alarm rate on their twins. Rung 2 and rung 3 GPT are slightly above chance
+  (intervals just above the mismatch share) only because injected code, shared with the
+  honest twin, draws more findings; on rung 3 GPT the templates add code AA treats as
+  dangerous.
 - **Coverage set (the two tools side by side):**
 
   | | Agent Audit | Our model |
@@ -146,8 +148,8 @@ Current focus: **Agent Audit vs our model** on every test set
 
      - **Code-identity check: 0 differences in all 496 same-code groups** (111 / 229 / 63 /
        93). AA's findings follow the code only, so it flags a mismatch exactly when it flags
-       the honest twin or original with the same code. PR-AUC sits at the mismatch rate
-       (chance level).
+       the honest twin or original with the same code. PR-AUC sits at or just above the
+       mismatch rate (chance level).
      - Its ~0.6 recall comes from generic rules (AGENT-022 error handling, AGENT-034 input
        validation, AGENT-026), which fire on honest pairs just as often (rung 1: 97 honest
        flagged). Capability-rules-only recall: 0.06 / 0.18 / 0.12 / 0.28.
@@ -389,7 +391,7 @@ Steps 2 and 3 can run at the same time with different people.
    | rung 1 `test` (for reference) | 251 (66) | 0.962 (0.928–0.995) | 0.97 | 0.89 | 0.93 | 0.91 |
    | **rung 2** `rung2-opus` | 503 (144) | **0.962** (0.942–0.981) | 0.96 | 0.90 | 0.93 | 0.86 |
    | **rung 3 (b)** Opus, 43 tools | 138 (33) | **0.942** (0.886–0.986) | 0.70 | 0.91 | 0.79 | 0.74 |
-   | **rung 3 (a)** GPT templates, 43 tools | 215 (79) | **0.853** (0.811–0.898) | 0.86 | 0.60 | 0.70 | 0.28 |
+   | **rung 3 (a)** GPT templates, 43 tools | 215 (79) | **0.853** (0.811–0.898) | 0.85 | 0.59 | 0.70 | 0.28 |
 
    All at 0.5. Footnote (saved 0.0035): rung 2 F1 0.91, rung 3 Opus 0.78, GPT 0.74.
    **Rung 3 GPT keeps all 215 pairs as scored (decided 2026-11-10).** 9 of its weakened pairs
@@ -444,7 +446,7 @@ Steps 2 and 3 can run at the same time with different people.
        exception). Same code, opposite verdicts, so terse real docstrings are the shift.
        Fix idea (if time allows): train on honest tools with short, implicit descriptions.
    - **Rung 3 GPT: weakened pairs are almost all missed** (4/29; scores ~0.001, like honest
-     pairs). That is the main reason its recall is 0.60 and group accuracy 0.28. Same weak spot
+     pairs). That is the main reason its recall is 0.59 and group accuracy 0.28. Same weak spot
      as rungs 1–2, made worse by her short, generic descriptions. 9 of her weakened pairs
      remove `read`, which training never has as a mismatch (2/9 caught; see the footnote above).
    - Scores stay saturated: rung 2 361/503 ≤ 0.01 and 132 ≥ 0.99; rung 3 Opus 91 + 37 of 138;
@@ -887,6 +889,14 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-11-23 (later):** Checked every number in `docs/results-final.md` against the saved
+  predictions; two errors fixed (wording and rounding only, nothing rescored). (1) Rung 3 GPT
+  at 0.5 is P 0.85 / R 0.59 (47 / 8 / 32), not 0.86 / 0.60; fixed in the final report,
+  `results-binary.md`, `results-agent-audit.md` and section 2 here. (2) AA was described as
+  "at chance on every set", but its PR-AUC interval is just above chance on rung 2
+  (0.298–0.340 vs 0.286) as well as rung 3 GPT. Now "at or barely above chance (within
+  0.04)", with the reason (injected code, shared with the twin, draws more generic findings).
 
 - **2026-11-23:** `docs/results-final.md` and `README.md` listed `read` as an effect class
   without saying it is never a mismatch. Both now list only the 7 mismatch classes. Wording

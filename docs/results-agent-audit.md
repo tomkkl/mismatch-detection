@@ -15,9 +15,11 @@ cut-off 0.5); nothing was rescored for this write-up.
 - **AA's recall is not detection.** It flags 38–55% of all pairs, mainly through generic
   rules (no error handling, no input validation) that fire on honest code just as often. Its
   recall on injections equals its false-alarm rate on their twins, exactly, in all four sets.
-- **Ranking is at chance:** AA's PR-AUC equals the share of mismatches in each set (0.275 vs
-  0.263 on rung 1; 0.319 vs 0.286 on rung 2; 0.270 vs 0.239 on rung 3 Opus). Ours is
-  0.85–0.96.
+- **Ranking is at or barely above chance:** AA's PR-AUC is within 0.04 of the share of
+  mismatches in each set (0.275 vs 0.263 on rung 1; 0.319 vs 0.286 on rung 2; 0.270 vs 0.239
+  on rung 3 Opus; 0.401 vs 0.367 on rung 3 GPT). On rung 2 and rung 3 GPT the interval sits
+  just above chance, for reasons that have nothing to do with descriptions (section 5). Ours
+  is 0.85–0.96.
 - **At its main verdict, AA's F1 is 0.35–0.47 with group accuracy 0.00–0.19.** Our model has
   F1 0.70–0.93 and group accuracy 0.28–0.91.
 - **This is a statement about scope, not quality.** AA is built to find dangerous code
@@ -58,7 +60,7 @@ first run (note, section 6):
 | | | AA main | 0.33 | 0.61 | 0.43 | 0.09 | 0.319 (0.298–0.340) |
 | rung 3 (b) Opus | 138 (33) | **ours** | 0.70 | 0.91 | **0.79** | **0.74** | **0.942** (0.886–0.986) |
 | | | AA main | 0.29 | 0.45 | 0.35 | 0.19 | 0.270 (0.239–0.314) |
-| rung 3 (a) GPT | 215 (79) | **ours** | 0.86 | 0.60 | **0.70** | **0.28** | **0.853** (0.811–0.898) |
+| rung 3 (a) GPT | 215 (79) | **ours** | 0.85 | 0.59 | **0.70** | **0.28** | **0.853** (0.811–0.898) |
 | | | AA main | 0.41 | 0.54 | 0.47 | 0.00 | 0.401 (0.382–0.418) |
 
 Share of mismatches (PR-AUC of a random scorer): 0.263, 0.286, 0.239, 0.367.
@@ -121,8 +123,10 @@ AA flags at the same rate across pair types that share code (main verdict):
   Execution" (rung 1: 77 pairs; rung 2: 174), AGENT-034 "Tool Function Without Input
   Validation" (54; 144) and AGENT-026 "LangChain Tool Input Not Sanitized" (61; 80). They fire
   on honest and mismatched code alike.
-- **Rung 3 GPT is the one set where AA beats chance** (PR-AUC 0.401 vs 0.367, interval above
-  it). The templated injections often add code that AA treats as dangerous (AGENT-035
+- **AA beats chance on two sets, by a small margin:** rung 2 (PR-AUC 0.319 vs 0.286,
+  interval 0.298–0.340) and rung 3 GPT (0.401 vs 0.367, interval 0.382–0.418). On rung 2 it
+  is the boost above: injected code draws more findings than original code. On rung 3 GPT the
+  templated injections often add code that AA treats as dangerous (AGENT-035
   "Unrestricted Code Execution" on 43 pairs), so injected code is flagged at 0.70 vs 0.33 for
   originals. The honest twins carry the same code and are flagged at 0.70 too. The lift comes
   from what the templates add to the code, not from reading descriptions.
@@ -201,8 +205,8 @@ Our model alone catches 27/34 mismatches with 0/69 false alarms here.
 ## 8. Takeaways
 
 - The two tools answer different questions. AA asks "is this code dangerous?"; we ask "does
-  this code do more than its interface says?". On our question AA is at chance, and the
-  same-code check shows why: it never looks at the description.
+  this code do more than its interface says?". On our question AA is at or barely above
+  chance, and the same-code check shows why: it never looks at the description.
 - AA's flags on our sets are mostly generic hygiene findings that fire on about half of all
   honest tools, so they can't serve as a mismatch signal.
 - The coverage set confirms complementary coverage: AA catches conventional bugs (best on

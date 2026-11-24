@@ -240,7 +240,7 @@ truncate).
 |---|---|---|---|---|---|---|---|
 | rung 1 `test` (reference) | 251 (66) | 0.962 (0.928–0.995) | 0.97 | 0.89 | 0.93 | 0.91 | 59 / 2 / 7 |
 | **rung 3 (b) Opus** | 138 (33) | **0.942** (0.886–0.986) | 0.70 | 0.91 | 0.79 | 0.74 | 30 / 13 / 3 |
-| **rung 3 (a) GPT templates** | 215 (79) | **0.853** (0.811–0.898) | 0.86 | 0.60 | 0.70 | 0.28 | 47 / 8 / 32 |
+| **rung 3 (a) GPT templates** | 215 (79) | **0.853** (0.811–0.898) | 0.85 | 0.59 | 0.70 | 0.28 | 47 / 8 / 32 |
 
 *Footnote: at the saved val cut-off 0.0035, F1 is 0.78 (Opus) and 0.74 (GPT).*
 
@@ -262,7 +262,7 @@ tools had no effect that could be removed without the name or params giving it a
 weakened result means little.
 
 **Weakened descriptions are almost all missed on the GPT set** (4/29, scores ~0.001, like
-honest pairs). This is the main reason its recall is 0.60 and group accuracy 0.28. It is the
+honest pairs). This is the main reason its recall is 0.59 and group accuracy 0.28. It is the
 same weak spot as rungs 1–2, made worse by short, generic real docstrings.
 
 **Real originals raise false alarms.** The **same 6 honest originals** are flagged in both
@@ -308,8 +308,8 @@ So terse real docstrings, not real code, are the shift the model doesn't handle.
 - **Twins with a trailing declared operation** can still fool the model (rung 1). Worth a check
   across train: are twins with the declared effect at the end rarer than mutants with code at
   the end?
-- **Agent Audit** ran on all four sets (2026-11-12) and is at chance on every one: it gives
-  identical verdicts to pairs with identical code. See `docs/results-agent-audit.md`.
+- **Agent Audit** ran on all four sets (2026-11-12) and is at or barely above chance on every
+  one: it gives identical verdicts to pairs with identical code. See `docs/results-agent-audit.md`.
 
 ## Files
 

@@ -12,7 +12,8 @@ A fine-tuned code model can learn to check that an agent tool's code matches its
 interface (name, parameters, description). It reaches PR-AUC 0.96 on held-out tools and on
 tools from a different generator, and 0.85–0.94 on real GitHub code with injected
 capabilities. Agent Audit, the rule-based baseline, cannot detect these mismatches at all: its
-rules never use the description, so its ranking is at chance on every set. Agent Audit does
+rules never use the description, so its ranking is at or barely above chance on every set
+(PR-AUC within 0.04 of the share of mismatches). Agent Audit does
 catch conventional bugs (eval, shell injection), which our model by design does not. The two
 tools catch different problems and complement each other rather than compete.
 
@@ -83,7 +84,7 @@ encoder reaches only 0.49.
 | **rung 1 `test`** | **0.962** (0.928–0.995) | 0.97 | 0.89 | 0.93 | 0.91 | 59 / 2 / 7 |
 | **rung 2** Opus | **0.962** (0.942–0.981) | 0.96 | 0.90 | 0.93 | 0.86 | 130 / 6 / 14 |
 | **rung 3** Opus | **0.942** (0.886–0.986) | 0.70 | 0.91 | 0.79 | 0.74 | 30 / 13 / 3 |
-| **rung 3** GPT | **0.853** (0.811–0.898) | 0.86 | 0.60 | 0.70 | 0.28 | 47 / 8 / 32 |
+| **rung 3** GPT | **0.853** (0.811–0.898) | 0.85 | 0.59 | 0.70 | 0.28 | 47 / 8 / 32 |
 
 All at 0.5. Group accuracy = share of tools where every pair is right; it is the hardest
 number to get by a shortcut. Footnotes:
@@ -138,9 +139,11 @@ mismatches in the set.
   (AGENT-034 input validation, AGENT-022 error handling, AGENT-026) that fire on honest code
   just as often. On every set its recall on injections equals its false-alarm rate on their
   twins. Counting only its rules for dangerous operations, recall is 0.06 / 0.18 / 0.12 / 0.28.
-- **Rung 3 GPT is slightly above chance** only because the templates add code AA treats as
-  dangerous (AGENT-035 on 43 pairs). The honest twins carry the same code and are flagged just
-  as often.
+- **Rung 2 and rung 3 GPT are slightly above chance** (their intervals sit just above the
+  share of mismatches), but not because AA reads descriptions. Injected code is longer and
+  does more, so generic rules fire on it more often than on original code; on rung 3 GPT the
+  templates also add code AA treats as dangerous (AGENT-035 on 43 pairs). The honest twins
+  carry the same code and are flagged just as often.
 
 **Coverage on the rungs** (AA main verdict, our 0.5):
 
@@ -202,8 +205,8 @@ rung 1 tools with all their pairs (103 pairs, 34 mismatches).
    4/29 (rung 3 GPT). Missed pairs score like honest ones (~0.001), so a lower cut-off won't
    help; more weakened training data would (only 129 of 2,572 training pairs).
 6. **Agent Audit answers a different question.** It asks "is this code dangerous?", we ask
-   "does this code do more than its interface says?". On our question it is at chance, and the
-   same-code check shows why: it never uses the description.
+   "does this code do more than its interface says?". On our question it is at or barely above
+   chance, and the same-code check shows why: it never uses the description.
 7. **The two tools are complementary.** AA catches conventional bugs (best on eval and shell,
    weak on SQL, secrets and deserialization); our model catches mismatches with few false
    alarms. Running both is the sensible setup.
