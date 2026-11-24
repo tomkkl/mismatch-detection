@@ -6,8 +6,8 @@ __pycache__/
 .ipynb_checkpoints/
 .idea/
 
-# Data and model outputs. The training dataset `full` and the LLM cache (~25 MB) are
-# committed so teammates don't have to regenerate; everything else stays local.
+# Data and model outputs. The training dataset `full`, the test sets and the LLM cache
+# (~31 MB) are committed so teammates don't have to regenerate; pilots and new tags stay local.
 data/raw/*
 data/generated/*
 data/splits/*

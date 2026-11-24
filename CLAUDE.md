@@ -48,8 +48,10 @@ The dataset is committed to the repo (~31 MB with the test sets), so you get it 
   pipeline change (filters, matching, splits) makes zero LLM calls. New runs with a different
   seed or model still need new calls.
 
-Other outputs (pilots, run logs, new tags) stay git-ignored. To commit a new dataset tag, add a
-`!data/...` line to `.gitignore`.
+The test sets are committed too (`data/generated/rung2-opus/`, `data/generated/github-opus/`,
+`data/coverage/`, Andrea's `data/github_tools_*`), and so are training results, SLURM logs and
+Agent Audit runs (`checkpoints/`, `runs/`). Model weights and other outputs (pilots, new tags)
+stay git-ignored. To commit a new dataset tag, add a `!data/...` line to `.gitignore`.
 
 ### Rebuilding the dataset
 
@@ -63,7 +65,7 @@ finished calls are cached in `data/generated/llm_cache/` and reused.
 
 ---
 
-## 2. Where we are and what's next (updated 2026-11-18)
+## 2. Where we are and what's next (updated 2026-11-23)
 
 **Overall verdict (2026-11-18, all runs in).** Full write-up: `docs/results-final.md`. Our model detects capability mismatches
 reliably. It holds up when the generator changes, and does somewhat worse on real GitHub code.
@@ -79,7 +81,8 @@ two tools catch different problems, so they complement each other rather than co
 | rung 3 GPT | real GitHub code, templates | 0.853 | 0.70 | 0.28 | 0.47 | 0.401 (0.367) |
 | frozen encoder | before fine-tuning, val | 0.489 | 0.51 | 0.33 | — | — |
 
-Ours at cut-off 0.5. "Chance" = share of mismatches in the set.
+Ours at cut-off 0.5, except the frozen-encoder row, which is at its own best-F1 cut-off (0.56;
+at 0.5 it gives F1 0.46, group acc 0.17). "Chance" = share of mismatches in the set.
 
 - **Fine-tuning is what makes it work:** val PR-AUC 0.49 with a frozen encoder vs 0.98
   fine-tuned.
@@ -117,9 +120,9 @@ Ours at cut-off 0.5. "Chance" = share of mismatches in the set.
   0.85–0.94 on real GitHub code). Agent Audit's rule-based approach can't, because its rules
   never use the description. The two tools are complementary, not competitors.
 
-**Resume here (2026-11-18).** The Agent Audit comparison is complete on all five sets.
-Current focus: **Agent Audit vs our model** on every test set
-(`docs/agent-audit-comparison.md`). State:
+**Resume here (2026-11-18).** All planned runs are done; the Agent Audit comparison is
+complete on all five sets (`docs/agent-audit-comparison.md`, `docs/results-agent-audit.md`).
+Record of how it went:
 - Done: rungs 1–3 are in `docs/results-binary.md` (rung 3 final since AA ran on it,
   2026-11-12); the design note is written; the coverage set is built and checked
   (`data/coverage/`, 128 pairs). **The note's open decisions were settled 2026-11-11**
@@ -155,7 +158,8 @@ Current focus: **Agent Audit vs our model** on every test set
        flagged). Capability-rules-only recall: 0.06 / 0.18 / 0.12 / 0.28.
      - Coverage vs our model at 0.5 (mismatches caught: ours only / AA only / both / neither):
        rung 1 22 / 4 / 37 / 3; rung 2 51 / 9 / 79 / 5; rung 3 Opus 16 / 1 / 14 / 2; GPT 13 / 9
-       / 34 / 23. AA's "AA only" catches come with ~2 honest false alarms per mismatch.
+       / 34 / 23. Overall AA raises ~2 honest false alarms per mismatch it catches (377 vs
+       178); its 23 "AA only" catches would add 365 false alarms to ours.
 
      **Write-up drafted 2026-11-12:** `docs/results-agent-audit.md` (rung sets done; section 7,
      the coverage set, still to fill). Paired check from saved predictions: injection vs its
@@ -212,12 +216,14 @@ Current focus: **Agent Audit vs our model** on every test set
   rewritten-description style (rewrite and inject share it).
 - **Twins:** 8/55 flagged at 5 epochs (hand-checked 2026-10-29: labels right, model errors).
   Fixed by 10 epochs: 0/55 at 0.5, 2/55 at 0.0035 (scores 0.03 and 0.05).
-- **Andrea's rung 3 draft, provenance incomplete:** `data/github_tools_dataset.json` has the function and
-  docstring but not repository URL, commit SHA, file path, or license. Recover these before the
-  set is final; mark entries where recovery is impossible.
-- **Andrea's rung 3 draft, mutations are templated:** they were generated deterministically, not by
-  the LLM pipeline used for `full`. Repeated operations and description wording may be a
-  shortcut. Review template diversity and hand-check labels before the one-time score.
+- **Andrea's rung 3 set, provenance incomplete:** `data/github_tools_dataset.json` has the
+  function and docstring but not repository URL, commit SHA, file path, or license. Still to
+  recover; mark entries where recovery is impossible. This may change how the set is
+  described, not the scores.
+- **Andrea's rung 3 set, mutations are templated:** they were generated deterministically, not
+  by the LLM pipeline used for `full`. Repeated operations and description wording may be a
+  shortcut; the write-ups list this as a limitation. The set was scored once (2026-11-09); no
+  template-diversity review is recorded.
 
 ### What's next
 
@@ -233,11 +239,11 @@ Steps 2 and 3 can run at the same time with different people.
    | frozen + 2-layer head (`binary_frozen`, epoch 5 of 10, thr 0.56) | 0.489 (0.45–0.55) | 0.45 | 0.59 | 0.51 | 0.33 |
 
    Fine-tuned, by pair type: inject recall 53/55, weaken recall 10/18; flagged honest pairs:
-   original 1/76, twin 8/55, rewrite 9/55. Within a tool it **always** ranks the mutant above
-   its twin, rewrite and original (55/55, 18/18); all errors are scores that don't carry across
-   tools. Honest FP rate by chunks 1 / 2 / 3+: 9% / 12% / 0% (fine-tuned), 15% / 52% / 50%
+   original 1/76, twin 8/55, rewrite 9/55. Within a tool it ranks every injected mutant above
+   its twin, rewrite and original (55/55); weakened pairs 14/18 (15/18 against the same-code
+   original and rewrite). Most errors are scores that don't carry across tools. Honest FP rate by chunks 1 / 2 / 3+: 9% / 12% / 0% (fine-tuned), 15% / 52% / 50%
    (frozen, so the chunk leak is real for the frozen model but small after fine-tuning).
-   Files: `checkpoints/{binary_5ep,binary_frozen}/` and `runs/slurm-agentlint-1353551{0,9}.out`
+   Files: `checkpoints/{binary_5ep,binary_frozen}/` and `runs/slurm-agentlint-135355{09,10}.out`
    (committed; the `model.safetensors` weights are git-ignored, too big for GitHub). Running the scripts: `bash scripts/carc/setup.sh` once, then
    `sbatch -A yzhao010_1531 --gres=gpu:a40:1 scripts/carc/train.slurm <config>` (A40 / A100 /
    L40S only; not P100 / V100).
@@ -296,9 +302,8 @@ Steps 2 and 3 can run at the same time with different people.
      from the 50 functions in `data/github_tools_dataset.json` (her first scraper output): 250
      pairs, 159 honest / 91 mismatch. Mismatches come from deterministic code and description
      templates, not the LLM pipeline; repo / commit / license are not recorded yet. Details in
-     section 6, "Rung 3 draft (Andrea)". Before scoring: recover provenance, review labels and
-     template diversity, commit the generator and artifact at stable paths, and confirm the set
-     was never used for training or threshold selection. Then score it once.
+     section 6, "Rung 3 draft (Andrea)". It was scored once on 2026-11-09, on 43 of its
+     tools (below); provenance is still incomplete.
    - **Rung 3 decided (2026-11-09): Andrea's 50 tools, in two versions.** Tom's collector and
      PRs #2–#6 were closed without merging (branches kept on GitHub). Version (a): Andrea's
      GPT-5.6 templated set above. Version (b): **`github-opus`**, the same 50 originals mutated
@@ -306,8 +311,8 @@ Steps 2 and 3 can run at the same time with different people.
      `honest_from:`), so (a) and (b) differ only in the injector. No name filter against
      `full` (team choice: keep all 50), and duplicate names are kept since the set is never
      split. 4 stub tools with no calls (`equation_solver`, `add`, `todowrite`, a
-     `get_weather`) fail `verify_honest` and are dropped (`rejects.jsonl`). Score the whole
-     `data/generated/github-opus/pairs.jsonl` once, when the team says so.
+     `get_weather`) fail `verify_honest` and are dropped (`rejects.jsonl`). Scored once on the
+     43 shared tools (`pairs_43.jsonl`, below); the full `pairs.jsonl` was not scored.
      **Compare (a) and (b) on the 43 shared tools (decided 2026-11-09).** Two groups are left
      out of both:
      - **4 stubs** (`github-011-equation_solver`, `github-015-add`, `github-021-todowrite`,
@@ -333,8 +338,8 @@ Steps 2 and 3 can run at the same time with different people.
      sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/github_tools_43_pairs.jsonl --tag rung3-gpt
      ```
      **`github-opus` built (2026-11-09): 150 pairs from 46 tools, 36 mismatches (24%):** 34
-     inject / 34 twin / 34 rewrite / 2 weakened. Injected effects 3–7 each (send outward 7;
-     change authority, execute, destroy 6; relocate 5; spend, modify 3); positions start 10 /
+     inject / 34 twin / 34 rewrite / 2 weakened. Injected effects 2–7 each (send outward 7;
+     change authority, destroy 6; relocate, execute 5; spend 3; modify 2); positions start 10 /
      middle 8 / end 10 / helper 6. Baselines: majority 0.76, length-only 0.74,
      description-only 0.76 (no leak). 143 Opus calls, $2.82 at list price. Rejects: 6
      injection targets were `read` (skipped), 4 injections changed too much, 1 rewrite missed
@@ -375,7 +380,8 @@ Steps 2 and 3 can run at the same time with different people.
      ~0.001). Weakened stays the weak spot, as on val.
    - **False alarms at 0.5:** 2 twins, both confident: `c0106-2/twin-relocate-end` 0.999 and
      `c0145-1/twin-destroy-end` 0.990. That is why `end` has an honest FP rate of 2/8; every
-     other position is 0. Worth a hand check (labels or model?). Val had 0/55 twins at 0.5.
+     other position is 0. Hand-checked (`docs/results-binary.md` section 6): labels right, so model
+     errors. Val had 0/55 twins at 0.5.
    - **Chunks (0.5):** honest FP rate 0.8% / 1.9% / 0% for 1 / 2 / 3+ chunks; recall 0.91 /
      0.86 / 1.0. No sign of a "more chunks means mismatch" leak.
    - **Within a tool:** the injected mutant outscores every honest pair of its tool 54/54;
@@ -454,8 +460,8 @@ Steps 2 and 3 can run at the same time with different people.
    **Rungs 2–3 are in `docs/results-binary.md` (2026-11-10)**, sections 7–8, with two new
    charts (`docs/figures/rungs_headline.svg`, `rungs_by_pair_type.svg`). Rung 3 was marked
    provisional there until Agent Audit ran on it (done 2026-11-12; now final).
-   **Next:** run Agent Audit on all four test sets plus the coverage set. Design note (draft,
-   2026-11-10, open decisions in its section 9): `docs/agent-audit-comparison.md`.
+   Agent Audit then ran on all four test sets plus the coverage set (2026-11-12 and 2026-11-18;
+   see "Resume here" above and `docs/results-agent-audit.md`).
 5. **Line numbers in reports:** fix the word-list gaps (see open issues) so `localize.py` points
    at the right lines.
 
@@ -620,6 +626,7 @@ tests, refactors inside one module, docs. When unsure whether something is archi
   between the two runs is whether the encoder is fine-tuned. A single linear layer would make
   the baseline weaker and flatter fine-tuning.
 - Start **binary** (mismatch yes/no), then **multi-label** (one sigmoid output per effect class).
+  The multi-label model was not trained (time); `configs/multilabel.yaml` exists.
 - **Input (decided 2026-10-26):** first segment = name + compact params + description
   (`format_interface`); second segment = code with all whitespace collapsed to single spaces
   (`collapse_whitespace`). If that's over 512 tokens, the code is split into overlapping
@@ -633,7 +640,7 @@ tests, refactors inside one module, docs. When unsure whether something is archi
 
 ### Training (decided 2026-10-26)
 
-- **Where:** USC CARC (SLURM job script still to write). Colab notebook as a fallback. Never a
+- **Where:** USC CARC (`scripts/carc/train.slurm`). Colab notebook as a fallback. Never a
   laptop (a full run froze a Mac).
 - **Loss:** BCE with `pos_weight` = honest / mismatch count in train (~2.7), on the max-pooled
   pair logit.
@@ -767,11 +774,10 @@ The supplemental inject/twin sets are:
 
 Unlike `full`, this draft uses deterministic code and description templates rather than an LLM
 injector. That is a deliberate, reproducible construction detail and a possible shortcut, not
-an interchangeable implementation of the training pipeline. Before scoring: recover GitHub
-URL / commit / path / license provenance where possible; flag functions missing surrounding
-imports or project context; inspect repeated templates and all labels; commit the generator and
-final pairs at stable paths; and freeze the artifact checksum. Do not train, tune a threshold,
-or revise policy from Rung 3 outcomes. Its model numbers are in `docs/results-binary.md`; they were
+an interchangeable implementation of the training pipeline. It was scored once on 2026-11-09,
+on the 43 tools it shares with `github-opus` (`data/github_tools_43_pairs.jsonl`; section 2,
+step 3). Still open: GitHub URL / commit / path / license provenance. Do not train, tune a
+threshold, or revise policy from Rung 3 outcomes. Its model numbers are in `docs/results-binary.md`; they were
 provisional (decided 2026-11-10) until Agent Audit ran on it, and are final since 2026-11-12.
 
 **Data hygiene** (the model will cheat otherwise): no comments on injected lines; vary
@@ -794,14 +800,15 @@ Package code is in `src/agentlint/` (full layout in `README.md`). Tests: `pytest
 - `src/agentlint/effects.py`: effect definitions and the word lists for the soft checks
 - `src/agentlint/model/`: input construction, model, training loop (`train.py`)
 - `src/agentlint/eval/`: `metrics.py` (all section 5 metrics and breakdowns, PR-AUC bootstrap
-  interval); `score.py` (score a checkpoint on a test set, once)
+  interval); `score.py` (score a checkpoint on a test set, once); `agent_audit.py` (`agentlint aa-score`: run
+  Agent Audit on a set once, verdict rules, code-identity check, coverage table)
 - `configs/datagen.yaml`: dataset settings (`datagen_rung2.yaml`: rung 2;
   `datagen_github_opus.yaml`: rung 3 Opus version); `configs/binary.yaml`, `binary_frozen.yaml`
   (before-fine-tuning baseline), `multilabel.yaml`: training
 - `notebooks/train_binary.ipynb`: Colab notebook that trains both binary models
 - `scripts/carc/`: USC CARC setup (`setup.sh`, `env.sh`) and SLURM job scripts (`train.slurm`,
   `score.slurm`)
-- `docs/agentlint-preproposal.md`: current proposal
+- `docs/agentlint-preproposal.md`: original pre-proposal (parts out of date)
 - `docs/results-binary.md`: binary model results write-up (training, val, test), with charts
 - `docs/agent-audit-comparison.md`: design note for running Agent Audit on every test set
 - `docs/results-agent-audit.md`: Agent Audit vs our model on every test set
@@ -890,6 +897,15 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-23 (CLAUDE.md):** Checked this file against the data, results files and AA source.
+  Fixed: the overall table's frozen row is at its best-F1 cut-off, not 0.5; the first-run log
+  names (`135355{09,10}`); the 5-epoch within-tool ranking (weakened 14/18, not 18/18); the
+  `github-opus` effect counts (2–7 each, sum 34); AA's false-alarm ratio wording; and what is
+  committed (test sets, logs, AA runs; also the `.gitignore` comment). Removed out-of-date
+  plans (Resume here, Andrea's open issues, "before scoring" lists, the twin hand check, the
+  AA "Next", the SLURM script, multi-label now marked not trained) and added `agent_audit.py`
+  to section 7. Today's log entries are now labelled by topic.
+
 - **2026-11-23 (README):** Brought `README.md` up to date: Status now says all runs are done,
   with headline numbers and a link to `docs/results-final.md`; training runs on CARC (Colab is
   the fallback), not Colab; rung 3 is scored (two versions, 43 shared tools), and Andrea's
@@ -898,14 +914,14 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   and the results docs; `aa-score` added to the commands. Dataset size ~31 MB, not ~25 MB
   (also in section 1 here).
 
-- **2026-11-23 (last):** Checked `docs/agent-audit-comparison.md` against the code, data,
+- **2026-11-23 (design note):** Checked `docs/agent-audit-comparison.md` against the code, data,
   saved AA findings and the AA 0.19.2 source; no wrong numbers. Fixed stale status (status
   line, coverage set "still to build", bug tools "need one CARC run", section 10 steps 2, 4
   and 5 now struck through), the output file names (`predictions_<rule>.jsonl`), a cross-ref
   (framing is in CLAUDE.md section 5, not the note's section 5), and "cannot do better than
   chance" on same-code pairs, now "cannot tell these pairs apart".
 
-- **2026-11-23 (latest):** Checked `docs/results-binary.md` and `docs/results-agent-audit.md`
+- **2026-11-23 (results docs):** Checked `docs/results-binary.md` and `docs/results-agent-audit.md`
   against the saved files; all numbers match, four wording fixes. The 0.0035 cut-off sits
   between an honest rewrite (0.0034) and a weakened pair (0.0035), not "just above the
   highest honest val score" (5 honest val pairs score higher; also fixed in section 2 here).
@@ -913,7 +929,7 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   `destroy` (0/1). AA's extra catches: the same-code honest pair is the twin, or the original
   for a weakened pair.
 
-- **2026-11-23 (later):** Checked every number in `docs/results-final.md` against the saved
+- **2026-11-23 (final report):** Checked every number in `docs/results-final.md` against the saved
   predictions; two errors fixed (wording and rounding only, nothing rescored). (1) Rung 3 GPT
   at 0.5 is P 0.85 / R 0.59 (47 / 8 / 32), not 0.86 / 0.60; fixed in the final report,
   `results-binary.md`, `results-agent-audit.md` and section 2 here. (2) AA was described as
@@ -921,7 +937,7 @@ Newest first. Add an entry when a milestone lands or a plan changes.
   (0.298–0.340 vs 0.286) as well as rung 3 GPT. Now "at or barely above chance (within
   0.04)", with the reason (injected code, shared with the twin, draws more generic findings).
 
-- **2026-11-23:** `docs/results-final.md` and `README.md` listed `read` as an effect class
+- **2026-11-23 (read classes):** `docs/results-final.md` and `README.md` listed `read` as an effect class
   without saying it is never a mismatch. Both now list only the 7 mismatch classes. Wording
   only; no numbers changed. The pre-proposal keeps its original 8 classes (historical
   document, left as is).
