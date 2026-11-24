@@ -1,7 +1,8 @@
 # Design note: Agent Audit vs our model on every test set
 
-Status: **decisions settled 2026-11-11** (section 9); implementation in progress. Drafted
-2026-11-10, with a 12-pair probe (section 3).
+Status: **done.** Decisions settled 2026-11-11 (section 9); `agentlint aa-score` written
+and run once on all five sets (rungs 2026-11-12, coverage set 2026-11-18). Results:
+`docs/results-agent-audit.md`. Drafted 2026-11-10, with a 12-pair probe (section 3).
 
 ## 1. Question
 
@@ -13,7 +14,7 @@ Agent Audit (AA, v0.19.2, commit 1009782) is our only baseline. We want to know 
    label.
 2. **What does each tool catch that the other misses?** AA is built for conventional bugs
    (eval, `shell=True`, SQL injection, secrets). Our model is not. So we report coverage: what
-   ours catches, what AA catches, and the union. This is the framing agreed in section 5.
+   ours catches, what AA catches, and the union. This is the framing agreed in CLAUDE.md section 5.
 
 This is not a leaderboard. AA was not designed for our task, and the write-up should say so.
 
@@ -30,9 +31,9 @@ Verified facts (CLAUDE.md section 8):
   to SUPPRESSED. Our generated files must use neutral paths.
 
 Consequence: for AA, an injected mutant and its honest twin are **the same input** (same code,
-different docstring). Weakened pairs and rewrites are the same input as the original. So on
-these pairs AA cannot do better than chance by construction. We will still measure it, and
-check that claim directly (section 6, "code-identity check").
+different docstring). Weakened pairs and rewrites are the same input as the original. So AA
+cannot tell these pairs apart: it must give them the same verdict. We will still measure it,
+and check that claim directly (section 6, "code-identity check").
 
 ## 3. Probe (done while drafting, not committed)
 
@@ -55,7 +56,7 @@ The inject and twin of `c0068-2` got identical findings. Two lessons:
 
 ## 4. Sets
 
-The four scored sets, plus a coverage set still to build. AA runs on each **once**.
+The four scored sets, plus the coverage set. AA runs on each **once**.
 
 | Set | File | Pairs | Tools | Mismatches |
 |---|---|---|---|---|
@@ -94,8 +95,9 @@ columns. 128 pairs from 50 tools:
   "is the bug there"). An optional 15-minute skim of the 25 tools by one teammate is enough.
 
 **Our model on the set:** the rung 1 rows reuse their saved scores
-(`checkpoints/binary/eval/full-test/`), so they are not rescored. The 25 bug tools need one
-CARC run:
+(`checkpoints/binary/eval/full-test/`), so they are not rescored. The 25 bug tools were
+scored once on CARC (job 14323275; the first try, job 14066569, crashed on the all-honest set
+and saved nothing):
 `sbatch -A yzhao010_1531 --gres=gpu:a100:1 scripts/carc/score.slurm checkpoints/binary data/coverage/conventional_bugs.jsonl --tag coverage-bugs`.
 
 ## 5. Turning a pair into AA input
@@ -182,8 +184,9 @@ recall number.
 - New module `src/agentlint/eval/agent_audit.py` with three steps: write the wrapped files,
   run `agent-audit scan` once per set, turn findings into verdicts and metrics.
 - CLI: `agentlint aa-score <pairs.jsonl> --tag <tag>`.
-- Output: `runs/agent_audit/<tag>/{findings.json,predictions.jsonl,metrics.json}`, plus the
-  AA version in `metrics.json`. Like `score.py`, it refuses to overwrite a result
+- Output: `runs/agent_audit/<tag>/{findings.json,predictions_<rule>.jsonl,metrics.json}`
+  (one predictions file per verdict rule: main, capability, any, ordinal), plus the AA
+  version in `metrics.json`. Like `score.py`, it refuses to overwrite a result
   (`--force` only to redo a broken run).
 - Runs locally: AA is static analysis, no GPU, so no CARC job.
 - Tests: wrapping keeps the code and puts the description in the docstring; the positive
@@ -211,9 +214,9 @@ recall number.
 ## 10. Order of work
 
 1. ~~Team settles section 9~~ (done 2026-11-11).
-2. Write `agent_audit.py` and its tests; dry run on 12 pairs.
-3. ~~Build the coverage set~~ (done 2026-11-10); score its 25 bug tools once with our model on
-   CARC.
-4. Run AA once on each of the five sets.
-5. Write up: metrics tables, code-identity check, coverage table; drop "provisional" from
-   rung 3.
+2. ~~Write `agent_audit.py` and its tests; dry run on 12 pairs~~ (done 2026-11-11).
+3. ~~Build the coverage set~~ (done 2026-11-10); ~~score its 25 bug tools once with our model
+   on CARC~~ (done 2026-11-18, job 14323275).
+4. ~~Run AA once on each of the five sets~~ (rungs 2026-11-12, coverage set 2026-11-18).
+5. ~~Write up: metrics tables, code-identity check, coverage table; drop "provisional" from
+   rung 3~~ (done: `docs/results-agent-audit.md`, 2026-11-12 and 2026-11-18).

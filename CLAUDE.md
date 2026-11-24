@@ -890,6 +890,13 @@ works.
 
 Newest first. Add an entry when a milestone lands or a plan changes.
 
+- **2026-11-23 (last):** Checked `docs/agent-audit-comparison.md` against the code, data,
+  saved AA findings and the AA 0.19.2 source; no wrong numbers. Fixed stale status (status
+  line, coverage set "still to build", bug tools "need one CARC run", section 10 steps 2, 4
+  and 5 now struck through), the output file names (`predictions_<rule>.jsonl`), a cross-ref
+  (framing is in CLAUDE.md section 5, not the note's section 5), and "cannot do better than
+  chance" on same-code pairs, now "cannot tell these pairs apart".
+
 - **2026-11-23 (latest):** Checked `docs/results-binary.md` and `docs/results-agent-audit.md`
   against the saved files; all numbers match, four wording fixes. The 0.0035 cut-off sits
   between an honest rewrite (0.0034) and a weakened pair (0.0035), not "just above the
