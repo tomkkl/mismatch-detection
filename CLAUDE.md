@@ -39,7 +39,7 @@ pytest
 
 ### Getting the dataset
 
-The dataset is committed to the repo (~25 MB), so you get it with `git clone`:
+The dataset is committed to the repo (~31 MB with the test sets), so you get it with `git clone`:
 
 - `data/splits/full/` (`train.jsonl`, `val.jsonl`, `test.jsonl`): what you need to train.
 - `data/generated/full/`: `pairs.jsonl` (all pairs), `stats.json` (counts and leak
@@ -889,6 +889,14 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-11-23 (README):** Brought `README.md` up to date: Status now says all runs are done,
+  with headline numbers and a link to `docs/results-final.md`; training runs on CARC (Colab is
+  the fallback), not Colab; rung 3 is scored (two versions, 43 shared tools), and Andrea's
+  section keeps its construction details and counts (all verified) but its pre-scoring to-dos
+  are replaced by how it was scored; the layout lists every config, the committed test sets
+  and the results docs; `aa-score` added to the commands. Dataset size ~31 MB, not ~25 MB
+  (also in section 1 here).
 
 - **2026-11-23 (last):** Checked `docs/agent-audit-comparison.md` against the code, data,
   saved AA findings and the AA 0.19.2 source; no wrong numbers. Fixed stale status (status

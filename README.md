@@ -28,15 +28,23 @@ verified facts about Agent Audit, and gotchas.
 
 ## Status
 
-- **Done:** Agent Audit probes, the data generation pipeline, the training dataset `full`, the
-  first binary model, the held-out generated test, and a 250-pair draft of the real-GitHub
-  evaluation set.
-- **Next:** finish the different-LLM test set, review and commit the GitHub set with provenance,
-  score it once with the frozen evaluation protocol, and run Agent Audit on the same cases. The
-  GitHub set is not reported as a result yet. The full list is under "What's next" in
-  `CLAUDE.md`.
+**All planned runs are done (2026-11-18).** Final write-up: `docs/results-final.md`.
+
+- **Our model** (fine-tuned, cut-off 0.5): PR-AUC 0.962 on held-out tools (rung 1) and on tools
+  from a different generator (rung 2, Opus 5.5); 0.942 and 0.853 on real GitHub tools with an
+  injected capability (rung 3, Opus pipeline and GPT templates). A frozen encoder with the same
+  head reaches only 0.489 on val.
+- **Agent Audit** is at or barely above chance on every test set: pairs with identical code get
+  identical verdicts, so it cannot see a mismatch. On the coverage set its bug-specific rules
+  catch 13 of 25 conventional bugs (eval, shell injection, ...), which our model by design does
+  not flag. The two tools complement each other.
+- **Weak spots:** weakened descriptions (an effect removed from the description) are often
+  missed, and terse real docstrings cause false alarms on real code.
+- Details: `docs/results-binary.md` (our model), `docs/results-agent-audit.md` (Agent Audit),
+  `CLAUDE.md` (decisions and team notes).
 - Model, training and evaluation code is in `src/agentlint/model/` and `src/agentlint/eval/`
-  (`agentlint train <config>`, `agentlint score <checkpoint> <pairs.jsonl>`).
+  (`agentlint train <config>`, `agentlint score <checkpoint> <pairs.jsonl>`,
+  `agentlint aa-score <pairs.jsonl> --tag <tag>`).
 
 ## Quick start
 
@@ -49,11 +57,12 @@ pytest
 ```
 
 Python 3.10+ (developed on 3.13). `baseline` installs Agent Audit v0.19.2. Training runs on
-Colab.
+USC CARC (`scripts/carc/`), with `notebooks/train_binary.ipynb` on Colab as a fallback. Don't
+train on a laptop.
 
 ## The training dataset
 
-The dataset comes with the clone (~25 MB):
+The dataset comes with the clone (~31 MB with the test sets):
 
 | Path | What it is |
 |---|---|
@@ -114,15 +123,16 @@ Test sets are reported separately:
 
 1. held-out generated pairs (`data/splits/full/test.jsonl`)
 2. pairs from a different LLM (Claude Opus 5.5), same recipe
-3. real GitHub tool functions with an injected capability (draft built; not scored yet)
+3. real GitHub tool functions with an injected capability, in two versions (GPT templates
+   and our Opus pipeline)
 
 Plus an Agent Audit coverage set. Metrics: precision / recall / F1 on the mismatch class,
 PR-AUC, and **group accuracy** (every pair from one source tool right). We also report
 GraphCodeBERT before vs after fine-tuning. Tune on `val`; score each test set once.
 
-### Draft GitHub evaluation set (Rung 3)
+### GitHub evaluation set (Rung 3)
 
-The draft uses all 50 functions in `data/github_tools_dataset.json` and contains 250 pairs:
+Andrea's set uses all 50 functions in `data/github_tools_dataset.json` and contains 250 pairs:
 
 | Pair type | Count | Label |
 |---|---:|---|
@@ -146,18 +156,23 @@ received an additional injected-code / honest-twin pair instead. The resulting d
 - 9 source tools with 6 rows
 - 9 source tools with 4 rows
 
-This draft differs from the training generator: its injected operations and description
+This set differs from the training generator: its injected operations and description
 templates were produced deterministically rather than by an LLM. That makes the set
-reproducible, but repeated templates may create a shortcut. Treat template diversity and a
-manual label review as required checks before scoring. Do not train or tune on these rows, and
-keep every source tool and all of its variants together when computing group metrics.
+reproducible, but repeated templates may create a shortcut; the write-ups list this as a
+limitation. Nothing was trained or tuned on these rows, and group metrics keep every source
+tool and all of its variants together.
 
 The source JSON contains extracted functions and docstrings but no repository URL, commit SHA,
-file path, or license. Some functions also rely on imports or surrounding project state that
-was not collected. Before this becomes the final Rung 3 artifact, add that provenance where it
-can be recovered, document unrecoverable entries, and store the validated pairs at a stable
-path in `data/`. Do not add GitHub-set numbers to `docs/results-binary.md` until the frozen
-model and Agent Audit have both been run on the finalized set.
+file path, or license; that provenance is still being recovered. Some functions also rely on
+imports or surrounding project state that was not collected.
+
+**How it was scored (2026-11-09).** Both versions were scored once, on the 43 tools they
+share: `data/github_tools_43_pairs.jsonl` (this set, 215 pairs) and
+`data/generated/github-opus/pairs_43.jsonl` (the same originals mutated by our usual pipeline
+with Opus 5.5, 138 pairs). Left out of both: 4 stubs with no real operations, and 3 tools whose
+interface alone is too long for the 512-token input. `data/github_tools_47_pairs.jsonl` (with
+the stubs) was not scored. Agent Audit ran on the same two files. Results are in
+`docs/results-binary.md` section 8 and `docs/results-agent-audit.md`.
 
 ## Layout
 
@@ -176,11 +191,14 @@ src/agentlint/
   eval/              metrics, test-set scoring, Agent Audit coverage run
   localize.py        AST: which lines carry the undeclared effect
   cli.py             `agentlint` entry point
-configs/             datagen.yaml (dataset), binary.yaml / multilabel.yaml (training)
-data/                datasets; only `full` and the LLM cache are committed
-probes/              Agent Audit probe scripts; generated cases go in probes/aa_run/
-notebooks/           Colab training notebooks
-scripts/             one-off utilities
+configs/             datagen*.yaml (datasets: full, rung 2, rung 3 Opus),
+                     binary.yaml / binary_frozen.yaml / multilabel.yaml (training)
+data/                datasets: full, rung2-opus, github-opus, Andrea's github_tools_*,
+                     the coverage set, and the LLM cache (all committed)
+probes/              Agent Audit notes; aa-score writes wrapped files to probes/aa_run/ (git-ignored)
+notebooks/           Colab training notebook (fallback to CARC)
+scripts/             token lengths, coverage-set build, charts, GitHub scrape, CARC jobs (carc/)
 tests/               unit tests
-docs/                proposal (pre-proposal; parts are out of date, see CLAUDE.md)
+docs/                results (results-final.md, results-binary.md, results-agent-audit.md),
+                     the Agent Audit design note, and the pre-proposal (parts out of date)
 ```
