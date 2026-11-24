@@ -22,7 +22,7 @@ tools catch different problems and complement each other rather than compete.
 as "list the files in a project folder" whose code also moves the folder. The code is fine
 alone, the description is fine alone; only the pair is wrong.
 
-**Effect classes:** read, modify, destroy, relocate, send outward, execute, spend, change
+**Effect classes (7):** modify, destroy, relocate, send outward, execute, spend, change
 authority.
 
 | | |
