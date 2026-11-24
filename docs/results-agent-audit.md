@@ -151,7 +151,8 @@ At AA's main verdict and our 0.5 cut-off:
 
 Adding AA to our model catches 23 more mismatches across the four sets (4 + 9 + 1 + 9), but
 adds 365 honest false alarms (96 + 176 + 34 + 59). Given section 4, these extra catches are
-coincidence: AA flags the honest twin of each of them too.
+coincidence: AA flags the same-code honest pair of each of them too (the twin, or the
+original for a weakened pair).
 
 ## 7. Coverage set: conventional bugs
 

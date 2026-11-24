@@ -66,7 +66,7 @@ Three runs, all on the same train split:
 - The 10-epoch run beats the 5-epoch run even at epoch 5 (0.958 vs 0.856). The learning rate
   decays over the whole run, so with 10 epochs it stays higher for longer.
 - We have no metrics on the train set itself, only the loss: `train.py` scores val each epoch,
-  not train. Train loss near 0.03 means the model fits train almost perfectly.
+  not train. Train loss near 0.02 means the model fits train almost perfectly.
 
 ## 3. Validation (259 pairs, 76 tools)
 
@@ -80,8 +80,8 @@ Each run at its best epoch:
 
 10-epoch model at 0.5, by pair type: inject 55/55 caught, weaken 9/18 caught; flagged honest
 pairs: original 0/76, twin 0/55, rewrite 3/55. Every injected effect class and every injection
-position has recall 1.0. Weakened recall is low for `modify`, `relocate` (1/4 each) and
-`send_outward` (1/3). Honest pairs flagged by chunk count (1 / 2 / 3+): 0.9% / 3.1% / 0%.
+position has recall 1.0. Weakened recall is low for `modify`, `relocate` (1/4 each),
+`send_outward` (1/3) and `destroy` (0/1). Honest pairs flagged by chunk count (1 / 2 / 3+): 0.9% / 3.1% / 0%.
 
 ## 4. Test (251 pairs, 77 tools, scored once)
 
@@ -93,8 +93,8 @@ position has recall 1.0. Weakened recall is low for `modify`, `relocate` (1/4 ea
 | val | 0.5 | 0.981 (0.965–0.994) | 0.96 | 0.88 | 0.91 | 0.84 | 64 / 3 / 9 |
 
 *Footnote: the best-F1 cut-off on val (0.0035) gives P 0.91 / R 0.95 / F1 0.93 on test (TP 63,
-FP 6, FN 3): 4 more mismatches caught, 4 more false alarms, no F1 gain. It sits just above the
-highest honest val score (0.0034), so it is fitted to one val pair. We report 0.5 and the
+FP 6, FN 3): 4 more mismatches caught, 4 more false alarms, no F1 gain. It sits between an
+honest rewrite (0.0034) and a weakened pair (0.0035) on val, so it is fitted to one val pair. We report 0.5 and the
 precision-recall curve instead.*
 
 Test PR-AUC is 2 points below val but inside val's interval; F1 and group accuracy are a bit

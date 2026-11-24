@@ -258,8 +258,8 @@ Steps 2 and 3 can run at the same time with different people.
    had PR-AUC 0.958.
    **Cut-off for `test` decided (2026-11-01): 0.5 main, saved best-F1 (0.0035) as a second
    operating point** (section 5, "Model selection"). Why: scores are saturated (187/259 val
-   pairs below 0.01, 65 above 0.99, 7 in between), and the best-F1 cut-off sits just above the
-   highest honest score (0.0034), right on one weakened pair's score. The cost: weakened recall
+   pairs below 0.01, 65 above 0.99, 7 in between), and the best-F1 cut-off sits between an
+   honest rewrite (0.0034) and one weakened pair's score (0.0035). The cost: weakened recall
    9/18 at 0.5 vs 14/18 at 0.0035. The missed weakened pairs score like honest ones, so the fix
    is more weakened training data, not a lower cut-off.
 3. **Build the other test sets.**
@@ -889,6 +889,14 @@ works.
 ## 11. Progress log
 
 Newest first. Add an entry when a milestone lands or a plan changes.
+
+- **2026-11-23 (latest):** Checked `docs/results-binary.md` and `docs/results-agent-audit.md`
+  against the saved files; all numbers match, four wording fixes. The 0.0035 cut-off sits
+  between an honest rewrite (0.0034) and a weakened pair (0.0035), not "just above the
+  highest honest val score" (5 honest val pairs score higher; also fixed in section 2 here).
+  Train loss "near 0.02", not 0.03 (matches the chart). Weakened val recall list now includes
+  `destroy` (0/1). AA's extra catches: the same-code honest pair is the twin, or the original
+  for a weakened pair.
 
 - **2026-11-23 (later):** Checked every number in `docs/results-final.md` against the saved
   predictions; two errors fixed (wording and rounding only, nothing rescored). (1) Rung 3 GPT
